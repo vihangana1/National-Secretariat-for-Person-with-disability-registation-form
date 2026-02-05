@@ -53,6 +53,37 @@ const ProjectForm = () => {
   const [message, setMessage] = useState({ type: '', text: '' });
 
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxL0bHsfrslXj2d_YzyUObhM-uJJac76RBwJr-_cQiyoy0Ve8d7NdDtbeFbVNa1T3X30w/exec'
+  
+  // District options
+  const districts = [
+    { value: '', label: '-- දිස්ත්‍රික්කය තෝරන්න / Select District --' },
+    { value: 'Colombo / කොළඹ', label: 'Colombo / කොළඹ' },
+    { value: 'Gampaha / ගම්පහ', label: 'Gampaha / ගම්පහ' },
+    { value: 'Kalutara / කළුතර', label: 'Kalutara / කළුතර' },
+    { value: 'Kandy / මහනුවර', label: 'Kandy / මහනුවර' },
+    { value: 'Matale / මාතලේ', label: 'Matale / මාතලේ' },
+    { value: 'Nuwara Eliya / නුවරඑළිය', label: 'Nuwara Eliya / නුවරඑළිය' },
+    { value: 'Galle / ගාල්ල', label: 'Galle / ගාල්ල' },
+    { value: 'Matara / මාතර', label: 'Matara / මාතර' },
+    { value: 'Hambantota / හම්බන්තොට', label: 'Hambantota / හම්බන්තොට' },
+    { value: 'Jaffna / යාපනය', label: 'Jaffna / යාපනය' },
+    { value: 'Kilinochchi / කිලිනොච්චි', label: 'Kilinochchi / කිලිනොච්චි' },
+    { value: 'Mannar / මන්නාරම', label: 'Mannar / මන්නාරම' },
+    { value: 'Mullaitivu / මුලතිව්', label: 'Mullaitivu / මුලතිව්' },
+    { value: 'Vavuniya / වවුනියා', label: 'Vavuniya / වවුනියා' },
+    { value: 'Trincomalee / ත්‍රිකුණාමලය', label: 'Trincomalee / ත්‍රිකුණාමලය' },
+    { value: 'Batticaloa / මඩකලපුව', label: 'Batticaloa / මඩකලපුව' },
+    { value: 'Ampara / අම්පාර', label: 'Ampara / අම්පාර' },
+    { value: 'Kurunegala / කුරුණෑගල', label: 'Kurunegala / කුරුණෑගල' },
+    { value: 'Puttalam / පුත්තලම', label: 'Puttalam / පුත්තලම' },
+    { value: 'Anuradhapura / අනුරාධපුර', label: 'Anuradhapura / අනුරාධපුර' },
+    { value: 'Polonnaruwa / පොළොන්නරුව', label: 'Polonnaruwa / පොළොන්නරුව' },
+    { value: 'Badulla / බදුල්ල', label: 'Badulla / බදුල්ල' },
+    { value: 'Monaragala / මොණරාගල', label: 'Monaragala / මොණරාගල' },
+    { value: 'Ratnapura / රත්නපුර', label: 'Ratnapura / රත්නපුර' },
+    { value: 'Kegalle / කෑගල්ල', label: 'Kegalle / කෑගල්ල' }
+  ];
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -248,14 +279,19 @@ const ProjectForm = () => {
                 <label style={styles.label}>
                   දිස්ත්‍රික්කය / District *
                 </label>
-                <input
-                  type="text"
+                <select
                   name="district"
                   value={formData.district}
                   onChange={handleInputChange}
                   style={styles.input}
                   required
-                />
+                >
+                  {districts.map((district) => (
+                    <option key={district.value} value={district.value}>
+                      {district.label}
+                    </option>
+                  ))}
+                </select>
               </div>
 
               <div style={styles.fieldGroup}>
