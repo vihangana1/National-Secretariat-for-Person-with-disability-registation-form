@@ -1,23 +1,8 @@
-import React, { useState, useRef } from 'react';
-
-// Simple icon components
-const Upload = ({ style }) => (
-  <svg style={style} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-  </svg>
-);
-
-const Plus = ({ style }) => (
-  <svg style={style} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-  </svg>
-);
-
-const Trash2 = ({ style }) => (
-  <svg style={style} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-  </svg>
-);
+import { useState, useCallback, useEffect } from 'react';
+import { db } from './firebase';
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import headerImg from './assests/Gemini_Generated_Image_hd3vqrhd3vqrhd3v.png';
+import logoImg from './assests/logo.png';
 
 const Send = ({ style }) => (
   <svg style={style} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -25,230 +10,483 @@ const Send = ({ style }) => (
   </svg>
 );
 
-const ProjectForm = () => {
-  const [formData, setFormData] = useState({
-    district: '',
-    dn: '',
-    gn: '',
-    file: null
-  });
-
-  const fileInputRef = useRef(null);
-
-  const [projects, setProjects] = useState([
-    {
-      id: 1,
-      no: '1',
-      proposal: '',
-      estimatedCost: '',
-      approach: '',
-      sdgGoals: '',
-      fundingSource: '',
-      name: '',
-      institution: ''
+const PROVINCE_DATA = {
+  'Western / බස්නාහිර / மேல்': {
+    districts: ['Colombo / කොළඹ / கொழும்பு', 'Gampaha / ගම්පහ / கம்பஹா', 'Kalutara / කළුතර / களுத்துறை'],
+    divisions: {
+      'Colombo / කොළඹ / கொழும்பு': ['Colombo / කොළඹ / கொழும்பு','Dehiwala / දෙහිවල / தெஹிவளை','Homagama / හෝමගම / ஹோமாகம','Kaduwela / කඩුවෙල / கடுவெல','Kesbewa / කැස්බෑව / கெஸ்பேவ','Maharagama / මහරගම / மஹரகம','Moratuwa / මොරටුව / மொரட்டுவை','Sri Jayawardenepura Kotte / ශ්‍රී ජයවර්ධනපුර කෝට්ටෙ / ஸ்ரீ ஜயவர்தணபுர கோட்டை','Thimbirigasyaya / තිඹිරිගස්යාය / திம்பிரிகஸ்யாய'],
+      'Gampaha / ගම්පහ / கம்பஹா': ['Gampaha / ගම්පහ / கம்பஹா','Attanagalla / අත්තනගල්ල / அத்தனகல்ல','Biyagama / බියගම / பியகம','Divulapitiya / දිවුලපිටිය / திவுலப்பிட்டிய','Dompe / දොම්පෙ / தொம்பே','Ja-Ela / ජා-ඇල / ஜா-எல','Katana / කටාන / கடானை','Kelaniya / කැලණිය / களணி','Mahara / මහර / மஹர','Minuwangoda / මිනුවන්ගොඩ / மினுவாங்கொடை','Mirigama / මීරිගම / மீரிகமை','Negombo / මීගමුව / நீர்கொழும்பு','Wattala / වත්තල / வத்தளை'],
+      'Kalutara / කළුතර / களுத்துறை': ['Kalutara / කළුතර / களுத்துறை','Bandaragama / බණ්ඩාරගම / பண்டாரகம','Beruwala / බේරුවල / பேருவளை','Bulathsinhala / බුලත්සිංහල / புளத்சிங்கள','Dodangoda / දොඩම්ගොඩ / தொடந்தூவை','Horana / හොරණ / ஹொறணை','Ingiriya / ඉංගිරිය / இங்கிரிய','Mathugama / මතුගම / மத்துகம','Panadura / පානදුර / பாணந்துறை','Walallawita / වලල්ලාවිට / வளள்ளாவிட்ட']
     }
-  ]);
+  },
+  'Central / මධ්‍යම / மத்திய': {
+    districts: ['Kandy / මහනුවර / கண்டி','Matale / මාතලේ / மாத்தளை','Nuwara Eliya / නුවරඑළිය / நுவரඑளிய'],
+    divisions: {
+      'Kandy / මහනුවර / கண்டி': ['Kandy / මහනුවර / கண்டி','Akurana / අකුරණ / அக்குரணை','Doluwa / දොළුව / தொழுவ','Harispattuwa / හාරිස්පත්තුව / ஹரிஸ்பத்துவ','Kundasale / කුණ්ඩසාලෙ / குண்டசாலை','Minipe / මිනිපේ / மினிபே','Panvila / පන්විල / பண்வில','Pathadumbara / පාතදුම්බර / பாத்ததும்பரை','Poojapitiya / පූජාපිටිය / பூஜாபிட்டிய','Udunuwara / උඩුනුවර / உடுனுவர','Yatinuwara / යටිනුවර / யட்டினுவர'],
+      'Matale / මාතලේ / மாத்தளை': ['Matale / මාතලේ / மாத்தளை','Dambulla / දඹුල්ල / தம்புல்ல','Galewela / ගලේවෙල / கலேவெல','Laggala-Pallegama / ලග්ගල - පල්ලෙගම / லக்கல - பல்லேகம','Naula / නාඋල / நாஉல','Pallepola / පල්ලෙපොල / பல்லெபொல','Rattota / රත්තොට / ரத்தொட','Ukuwela / උකුවෙල / உகுவெல','Wilgamuwa / විල්ගමුව / வில்கமுவ','Yatawatta / යටවත්ත / யடவத்த'],
+      'Nuwara Eliya / නුවරඑළිය / நுவரඑளிய': ['Nuwara Eliya / නුවරඑළිය / நுவரெலியா','Ambagamuwa / අඹගමුව / அம்பகமுவ','Hanguranketha / හඟුරන්කෙත / ஹங்குரங்கெத','Kothmale / කොත්මලේ / கொத்மலை','Walapane / වලපනේ / வலபனே']
+    }
+  },
+  'Southern / දකුණු / தெற்கு': {
+    districts: ['Galle / ගාල්ල / காலி','Matara / මාතර / மாத்தறை','Hambantota / හම්බන්තොට / அம்பாந்தோட்டை'],
+    divisions: {
+      'Galle / ගාල්ල / காலி': ['Galle / ගාල්ල / காலி','Ambalangoda / අම්බලන්ගොඩ / அம்பலாங்கொடை','Baddegama / බද්දෙගම / பத்தேகம','Bentota / බෙන්තොට / பென்தொட்டை','Elpitiya / ඇල්පිටිය / எல்பிடி','Habaraduwa / හබරාදුව / ஹபராதூவ','Hikkaduwa / හික්කඩුව / ஹிக்கடுவை','Karandeniya / කරන්දෙණිය / கரதெனிய','Neluwa / නෙළුව / நெழுவ','Yakkalamulla / යක්කල මුල්ල / யக்கலமுல்ல'],
+      'Matara / මාතර / மாத்தறை': ['Matara / මාතර / மாத்தறை','Akuressa / අකුරැස්ස / அக்குரெஸ்ஸ','Athuraliya / අතුරලිය / அத்துரெளிய','Devinuwara / දෙවිනුවර / தெவிநுவர','Dickwella / දික්වැල්ල / திக்வெல்ல','Hakmana / හක්මන / ஹக்மண','Kamburupitiya / කඹුරුපිටිය / கம்புறுபிடிய','Kotapola / කොටපොල / கொடபொல','Mulatiyana / මුලටියන / முலடியன','Weligama / වැලිගම / வெலிகம'],
+      'Hambantota / හම්බන්තොට / அம்பாந்தோட்டை': ['Hambantota / හම්බන්තොට / ஹம்பாந்தோட்டை','Ambalantota / අම්බලන්තොට / அம்பலாந்தோட்டை','Beliatta / බෙලිඅත්ත / பெலியத்த','Lunugamvehera / ලුණුගම්වෙහෙර / லுணுகம்வெஹற','Sooriyawewa / සූරියවැව / சூரியவெவெ','Tangalle / තංගල්ල / தங்கல்லை','Tissamaharama','Walasmulla / වලස්මුල්ල / வலஸ்முல்ல']
+    }
+  },
+  'Northern / උතුරු / வடக்கு': {
+    districts: ['Jaffna / යාපනය / யாழ்ப்பாணம்','Kilinochchi / කිලිනොච්චි / கிளிநொச்சி','Mannar / මන්නාරම / மன்னார்','Vavuniya / වවුනියා / வவுனியா','Mullaitivu / මුලතිව් / முல்லைத்தீவு'],
+    divisions: {
+      'Jaffna / යාපනය / யாழ்ப்பாணம்': ['Jaffna / යාපනය / யாழ்ப்பாணம்','Delft / ඩෙල්ෆ් / டெல்ப்','Kayts / කයිට්ස් / கைட்ஸ்','Kopay / කෝපයි / கோப்பாய்','Nallur / නල්ලූර් / நல்லூர்','Point Pedro / පේදුරුතුඩුව / பருத்தித்துறை','Tellippalai / තෙල්ලිප්පලෙයි / தெல்லிப்பழை','Uduvil / උදුවිල් / உடுவில்','Velanai / වේලනෙයි / வேலணை'],
+      'Kilinochchi / කිලිනොච්චි / கிளிநொச்சி': ['Kandavalai / කන්දවලායි / கந்தவளை','Karachchi / කරච්චි / கரச்சி','Pachchilaipalli / පච්චිලෙයිපල්ලෙයි / பச்சிலைப்பள்ளி','Poonakary / පුනාකරි / பூணாகரி'],
+      'Mannar / මන්නාරම / மன்னார்': ['Mannar Town / මන්නාරම නගරය / மன்னார் நகரம்','Madhu / මඩු / மடு','Manthai West / මන්තායි බටහිර / மாந்தை மேற்கு','Musali / මුසලි / முசலி','Nanattan / නානාධන් / நனாதன்'],
+      'Vavuniya / වවුනියා / வவுனியா': ['Vavuniya / වවුනියා / வவுனியா','Vavuniya North / වවුනියා උතුර / வவுனியா வடக்கு','Vavuniya South / වවුනියා දකුණ / வவுனியா தெற்கு','Vengalacheddikulam / වෙන්ගලචෙඩ්ඩිකුලම් / வெங்கலச்செட்டிக்குளம்'],
+      'Mullaitivu / මුලතිව් / முல்லைத்தீவு': ['Maritimepattu / මැරිටයිම්පත්තු / மரிதிமேப்பட்டு','Oddusuddan / ඔඩ්ඩුසුදාන් / ஒட்டுச்சுட்டாண்','Puthukudiyiruppu / පුදුකුඩියිරිප්පු / புதுக்குடியிருப்பு','Thunukkai / තුනුක්කායි / துணுக்கை','Welioya / වැලිඔය / வெலிஓய']
+    }
+  },
+  'Eastern / නැගෙනහිර / கிழக்கு': {
+    districts: ['Trincomalee / ත්‍රිකුණාමලය / திருகோணமலை','Batticaloa / මඩකලපුව / மட்டக்களப்பு','Ampara / අම්පාර / அம்பாறை'],
+    divisions: {
+      'Trincomalee / ත්‍රිකුණාමලය / திருகோணமலை': ['Trincomalee Town and Gravets / ත්‍රිකුණාමලය නගරය හා කඩවත් / திருகோணமலை நகரம்','Kantale / කන්තලේ / கந்தளாய்','Kinniya / කින්නියා / கின்னியா','Muttur / මුත්තූර් / மூதூர்','Seruvila / සේරුවිල / சேருவில்'],
+      'Batticaloa / මඩකලපුව / மட்டக்களப்பு': ['Batticaloa / මඩකලපුව / மட்டக்களப்பு','Eravur Pattu / එරාවුර්පත්තු / ஏறாவூர் பட்டு','Kattankudy / කාත්තන්කුඩි / காத்தாங்குடி','Koralai Pattu / කෝරලේපත්තු / கோரலைப்பத்து','Manmunai North / මන්මුනායි උතුර / மண்முணை வடக்கு'],
+      'Ampara / අම්පාර / அம்பாறை': ['Ampara / අම්පාර / அம்பாறை','Akkaraipattu / අක්කරෙයිපත්තු / அக்கரைப்பத்து','Dehiattakandiya / දෙහිඅත්තකන්ඩිය / தெஹிஅத்தக்கண்டிய','Kalmunai / කල්මුනෙයි / கல்முனை','Mahaoya / මහඔය / மஹாஓயா','Pothuvil / පොතුවිල් / பொத்துவில்','Uhana / උහන / உஹண']
+    }
+  },
+  'North Western / වයඹ / வடமேல்': {
+    districts: ['Kurunegala / කුරුණෑගල / குருநாகல்','Puttalam / පුත්තලම / புத்தளம்'],
+    divisions: {
+      'Kurunegala / කුරුණෑගල / குருநாகல்': ['Kurunegala / කුරුණෑගල / குருணாகலை','Alawwa / අලව්ව / அலவ்வ','Galgamuwa / ගල්ගමුව / கல்கமுவ','Kuliyapitiya / කුළියාපිටිය / குளியாபிட்டிய','Narammala / නාරම්මල / நாரம்மல','Nikaweratiya / නිකවෙරටිය / நிக்கவெரட்டிய','Pannala / පන්නල / பன்னல','Polgahawela / පොල්ගහවෙල / பொல்கஹவெல','Wariyapola / වාරියපොල / வாரியபொல'],
+      'Puttalam / පුත්තලම / புத்தளம்': ['Puttalam / පුත්තලම / புத்தளம்','Anamaduwa / ආනමඩුව / ஆணமடுவ','Chilaw / හලාවත / சிலாபம்','Dankotuwa / දංකොටුව / தங்கொட்டுவ','Kalpitiya / කල්පිටිය / கல்பிடிய','Nattandiya / නාත්තන්ඩිය / நாத்தண்டிய','Wennappuwa / වෙන්නප්පුව / வெண்ணப்புவ']
+    }
+  },
+  'North Central / උතුරු මැද / வடமத்திய': {
+    districts: ['Anuradhapura / අනුරාධපුර / அனுராதபுரம்','Polonnaruwa / පොළොන්නරුව / பொலனறுவை'],
+    divisions: {
+      'Anuradhapura / අනුරාධපුර / அனுராதபுரம்': ['Anuradhapura / අනුරාධපුරය / அநுராதபுரம்','Galenbindunuwewa / ගලෙන්බිදුනුවැව / கலெண்பிந்துணுவெவ','Kekirawa / කැකිරාව / கெகிராவ','Medawachchiya / මැදවච්චිය / மெதவச்சிய','Mihintale / මිහින්තලේ / மிஹிந்தலை','Padaviya / පදවිය / பதவிய','Thalawa / තලාව / தலாவ','Thambuttegama / තඹුත්තෙගම / தம்புத்தேகம'],
+      'Polonnaruwa / පොළොන්නරුව / பொலனறுவை': ['Thamankaduwa / තමන්කඩුව / தமண்கடுவ','Dimbulagala / දිඹුලාගල / திம்புலாகல','Hingurakgoda / හිඟුරක්ගොඩ / ஹிங்குரக்கொடை','Medirigiriya / මැදිරිගිරිය / மெதிரிகிரிய','Welikanda / වැලිකන්ද / வெலிகந்த']
+    }
+  },
+  'Uva / ඌව / ஊவா': {
+    districts: ['Badulla / බදුල්ල / பதுள்ள','Monaragala / මොණරාගල / மொணராகல'],
+    divisions: {
+      'Badulla / බදුල්ල / பதுள்ள': ['Badulla / බදුල්ල / பதுளை','Bandarawela / බණ්ඩාරවෙල / பண்டாரவளை','Ella / ඇල්ල / எல்ல','Haputale / හපුතලේ / ஹபுதலே','Mahiyanganaya / මහියංගනය / மஹியங்கணை','Passara / පස්සර / பசரை','Welimada / වැලිමඩ / வெலிமடை'],
+      'Monaragala / මොණරාගල / மொணராகல': ['Monaragala / මොනරාගල / மொணராகலை','Buttala / බුත්තල / புத்தலை','Kataragama / කතරගම / கதிர்காமம்','Madulla / මඩුල්ල / மதுள்ள','Medagama / මැදගම / மெதகம','Wellawaya / වැල්ලවාය / வெல்லவாய']
+    }
+  },
+  'Sabaragamuwa / සබරගමුව / சப்ரகமுவ': {
+    districts: ['Ratnapura / රත්නපුර / இரத்தினபுரி','Kegalle / කෑගල්ල / கேகாலை'],
+    divisions: {
+      'Ratnapura / රත්නපුර / இரத்தினபுரி': ['Ratnapura / රත්නපුර / இரத்தினபுரி','Balangoda / බලන්ගොඩ / பலாங்கொடை','Eheliyagoda / ඇහැලියගොඩ / எஹலியகெடை','Embilipitiya / ඇඹිලිපිටිය / எம்பிலிபிட்டிய','Godakawela / ගොඩකවෙල / கொடகவெல','Kalawana / කලවාන / கலவான','Pelmadulla / පැල්මඩුල්ල / பெல்மடுல்ல'],
+      'Kegalle / කෑගල්ල / கேகாலை': ['Kegalle / කෑගල්ල / கேகாலை','Aranayaka / අරනායක / அரநாயக்க','Dehiovita / දෙහිඹ්විට / தெஹியோவிட்ட','Mawanella / මාවනැල්ල / மாவணெல்ல','Rambukkana / රඹුක්කන / ரம்புக்கணை','Warakapola / වරකාපොළ / வரகாப்பொல']
+    }
+  }
+};
 
-  const [uploading, setUploading] = useState(false);
-  const [message, setMessage] = useState({ type: '', text: '' });
+const PROVINCES = Object.keys(PROVINCE_DATA);
 
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxL0bHsfrslXj2d_YzyUObhM-uJJac76RBwJr-_cQiyoy0Ve8d7NdDtbeFbVNa1T3X30w/exec'
-  
-  // District options
-  const districts = [
-    { value: '', label: '-- දිස්ත්‍රික්කය තෝරන්න / Select District --' },
-    { value: 'Colombo / කොළඹ', label: 'Colombo / කොළඹ' },
-    { value: 'Gampaha / ගම්පහ', label: 'Gampaha / ගම්පහ' },
-    { value: 'Kalutara / කළුතර', label: 'Kalutara / කළුතර' },
-    { value: 'Kandy / මහනුවර', label: 'Kandy / මහනුවර' },
-    { value: 'Matale / මාතලේ', label: 'Matale / මාතලේ' },
-    { value: 'Nuwara Eliya / නුවරඑළිය', label: 'Nuwara Eliya / නුවරඑළිය' },
-    { value: 'Galle / ගාල්ල', label: 'Galle / ගාල්ල' },
-    { value: 'Matara / මාතර', label: 'Matara / මාතර' },
-    { value: 'Hambantota / හම්බන්තොට', label: 'Hambantota / හම්බන්තොට' },
-    { value: 'Jaffna / යාපනය', label: 'Jaffna / යාපනය' },
-    { value: 'Kilinochchi / කිලිනොච්චි', label: 'Kilinochchi / කිලිනොච්චි' },
-    { value: 'Mannar / මන්නාරම', label: 'Mannar / මන්නාරම' },
-    { value: 'Mullaitivu / මුලතිව්', label: 'Mullaitivu / මුලතිව්' },
-    { value: 'Vavuniya / වවුනියා', label: 'Vavuniya / වවුනියා' },
-    { value: 'Trincomalee / ත්‍රිකුණාමලය', label: 'Trincomalee / ත්‍රිකුණාමලය' },
-    { value: 'Batticaloa / මඩකලපුව', label: 'Batticaloa / මඩකලපුව' },
-    { value: 'Ampara / අම්පාර', label: 'Ampara / අම්පාර' },
-    { value: 'Kurunegala / කුරුණෑගල', label: 'Kurunegala / කුරුණෑගල' },
-    { value: 'Puttalam / පුත්තලම', label: 'Puttalam / පුත්තලම' },
-    { value: 'Anuradhapura / අනුරාධපුර', label: 'Anuradhapura / අනුරාධපුර' },
-    { value: 'Polonnaruwa / පොළොන්නරුව', label: 'Polonnaruwa / පොළොන්නරුව' },
-    { value: 'Badulla / බදුල්ල', label: 'Badulla / බදුල්ල' },
-    { value: 'Monaragala / මොණරාගල', label: 'Monaragala / මොණරාගල' },
-    { value: 'Ratnapura / රත්නපුර', label: 'Ratnapura / රත්නපුර' },
-    { value: 'Kegalle / කෑගල්ල', label: 'Kegalle / කෑගල්ල' }
-  ];
+// ✅ FIX 3: All disability options for multi-checkbox
+const DISABILITY_OPTIONS = [
+  { value: 'Physical / Bodily Disability', si: '1. ශාරීරික / කායික ආබාධ', ta: '1. உடல் / உடலியல் குறைபாடு', en: '1. Physical / Bodily Disability' },
+  { value: 'Sensory Disability', si: '2. සංවේදන ආබාධ', ta: '2. உணர்வு குறைபாடு', en: '2. Sensory Disability' },
+  { value: 'Deaf-Blindness', si: '3. අඳ බිහිරිභාවය', ta: '3. பார்வை மற்றும் செவிப்புலன் குறைபாடு', en: '3. Deaf-Blindness' },
+  { value: 'Intellectual Disability', si: '4. බුද්ධිමය ආබාධ', ta: '4. அறிவுசார் குறைபாடு', en: '4. Intellectual Disability' },
+  { value: 'Psychosocial / Mental Health', si: '5. මනෝ සමාජීය / මානසික සෞඛ්‍යය ආබාධ', ta: '5. உளவியல் / மனநல குறைபாடு', en: '5. Psychosocial / Mental Health' },
+  { value: 'Neurodevelopmental Disorder', si: '6. ස්නායු වර්ධන ආබාධ', ta: '6. நரம்பியல் வளர்ச்சி குறைபாடு', en: '6. Neurodevelopmental Disorder' },
+  { value: 'Specific Learning Disability', si: '7. නිශ්චිත ඉගෙනුම් ආබාධ', ta: '7. குறிப்பிட்ட கற்றல் குறைபாடு', en: '7. Specific Learning Disability' },
+  { value: 'Communication and Speech Impairment', si: '8. සන්නිවේදන සහ කථන ආබාධ', ta: '8. தொடர்பாடல் மற்றும் பேச்சு குறைபாடு', en: '8. Communication and Speech' },
+  { value: 'Neurological Disability', si: '9. ස්නායු ආබාධ', ta: '9. நரம்பியல் குறைபாடு', en: '9. Neurological Disability' },
+  { value: 'Chronic Disease Related', si: '10. නිදන්ගත රෝග ආශ්‍රිත ආබාධ', ta: '10. நாட்பட்ட நோய் தொடர்பான குறைபாடு', en: '10. Chronic Disease Related' },
+];
 
-  const handleInputChange = (e) => {
+const FIELD_OPTIONS = [
+  { value: 'Garments', si: 'ඇඟලුම්', ta: 'ஆடை', en: 'Garments' },
+  { value: 'Cleaning Service', si: 'පිරිසිදු කිරීම්', ta: 'சுத்தம் செய்தல்', en: 'Cleaning Service' },
+  { value: 'Beauty Salon', si: 'රූපලාවන්යාගාර', ta: 'அழகு நிலையம்', en: 'Beauty Salon' },
+  { value: 'Hotels', si: 'හෝටල්', ta: 'உணவகம்', en: 'Hotels' },
+  { value: 'IT', si: 'තොරතුරු තාක්ෂණය', ta: 'தகவல் தொழில்நுட்பம்', en: 'IT' },
+  { value: 'Business', si: 'ව්‍යාපාර', ta: 'வணிகம்', en: 'Business' },
+  { value: 'Agriculture', si: 'කෘෂිකර්මය', ta: 'விவசாயம்', en: 'Agriculture' },
+  { value: 'Education', si: 'අධ්‍යාපනය', ta: 'கல்வி', en: 'Education' },
+  { value: 'Healthcare', si: 'සෞඛ්‍ය', ta: 'சுகாதாரம்', en: 'Healthcare' },
+  { value: 'Construction', si: 'ඉදිකිරීම්', ta: 'கட்டுமானம்', en: 'Construction' },
+  { value: 'Handicraft', si: 'අත්කම්', ta: 'கைவினைஞர்', en: 'Handicraft' },
+  { value: 'Data Entry', si: 'දත්ත ඇතුලත් කිරීම', ta: 'தரவு உள்ளீடு', en: 'Data Entry' },
+  { value: 'Driving', si: 'රිය පැදවීම', ta: 'வாகனம் ஓட்டுதல்', en: 'Driving' },
+  { value: 'Other', si: 'වෙනත්', ta: 'மற்றவை', en: 'Other' },
+];
+
+
+const base = {
+  width: '100%', padding: '10px 14px', border: '1.5px solid #D1D5DB',
+  borderRadius: '8px', fontSize: '14px', color: '#1f2937', background: '#fff',
+  boxSizing: 'border-box', transition: 'border-color 0.2s, box-shadow 0.2s',
+  fontFamily: 'inherit', display: 'block',
+};
+
+const styles = {
+  container: { 
+    minHeight: '100vh', 
+    background: 'radial-gradient(circle at top left, #fffcfc 0%, #fff5f5 100%)', 
+    padding: '40px 16px', 
+    fontFamily: '"Noto Sans Sinhala", "Noto Sans Tamil", -apple-system, sans-serif',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  card: { 
+    maxWidth: '1000px', 
+    width: '100%',
+    margin: '0 auto', 
+    background: 'rgba(255, 255, 255, 0.98)', 
+    borderRadius: '24px', 
+    boxShadow: '0 25px 50px -12px rgba(128, 0, 0, 0.1), 0 0 20px rgba(128, 0, 0, 0.05)', 
+    overflow: 'hidden',
+    border: '1px solid rgba(128, 0, 0, 0.05)',
+    backdropFilter: 'blur(10px)'
+  },
+  header: { 
+    position: 'relative',
+    background: '#600000', 
+    padding: '160px 32px 80px', 
+    textAlign: 'center',
+    overflow: 'hidden',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: '340px'
+  },
+  headerImg: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    opacity: 1,
+    zIndex: 0
+  },
+  logo: {
+    position: 'absolute',
+    top: '20px',
+    left: '20px',
+    height: '60px',
+    zIndex: 10,
+    filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.4))'
+  },
+  headerOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    background: 'transparent',
+    zIndex: 1
+  },
+  headerContent: {
+    position: 'relative',
+    zIndex: 2
+  },
+  headerBadge: { 
+    display: 'inline-block', 
+    background: 'rgba(255,255,255,0.15)', 
+    backdropFilter: 'blur(4px)',
+    color: '#fff', 
+    borderRadius: '20px', 
+    padding: '6px 20px', 
+    fontSize: '13px', 
+    fontWeight: '600', 
+    marginBottom: '16px',
+    border: '1px solid rgba(255,255,255,0.2)',
+    textTransform: 'uppercase',
+    letterSpacing: '1px'
+  },
+  title:   { color: '#fff', fontSize: 'clamp(24px,6vw,32px)', fontWeight: '800', margin: '0 0 8px', lineHeight: 1.2, textShadow: '0 2px 4px rgba(0,0,0,0.3)' },
+  titleTa: { color: 'rgba(255,255,255,0.9)', fontSize: 'clamp(16px,4vw,20px)', fontWeight: '500', margin: '0 0 4px' },
+  titleEn: { color: 'rgba(255,255,255,0.7)', fontSize: '15px', fontWeight: '400', margin: 0 },
+  noticeHighlight: { color: '#FCD34D', fontWeight: '700' },
+  tabContainer: { 
+    display: 'flex', 
+    background: '#fff', 
+    borderRadius: '16px', 
+    padding: '8px', 
+    marginTop: '-40px', 
+    marginBottom: '20px',
+    gap: '12px',
+    maxWidth: '560px',
+    width: '100%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    border: '1px solid rgba(128, 0, 0, 0.15)',
+    boxShadow: '0 10px 25px rgba(128, 0, 0, 0.1)',
+    position: 'relative',
+    zIndex: 10
+  },
+  tab: { 
+    flex: 1, 
+    padding: '12px 8px', 
+    borderRadius: '12px', 
+    border: 'none', 
+    cursor: 'pointer', 
+    fontSize: '14px', 
+    fontWeight: '700', 
+    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)', 
+    fontFamily: 'inherit', 
+    lineHeight: 1.4,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '4px',
+    textAlign: 'center'
+  },
+  tabActive:   { 
+    background: '#fff', 
+    color: '#800000', 
+    boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+    transform: 'translateY(-1px)',
+    border: '2px solid #800000'
+  },
+  tabInactive: { 
+    background: '#f9fafb', 
+    color: '#6b7280',
+    border: '1px solid #e5e7eb',
+    '&:hover': {
+      background: '#f3f4f6',
+      color: '#374151'
+    }
+  },
+  form: { padding: '40px 48px' },
+  fieldRow: { display: 'flex', alignItems: 'flex-start', gap: '24px', marginBottom: '24px', flexWrap: 'wrap' },
+  label: { width: '240px', minWidth: '200px', paddingTop: '10px', fontSize: '14px', fontWeight: '600', color: '#374151', lineHeight: 1.6, flexShrink: 0 },
+  inputWrap: { flex: 1, minWidth: '300px' },
+  sel: { ...base, WebkitAppearance: 'none', appearance: 'none', cursor: 'pointer', backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 16px center', paddingRight: '40px', border: '1.5px solid #E5E7EB', '&:focus': { borderColor: '#800000', boxShadow: '0 0 0 4px rgba(128, 0, 0, 0.1)' } },
+  inp: { ...base, userSelect: 'text', WebkitUserSelect: 'text', caretColor: '#800000', border: '1.5px solid #E5E7EB' },
+  inpOther: { ...base, marginTop: '8px', borderColor: '#F59E0B', background: '#FFFBEB', userSelect: 'text', WebkitUserSelect: 'text', caretColor: '#800000' },
+  ta:  { ...base, minHeight: '100px', resize: 'vertical', lineHeight: '1.6', userSelect: 'text', WebkitUserSelect: 'text', caretColor: '#800000', border: '1.5px solid #E5E7EB' },
+  radioGroup: { display: 'flex', gap: '24px', paddingTop: '8px', flexWrap: 'wrap' },
+  radioLabel: { display: 'flex', alignItems: 'flex-start', gap: '10px', cursor: 'pointer', padding: '10px 16px', borderRadius: '10px', transition: 'all 0.2s', border: '1.5px solid transparent', background: '#fffafa' },
+  radioInput: { width: '20px', height: '20px', accentColor: '#800000', cursor: 'pointer', marginTop: '2px', flexShrink: 0 },
+  submitContainer: { marginTop: '40px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' },
+  submitBtn: { display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', padding: '16px 48px', background: 'linear-gradient(135deg, #800000 0%, #600000 100%)', color: '#fff', border: 'none', borderRadius: '14px', fontSize: '16px', fontWeight: '700', cursor: 'pointer', width: '100%', maxWidth: '480px', transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)', fontFamily: 'inherit', boxShadow: '0 10px 15px -3px rgba(128, 0, 0, 0.3)' },
+  submitBtnDisabled: { background: '#D1D5DB', cursor: 'not-allowed', boxShadow: 'none' },
+  warningText: { fontSize: '13px', color: '#B91C1C', textAlign: 'center', margin: 0, lineHeight: 1.8, fontWeight: '500' },
+  message: { padding: '20px 24px', borderRadius: '14px', textAlign: 'center', marginTop: '24px', fontSize: '15px', lineHeight: 1.7, fontWeight: '600' },
+  msgSuccess: { background: '#F0FDF4', border: '1.5px solid #BBF7D0', color: '#15803d', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)' },
+  msgError:   { background: '#FEF2F2', border: '1.5px solid #FECACA', color: '#b91c1c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)' },
+  divider: { border: 'none', borderTop: '2px solid #F9FAFB', margin: '32px 0' },
+  sectionTitle: { fontSize: '16px', fontWeight: '800', color: '#800000', marginBottom: '20px', marginTop: '8px', lineHeight: 1.5, display: 'flex', alignItems: 'center', gap: '10px' },
+  checkboxGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '12px', paddingTop: '8px' },
+  checkboxLabel: { display: 'flex', alignItems: 'flex-start', gap: '12px', padding: '12px 16px', border: '1.5px solid #E5E7EB', borderRadius: '12px', cursor: 'pointer', transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)', background: '#fff' },
+  checkboxLabelChecked: { border: '1.5px solid #800000', background: '#FFF5F5', boxShadow: '0 4px 12px rgba(128, 0, 0, 0.08)' },
+  checkboxInput: { width: '18px', height: '18px', accentColor: '#800000', cursor: 'pointer', marginTop: '3px', flexShrink: 0 },
+  toggleBtn: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '100%',
+    padding: '14px 20px',
+    background: '#fff',
+    border: '2px solid #800000',
+    borderRadius: '12px',
+    color: '#800000',
+    fontWeight: '700',
+    fontSize: '15px',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    marginBottom: '16px',
+    boxShadow: '0 4px 15px rgba(128, 0, 0, 0.08)'
+  },
+};
+
+const L = ({ si, ta, en }) => (
+  <span>
+    <span style={{ display: 'block', color: '#800000', fontSize: '13px', fontWeight: '700' }}>{si}</span>
+    <span style={{ display: 'block', color: '#600000', fontSize: '12px' }}>{ta}</span>
+    <span style={{ display: 'block', color: '#6B7280', fontSize: '11px' }}>{en}</span>
+  </span>
+);
+
+const F = ({ si, ta, en, children }) => (
+  <div style={styles.fieldRow}>
+    <label style={styles.label}><L si={si} ta={ta} en={en} /></label>
+    <div style={styles.inputWrap}>{children}</div>
+  </div>
+);
+
+const RadioGroup = ({ name, value, onChange, options }) => (
+  <div style={styles.radioGroup}>
+    {options.map(opt => (
+      <label key={opt.value} style={styles.radioLabel} className="radio-label">
+        <input type="radio" name={name} value={opt.value} checked={value === opt.value} onChange={onChange} style={styles.radioInput} />
+        <span>
+          <span style={{ display: 'block', color: '#800000', fontSize: '13px', fontWeight: '600' }}>{opt.si}</span>
+          <span style={{ display: 'block', color: '#600000', fontSize: '11px' }}>{opt.ta}</span>
+          <span style={{ display: 'block', color: '#6B7280', fontSize: '11px' }}>{opt.en}</span>
+        </span>
+      </label>
+    ))}
+  </div>
+);
+
+// ✅ FIX 3: Multi-checkbox component
+const DisabilityCheckboxGroup = ({ selected, onChange, options }) => (
+  <div style={styles.checkboxGrid}>
+    {options.map(opt => {
+      const isChecked = selected.includes(opt.value);
+      return (
+        <label key={opt.value} className="cb-label" style={{ ...styles.checkboxLabel, ...(isChecked ? styles.checkboxLabelChecked : {}) }}>
+          <input type="checkbox" value={opt.value} checked={isChecked} onChange={() => onChange(opt.value)} style={styles.checkboxInput} />
+          <span>
+            <span style={{ display: 'block', color: '#800000', fontSize: '12px', fontWeight: '600' }}>{opt.si}</span>
+            <span style={{ display: 'block', color: '#600000', fontSize: '11px' }}>{opt.ta}</span>
+            <span style={{ display: 'block', color: '#6B7280', fontSize: '10px' }}>{opt.en}</span>
+          </span>
+        </label>
+      );
+    })}
+  </div>
+);
+
+const selStyle = (off) => ({ ...styles.sel, background: off ? '#F3F4F6' : '#fff', color: off ? '#9CA3AF' : '#1f2937', cursor: off ? 'not-allowed' : 'pointer' });
+
+const COMPANY_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx_jqtJdaPyY9xlPcuae_jKsYjlKV8kg7qKGw9QJ66RtVdmpS4xgA5j-cESoedLkPxCyQ/exec';
+const PERSON_SCRIPT_URL  = 'https://script.google.com/macros/s/AKfycbyRiq57wr5Ra_MC8KI5-1E4645DFQgRFbUXDA1trdVJ_sjEzqnUt9ygv-2ly2DHxKex/exec';
+
+const defaultCompany = { province:'',district:'',division:'',officeName:'',officerName:'',contact:'',email:'',whatsapp:'',hasJob:'',field:'',fieldOther:'',vacancies:'',vacancyDescription:'',pay:'',epfEtf:'',hasTrainee:'',supplyTransport:'',transportLimit:'',supplyFood:'',supplyClothes:'',ageCategory:'',ageCategoryOther:'',gender:'',disability:[],disabilityOther:'',searchVisibility:'' };
+const defaultPerson  = { province:'',district:'',division:'',name:'',address:'',language:'',idType:'',idNo:'',dob:'',qualification:'',qualificationOther:'',phone:'',disability:[],disabilityOther:'',field:[],fieldOther:'',gender:'',age:'',caretakerName:'',caretakerMobile:'',villageOfficerName:'',villageOfficerWhatsapp:'',gnDivision:'' };
+
+export default function CombinedForm() {
+  const [activeTab,    setActiveTab]    = useState('person');
+  const [companyData,  setCompanyData]  = useState(defaultCompany);
+  const [personData,   setPersonData]   = useState(defaultPerson);
+  const [uploading,    setUploading]    = useState(false);
+  const [message,      setMessage]      = useState({ type:'', text:'' });
+  const [showPersonDisabilities,  setShowPersonDisabilities]  = useState(false);
+  const [showCompanyDisabilities, setShowCompanyDisabilities] = useState(false);
+  const [showPersonFields,       setShowPersonFields]       = useState(false);
+
+  useEffect(() => {
+    const s = document.createElement('script');
+    s.src = 'https://cdn.userway.org/widget.js';
+    s.setAttribute('data-account','XfZSO2MTQw');
+    s.async = true;
+    document.body.appendChild(s);
+    return () => { if (document.body.contains(s)) document.body.removeChild(s); };
+  }, []);
+
+  const switchTab = (tab) => { setActiveTab(tab); setMessage({ type:'', text:'' }); };
+
+  const handleCompanyChange = useCallback((e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  // UPDATED: Logic to check for only Images and PDFs
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      // 1. Check File Size (10MB)
-      if (file.size > 10 * 1024 * 1024) {
-        setMessage({ type: 'error', text: 'ගොනුව 10MB ට වඩා කුඩා විය යුතුය' });
-        e.target.value = ''; // Reset input
-        return;
-      }
-
-      // 2. Check File Type (PDF or Images)
-      const isPdf = file.type === 'application/pdf';
-      const isImage = file.type.startsWith('image/');
-
-      if (!isPdf && !isImage) {
-        setMessage({ type: 'error', text: 'කරුණාකර PDF හෝ පින්තූරයක් (Image) පමණක් තෝරන්න' });
-        e.target.value = ''; // Reset input
-        setFormData(prev => ({ ...prev, file: null }));
-        return;
-      }
-
-      setFormData(prev => ({ ...prev, file }));
-      setMessage({ type: '', text: '' }); // Clear any previous error
-    }
-  };
-
-  const handleProjectChange = (id, field, value) => {
-    setProjects(prev =>
-      prev.map(project =>
-        project.id === id ? { ...project, [field]: value } : project
-      )
+    setCompanyData(prev =>
+      name==='province' ? {...prev,province:value,district:'',division:''}
+      : name==='district' ? {...prev,district:value,division:''}
+      : {...prev,[name]:value}
     );
-  };
+  },[]);
 
-  const addProject = () => {
-    const newId = Math.max(...projects.map(p => p.id), 0) + 1;
-    setProjects(prev => [
-      ...prev,
-      {
-        id: newId,
-        no: String(prev.length + 1),
-        proposal: '',
-        estimatedCost: '',
-        approach: '',
-        sdgGoals: '',
-        fundingSource: '',
-        name: '',
-        institution: ''
-      }
-    ]);
-  };
+  const cD = companyData.province ? PROVINCE_DATA[companyData.province]?.districts||[] : [];
+  const cV = companyData.province&&companyData.district ? PROVINCE_DATA[companyData.province]?.divisions[companyData.district]||[] : [];
+  const cOK = companyData.province&&companyData.district&&companyData.division&&companyData.officeName&&companyData.contact&&companyData.hasJob&&companyData.epfEtf&&companyData.hasTrainee;
 
-  const removeProject = (id) => {
-    if (projects.length === 1) {
-      setMessage({ type: 'error', text: 'අවම වශයෙන් එක් ව්‍යාපෘතියක් තිබිය යුතුය' });
-      return;
-    }
-    setProjects(prev => {
-      const filtered = prev.filter(project => project.id !== id);
-      return filtered.map((project, index) => ({
-        ...project,
-        no: String(index + 1)
-      }));
+  const handlePersonChange = useCallback((e) => {
+    const { name, value } = e.target;
+    setPersonData(prev =>
+      name==='province' ? {...prev,province:value,district:'',division:''}
+      : name==='district' ? {...prev,district:value,division:''}
+      : {...prev,[name]:value}
+    );
+  },[]);
+
+  // ✅ Toggle disability checkbox for person
+  const handleDisabilityToggle = useCallback((val) => {
+    setPersonData(prev => {
+      const current = prev.disability || [];
+      const updated = current.includes(val) ? current.filter(v => v !== val) : [...current, val];
+      return { ...prev, disability: updated };
     });
-  };
+  }, []);
 
-  const convertFileToBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => {
-        const base64 = reader.result.split(',')[1];
-        resolve(base64);
-      };
-      reader.onerror = reject;
-      reader.readAsDataURL(file);
+  // ✅ Toggle field of work checkbox for person
+  const handleFieldToggle = useCallback((val) => {
+    setPersonData(prev => {
+      const current = prev.field || [];
+      const updated = current.includes(val) ? current.filter(v => v !== val) : [...current, val];
+      return { ...prev, field: updated };
     });
-  };
+  }, []);
 
-  const validateForm = () => {
-    if (!formData.district || !formData.dn || !formData.gn) {
-      setMessage({ type: 'error', text: 'කරුණාකර සියලු ප්‍රධාන ක්ෂේත්‍ර පුරවන්න' });
-      return false;
-    }
-    if (!formData.file) {
-      setMessage({ type: 'error', text: 'කරුණාකර අදාළ ගොනුව උඩුගත කරන්න (File upload is required)' });
-      return false;
-    }
-    for (const project of projects) {
-      if (!project.proposal || !project.estimatedCost) {
-        setMessage({ type: 'error', text: 'කරුණාකර සියලු ව්‍යාපෘති විස්තර පුරවන්න' });
-        return false;
-      }
-    }
-    return true;
-  };
+  // ✅ Toggle disability checkbox for company
+  const handleCompanyDisabilityToggle = useCallback((val) => {
+    setCompanyData(prev => {
+      const current = prev.disability || [];
+      const updated = current.includes(val) ? current.filter(v => v !== val) : [...current, val];
+      return { ...prev, disability: updated };
+    });
+  }, []);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!validateForm()) return;
+  const pD = personData.province ? PROVINCE_DATA[personData.province]?.districts||[] : [];
+  const pV = personData.province&&personData.district ? PROVINCE_DATA[personData.province]?.divisions[personData.district]||[] : [];
+  const pOK = personData.province&&personData.district&&personData.division&&personData.name&&personData.idType&&personData.idNo&&personData.phone;
 
+  const isCompany = activeTab==='company';
+  const complete  = isCompany ? cOK : pOK;
+
+  const handleSubmit = async () => {
+    if (!complete) return;
     setUploading(true);
-    setMessage({ type: '', text: '' });
+    setMessage({type:'', text:''});
+
+    // Convert disability arrays → comma string for Sheets
+    const companyDataForSubmit = {
+      ...companyData,
+      disability: Array.isArray(companyData.disability) ? companyData.disability.join(', ') : companyData.disability
+    };
+    const personDataForSubmit = {
+      ...personData,
+      disability: Array.isArray(personData.disability) ? personData.disability.join(', ') : personData.disability,
+      field: Array.isArray(personData.field) ? personData.field.join(', ') : personData.field
+    };
+
+    const url  = isCompany ? COMPANY_SCRIPT_URL : PERSON_SCRIPT_URL;
+    const data = isCompany
+      ? { ...companyDataForSubmit, formType: 'company' }
+      : { ...personDataForSubmit, formType: 'disabledPerson' };
 
     try {
-      let fileData = null;
-      if (formData.file) {
-        const base64 = await convertFileToBase64(formData.file);
-        fileData = {
-          name: formData.file.name,
-          mimeType: formData.file.type,
-          data: base64
-        };
+      const payload = { ...data, timestamp: new Date().toLocaleString() };
+
+      // 1. Save to Firebase
+      try {
+        const collectionName = isCompany ? 'companySubmissions' : 'personSubmissions';
+        await addDoc(collection(db, collectionName), { ...data, createdAt: serverTimestamp() });
+        console.log('Firebase success');
+      } catch (fbError) {
+        console.error('Firebase error:', fbError);
+        throw new Error('Firebase submission failed. Please check your database rules.');
       }
 
-      const payload = {
-        district: formData.district,
-        dn: formData.dn,
-        gn: formData.gn,
-        file: fileData,
-        timestamp: new Date().toISOString(),
-        projects: projects.map(p => ({
-          no: p.no,
-          proposal: p.proposal,
-          estimatedCost: p.estimatedCost,
-          approach: p.approach,
-          sdgGoals: p.sdgGoals,
-          fundingSource: p.fundingSource,
-          name: p.name,
-          institution: p.institution
-        }))
-      };
+      // 2. Save to Google Sheets
+      try {
+        const formBody = Object.keys(payload)
+          .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(payload[k] ?? ''))
+          .join('&');
+        await fetch(url, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: formBody });
+        console.log('Google Sheets success');
+      } catch (gsError) {
+        console.error('Google Sheets error:', gsError);
+        throw new Error('Google Sheets submission failed.');
+      }
 
-      await fetch(SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload)
-      });
-
-      setMessage({ type: 'success', text: 'දත්ත සාර්ථකව ඉදිරිපත් කරන ලදී!' });
-      
-      setFormData({ district: '', dn: '', gn: '', file: null });
-      setProjects([{
-        id: 1,
-        no: '1',
-        proposal: '',
-        estimatedCost: '',
-        approach: '',
-        sdgGoals: '',
-        fundingSource: '',
-        name: '',
-        institution: ''
-      }]);
+      setMessage({ type:'success', text:'දත්ත සාර්ථකව ඉදිරිපත් කරන ලදී!\nதரவு வெற்றிகரமாக சமர்ப்பிக்கப்பட்டது!\nData submitted successfully!' });
+      if (isCompany) setCompanyData(defaultCompany);
+      else setPersonData(defaultPerson);
 
     } catch (error) {
-      console.error('Error:', error);
-      setMessage({ type: 'error', text: 'දත්ත ඉදිරිපත් කිරීමේ දෝෂයක් ඇතිවිය. කරුණාකර නැවත උත්සාහ කරන්න.' });
+      console.error('Submission error:', error);
+      setMessage({ type:'error', text: error.message || 'දෝෂයක් ඇතිවිය / பிழை ஏற்பட்டது / An error occurred.' });
     } finally {
       setUploading(false);
     }
@@ -256,540 +494,521 @@ const ProjectForm = () => {
 
   return (
     <div style={styles.container}>
-      <div style={styles.formCard}>
-        {/* Header */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap');
+        *,*::before,*::after{box-sizing:border-box;}
+        button,select,input,textarea{font-family:'Noto Sans Sinhala','Noto Sans Tamil',sans-serif!important;}
+        button:focus,select:focus,input:focus,textarea:focus{border-color:#800000!important;outline:none!important;box-shadow:0 0 0 4px rgba(128, 0, 0, 0.15)!important;}
+        .sbtn:hover:not(:disabled){background:linear-gradient(135deg, #600000 0%, #400000 100%)!important; transform: translateY(-2px); box-shadow: 0 12px 20px -3px rgba(128, 0, 0, 0.4)!important;}
+        .sbtn:active:not(:disabled){transform: translateY(0);}
+        .hint{font-size:12px;color:#6B7280;margin:6px 0 0;line-height:1.5;}
+        .cb-label:hover{border-color:#800000!important;background:#FFFBFB!important;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.05);}
+        .radio-label:hover{background:#fff5f5!important;}
+        html{scroll-behavior:auto!important;}
+        ::selection { background: #800000; color: white; }
+      `}</style>
+
+      <div style={styles.card}>
+        {/* HEADER */}
         <div style={styles.header}>
-          <h1 style={styles.title}>
-            සංවර්ධන යෝජනා ඉදිරිපත් කිරීමේ පෝරමය
-          </h1>
-          <p style={styles.subtitle}>
-            Development Proposal Submission Form
-          </p>
+          <img src={headerImg} alt="Header Background" style={styles.headerImg} />
+          <img src={logoImg} alt="Logo" style={{ 
+            position: 'absolute', 
+            top: '20px', 
+            left: '50%', 
+            transform: 'translateX(-50%)', 
+            height: '130px', 
+            zIndex: 10, 
+            filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.6))' 
+          }} />
+          <div style={styles.headerOverlay} />
+          <div style={styles.headerContent}>
+            
+          </div>
+        </div>
+        <div style={styles.tabContainer}>
+          <button style={{...styles.tab,...(!isCompany?styles.tabActive:styles.tabInactive)}} onClick={()=>switchTab('person')}>
+            <div>♿ ආබාධිත පුරවැසියන් ලියාපදිංචි කිරීමේ පෝරමය</div>
+            <div style={{fontSize:'11px', opacity: 0.85, fontWeight: '500'}}>மாற்றுத்திறனாளி குடிமக்கள் பதிவு படிவம் · Disabled Persons Registration Form</div>
+          </button>
+          <button style={{...styles.tab,...(isCompany?styles.tabActive:styles.tabInactive)}} onClick={()=>switchTab('company')}>
+            <div>🏢 ආයතන ලියාපදිංචි කිරීමේ පෝරමය</div>
+            <div style={{fontSize:'11px', opacity: 0.85, fontWeight: '500'}}>நிறுவன பதிவு படிவம் · Company Registration Form</div>
+          </button>
         </div>
 
-        <form onSubmit={handleSubmit}>
-          {/* Main Fields */}
-          <div style={styles.mainFieldsContainer}>
-            <h2 style={styles.sectionTitle}>
-              ප්‍රධාන තොරතුරු / Main Information
-            </h2>
-            
-            <div style={styles.gridThree}>
-              <div style={styles.fieldGroup}>
-                <label style={styles.label}>
-                  දිස්ත්‍රික්කය / District *
-                </label>
-                <select
-                  name="district"
-                  value={formData.district}
-                  onChange={handleInputChange}
-                  style={styles.input}
-                  required
-                >
-                  {districts.map((district) => (
-                    <option key={district.value} value={district.value}>
-                      {district.label}
-                    </option>
-                  ))}
-                </select>
-              </div>
+        <div style={styles.form}>
 
-              <div style={styles.fieldGroup}>
-                <label style={styles.label}>
-                  ප්‍රාදේශීය ලේකම් කොට්ඨාසය / DS *
-                </label>
-                <input
-                  type="text"
-                  name="dn"
-                  value={formData.dn}
-                  onChange={handleInputChange}
-                  style={styles.input}
-                  required
-                />
-              </div>
+          {/* ══════════ COMPANY FORM ══════════ */}
+          {isCompany && (<>
 
-              <div style={styles.fieldGroup}>
-                <label style={styles.label}>
-                  ග්‍රාම නිලධාරී වසම / GN *
-                </label>
-                <input
-                  type="text"
-                  name="gn"
-                  value={formData.gn}
-                  onChange={handleInputChange}
-                  style={styles.input}
-                  required
-                />
+            {/* Payment Notice */}
+            <div style={{background:'linear-gradient(135deg,#fffbeb,#fef3c7)',border:'2px solid #F59E0B',borderRadius:'12px',padding:'18px 20px',marginBottom:'24px',display:'flex',gap:'14px',alignItems:'flex-start'}}>
+              <span style={{ fontSize:'24px', lineHeight:1, flexShrink:0, marginTop:'2px' }}>💰</span>
+              <div>
+                <p style={{ margin:'0 0 6px', color:'#800000', fontSize:'13px', fontWeight:'700', lineHeight:1.8 }}>
+                  ආබාධ සහිත තැනැත්තන් රැකියා ගත කරන ආයතන සඳහා රජය මගින් <span style={{color:'#b45309',fontWeight:'700'}}>මාස 24ක්</span> දක්වා <span style={{color:'#b45309',fontWeight:'700'}}>රු. 15,000</span>ක උපරිමයකට යටත්ව ගෙවීම් සිදු කරනු ලැබේ.
+                </p>
+                <p style={{ margin:'0 0 6px', color:'#991b1b', fontSize:'12px', lineHeight:1.8 }}>
+                  மாற்றுத்திறனாளிகளை வேலைக்கமர்த்தும் நிறுவனங்களுக்கு அரசு <span style={{color:'#b45309',fontWeight:'700'}}>24 மாதங்கள்</span> வரை <span style={{color:'#b45309',fontWeight:'700'}}>ரூ. 15,000</span> வரம்பில் கொடுப்பனவு செய்யும்.
+                </p>
+                <p style={{ margin:0, color:'#991b1b', fontSize:'12px', lineHeight:1.8 }}>
+                  The government will make payments for up to <strong style={{color:'#b45309'}}>24 months</strong>, subject to a maximum of <strong style={{color:'#b45309'}}>Rs. 15,000</strong>.
+                </p>
               </div>
             </div>
-            <br />
-            <br />
 
-          {/* Projects Section */}
-          <div style={styles.projectsSection}>
-            <div style={styles.projectsHeader}>
-              <h2 style={styles.projectsTitle}>
-                ව්‍යාපෘති / Projects
-              </h2>
-              <button
-                type="button"
-                onClick={addProject}
-                style={styles.addProjectBtn}
-              >
-                <Plus style={styles.iconSmall} />
-                ව්‍යාපෘතිය එක් කරන්න
-              </button>
-            </div>
+            <p style={styles.sectionTitle}>📍 ස්ථාන තොරතුරු · இட விவரங்கள் · Location Details</p>
+            <F si="පළාත *" ta="மாகாணம் *" en="Province *">
+              <select name="province" value={companyData.province} onChange={handleCompanyChange} style={styles.sel}>
+                <option value="">-- පළාත / மாகாணம் / Province --</option>
+                {PROVINCES.map(p=><option key={p} value={p}>{p}</option>)}
+              </select>
+            </F>
+            <F si="දිස්ත්‍රික්කය *" ta="மாவட்டம் *" en="District *">
+              <select name="district" value={companyData.district} onChange={handleCompanyChange} style={selStyle(!companyData.province)} disabled={!companyData.province}>
+                <option value="">-- දිස්ත්‍රික්කය / மாவட்டம் / District --</option>
+                {cD.map(d=><option key={d} value={d}>{d}</option>)}
+              </select>
+              {!companyData.province && <p className="hint">පළාත තෝරන්න · மாகாணத்தை தேர்ந்தெடுக்கவும் · Select Province first</p>}
+            </F>
+            <F si="ප්‍රාදේශීය ලේකම් කොට්ඨාශය *" ta="பிரதேச செயலகம் *" en="Divisional Secretariat *">
+              <select name="division" value={companyData.division} onChange={handleCompanyChange} style={selStyle(!companyData.district)} disabled={!companyData.district}>
+                <option value="">-- ප්‍රාදේශීය ලේකම් / பிரதேச செயலகம் / Div. Secretariat --</option>
+                {cV.map(d=><option key={d} value={d}>{d}</option>)}
+              </select>
+              {!companyData.district && <p className="hint">දිස්ත්‍රික්කය තෝරන්න · மாவட்டத்தை தேர்ந்தெடுக்கவும் · Select District first</p>}
+            </F>
 
-            {projects.map((project) => (
-              <div key={project.id} style={styles.projectCard}>
-                <div style={styles.projectHeader}>
-                  <h3 style={styles.projectNumber}>
-                    ව්‍යාපෘතිය #{project.no}
-                  </h3>
-                  {projects.length > 1 && (
-                    <button
-                      type="button"
-                      onClick={() => removeProject(project.id)}
-                      style={styles.removeProjectBtn}
-                    >
-                      <Trash2 style={styles.iconSmall} />
-                      ඉවත් කරන්න
-                    </button>
-                  )}
-                </div>
+            <hr style={styles.divider}/>
+            <p style={styles.sectionTitle}>🏢 කාර්යාල තොරතුරු · நிறுவன தகவல்கள் · Office Information</p>
+            <F si="ආයතනයේ නාමය *" ta="நிறுவனத்தின் பெயர் *" en="Office / Company Name *">
+              <input type="text" name="officeName" value={companyData.officeName} onChange={handleCompanyChange} style={styles.inp} maxLength={100} autoComplete="off"/>
+              <p className="hint">{companyData.officeName.length}/100</p>
+            </F>
+            <F si="සම්බන්ධ කල හැකි නිලධාරියාගේ නම" ta="தொடர்பு அதிகாரி பெயர்" en="Contact Officer Name">
+              <input type="text" name="officerName" value={companyData.officerName} onChange={handleCompanyChange} style={styles.inp} maxLength={100} autoComplete="off"/>
+            </F>
+            <F si="දුරකථනය අංකය *" ta="தொலைபேசி *" en="Contact Number *">
+              <input type="tel" name="contact" value={companyData.contact} onChange={handleCompanyChange} style={styles.inp} maxLength={15} placeholder="0XX XXX XXXX" autoComplete="off"/>
+            </F>
+            <F si="WhatsApp අංකය" ta="வாட்ஸ்அப் எண்" en="WhatsApp Number">
+              <input type="tel" name="whatsapp" value={companyData.whatsapp} onChange={handleCompanyChange} style={styles.inp} maxLength={15} placeholder="0XX XXX XXXX" autoComplete="off"/>
+            </F>
+            <F si="විද්‍යුත් තැපෑල" ta="மின்னஞ்சல்" en="Email Address">
+              <input type="email" name="email" value={companyData.email} onChange={handleCompanyChange} style={styles.inp} maxLength={100} placeholder="example@email.com" autoComplete="off"/>
+            </F>
 
-                <div style={styles.gridTwo}>
-                  <div style={{ ...styles.fieldGroup, gridColumn: '1 / -1' }}>
-                    <label style={styles.label}>
-                      සංවර්ධන යෝජනා (ව්‍යාපෘතියේ නම) / Development Proposal *
-                    </label>
-                    <textarea
-                      value={project.proposal}
-                      onChange={(e) => handleProjectChange(project.id, 'proposal', e.target.value)}
-                      style={styles.textarea}
-                      rows="3"
-                      required
-                    />
-                  </div>
-
-                  <div style={styles.fieldGroup}>
-                    <label style={styles.label}>
-                        අපේක්ෂිත දළ ඇස්තමේන්තුව / Estimated Cost *
-                    </label>
-                    <input
-                        type="number"
-                        value={project.estimatedCost}
-                        onChange={(e) => handleProjectChange(project.id, 'estimatedCost', e.target.value)}
-                        style={styles.input}
-                        required
-                    />
-                    </div>
-
-                    <div style={styles.fieldGroup}>
-                    <label style={styles.label}>
-                        සංවර්දන ප්‍රවේශය / Development Approach
-                    </label>
-                    <select
-                        value={project.approach}
-                        onChange={(e) => handleProjectChange(project.id, 'approach', e.target.value)}
-                        style={styles.input}
-                    >
-                        <option value="">-- Select --</option>
-                        <option value="සමජ පරිසර">සමජ පරිසර</option>
-                        <option value="ආහාර සුරක්ෂිතතාව">ආහාර සුරක්ෂිතතාව</option>
-                        <option value="නිශ්පාදන ආර්ථිකය">නිශ්පාදන ආර්ථිකය</option>
-                        <option value="මානව සම්පත් සංවර්දන">මානව සම්පත් සංවර්දන</option>
-                        <option value="රැකවරනය">රැකවරනය</option>
-                        <option value="සැලසුම් ජාල හා ප්‍රවේශය">සැලසුම් ජාල හා ප්‍රවේශය</option>
-                    </select>
-                    </div>
-
-
-                  <div style={styles.fieldGroup}>
-                    <label style={styles.label}>
-                      තිරසර සංවර්ධන ඉලක්ක / SDG Goals
-                    </label>
-                    <input
-                      type="text"
-                      value={project.sdgGoals}
-                      onChange={(e) => handleProjectChange(project.id, 'sdgGoals', e.target.value)}
-                      style={styles.input}
-                    />
-                  </div>
-
-                  <div style={styles.fieldGroup}>
-                    <label style={styles.label}>
-                        අපේක්ශිත ප්‍රතිපාදන ප්‍රභවය / Funding Source
-                    </label>
-                    <select
-                        value={project.fundingSource}
-                        onChange={(e) => handleProjectChange(project.id, 'fundingSource', e.target.value)}
-                        style={styles.input}
-                    >
-                        <option value="">-- Select --</option>
-                        <option value="පලාත් පාලන">පලාත් පාලන</option>
-                        <option value="ප්‍රාදේශීය සභා">ප්‍රාදේශීය සභා</option>
-                        <option value="රාජ්‍ය නොවන සංවිදාන">රාජ්‍ය නොවන සංවිදාන</option>
-                        <option value="රේකීය අමාත්‍යාංශය">රේකීය අමාත්‍යාංශය</option>
-                    </select>
-                    </div>
-
-                  
-
-                  <div style={styles.fieldGroup}>
-                    <label style={styles.label}>
-                      ක්‍රියාත්මක ආයතනය / Implementing Institution
-                    </label>
-                    <input
-                      type="text"
-                      value={project.institution}
-                      onChange={(e) => handleProjectChange(project.id, 'institution', e.target.value)}
-                      style={styles.input}
-                    />
-                  </div>
-
-                  <div style={styles.fieldGroup}>
-                    <label style={styles.label}>
-                      නම (ක්‍රියාත්මක ආයතනය ) / Name
-                    </label>
-                    <input
-                      type="text"
-                      value={project.name}
-                      onChange={(e) => handleProjectChange(project.id, 'name', e.target.value)}
-                      style={styles.input}
-                    />
-                  </div>
-                  
-                </div>
-              </div>
-            ))}
-          </div>
-          <br />
-
-          <div style={styles.fileSection}>
-              <label style={styles.label}>
-                ගොනුව උඩුගත කරන්න / Upload File
-              </label>
-              <div style={styles.fileInputWrapper}>
-                <label style={styles.fileLabel}>
-                  <Upload style={styles.icon} />
-                  <span style={styles.fileText}>
-                    {formData.file ? formData.file.name : 'ගොනුවක් තෝරන්න'}
-                  </span>
-                  {/* UPDATED: Accept Images and PDF only */}
-                  <input
-                    ref={fileInputRef}
-                    type="file"
-                    onChange={handleFileChange}
-                    style={styles.hiddenInput}
-                    accept="image/*,application/pdf"
-                  />
-                </label>
-                {formData.file && (
-                    <button
-                        type="button"
-                        onClick={() => {
-                        setFormData(prev => ({ ...prev, file: null }));
-                        if (fileInputRef.current) {
-                            fileInputRef.current.value = ""; 
-                        }
-                        }}
-                        style={styles.removeFileBtn}
-                    >
-                        ඉවත් කරන්න
-                    </button>
-                    )}
-              </div>
-              {/* UPDATED: Help text reflects images and PDF */}
-              <p style={styles.helpText}>
-                PDF or Image files (JPG, PNG) - Max 10MB
-              </p>
-            </div>
-          </div>
-
-          <div style={styles.submitContainer}>
-            <button
-              type="submit"
-              disabled={uploading}
-              style={{
-                ...styles.submitBtn,
-                ...(uploading ? styles.submitBtnDisabled : {})
-              }}
-            >
-              {uploading ? (
-                <>
-                  <div style={styles.spinner}></div>
-                  ඉදිරිපත් කරමින්...
-                </>
-              ) : (
-                <>
-                  <Send style={styles.iconSmall} />
-                  ඉදිරිපත් කරන්න
-                </>
+            {/* ✅ FIX 1: Field/Sector — completely separate from vacancies */}
+            <F si="ආයතනයේ ක්ෂේත්‍රය" ta="நிறுவனத்தின் துறை" en="Company Field / Sector">
+              <select name="field" value={companyData.field} onChange={handleCompanyChange} style={styles.sel}>
+                <option value="">-- තෝරන්න / தேர்வு செய்யவும் / Select --</option>
+                <option value="Garments">ඇඟලුම් / ஆடை / Garments</option>
+                <option value="Beauty Salon">රූපලාවන්යාගාර / அழகு நிலையம் / Beauty Salon</option>
+                <option value="Hotels">හෝටල් / உணவகம் / Hotels</option>
+                <option value="IT">තොරතුරු තාක්ෂණය / தகவல் தொழில்நுட்பம் / IT</option>
+                <option value="Business">ව්‍යාපාර / வணிகம் / Business</option>
+                <option value="Agriculture">කෘෂිකර්මාන්තය / விவசாயம் / Agriculture</option>
+                <option value="Construction">ඉදිකිරීම් / கட்டுமானம் / Construction</option>
+                <option value="Healthcare">සෞඛ්‍ය සේවා / சுகாதார சேவை / Healthcare</option>
+                <option value="Education">අධ්‍යාපනය / கல்வி / Education</option>
+                <option value="Other">වෙනත් / மற்றவை / Other</option>
+              </select>
+              {companyData.field === 'Other' && (
+                <input type="text" name="fieldOther" value={companyData.fieldOther} onChange={handleCompanyChange}
+                  style={styles.inpOther} maxLength={100}
+                  placeholder="වෙනත් ක්ෂේත්‍රය / பிற துறை / Specify field..." autoComplete="off"/>
               )}
+            </F>
+
+            <hr style={styles.divider}/>
+            <p style={styles.sectionTitle}>💼 රැකියා තොරතුරු · வேலை விவரங்கள் · Employment Details</p>
+            <F si="රැකියා පුරප්පාඩු තිබේද? *" ta="வேலைவாய்ப்பு உள்ளதா? *" en="Do you have vacancies? *">
+              <RadioGroup name="hasJob" value={companyData.hasJob} onChange={handleCompanyChange} options={[
+                {value:'Yes',si:'ඔව්',ta:'ஆம்',en:'Yes'},
+                {value:'No', si:'නැත',ta:'இல்லை',en:'No'},
+              ]}/>
+            </F>
+
+            {/* ✅ FIX 2: Vacancy description — text box only, no dropdown */}
+            <F si="පුරප්පාඩු මොනවාද" ta="காலியிட விவரம்" en="What are the Vacancies?">
+              <textarea
+                name="vacancyDescription"
+                value={companyData.vacancyDescription}
+                onChange={handleCompanyChange}
+                style={styles.ta}
+                rows={3}
+                maxLength={300}
+                placeholder="උදා: කළමනාකරු, අලෙවිකරු, රියදුරු... / எ.கா: மேலாளர், காசாளர், ஓட்டுனர்... / e.g. Manager, Cashier, Driver..."
+                autoComplete="off"
+              />
+              <p className="hint">{(companyData.vacancyDescription||'').length}/300</p>
+            </F>
+
+            <F si="පුරප්පාඩු ගණන" ta="காலியிடங்கள் எண்ணிக்கை" en="Number of Vacancies">
+              <input type="number" name="vacancies" value={companyData.vacancies} onChange={handleCompanyChange} style={styles.inp} min="0" max="9999" placeholder="0" autoComplete="off"/>
+            </F>
+
+            <hr style={styles.divider}/>
+            <p style={styles.sectionTitle}>👥 රැකියා ලාභී පැතිකඩ · பணியாளர் விவரம் · Employee Profile</p>
+            <F si="වයස් කාණ්ඩය" ta="வயது பிரிவு" en="Age Category">
+              <select name="ageCategory" value={companyData.ageCategory} onChange={handleCompanyChange} style={styles.sel}>
+                <option value="">-- තෝරන්න / தேர்வு செய்யவும் / Select --</option>
+                <option value="18-30">18 – 30</option>
+                <option value="30-40">30 – 40</option>
+                <option value="40-50">40 – 50</option>
+                <option value="50+">50+</option>
+                <option value="Other">වෙනත් / மற்றவை / Other</option>
+              </select>
+              {companyData.ageCategory === 'Other' && (
+                <input type="text" name="ageCategoryOther" value={companyData.ageCategoryOther} onChange={handleCompanyChange}
+                  style={styles.inpOther} maxLength={50}
+                  placeholder="වයස් කාණ්ඩය සඳහන් කරන්න / வயது வரம்பை குறிப்பிடவும் / Specify age range..." autoComplete="off"/>
+              )}
+            </F>
+            <F si="ස්ත්‍රී පුරුෂ භාවය" ta="பாலினம்" en="Gender">
+              <select name="gender" value={companyData.gender} onChange={handleCompanyChange} style={styles.sel}>
+                <option value="">-- තෝරන්න / தேர்வு செய்யவும் / Select --</option>
+                <option value="Male">පිරිමි / ஆண் / Male</option>
+                <option value="Female">ස්ත්‍රී / பெண் / Female</option>
+                <option value="Any">ස්ත්‍රී/පුරුෂ දෙපාර්ශවයම / எவரும் / Any</option>
+              </select>
+            </F>
+            <F si="පිළිගත හැකි ආබාධතා වර්ග" ta="ஏற்கக்கூடிய இயலாமை வகைகள்" en="Types of Disability Accepted">
+              <div>
+                <button type="button" onClick={() => setShowCompanyDisabilities(!showCompanyDisabilities)} style={styles.toggleBtn}>
+                  <span>📍 ආබාධිත වර්ග තෝරන්න / இயலாமை வகைகளைத் தேர்ந்தெடுக்கவும் / Select Disability Types</span>
+                  <span style={{ fontSize: '18px' }}>{showCompanyDisabilities ? '▲' : '▼'}</span>
+                </button>
+
+                {showCompanyDisabilities && (
+                  <div style={{
+                    background: '#fff',
+                    padding: '24px',
+                    borderRadius: '16px',
+                    border: '1.5px solid #e5e7eb',
+                    marginBottom: '20px',
+                    boxShadow: 'inset 0 2px 10px rgba(0,0,0,0.05)'
+                  }}>
+                    <p className="hint" style={{ marginBottom: '15px', color: '#1a56db', fontWeight: '700', fontSize: '13px' }}>
+                      ☑ එකට වඩා තෝරා ගත හැකිය · ஒன்றுக்கு மேலானவற்றை தேர்வு செய்யலாம் · You may select multiple
+                    </p>
+                    <label className="cb-label" style={{
+                      ...styles.checkboxLabel,
+                      marginBottom: '12px', width: '100%',
+                      ...((companyData.disability || []).includes('Any') ? styles.checkboxLabelChecked : {})
+                    }}>
+                      <input type="checkbox" value="Any"
+                        checked={(companyData.disability || []).includes('Any')}
+                        onChange={() => handleCompanyDisabilityToggle('Any')}
+                        style={styles.checkboxInput} />
+                      <span>
+                        <span style={{ display: 'block', color: '#800000', fontSize: '13px', fontWeight: '700' }}>ඕනෑම ආබාධයක්</span>
+                        <span style={{ display: 'block', color: '#600000', fontSize: '12px' }}>எந்த குறைபாடும்</span>
+                        <span style={{ display: 'block', color: '#6B7280', fontSize: '11px' }}>Any Disability</span>
+                      </span>
+                    </label>
+                    <DisabilityCheckboxGroup
+                      selected={companyData.disability || []}
+                      onChange={handleCompanyDisabilityToggle}
+                      options={DISABILITY_OPTIONS.filter(o => o.value !== 'Other')}
+                    />
+                  </div>
+                )}
+
+                {(companyData.disability || []).includes('Other') && (
+                  <input type="text" name="disabilityOther" value={companyData.disabilityOther || ''} onChange={handleCompanyChange}
+                    style={styles.inpOther} maxLength={100}
+                    placeholder="ආබාධතා වර්ගය සඳහන් කරන්න / இயலாமை வகையை குறிப்பிடவும் / Specify disability type..."
+                    autoComplete="off" />
+                )}
+                {(companyData.disability || []).length > 0 && (
+                  <p className="hint" style={{ color: '#166534', marginTop: '10px', fontWeight: '700', fontSize: '13px' }}>
+                    ✅ තෝරාගත් / தேர்ந்தெடுக்கப்பட்டவை / Selected ({(companyData.disability || []).length}): {(companyData.disability || []).join(' · ')}
+                  </p>
+                )}
+              </div>
+            </F>
+
+            <hr style={styles.divider}/>
+            <p style={styles.sectionTitle}>📋 දීමනා, පහසුකම් & පුහුණු · சலுகைகள், வசதிகள் & பயிற்சி · Benefits, Facilities & Training</p>
+            <F si="ගෙවිය හැකි අවම වැටුප" ta="ஊதியம்" en="Pay / Salary">
+              <input type="text" name="pay" value={companyData.pay} onChange={handleCompanyChange} style={styles.inp} maxLength={50} placeholder="Rs. XXXXX" autoComplete="off"/>
+            </F>
+            <F si="EPF / ETF ගෙවනවද? *" ta="ஈபிඑஃப் / ஈடிஎஃப் *" en="EPF / ETF *">
+              <RadioGroup name="epfEtf" value={companyData.epfEtf} onChange={handleCompanyChange} options={[
+                {value:'Yes',si:'ඔව්',ta:'ஆம்',en:'Yes'},
+                {value:'No', si:'නැත',ta:'இல்லை',en:'No'},
+              ]}/>
+            </F>
+            <F si="පුහුනු වැඩසටහනක් පවත්වනවාද? *" ta="பயிற்சி திட்டம் *" en="Training Programme *">
+              <RadioGroup name="hasTrainee" value={companyData.hasTrainee} onChange={handleCompanyChange} options={[
+                {value:'Yes',si:'ඔව්',ta:'ஆம்',en:'Yes'},
+                {value:'No', si:'නැත',ta:'இல்லை',en:'No'},
+              ]}/>
+            </F>
+            <F si="ප්‍රවාහන පහසුකම් සපයනවද?" ta="போக்குவரத்து வசதி" en="Supply Transport">
+              <RadioGroup name="supplyTransport" value={companyData.supplyTransport} onChange={handleCompanyChange} options={[
+                {value:'Yes',si:'ඔව්',ta:'ஆம்',en:'Yes'},
+                {value:'No', si:'නැත',ta:'இல்லை',en:'No'},
+              ]}/>
+            </F>
+            {companyData.supplyTransport==='Yes' && (
+              <F si="ප්‍රවාහන සීමාව" ta="போக்குவரத்து வரம்பு" en="Transport Limit">
+                <input type="text" name="transportLimit" value={companyData.transportLimit} onChange={handleCompanyChange} style={styles.inp} maxLength={100} placeholder="e.g. 20km radius" autoComplete="off"/>
+              </F>
+            )}
+            <F si="අහාර සපයනවද?" ta="உணவு வசதி" en="Supply Food">
+              <RadioGroup name="supplyFood" value={companyData.supplyFood} onChange={handleCompanyChange} options={[
+                {value:'Yes',si:'ඔව්',ta:'ஆம்',en:'Yes'},
+                {value:'No', si:'නැත',ta:'இல்லை',en:'No'},
+              ]}/>
+            </F>
+            <F si="ඇඳුම් / යූනිෆෝම් සපයනවද?" ta="ஆடை / சீருடை வழங்கல்" en="Supply Clothes / Uniform">
+              <RadioGroup name="supplyClothes" value={companyData.supplyClothes} onChange={handleCompanyChange} options={[
+                {value:'Yes',si:'ඔව්',ta:'ஆම்',en:'Yes'},
+                {value:'No', si:'නැත',ta:'இல்லை',en:'No'},
+              ]}/>
+            </F>
+          </>)}
+
+          {/* ══════════ DISABLED PERSON FORM ══════════ */}
+          {!isCompany && (<>
+            <div style={{background:'linear-gradient(135deg,#fffbeb,#fef3c7)',border:'2px solid #F59E0B',borderRadius:'12px',padding:'18px 20px',marginBottom:'24px',display:'flex',gap:'14px',alignItems:'flex-start'}}>
+              <span style={{fontSize:'26px',lineHeight:1,flexShrink:0,marginTop:'2px'}}>⚠️</span>
+              <div>
+                <div style={{width:'100%',height:'1.5px',background:'#FCD34D',margin:'4px 0 10px'}}/>
+                <p style={{margin:'0 0 4px',color:'#92400E',fontSize:'13px',fontWeight:'700',lineHeight:1.8}}>
+                  එක් පුද්ගලයකු සඳහා <span style={{color:'#B45309'}}>එක් වරක් පමණක්</span> පෝරමය භාවිතා කරන්න.
+                </p>
+                <p style={{margin:'0 0 4px',color:'#78350F',fontSize:'12px',lineHeight:1.8}}>
+                  ஒருவருக்கு <span style={{color:'#B45309',fontWeight:'700'}}>ஒரு முறை மட்டுமே</span> படிவத்தைப் பயன்படுத்தவும்.
+                </p>
+                <p style={{margin:0,color:'#78350F',fontSize:'12px',lineHeight:1.8}}>
+                  Use the form <strong>once per person</strong> only.
+                </p>
+              </div>
+            </div>
+
+            <p style={styles.sectionTitle}>📍 ස්ථාන තොරතුරු · இட விவரங்கள் · Location Details</p>
+            <F si="පළාත *" ta="மாகாணம் *" en="Province *">
+              <select name="province" value={personData.province} onChange={handlePersonChange} style={styles.sel}>
+                <option value="">-- පළාත / மாகாணம் / Province --</option>
+                {PROVINCES.map(p=><option key={p} value={p}>{p}</option>)}
+              </select>
+            </F>
+            <F si="දිස්ත්‍රික්කය *" ta="மாவட்டம் *" en="District *">
+              <select name="district" value={personData.district} onChange={handlePersonChange} style={selStyle(!personData.province)} disabled={!personData.province}>
+                <option value="">-- දිස්ත්‍රික්කය / மாவட்டம் / District --</option>
+                {pD.map(d=><option key={d} value={d}>{d}</option>)}
+              </select>
+              {!personData.province && <p className="hint">පළාත තෝරන්න · மாகாணத்தை தேர்ந்தெடுக்கவும் · Select Province first</p>}
+            </F>
+            <F si="ප්‍රාදේශීය ලේකම් කොට්ඨාශය *" ta="பிரதேச செயலகம் *" en="Divisional Secretariat *">
+              <select name="division" value={personData.division} onChange={handlePersonChange} style={selStyle(!personData.district)} disabled={!personData.district}>
+                <option value="">-- ප්‍රාදේශීය ලේකම් / பிரதேச செயலகம் / Div. Secretariat --</option>
+                {pV.map(d=><option key={d} value={d}>{d}</option>)}
+              </select>
+              {!personData.district && <p className="hint">දිස්ත්‍රික්කය තෝරන්න · மாவட்டத்தை தேர்ந்தெடுக்கவும் · Select District first</p>}
+            </F>
+            <F si="ග්‍රාම නිලධාරි කොට්ඨාශය" ta="கிராம நிர்வாக பிரிவு" en="GN Division">
+              <input type="text" name="gnDivision" value={personData.gnDivision} onChange={handlePersonChange} style={styles.inp} maxLength={100} autoComplete="off"/>
+            </F>
+
+            <hr style={styles.divider}/>
+            <p style={styles.sectionTitle}>👤 පුද්ගලික තොරතුරු · தனிப்பட்ட தகவல்கள் · Personal Details</p>
+            <F si="නම *" ta="பெயர் *" en="Full Name *">
+              <input type="text" name="name" value={personData.name} onChange={handlePersonChange} style={styles.inp} maxLength={100} autoComplete="off"/>
+              <p className="hint">{personData.name.length}/100</p>
+            </F>
+            <F si="ලිපිනය" ta="முழு முகவரி" en="Address">
+              <textarea name="address" value={personData.address} onChange={handlePersonChange} style={styles.ta} rows={3} maxLength={250} autoComplete="off"/>
+              <p className="hint">{personData.address.length}/250</p>
+            </F>
+            <F si="ස්ත්‍රී පුරුෂ භාවය" ta="பாலினம்" en="Gender">
+              <select name="gender" value={personData.gender} onChange={handlePersonChange} style={styles.sel}>
+                <option value="">-- තෝරන්න / தேர்வு செய்யவும் / Select --</option>
+                <option value="Male">පිරිමි / ஆண் / Male</option>
+                <option value="Female">ස්ත්‍රී / பெண் / Female</option>
+                <option value="Other">වෙනත් / மற்றவை / Other</option>
+              </select>
+            </F>
+            <F si="වයස" ta="வயது" en="Age">
+              <input type="number" name="age" value={personData.age} onChange={handlePersonChange} style={styles.inp} min="0" max="120" placeholder="e.g. 30" autoComplete="off"/>
+            </F>
+            <F si="භාෂා" ta="மொழி" en="Language">
+              <select name="language" value={personData.language} onChange={handlePersonChange} style={styles.sel}>
+                <option value="">-- තෝරන්න / தேர்வு செய்யவும் / Select --</option>
+                <option value="සිංහල">සිංහල / சிங்களம் / Sinhala</option>
+                <option value="தமிழ்">தமிழ் / தமிழ் / Tamil</option>
+                <option value="English">English / ஆங்கிலம் / English</option>
+              </select>
+            </F>
+            <F si="හැදුනුම්පත් අංකය *" ta="அடையாள அட்டை எண் *" en="ID Number *">
+              <div style={{display:'flex',gap:'10px',flexWrap:'wrap'}}>
+                <select name="idType" value={personData.idType} onChange={handlePersonChange} style={{...styles.sel,flex:'1',minWidth:'160px'}}>
+                  <option value="">-- හැඳුනුම්පත් වර්ගය / அடையාள வகை / ID Type --</option>
+                  <option value="NIC">ජාතික හැඳුනුම්පත / தேசிய அடையாள அட்டை / NIC</option>
+                  <option value="Passport">ගමන් බලපත්‍රය / கடவுச்சீட்டு / Passport</option>
+                  <option value="Driving License">රියදුරු බලපත්‍රය / ஓட்டுநர் உரிமம் / Driving License</option>
+                  <option value="Other">වෙනත් / Other</option>
+                </select>
+                <input type="text" name="idNo" value={personData.idNo} onChange={handlePersonChange} placeholder="ID Number" style={{...styles.inp,flex:'1',minWidth:'140px'}} maxLength={20} autoComplete="off"/>
+              </div>
+            </F>
+            <F si="උපන් දිනය" ta="பிறந்த திகதி" en="Date of Birth">
+              <input type="date" name="dob" value={personData.dob} onChange={handlePersonChange} style={styles.inp}/>
+            </F>
+            <F si="සුදුසුකම්" ta="கல்வித் தகுதிகள்" en="Qualifications">
+              <select name="qualification" value={personData.qualification} onChange={handlePersonChange} style={styles.sel}>
+                <option value="">-- තෝරන්න / தேர்வு செய்யவும் / Select --</option>
+                <option value="BSc">BSc / இளங்கலை அறிவியல் / BSc</option>
+                <option value="A/L">A/L / உயர்தர / Advanced Level</option>
+                <option value="O/L">O/L / சாதாரண தர / Ordinary Level</option>
+                <option value="Education">අධ්‍යාපන සුදුසුකම් / கல்வித் தகுதி / Education Level</option>
+                <option value="Diploma">Diploma / ඩිප්ලෝමා / டிப்ளோமா</option>
+                <option value="Vocational Training">වෘත්තීය පුහුණු / தொழில்சார் பயிற்சி / Vocational Training</option>
+                <option value="No Formal Education">විධිමත් අධ්‍යාපනයක් නැත / முறையான கல்வி இல்லை / No Formal Education</option>
+                <option value="Other">වෙනත් / மற்றவை / Other</option>
+              </select>
+              {personData.qualification && personData.qualification !== 'No Formal Education' && (
+                <input type="text" name="qualificationOther" value={personData.qualificationOther} onChange={handlePersonChange}
+                  style={styles.inpOther} maxLength={150}
+                  placeholder={
+                    personData.qualification === 'BSc' ? "උපාධිය හා විශ්වවිද්‍යාලය / Degree name & university..." :
+                    personData.qualification === 'A/L' ? "විෂය ධාරාව / Stream & results..." :
+                    personData.qualification === 'O/L' ? "ප්‍රතිඵල / Results..." :
+                    personData.qualification === 'Diploma' ? "ඩිප්ලෝමා නාමය / Diploma name..." :
+                    personData.qualification === 'Vocational Training' ? "පුහුණු නාමය / Programme name..." :
+                    "වැඩි විස්තර / More details..."
+                  }
+                  autoComplete="off"/>
+              )}
+            </F>
+            <F si="දුරකථනය *" ta="தொலைபேசி எண் *" en="Phone Number *">
+              <input type="tel" name="phone" value={personData.phone} onChange={handlePersonChange} style={styles.inp} maxLength={15} placeholder="0XX XXX XXXX" autoComplete="off"/>
+            </F>
+
+            <hr style={styles.divider}/>
+            <p style={styles.sectionTitle}>♿ ආබාධතා තොරතුරු · இயலாமை தகவல்கள் · Disability Details</p>
+
+            {/* ✅ FIX 3: Multi-checkbox for person */}
+            <F si="ආබාධතා වර්ගය" ta="இயலாமை வகை" en="Type of Disability">
+              <div>
+                <button type="button" onClick={() => setShowPersonDisabilities(!showPersonDisabilities)} style={styles.toggleBtn}>
+                  <span>📍 ආබාධතා වර්ග තෝරන්න / இயலாமை வகைகளைத் தேர்ந்தெடுக்கவும் / Select Disability Types</span>
+                  <span style={{ fontSize: '13px' }}>{showPersonDisabilities ? '▲' : '▼'}</span>
+                </button>
+
+                {showPersonDisabilities && (
+                  <div style={{
+                    background: '#fff',
+                    padding: '24px',
+                    borderRadius: '16px',
+                    border: '1.5px solid #e5e7eb',
+                    marginBottom: '20px',
+                    boxShadow: 'inset 0 2px 10px rgba(0,0,0,0.05)'
+                  }}>
+                    <p className="hint" style={{ marginBottom: '15px', color: '#1a56db', fontWeight: '700', fontSize: '13px' }}>
+                      ☑ එකට වඩා තෝරා ගත හැකිය · ஒன்றுக்கு மேலானவற்றை தேர்வு செய்யலாம் · You may select multiple
+                    </p>
+                    <DisabilityCheckboxGroup
+                      selected={personData.disability || []}
+                      onChange={handleDisabilityToggle}
+                      options={DISABILITY_OPTIONS}
+                    />
+                  </div>
+                )}
+
+                {(personData.disability || []).includes('Other') && (
+                  <input type="text" name="disabilityOther" value={personData.idType==='Other' ? personData.idTypeOther : personData.disabilityOther} onChange={handlePersonChange}
+                    style={styles.inpOther} maxLength={100}
+                    placeholder="ආබාධතා වර්ගය සඳහන් කරන්න / இயலாமை வகையை குறிப்பிடவும் / Specify disability type..."
+                    autoComplete="off"/>
+                )}
+                {(personData.disability || []).length > 0 && (
+                  <p className="hint" style={{ color: '#166534', marginTop: '10px', fontWeight: '700', fontSize: '13px' }}>
+                    ✅ තෝරාගත් / தேர்ந்தெடுக்கப்பட்டவை / Selected ({(personData.disability || []).length}): {(personData.disability || []).join(' · ')}
+                  </p>
+                )}
+              </div>
+            </F>
+
+            <F si="කැමති ක්ෂේත්‍රය" ta="விரும்பும் பணித் துறை" en="Preferred Field of Work">
+              <div>
+                <button type="button" onClick={() => setShowPersonFields(!showPersonFields)} style={styles.toggleBtn}>
+                  <span>📍 ක්ෂේත්‍ර තෝරන්න / துறைகளைத் தேர்ந்தெடுக்கவும் / Select Fields</span>
+                  <span style={{ fontSize: '13px' }}>{showPersonFields ? '▲' : '▼'}</span>
+                </button>
+
+                {showPersonFields && (
+                  <div style={{
+                    background: '#fff',
+                    padding: '24px',
+                    borderRadius: '16px',
+                    border: '1.5px solid #e5e7eb',
+                    marginBottom: '20px',
+                    boxShadow: 'inset 0 2px 10px rgba(0,0,0,0.05)'
+                  }}>
+                    <p className="hint" style={{ marginBottom: '15px', color: '#1a56db', fontWeight: '700', fontSize: '13px' }}>
+                      ☑ එකට වඩා තෝරා ගත හැකිය · ஒன்றுக்கு மேலானவற்றை தேர்வு செய்யலாம் · You may select multiple
+                    </p>
+                    <DisabilityCheckboxGroup
+                      selected={personData.field || []}
+                      onChange={handleFieldToggle}
+                      options={FIELD_OPTIONS}
+                    />
+                  </div>
+                )}
+
+                {(personData.field || []).includes('Other') && (
+                  <input type="text" name="fieldOther" value={personData.fieldOther} onChange={handlePersonChange}
+                    style={styles.inpOther} maxLength={100}
+                    placeholder="ක්ෂේත්‍රය සඳහන් කරන්න / துறையைக் குறிப்பிடவும் / Specify field..."
+                    autoComplete="off"/>
+                )}
+                {(personData.field || []).length > 0 && (
+                  <p className="hint" style={{ color: '#166534', marginTop: '10px', fontWeight: '700', fontSize: '13px' }}>
+                    ✅ තෝරාගත් / தேர்ந்தெடுக்கப்பட்டவை / Selected ({(personData.field || []).length}): {(personData.field || []).join(' · ')}
+                  </p>
+                )}
+              </div>
+            </F>
+
+            <hr style={styles.divider}/>
+            <p style={styles.sectionTitle}>🤝 භාරකරුගේ තොරතුරු · பராமரிப்பாளர் தகவல்கள் · Guardian Details</p>
+            <F si="භාරකරුගේ නම" ta="பராமரிப்பாளர் பெயர்" en="Guardianr Name">
+              <input type="text" name="caretakerName" value={personData.caretakerName} onChange={handlePersonChange} style={styles.inp} maxLength={100} autoComplete="off"/>
+            </F>
+            <F si="භාරකරුගේ දුරකථන අංකය" ta="பராமரிப்பாளர் தொலைபேசி எண்" en="Guardian Mobile Number">
+              <input type="tel" name="caretakerMobile" value={personData.caretakerMobile} onChange={handlePersonChange} style={styles.inp} maxLength={15} placeholder="0XX XXX XXXX" autoComplete="off"/>
+            </F>
+          </>)}
+
+          {/* SUBMIT */}
+          <div style={styles.submitContainer}>
+            <button type="button" onClick={handleSubmit} disabled={uploading||!complete} className="sbtn"
+              style={{...styles.submitBtn,...((uploading||!complete)?styles.submitBtnDisabled:{})}}>
+              {uploading
+                ? <span>ඉදිරිපත් කරමින් · சமர்ப்பிக்கிறது · Submitting...</span>
+                : <><Send style={{width:18,height:18}}/><span>ඉදිරිපත් කරන්න · சமர்ப்பிக்கவும் · Submit</span></>}
             </button>
+            {!complete && !uploading && (
+              <p style={styles.warningText}>
+                කරුණාකර සියලු අවශ්‍ය ක්ෂේත්‍ර (*) පුරවන්න<br/>
+                தேவையான அனைத்து புலங்களையும் (*) நிரப்பவும்<br/>
+                Please fill all required fields (*)
+              </p>
+            )}
           </div>
 
           {message.text && (
-            <div style={{
-              ...styles.message,
-              ...(message.type === 'success' ? styles.messageSuccess : styles.messageError),
-              marginTop: '24px'
-            }}>
-              {message.text}
+            <div style={{...styles.message,...(message.type==='success'?styles.msgSuccess:styles.msgError)}}>
+              {message.text.split('\n').map((line,i)=><div key={i}>{line}</div>)}
             </div>
           )}
-        </form>
+        </div>
       </div>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    minHeight: '100vh',
-    background: 'linear-gradient(to bottom right, #EFF6FF, #E0E7FF)',
-    padding: '32px 16px',
-    fontFamily: '"Noto Sans Sinhala", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
-  },
-  formCard: {
-    maxWidth: '1200px',
-    margin: '0 auto',
-    backgroundColor: '#ffffff',
-    borderRadius: '8px',
-    boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-    padding: '32px'
-  },
-  header: {
-    borderBottom: '4px solid #4F46E5',
-    paddingBottom: '16px',
-    marginBottom: '32px'
-  },
-  title: {
-    fontSize: '30px',
-    fontWeight: 'bold',
-    color: '#1F2937',
-    textAlign: 'center',
-    margin: '0'
-  },
-  subtitle: {
-    color: '#6B7280',
-    textAlign: 'center',
-    marginTop: '8px'
-  },
-  message: {
-    padding: '16px',
-    borderRadius: '8px',
-    textAlign: 'center' 
-  },
-  messageSuccess: {
-    backgroundColor: '#F0FDF4',
-    border: '1px solid #BBF7D0',
-    color: '#166534'
-  },
-  messageError: {
-    backgroundColor: '#FEF2F2',
-    border: '1px solid #FECACA',
-    color: '#991B1B'
-  },
-  mainFieldsContainer: {
-    backgroundColor: '#EEF2FF',
-    borderRadius: '8px',
-    padding: '24px',
-    marginBottom: '32px'
-  },
-  sectionTitle: {
-    fontSize: '20px',
-    fontWeight: '600',
-    color: '#312E81',
-    marginBottom: '16px'
-  },
-  gridThree: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-    gap: '24px'
-  },
-  gridTwo: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-    gap: '16px'
-  },
-  fieldGroup: {
-    display: 'flex',
-    flexDirection: 'column'
-  },
-  label: {
-    display: 'block',
-    fontSize: '14px',
-    fontWeight: '500',
-    color: '#374151',
-    marginBottom: '8px'
-  },
-  input: {
-    width: '100%',
-    padding: '10px 16px',
-    border: '1px solid #D1D5DB',
-    borderRadius: '8px',
-    fontSize: '14px',
-    outline: 'none',
-    transition: 'all 0.2s',
-    boxSizing: 'border-box'
-  },
-  textarea: {
-    width: '100%',
-    padding: '10px 16px',
-    border: '1px solid #D1D5DB',
-    borderRadius: '8px',
-    fontSize: '14px',
-    outline: 'none',
-    resize: 'vertical',
-    fontFamily: 'inherit',
-    boxSizing: 'border-box'
-  },
-  fileSection: {
-    marginTop: '24px'
-  },
-  fileInputWrapper: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '16px',
-    flexWrap: 'wrap'
-  },
-  fileLabel: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '8px',
-    padding: '10px 16px',
-    backgroundColor: '#ffffff',
-    border: '2px dashed #D1D5DB',
-    borderRadius: '8px',
-    cursor: 'pointer',
-    transition: 'border-color 0.2s'
-  },
-  fileText: {
-    fontSize: '14px',
-    color: '#6B7280'
-  },
-  hiddenInput: {
-    display: 'none'
-  },
-  removeFileBtn: {
-    color: '#DC2626',
-    fontSize: '14px',
-    border: 'none',
-    background: 'none',
-    cursor: 'pointer',
-    textDecoration: 'underline'
-  },
-  helpText: {
-    fontSize: '12px',
-    color: '#6B7280',
-    marginTop: '4px'
-  },
-  projectsSection: {
-    marginBottom: '32px'
-  },
-  projectsHeader: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: '16px',
-    flexWrap: 'wrap',
-    gap: '16px'
-  },
-  projectsTitle: {
-    fontSize: '20px',
-    fontWeight: '600',
-    color: '#1F2937',
-    margin: '0'
-  },
-  addProjectBtn: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '8px',
-    padding: '10px 16px',
-    backgroundColor: '#16A34A',
-    color: '#ffffff',
-    border: 'none',
-    borderRadius: '8px',
-    fontSize: '14px',
-    fontWeight: '500',
-    cursor: 'pointer',
-    transition: 'background-color 0.2s'
-  },
-  projectCard: {
-    backgroundColor: '#F9FAFB',
-    borderLeft: '4px solid #4F46E5',
-    borderRadius: '8px',
-    padding: '24px',
-    marginBottom: '16px'
-  },
-  projectHeader: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: '16px',
-    flexWrap: 'wrap',
-    gap: '8px'
-  },
-  projectNumber: {
-    fontSize: '18px',
-    fontWeight: '600',
-    color: '#374151',
-    margin: '0'
-  },
-  removeProjectBtn: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '8px',
-    padding: '6px 12px',
-    color: '#DC2626',
-    backgroundColor: 'transparent',
-    border: 'none',
-    borderRadius: '6px',
-    cursor: 'pointer',
-    fontSize: '14px',
-    transition: 'background-color 0.2s'
-  },
-  submitContainer: {
-    display: 'flex',
-    justifyContent: 'center'
-  },
-  submitBtn: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '8px',
-    padding: '14px 32px',
-    backgroundColor: '#4F46E5',
-    color: '#ffffff',
-    border: 'none',
-    borderRadius: '8px',
-    fontSize: '18px',
-    fontWeight: '600',
-    cursor: 'pointer',
-    transition: 'background-color 0.2s'
-  },
-  submitBtnDisabled: {
-    backgroundColor: '#9CA3AF',
-    cursor: 'not-allowed'
-  },
-  icon: {
-    width: '20px',
-    height: '20px'
-  },
-  iconSmall: {
-    width: '16px',
-    height: '16px'
-  },
-  spinner: {
-    border: '2px solid rgba(255, 255, 255, 0.3)',
-    borderTop: '2px solid #ffffff',
-    borderRadius: '50%',
-    width: '20px',
-    height: '20px',
-    animation: 'spin 1s linear infinite'
-  }
-};
-
-export default ProjectForm;
+}
