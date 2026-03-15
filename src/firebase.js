@@ -1,8 +1,5 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { getAnalytics } from "firebase/analytics";
-
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCcPgSaXgo_uNyBQuyB7WC4Xuqknn4BFX4",
   authDomain: "nspd-85969.firebaseapp.com",
@@ -13,9 +10,8 @@ const firebaseConfig = {
   measurementId: "G-SJP0DEG1MF"
 };
 
-// Initialize Firebase
+// Initialize Firebases
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const analytics = getAnalytics(app);
 
 export { db };
