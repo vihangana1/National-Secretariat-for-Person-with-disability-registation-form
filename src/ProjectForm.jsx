@@ -118,18 +118,26 @@ const FIELD_OPTIONS = [
 
 
 const base = {
-  width: '100%', padding: '10px 14px', border: '1.5px solid #D1D5DB',
-  borderRadius: '8px', fontSize: '14px', color: '#1f2937', background: '#fff',
-  boxSizing: 'border-box', transition: 'border-color 0.2s, box-shadow 0.2s',
-  fontFamily: 'inherit', display: 'block',
+  width: '100%', 
+  padding: '14px 18px', 
+  border: '2.5px solid #F3F4F6',
+  borderRadius: '16px', 
+  fontSize: '15px', 
+  color: '#111827', 
+  background: '#fff',
+  boxSizing: 'border-box', 
+  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+  fontFamily: 'inherit', 
+  display: 'block',
+  outline: 'none'
 };
 
 const styles = {
   container: { 
     minHeight: '100vh', 
-    background: 'radial-gradient(circle at top left, #fffcfc 0%, #fff5f5 100%)', 
+    background: 'radial-gradient(circle at top left, #ffffff 0%, #fff0f0 100%)', 
     padding: '40px 16px', 
-    fontFamily: '"Noto Sans Sinhala", "Noto Sans Tamil", -apple-system, sans-serif',
+    fontFamily: '"Outfit", "Noto Sans Sinhala", "Noto Sans Tamil", -apple-system, sans-serif',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center'
@@ -139,16 +147,16 @@ const styles = {
     width: '100%',
     margin: '0 auto', 
     background: 'rgba(255, 255, 255, 0.98)', 
-    borderRadius: '24px', 
-    boxShadow: '0 25px 50px -12px rgba(128, 0, 0, 0.1), 0 0 20px rgba(128, 0, 0, 0.05)', 
+    borderRadius: '32px', 
+    boxShadow: '0 40px 100px -20px rgba(124, 0, 0, 0.12), 0 0 40px rgba(0, 0, 0, 0.02)', 
     overflow: 'hidden',
-    border: '1px solid rgba(128, 0, 0, 0.05)',
-    backdropFilter: 'blur(10px)'
+    border: '1px solid rgba(124, 0, 0, 0.08)',
+    backdropFilter: 'blur(20px)'
   },
   header: { 
     position: 'relative',
-    background: '#600000', 
-    padding: '160px 32px 80px', 
+    background: '#7c0000', 
+    padding: '160px 48px 80px', 
     textAlign: 'center',
     overflow: 'hidden',
     display: 'flex',
@@ -190,121 +198,120 @@ const styles = {
   },
   headerBadge: { 
     display: 'inline-block', 
-    background: 'rgba(255,255,255,0.15)', 
-    backdropFilter: 'blur(4px)',
+    background: 'rgba(255,255,255,0.12)', 
+    backdropFilter: 'blur(8px)',
     color: '#fff', 
-    borderRadius: '20px', 
-    padding: '6px 20px', 
-    fontSize: '13px', 
-    fontWeight: '600', 
-    marginBottom: '16px',
-    border: '1px solid rgba(255,255,255,0.2)',
+    borderRadius: '30px', 
+    padding: '8px 24px', 
+    fontSize: '12px', 
+    fontWeight: '700', 
+    marginBottom: '20px',
+    border: '1px solid rgba(255,255,255,0.25)',
     textTransform: 'uppercase',
-    letterSpacing: '1px'
+    letterSpacing: '2px'
   },
-  title:   { color: '#fff', fontSize: 'clamp(24px,6vw,32px)', fontWeight: '800', margin: '0 0 8px', lineHeight: 1.2, textShadow: '0 2px 4px rgba(0,0,0,0.3)' },
-  titleTa: { color: 'rgba(255,255,255,0.9)', fontSize: 'clamp(16px,4vw,20px)', fontWeight: '500', margin: '0 0 4px' },
-  titleEn: { color: 'rgba(255,255,255,0.7)', fontSize: '15px', fontWeight: '400', margin: 0 },
-  noticeHighlight: { color: '#FCD34D', fontWeight: '700' },
+  title:   { color: '#fff', fontSize: 'clamp(28px,7vw,42px)', fontWeight: '900', margin: '0 0 12px', lineHeight: 1.1, textShadow: '0 4px 12px rgba(0,0,0,0.4)', letterSpacing: '-0.5px' },
+  titleTa: { color: 'rgba(255,255,255,0.95)', fontSize: 'clamp(18px,4.5vw,22px)', fontWeight: '600', margin: '0 0 6px' },
+  titleEn: { color: 'rgba(255,255,255,0.8)', fontSize: '16px', fontWeight: '500', margin: 0, textTransform: 'uppercase', letterSpacing: '1px' },
+  noticeHighlight: { color: '#FFD700', fontWeight: '800' },
   tabContainer: { 
     display: 'flex', 
-    background: '#fff', 
-    borderRadius: '16px', 
-    padding: '8px', 
-    marginTop: '-40px', 
-    marginBottom: '20px',
-    gap: '12px',
-    maxWidth: '560px',
-    width: '100%',
+    background: 'rgba(255, 255, 255, 0.9)', 
+    borderRadius: '20px', 
+    padding: '6px', 
+    marginTop: '-45px', 
+    marginBottom: '32px',
+    gap: '8px',
+    maxWidth: '620px',
+    width: '90%',
     marginLeft: 'auto',
     marginRight: 'auto',
-    border: '1px solid rgba(128, 0, 0, 0.15)',
-    boxShadow: '0 10px 25px rgba(128, 0, 0, 0.1)',
+    border: '1px solid rgba(124, 0, 0, 0.1)',
+    boxShadow: '0 20px 40px rgba(124, 0, 0, 0.12)',
     position: 'relative',
     zIndex: 10
   },
   tab: { 
     flex: 1, 
-    padding: '12px 8px', 
-    borderRadius: '12px', 
+    padding: '14px 12px', 
+    borderRadius: '16px', 
     border: 'none', 
     cursor: 'pointer', 
     fontSize: '14px', 
-    fontWeight: '700', 
-    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)', 
+    fontWeight: '800', 
+    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)', 
     fontFamily: 'inherit', 
     lineHeight: 1.4,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: '4px',
+    gap: '6px',
     textAlign: 'center'
   },
   tabActive:   { 
-    background: '#fff', 
-    color: '#800000', 
-    boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
-    transform: 'translateY(-1px)',
-    border: '2px solid #800000'
+    background: 'linear-gradient(135deg, #7c0000 0%, #5a0000 100%)', 
+    color: '#fff', 
+    boxShadow: '0 8px 25px rgba(124, 0, 0, 0.3)',
+    transform: 'translateY(-2px)',
   },
   tabInactive: { 
-    background: '#f9fafb', 
-    color: '#6b7280',
-    border: '1px solid #e5e7eb',
+    background: 'transparent', 
+    color: '#6B7280',
+    border: '1px solid transparent',
     '&:hover': {
-      background: '#f3f4f6',
-      color: '#374151'
+      background: 'rgba(124, 0, 0, 0.05)',
+      color: '#7c0000'
     }
   },
   form: { padding: '40px 48px' },
   fieldRow: { display: 'flex', alignItems: 'flex-start', gap: '24px', marginBottom: '24px', flexWrap: 'wrap' },
-  label: { width: '240px', minWidth: '200px', paddingTop: '10px', fontSize: '14px', fontWeight: '600', color: '#374151', lineHeight: 1.6, flexShrink: 0 },
+  label: { width: '280px', minWidth: '240px', paddingTop: '12px', fontSize: '15px', fontWeight: '600', color: '#111827', lineHeight: 1.5, flexShrink: 0 },
   inputWrap: { flex: 1, minWidth: '300px' },
-  sel: { ...base, WebkitAppearance: 'none', appearance: 'none', cursor: 'pointer', backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 16px center', paddingRight: '40px', border: '1.5px solid #E5E7EB', '&:focus': { borderColor: '#800000', boxShadow: '0 0 0 4px rgba(128, 0, 0, 0.1)' } },
-  inp: { ...base, userSelect: 'text', WebkitUserSelect: 'text', caretColor: '#800000', border: '1.5px solid #E5E7EB' },
-  inpOther: { ...base, marginTop: '8px', borderColor: '#F59E0B', background: '#FFFBEB', userSelect: 'text', WebkitUserSelect: 'text', caretColor: '#800000' },
-  ta:  { ...base, minHeight: '100px', resize: 'vertical', lineHeight: '1.6', userSelect: 'text', WebkitUserSelect: 'text', caretColor: '#800000', border: '1.5px solid #E5E7EB' },
-  radioGroup: { display: 'flex', gap: '24px', paddingTop: '8px', flexWrap: 'wrap' },
-  radioLabel: { display: 'flex', alignItems: 'flex-start', gap: '10px', cursor: 'pointer', padding: '10px 16px', borderRadius: '10px', transition: 'all 0.2s', border: '1.5px solid transparent', background: '#fffafa' },
-  radioInput: { width: '20px', height: '20px', accentColor: '#800000', cursor: 'pointer', marginTop: '2px', flexShrink: 0 },
-  submitContainer: { marginTop: '40px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' },
-  submitBtn: { display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', padding: '16px 48px', background: 'linear-gradient(135deg, #800000 0%, #600000 100%)', color: '#fff', border: 'none', borderRadius: '14px', fontSize: '16px', fontWeight: '700', cursor: 'pointer', width: '100%', maxWidth: '480px', transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)', fontFamily: 'inherit', boxShadow: '0 10px 15px -3px rgba(128, 0, 0, 0.3)' },
-  submitBtnDisabled: { background: '#D1D5DB', cursor: 'not-allowed', boxShadow: 'none' },
+  sel: { ...base, WebkitAppearance: 'none', appearance: 'none', cursor: 'pointer', backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 16px center', paddingRight: '40px', border: '2.5px solid #F3F4F6', '&:focus': { borderColor: '#7c0000', boxShadow: '0 0 0 5px rgba(124, 0, 0, 0.1)' } },
+  inp: { ...base, userSelect: 'text', WebkitUserSelect: 'text', caretColor: '#7c0000', border: '2px solid #F3F4F6' },
+  inpOther: { ...base, marginTop: '12px', borderColor: '#FFD700', background: '#FFFEF5', userSelect: 'text', WebkitUserSelect: 'text', caretColor: '#7c0000', borderRadius: '14px' },
+  ta:  { ...base, minHeight: '120px', resize: 'vertical', lineHeight: '1.7', userSelect: 'text', WebkitUserSelect: 'text', caretColor: '#7c0000', border: '2px solid #F3F4F6', borderRadius: '16px' },
+  radioGroup: { display: 'flex', gap: '20px', paddingTop: '10px', flexWrap: 'wrap' },
+  radioLabel: { display: 'flex', alignItems: 'flex-start', gap: '12px', cursor: 'pointer', padding: '12px 20px', borderRadius: '16px', transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)', border: '2px solid #F3F4F6', background: '#fff' },
+  radioInput: { width: '22px', height: '22px', accentColor: '#7c0000', cursor: 'pointer', marginTop: '1px', flexShrink: 0 },
+  submitContainer: { marginTop: '56px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' },
+  submitBtn: { display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '14px', padding: '20px 64px', background: 'linear-gradient(135deg, #7c0000 0%, #5a0000 100%)', color: '#fff', border: 'none', borderRadius: '18px', fontSize: '18px', fontWeight: '800', cursor: 'pointer', width: '100%', maxWidth: '520px', transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)', fontFamily: 'inherit', boxShadow: '0 15px 30px rgba(124, 0, 0, 0.3)', letterSpacing: '0.5px' },
+  submitBtnDisabled: { background: '#E5E7EB', cursor: 'not-allowed', boxShadow: 'none', color: '#9CA3AF' },
   warningText: { fontSize: '13px', color: '#B91C1C', textAlign: 'center', margin: 0, lineHeight: 1.8, fontWeight: '500' },
   message: { padding: '20px 24px', borderRadius: '14px', textAlign: 'center', marginTop: '24px', fontSize: '15px', lineHeight: 1.7, fontWeight: '600' },
   msgSuccess: { background: '#F0FDF4', border: '1.5px solid #BBF7D0', color: '#15803d', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)' },
   msgError:   { background: '#FEF2F2', border: '1.5px solid #FECACA', color: '#b91c1c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)' },
-  divider: { border: 'none', borderTop: '2px solid #F9FAFB', margin: '32px 0' },
-  sectionTitle: { fontSize: '16px', fontWeight: '800', color: '#800000', marginBottom: '20px', marginTop: '8px', lineHeight: 1.5, display: 'flex', alignItems: 'center', gap: '10px' },
-  checkboxGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '12px', paddingTop: '8px' },
-  checkboxLabel: { display: 'flex', alignItems: 'flex-start', gap: '12px', padding: '12px 16px', border: '1.5px solid #E5E7EB', borderRadius: '12px', cursor: 'pointer', transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)', background: '#fff' },
-  checkboxLabelChecked: { border: '1.5px solid #800000', background: '#FFF5F5', boxShadow: '0 4px 12px rgba(128, 0, 0, 0.08)' },
-  checkboxInput: { width: '18px', height: '18px', accentColor: '#800000', cursor: 'pointer', marginTop: '3px', flexShrink: 0 },
+  divider: { border: 'none', borderTop: '2px solid #F3F4F6', margin: '48px 0' },
+  sectionTitle: { fontSize: '18px', fontWeight: '900', color: '#7c0000', marginBottom: '24px', marginTop: '12px', lineHeight: 1.4, display: 'flex', alignItems: 'center', gap: '12px', letterSpacing: '0.2px' },
+  checkboxGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '16px', paddingTop: '12px' },
+  checkboxLabel: { display: 'flex', alignItems: 'flex-start', gap: '14px', padding: '16px 20px', border: '2px solid #F3F4F6', borderRadius: '16px', cursor: 'pointer', transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)', background: '#fff' },
+  checkboxLabelChecked: { border: '2px solid #7c0000', background: '#FFFDFD', boxShadow: '0 10px 20px rgba(124, 0, 0, 0.08)', transform: 'translateY(-1px)' },
+  checkboxInput: { width: '20px', height: '20px', accentColor: '#7c0000', cursor: 'pointer', marginTop: '4px', flexShrink: 0 },
   toggleBtn: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
     width: '100%',
-    padding: '14px 20px',
+    padding: '16px 24px',
     background: '#fff',
-    border: '2px solid #800000',
-    borderRadius: '12px',
-    color: '#800000',
-    fontWeight: '700',
-    fontSize: '15px',
+    border: '2.5px solid #7c0000',
+    borderRadius: '16px',
+    color: '#7c0000',
+    fontWeight: '800',
+    fontSize: '16px',
     cursor: 'pointer',
-    transition: 'all 0.3s ease',
-    marginBottom: '16px',
-    boxShadow: '0 4px 15px rgba(128, 0, 0, 0.08)'
+    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+    marginBottom: '20px',
+    boxShadow: '0 8px 20px rgba(124, 0, 0, 0.08)'
   },
 };
 
-const L = ({ si, ta, en }) => (
-  <span>
-    <span style={{ display: 'block', color: '#800000', fontSize: '13px', fontWeight: '700' }}>{si}</span>
-    <span style={{ display: 'block', color: '#600000', fontSize: '12px' }}>{ta}</span>
-    <span style={{ display: 'block', color: '#6B7280', fontSize: '11px' }}>{en}</span>
+const L = ({ si, ta, en, color }) => (
+  <span style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+    <span style={{ display: 'block', color: color || '#7c0000', fontSize: '14px', fontWeight: '800', letterSpacing: '0.2px' }}>{si}</span>
+    <span style={{ display: 'block', color: color || '#5a0000', fontSize: '13px', fontWeight: '500', opacity: color ? 1 : 0.9 }}>{ta}</span>
+    <span style={{ display: 'block', color: color || '#6B7280', fontSize: '11px', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.5px', marginTop: '1px' }}>{en}</span>
   </span>
 );
 
@@ -528,12 +535,10 @@ export default function CombinedForm() {
         </div>
         <div style={styles.tabContainer}>
           <button style={{...styles.tab,...(!isCompany?styles.tabActive:styles.tabInactive)}} onClick={()=>switchTab('person')}>
-            <div>♿ රැකියා අපේක්ෂිත ආබාධ සහිත තැනැත්තන් ලියාපදිංචි කිරීමේ පෝරමය</div>
-            <div style={{fontSize:'11px', opacity: 0.85, fontWeight: '500'}}>மாற்றுத்திறனாளி குடிமக்கள் பதிவு படிவம் · Disabled Persons Registration Form</div>
+            <div><L si="♿ රැකියා අපේක්ෂිත ආබාධ සහිත තැනැත්තන් ලියාපදිංචි කිරීමේ පෝරමය" ta="மாற்றுத்திறனாளி குடிமக்கள் பதிவு படிவம்" en="Persons with Disabilities Registration Form" color={!isCompany ? '#fff' : undefined} /></div>
           </button>
           <button style={{...styles.tab,...(isCompany?styles.tabActive:styles.tabInactive)}} onClick={()=>switchTab('company')}>
-            <div>🏢 ආයතන ලියාපදිංචි කිරීමේ පෝරමය</div>
-            <div style={{fontSize:'11px', opacity: 0.85, fontWeight: '500'}}>நிறுவன பதிவு படிவம் · Company Registration Form</div>
+            <div><L si="🏢 සේවා යෝජකයින් ලියාපදිංචි කිරීමේ පෝරමය" ta="நிறுவன பதிவு படிவம்" en="Company Registration Form" color={isCompany ? '#fff' : undefined} /></div>
           </button>
         </div>
 
@@ -558,7 +563,7 @@ export default function CombinedForm() {
               </div>
             </div>
 
-            <p style={styles.sectionTitle}>📍 ස්ථාන තොරතුරු · இட விவரங்கள் · Location Details</p>
+            <p style={styles.sectionTitle}>📍 ස්ථානීය  තොරතුරු · இட விவரங்கள் · Location Details</p>
             <F si="පළාත *" ta="மாகாணம் *" en="Province *">
               <select name="province" value={companyData.province} onChange={handleCompanyChange} style={styles.sel}>
                 <option value="">-- පළාත / மாகாணம் / Province --</option>
@@ -581,16 +586,20 @@ export default function CombinedForm() {
             </F>
 
             <hr style={styles.divider}/>
-            <p style={styles.sectionTitle}>🏢 කාර්යාල තොරතුරු · நிறுவன தகவல்கள் · Office Information</p>
-            <F si="ආයතනයේ නාමය *" ta="நிறுவனத்தின் பெயர் *" en="Office / Company Name *">
+            <p style={styles.sectionTitle}>🏢 කාර්යාලීය  තොරතුරු · நிறுவன தகவல்கள் · Office Information</p>
+            <F si="ආයතනයේ නම *" ta="நிறுவனத்தின் பெயர் *" en="Office / Company Name *">
               <input type="text" name="officeName" value={companyData.officeName} onChange={handleCompanyChange} style={styles.inp} maxLength={100} autoComplete="off"/>
               <p className="hint">{companyData.officeName.length}/100</p>
             </F>
+            <F si="ලිපිනය" ta="முழு முகவரி" en="Address">
+              <textarea name="address" value={personData.address} onChange={handlePersonChange} style={styles.ta} rows={3} maxLength={250} autoComplete="off"/>
+              <p className="hint">{personData.address.length}/250</p>
+            </F>
+            <F si="ආයතනයේ  දුරකථනය අංකය *" ta="தொலைபேசி *" en="Contact Number *">
+              <input type="tel" name="contact" value={companyData.contact} onChange={handleCompanyChange} style={styles.inp} maxLength={15} placeholder="0XX XXX XXXX" autoComplete="off"/>
+            </F>
             <F si="සම්බන්ධ කල හැකි නිලධාරියාගේ නම" ta="தொடர்பு அதிகாரி பெயர்" en="Contact Officer Name">
               <input type="text" name="officerName" value={companyData.officerName} onChange={handleCompanyChange} style={styles.inp} maxLength={100} autoComplete="off"/>
-            </F>
-            <F si="දුරකථනය අංකය *" ta="தொலைபேசி *" en="Contact Number *">
-              <input type="tel" name="contact" value={companyData.contact} onChange={handleCompanyChange} style={styles.inp} maxLength={15} placeholder="0XX XXX XXXX" autoComplete="off"/>
             </F>
             <F si="WhatsApp අංකය" ta="வாட்ஸ்அப் எண்" en="WhatsApp Number">
               <input type="tel" name="whatsapp" value={companyData.whatsapp} onChange={handleCompanyChange} style={styles.inp} maxLength={15} placeholder="0XX XXX XXXX" autoComplete="off"/>
@@ -622,15 +631,17 @@ export default function CombinedForm() {
             </F>
 
             <hr style={styles.divider}/>
-            <p style={styles.sectionTitle}>💼 රැකියා තොරතුරු · வேலை விவரங்கள் · Employment Details</p>
-            <F si="රැකියා පුරප්පාඩු තිබේද? *" ta="வேலைவாய்ப்பு உள்ளதா? *" en="Do you have vacancies? *">
+            <p style={styles.sectionTitle}>💼 <L si="පුරප්පාඩු පිලිබඳ තොරතුරු" ta="வேலை விவரங்கள்" en="Employment Details" /></p>
+            <F si="රැකියා පුරප්පාඩු  *" ta="வேலைவாய்ப்பு உள்ளதா? *" en="Do you have vacancies? *">
               <RadioGroup name="hasJob" value={companyData.hasJob} onChange={handleCompanyChange} options={[
-                {value:'Yes',si:'ඔව්',ta:'ஆம்',en:'Yes'},
+                {value:'Yes',si:'ඇත ',ta:'ஆம்',en:'Yes'},
                 {value:'No', si:'නැත',ta:'இல்லை',en:'No'},
               ]}/>
             </F>
 
-            {/* ✅ FIX 2: Vacancy description — text box only, no dropdown */}
+
+            {companyData.hasJob === 'Yes' && (
+              <>
             <F si="පුරප්පාඩු මොනවාද" ta="காலியிட விவரம்" en="What are the Vacancies?">
               <textarea
                 name="vacancyDescription"
@@ -646,12 +657,15 @@ export default function CombinedForm() {
             </F>
 
             <F si="පුරප්පාඩු ගණන" ta="காலியிடங்கள் எண்ணிக்கை" en="Number of Vacancies">
-              <input type="number" name="vacancies" value={companyData.vacancies} onChange={handleCompanyChange} style={styles.inp} min="0" max="9999" placeholder="0" autoComplete="off"/>
+              <input type="text" name="vacancies" value={companyData.vacancies} onChange={handleCompanyChange} style={styles.inp} maxLength={100}  autoComplete="off"/>
+
             </F>
+              </>
+            )}
 
             <hr style={styles.divider}/>
-            <p style={styles.sectionTitle}>👥 රැකියා ලාභී පැතිකඩ · பணியாளர் விவரம் · Employee Profile</p>
-            <F si="වයස් කාණ්ඩය" ta="வயது பிரிவு" en="Age Category">
+            
+            <F si="අපේක්ෂිත වයස් කාණ්ඩය" ta="வயது பிரிவு" en="Age Category">
               <select name="ageCategory" value={companyData.ageCategory} onChange={handleCompanyChange} style={styles.sel}>
                 <option value="">-- තෝරන්න / தேர்வு செய்யவும் / Select --</option>
                 <option value="18-30">18 – 30</option>
@@ -677,7 +691,7 @@ export default function CombinedForm() {
             <F si="පිළිගත හැකි ආබාධතා වර්ග" ta="ஏற்கக்கூடிய இயலாமை வகைகள்" en="Types of Disability Accepted">
               <div>
                 <button type="button" onClick={() => setShowCompanyDisabilities(!showCompanyDisabilities)} style={styles.toggleBtn}>
-                  <span>📍 ආබාධිත වර්ග තෝරන්න / இயலாமை வகைகளைத் தேர்ந்தெடுக்கவும் / Select Disability Types</span>
+                  <span>📍 ආබාධිතතා වර්ග තෝරන්න / இயலாமை வகைகளைத் தேர்ந்தெடுக்கவும் / Select Disability Types</span>
                   <span style={{ fontSize: '18px' }}>{showCompanyDisabilities ? '▲' : '▼'}</span>
                 </button>
 
@@ -731,43 +745,43 @@ export default function CombinedForm() {
             </F>
 
             <hr style={styles.divider}/>
-            <p style={styles.sectionTitle}>📋 දීමනා, පහසුකම් & පුහුණු · சலுகைகள், வசதிகள் & பயிற்சி · Benefits, Facilities & Training</p>
+            <p style={styles.sectionTitle}>📋 <L si="දීමනා, පහසුකම් & පුහුණු" ta="சலுகைகள், வசதிகள் & பயிற்சி" en="Benefits, Facilities & Training" /></p>
             <F si="ගෙවිය හැකි අවම වැටුප" ta="ஊதியம்" en="Pay / Salary">
               <input type="text" name="pay" value={companyData.pay} onChange={handleCompanyChange} style={styles.inp} maxLength={50} placeholder="Rs. XXXXX" autoComplete="off"/>
             </F>
-            <F si="EPF / ETF ගෙවනවද? *" ta="ஈபிඑஃப் / ஈடிஎஃப் *" en="EPF / ETF *">
+            <F si="EPF / ETF  *" ta="ஈபிඑஃப் / ஈடிஎஃப் *" en="EPF / ETF *">
               <RadioGroup name="epfEtf" value={companyData.epfEtf} onChange={handleCompanyChange} options={[
-                {value:'Yes',si:'ඔව්',ta:'ஆம்',en:'Yes'},
-                {value:'No', si:'නැත',ta:'இல்லை',en:'No'},
+                {value:'Yes',si:'ගෙවනු ලැබේ ',ta:'ஆம்',en:'Yes'},
+                {value:'No', si:'ගෙවනු නොලැබේ ',ta:'இல்லை',en:'No'},
               ]}/>
             </F>
-            <F si="පුහුනු වැඩසටහනක් පවත්වනවාද? *" ta="பயிற்சி திட்டம் *" en="Training Programme *">
+            <F si="පෙර පුහුනු වැඩසටහනක්  *" ta="பயிற்சி திட்டம் *" en="Training Programme *">
               <RadioGroup name="hasTrainee" value={companyData.hasTrainee} onChange={handleCompanyChange} options={[
-                {value:'Yes',si:'ඔව්',ta:'ஆம்',en:'Yes'},
-                {value:'No', si:'නැත',ta:'இல்லை',en:'No'},
+                {value:'Yes',si:'පවත්වයි ',ta:'ஆம்',en:'Yes'},
+                {value:'No', si:'නොපවත්වයි ',ta:'இல்லை',en:'No'},
               ]}/>
             </F>
-            <F si="ප්‍රවාහන පහසුකම් සපයනවද?" ta="போக்குவரத்து வசதி" en="Supply Transport">
+            <F si="ප්‍රවාහන පහසුකම්" ta="போக்குவரத்து வசதி" en="Supply Transport">
               <RadioGroup name="supplyTransport" value={companyData.supplyTransport} onChange={handleCompanyChange} options={[
-                {value:'Yes',si:'ඔව්',ta:'ஆம்',en:'Yes'},
-                {value:'No', si:'නැත',ta:'இல்லை',en:'No'},
+                {value:'Yes',si:'සපයනු ලැබේ ',ta:'ஆம்',en:'Yes'},
+                {value:'No', si:'සපයනු නොලැබේ ',ta:'இல்லை',en:'No'},
               ]}/>
             </F>
             {companyData.supplyTransport==='Yes' && (
-              <F si="ප්‍රවාහන සීමාව" ta="போக்குவரத்து வரம்பு" en="Transport Limit">
+              <F si="ප්‍රවාහන පහසුකම් සපයන දුර ප්‍රමාණය" ta="போக்குவரத்து வரம்பு" en="Transport Limit">
                 <input type="text" name="transportLimit" value={companyData.transportLimit} onChange={handleCompanyChange} style={styles.inp} maxLength={100} placeholder="e.g. 20km radius" autoComplete="off"/>
               </F>
             )}
-            <F si="අහාර සපයනවද?" ta="உணவு வசதி" en="Supply Food">
+            <F si="අහාර" ta="உணவு வசதி" en="Supply Food">
               <RadioGroup name="supplyFood" value={companyData.supplyFood} onChange={handleCompanyChange} options={[
-                {value:'Yes',si:'ඔව්',ta:'ஆம்',en:'Yes'},
-                {value:'No', si:'නැත',ta:'இல்லை',en:'No'},
+                {value:'Yes',si:'සපයනු ලැබේ',ta:'ஆம்',en:'Yes'},
+                {value:'No', si:'සපයනු නොලැබේ',ta:'இல்லை',en:'No'},
               ]}/>
             </F>
-            <F si="ඇඳුම් / යූනිෆෝම් සපයනවද?" ta="ஆடை / சீருடை வழங்கல்" en="Supply Clothes / Uniform">
+            <F si="ඇඳුම් / යූනිෆෝම් " ta="ஆடை / சீருடை வழங்கல்" en="Supply Clothes / Uniform">
               <RadioGroup name="supplyClothes" value={companyData.supplyClothes} onChange={handleCompanyChange} options={[
-                {value:'Yes',si:'ඔව්',ta:'ஆම்',en:'Yes'},
-                {value:'No', si:'නැත',ta:'இல்லை',en:'No'},
+                {value:'Yes',si:'සපයනු ලැබේ',ta:'ஆම்',en:'Yes'},
+                {value:'No', si:'සපයනු නොලැබේ',ta:'இல்லை',en:'No'},
               ]}/>
             </F>
           </>)}
@@ -790,7 +804,7 @@ export default function CombinedForm() {
               </div>
             </div>
 
-            <p style={styles.sectionTitle}>📍 ස්ථාන තොරතුරු · இட விவரங்கள் · Location Details</p>
+            <p style={styles.sectionTitle}>📍 <L si="ස්ථානීය තොරතුරු" ta="இட விவரங்கள்" en="Location Details" /></p>
             <F si="පළාත *" ta="மாகாணம் *" en="Province *">
               <select name="province" value={personData.province} onChange={handlePersonChange} style={styles.sel}>
                 <option value="">-- පළාත / மாகாணம் / Province --</option>
@@ -812,11 +826,11 @@ export default function CombinedForm() {
               {!personData.district && <p className="hint">දිස්ත්‍රික්කය තෝරන්න · மாவட்டத்தை தேர்ந்தெடுக்கவும் · Select District first</p>}
             </F>
             <F si="ග්‍රාම නිලධාරි කොට්ඨාශය" ta="கிராம நிர்வாக பிரிவு" en="GN Division">
-              <input type="text" name="gnDivision" value={personData.gnDivision} onChange={handlePersonChange} style={styles.inp} maxLength={100} autoComplete="off"/>
+              <input type="text" name="gnDivision" value={personData.gnDivision} onChange={handlePersonChange} style={styles.inp} maxLength={100} autoComplete="off" placeholder="උදා: 123A / எ.கா: 123A / e.g. 123A"/>
             </F>
 
             <hr style={styles.divider}/>
-            <p style={styles.sectionTitle}>👤 පුද්ගලික තොරතුරු · தனிப்பட்ட தகவல்கள் · Personal Details</p>
+            <p style={styles.sectionTitle}>👤 <L si="පුද්ගලික තොරතුරු" ta="தனிப்பட்ட தகவல்கள்" en="Personal Details" /></p>
             <F si="නම *" ta="பெயர் *" en="Full Name *">
               <input type="text" name="name" value={personData.name} onChange={handlePersonChange} style={styles.inp} maxLength={100} autoComplete="off"/>
               <p className="hint">{personData.name.length}/100</p>
@@ -824,6 +838,15 @@ export default function CombinedForm() {
             <F si="ලිපිනය" ta="முழு முகவரி" en="Address">
               <textarea name="address" value={personData.address} onChange={handlePersonChange} style={styles.ta} rows={3} maxLength={250} autoComplete="off"/>
               <p className="hint">{personData.address.length}/250</p>
+            </F>
+            <F si="දුරකථනය *" ta="தொலைபேசி எண் *" en="Phone Number *">
+              <input type="tel" name="phone" value={personData.phone} onChange={handlePersonChange} style={styles.inp} maxLength={15} placeholder="0XX XXX XXXX" autoComplete="off"/>
+            </F>
+            <F si="උපන් දිනය" ta="பிறந்த திகதி" en="Date of Birth">
+              <input type="date" name="dob" value={personData.dob} onChange={handlePersonChange} style={styles.inp}/>
+            </F>
+            <F si="වයස" ta="வயது" en="Age">
+              <input type="number" name="age" value={personData.age} onChange={handlePersonChange} style={styles.inp} min="0" max="120" placeholder="උදා: 30 / எ.கா: 30 / e.g. 30" autoComplete="off"/>
             </F>
             <F si="ස්ත්‍රී පුරුෂ භාවය" ta="பாலினம்" en="Gender">
               <select name="gender" value={personData.gender} onChange={handlePersonChange} style={styles.sel}>
@@ -833,10 +856,8 @@ export default function CombinedForm() {
                 <option value="Other">වෙනත් / மற்றவை / Other</option>
               </select>
             </F>
-            <F si="වයස" ta="வயது" en="Age">
-              <input type="number" name="age" value={personData.age} onChange={handlePersonChange} style={styles.inp} min="0" max="120" placeholder="e.g. 30" autoComplete="off"/>
-            </F>
-            <F si="භාෂා" ta="மொழி" en="Language">
+            
+            <F si="භාෂාව" ta="மொழி" en="Language">
               <select name="language" value={personData.language} onChange={handlePersonChange} style={styles.sel}>
                 <option value="">-- තෝරන්න / தேர்வு செய்யவும் / Select --</option>
                 <option value="සිංහල">සිංහල / சிங்களம் / Sinhala</option>
@@ -844,7 +865,7 @@ export default function CombinedForm() {
                 <option value="English">English / ஆங்கிலம் / English</option>
               </select>
             </F>
-            <F si="හැදුනුම්පත් අංකය *" ta="அடையாள அட்டை எண் *" en="ID Number *">
+            <F si="හැඳුනුම්පත් අංකය *" ta="அடையாள அட்டை எண் *" en="ID Number *">
               <div style={{display:'flex',gap:'10px',flexWrap:'wrap'}}>
                 <select name="idType" value={personData.idType} onChange={handlePersonChange} style={{...styles.sel,flex:'1',minWidth:'160px'}}>
                   <option value="">-- හැඳුනුම්පත් වර්ගය / அடையාள வகை / ID Type --</option>
@@ -856,47 +877,44 @@ export default function CombinedForm() {
                 <input type="text" name="idNo" value={personData.idNo} onChange={handlePersonChange} placeholder="ID Number" style={{...styles.inp,flex:'1',minWidth:'140px'}} maxLength={20} autoComplete="off"/>
               </div>
             </F>
-            <F si="උපන් දිනය" ta="பிறந்த திகதி" en="Date of Birth">
-              <input type="date" name="dob" value={personData.dob} onChange={handlePersonChange} style={styles.inp}/>
-            </F>
+            
             <F si="සුදුසුකම්" ta="கல்வித் தகுதிகள்" en="Qualifications">
               <select name="qualification" value={personData.qualification} onChange={handlePersonChange} style={styles.sel}>
                 <option value="">-- තෝරන්න / தேர்வு செய்யவும் / Select --</option>
-                <option value="BSc">BSc / இளங்கலை அறிவியல் / BSc</option>
-                <option value="A/L">A/L / உயர்தர / Advanced Level</option>
-                <option value="O/L">O/L / சாதாரண தர / Ordinary Level</option>
                 <option value="Education">අධ්‍යාපන සුදුසුකම් / கல்வித் தகுதி / Education Level</option>
-                <option value="Diploma">Diploma / ඩිප්ලෝමා / டிப்ளோமா</option>
                 <option value="Vocational Training">වෘත්තීය පුහුණු / தொழில்சார் பயிற்சி / Vocational Training</option>
                 <option value="No Formal Education">විධිමත් අධ්‍යාපනයක් නැත / முறையான கல்வி இல்லை / No Formal Education</option>
                 <option value="Other">වෙනත් / மற்றவை / Other</option>
               </select>
-              {personData.qualification && personData.qualification !== 'No Formal Education' && (
+              {personData.qualification && (
                 <input type="text" name="qualificationOther" value={personData.qualificationOther} onChange={handlePersonChange}
                   style={styles.inpOther} maxLength={150}
                   placeholder={
-                    personData.qualification === 'BSc' ? "උපාධිය හා විශ්වවිද්‍යාලය / Degree name & university..." :
-                    personData.qualification === 'A/L' ? "විෂය ධාරාව / Stream & results..." :
-                    personData.qualification === 'O/L' ? "ප්‍රතිඵල / Results..." :
-                    personData.qualification === 'Diploma' ? "ඩිප්ලෝමා නාමය / Diploma name..." :
-                    personData.qualification === 'Vocational Training' ? "පුහුණු නාමය / Programme name..." :
-                    "වැඩි විස්තර / More details..."
+                    personData.qualification === 'Education' ? "ඉහලම සුදුසුකම / கல்வித் தகுதி / Highest Qualification..." :
+                    personData.qualification === 'Vocational Training' ? "පුහුණු නාමය/ආයතනය / பயிற்சின் பெயர்/நிறுவனம் / Programme name/Institute..." :
+                    "වැඩි විස්තර / மேலதிக விவரங்கள் / More details..."
                   }
                   autoComplete="off"/>
               )}
             </F>
-            <F si="දුරකථනය *" ta="தொலைபேசி எண் *" en="Phone Number *">
-              <input type="tel" name="phone" value={personData.phone} onChange={handlePersonChange} style={styles.inp} maxLength={15} placeholder="0XX XXX XXXX" autoComplete="off"/>
+            <hr style={styles.divider}/>
+            <p style={styles.sectionTitle}>🤝 <L si="භාරකරුගේ තොරතුරු" ta="பராமரிப்பாளர் தகவல்கள்" en="Guardian Details" /></p>
+            <F si="භාරකරුගේ නම" ta="பராமரிப்பாளர் பெயர்" en="Guardian Name">
+              <input type="text" name="caretakerName" value={personData.caretakerName} onChange={handlePersonChange} style={styles.inp} maxLength={100} autoComplete="off"/>
             </F>
+            <F si="භාරකරුගේ දුරකථන අංකය" ta="பராமரிப்பாளர் தொலைபேசி எண்" en="Guardian Mobile Number">
+              <input type="tel" name="caretakerMobile" value={personData.caretakerMobile} onChange={handlePersonChange} style={styles.inp} maxLength={15} placeholder="0XX XXX XXXX" autoComplete="off"/>
+            </F>
+           
 
             <hr style={styles.divider}/>
-            <p style={styles.sectionTitle}>♿ ආබාධතා තොරතුරු · இயலாமை தகவல்கள் · Disability Details</p>
+            <p style={styles.sectionTitle}>♿ <L si="ආබාධිතභාවය පිළිබඳ තොරතුරු" ta="இயலாமை தகவல்கள்" en="Disability Details" /></p>
 
             {/* ✅ FIX 3: Multi-checkbox for person */}
-            <F si="ආබාධතා වර්ගය" ta="இயலாமை வகை" en="Type of Disability">
+            <F si="ආබාධිත වර්ගීකරණය  " ta="இயலாமை வகை" en="Type of Disability">
               <div>
                 <button type="button" onClick={() => setShowPersonDisabilities(!showPersonDisabilities)} style={styles.toggleBtn}>
-                  <span>📍 ආබාධතා වර්ග තෝරන්න / இயலாமை வகைகளைத் தேர்ந்தெடுக்கவும் / Select Disability Types</span>
+                  <span>📍 ආබාධිතතා වර්ගය තෝරන්න / இயலாமை வகைகளைத் தேர்ந்தெடுக்கவும் / Select Disability Types</span>
                   <span style={{ fontSize: '13px' }}>{showPersonDisabilities ? '▲' : '▼'}</span>
                 </button>
 
@@ -975,14 +993,7 @@ export default function CombinedForm() {
               </div>
             </F>
 
-            <hr style={styles.divider}/>
-            <p style={styles.sectionTitle}>🤝 භාරකරුගේ තොරතුරු · பராமரிப்பாளர் தகவல்கள் · Guardian Details</p>
-            <F si="භාරකරුගේ නම" ta="பராமரிப்பாளர் பெயர்" en="Guardianr Name">
-              <input type="text" name="caretakerName" value={personData.caretakerName} onChange={handlePersonChange} style={styles.inp} maxLength={100} autoComplete="off"/>
-            </F>
-            <F si="භාරකරුගේ දුරකථන අංකය" ta="பராமரிப்பாளர் தொலைபேசி எண்" en="Guardian Mobile Number">
-              <input type="tel" name="caretakerMobile" value={personData.caretakerMobile} onChange={handlePersonChange} style={styles.inp} maxLength={15} placeholder="0XX XXX XXXX" autoComplete="off"/>
-            </F>
+            
           </>)}
 
           {/* SUBMIT */}
@@ -990,8 +1001,8 @@ export default function CombinedForm() {
             <button type="button" onClick={handleSubmit} disabled={uploading||!complete} className="sbtn"
               style={{...styles.submitBtn,...((uploading||!complete)?styles.submitBtnDisabled:{})}}>
               {uploading
-                ? <span>ඉදිරිපත් කරමින් · சமர்ப்பிக்கிறது · Submitting...</span>
-                : <><Send style={{width:18,height:18}}/><span>ඉදිරිපත් කරන්න · சமர்ப்பிக்கவும் · Submit</span></>}
+                ? <span><L si="ඉදිරිපත් කරමින්..." ta="சமர்ப்பிக்கிறது..." en="Submitting..." /></span>
+                : <><Send style={{width:18,height:18}}/><span><L si="ඉදිරිපත් කරන්න" ta="சமர்ப்பிக்கவும்" en="Submit" /></span></>}
             </button>
             {!complete && !uploading && (
               <p style={styles.warningText}>
