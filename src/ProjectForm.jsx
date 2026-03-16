@@ -358,8 +358,8 @@ const DisabilityCheckboxGroup = ({ selected, onChange, options }) => (
 
 const selStyle = (off) => ({ ...styles.sel, background: off ? '#F3F4F6' : '#fff', color: off ? '#9CA3AF' : '#1f2937', cursor: off ? 'not-allowed' : 'pointer' });
 
-const COMPANY_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx_jqtJdaPyY9xlPcuae_jKsYjlKV8kg7qKGw9QJ66RtVdmpS4xgA5j-cESoedLkPxCyQ/exec';
-const PERSON_SCRIPT_URL  = 'https://script.google.com/macros/s/AKfycbyRiq57wr5Ra_MC8KI5-1E4645DFQgRFbUXDA1trdVJ_sjEzqnUt9ygv-2ly2DHxKex/exec';
+const COMPANY_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwFK4kMO4WgpRKJFKNEF_98y93eJnlr9PwqSIVxJ7-6ZrBY_xmbhov9TBQ2r_sSpDr19g/exec';
+const PERSON_SCRIPT_URL  = 'https://script.google.com/macros/s/AKfycbymWP9l9hEDInd8Sg3SjJAxaBUq0djl4ZvmqsrE5XqSjvUA5d68m6oAIWfTwJXGo5gdWQ/exec';
 
 const defaultCompany = { province:'',district:'',division:'',officeName:'',officerName:'',contact:'',email:'',whatsapp:'',hasJob:'',field:'',fieldOther:'',vacancies:'',vacancyDescription:'',pay:'',epfEtf:'',hasTrainee:'',supplyTransport:'',transportLimit:'',supplyFood:'',supplyClothes:'',ageCategory:'',ageCategoryOther:'',gender:'',disability:[],disabilityOther:'',searchVisibility:'' };
 const defaultPerson  = { province:'',district:'',division:'',name:'',address:'',language:'',idType:'',idNo:'',dob:'',qualification:'',qualificationOther:'',phone:'',disability:[],disabilityOther:'',field:[],fieldOther:'',gender:'',age:'',caretakerName:'',caretakerMobile:'',villageOfficerName:'',villageOfficerWhatsapp:'',gnDivision:'' };
@@ -490,6 +490,7 @@ export default function CombinedForm() {
       setMessage({ type:'success', text:'දත්ත සාර්ථකව ඉදිරිපත් කරන ලදී!\nதரவு வெற்றிகரமாக சமர்ப்பிக்கப்பட்டது!\nData submitted successfully!' });
       if (isCompany) setCompanyData(defaultCompany);
       else setPersonData(defaultPerson);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
 
     } catch (error) {
       console.error('Submission error:', error);
@@ -541,6 +542,12 @@ export default function CombinedForm() {
             <div><L si="🏢 සේවා යෝජකයින් ලියාපදිංචි කිරීමේ පෝරමය" ta="நிறுவன பதிவு படிவம்" en="Company Registration Form" color={isCompany ? '#fff' : undefined} /></div>
           </button>
         </div>
+        
+        {message.text && (
+          <div style={{...styles.message, margin: '20px 48px 0', ...(message.type==='success'?styles.msgSuccess:styles.msgError)}}>
+            {message.text.split('\n').map((line,i)=><div key={i}>{line}</div>)}
+          </div>
+        )}
 
         <div style={styles.form}>
 
@@ -566,7 +573,7 @@ export default function CombinedForm() {
             <p style={styles.sectionTitle}>📍 ස්ථානීය  තොරතුරු · இட விவரங்கள் · Location Details</p>
             <F si="පළාත *" ta="மாகாணம் *" en="Province *">
               <select name="province" value={companyData.province} onChange={handleCompanyChange} style={styles.sel}>
-                <option value="">-- පළාත / மாகாணம் / Province --</option>
+                <option value="">-- පළාත / මாகාணம் / Province --</option>
                 {PROVINCES.map(p=><option key={p} value={p}>{p}</option>)}
               </select>
             </F>
@@ -749,7 +756,7 @@ export default function CombinedForm() {
             <F si="ගෙවිය හැකි අවම වැටුප" ta="ஊதியம்" en="Pay / Salary">
               <input type="text" name="pay" value={companyData.pay} onChange={handleCompanyChange} style={styles.inp} maxLength={50} placeholder="Rs. XXXXX" autoComplete="off"/>
             </F>
-            <F si="EPF / ETF  *" ta="ஈபிඑஃப் / ஈடிஎஃப் *" en="EPF / ETF *">
+            <F si="EPF / ETF  *" ta="ஈபிஎஃப் / ஈடிஎஃப் *" en="EPF / ETF *">
               <RadioGroup name="epfEtf" value={companyData.epfEtf} onChange={handleCompanyChange} options={[
                 {value:'Yes',si:'ගෙවනු ලැබේ ',ta:'ஆம்',en:'Yes'},
                 {value:'No', si:'ගෙවනු නොලැබේ ',ta:'இல்லை',en:'No'},
@@ -780,7 +787,7 @@ export default function CombinedForm() {
             </F>
             <F si="ඇඳුම් / යූනිෆෝම් " ta="ஆடை / சீருடை வழங்கல்" en="Supply Clothes / Uniform">
               <RadioGroup name="supplyClothes" value={companyData.supplyClothes} onChange={handleCompanyChange} options={[
-                {value:'Yes',si:'සපයනු ලැබේ',ta:'ஆම்',en:'Yes'},
+                {value:'Yes',si:'සපයනු ලැබේ',ta:'ஆம',en:'Yes'},
                 {value:'No', si:'සපයනු නොලැබේ',ta:'இல்லை',en:'No'},
               ]}/>
             </F>
@@ -807,7 +814,7 @@ export default function CombinedForm() {
             <p style={styles.sectionTitle}>📍 <L si="ස්ථානීය තොරතුරු" ta="இட விவரங்கள்" en="Location Details" /></p>
             <F si="පළාත *" ta="மாகாணம் *" en="Province *">
               <select name="province" value={personData.province} onChange={handlePersonChange} style={styles.sel}>
-                <option value="">-- පළාත / மாகாணம் / Province --</option>
+                <option value="">-- පළාත / මாகාணம் / Province --</option>
                 {PROVINCES.map(p=><option key={p} value={p}>{p}</option>)}
               </select>
             </F>
@@ -868,7 +875,7 @@ export default function CombinedForm() {
             <F si="හැඳුනුම්පත් අංකය *" ta="அடையாள அட்டை எண் *" en="ID Number *">
               <div style={{display:'flex',gap:'10px',flexWrap:'wrap'}}>
                 <select name="idType" value={personData.idType} onChange={handlePersonChange} style={{...styles.sel,flex:'1',minWidth:'160px'}}>
-                  <option value="">-- හැඳුනුම්පත් වර්ගය / அடையාள வகை / ID Type --</option>
+                  <option value="">-- හැඳුනුම්පත් වර්ගය / அடையාළ வகை / ID Type --</option>
                   <option value="NIC">ජාතික හැඳුනුම්පත / தேசிய அடையாள அட்டை / NIC</option>
                   <option value="Passport">ගමන් බලපත්‍රය / கடவுச்சீட்டு / Passport</option>
                   <option value="Driving License">රියදුරු බලපත්‍රය / ஓட்டுநர் உரிமம் / Driving License</option>
@@ -1001,8 +1008,8 @@ export default function CombinedForm() {
             <button type="button" onClick={handleSubmit} disabled={uploading||!complete} className="sbtn"
               style={{...styles.submitBtn,...((uploading||!complete)?styles.submitBtnDisabled:{})}}>
               {uploading
-                ? <span><L si="ඉදිරිපත් කරමින්..." ta="சமர்ப்பிக்கிறது..." en="Submitting..." /></span>
-                : <><Send style={{width:18,height:18}}/><span><L si="ඉදිරිපත් කරන්න" ta="சமர்ப்பிக்கவும்" en="Submit" /></span></>}
+                ? <span><L si="ඉදිරිපත් කරමින්..." ta="சமர்ப்பிக்கிறது..." en="Submitting..." color="#fff" /></span>
+                : <><Send style={{width:18,height:18}}/><span><L si="ඉදිරිපත් කරන්න" ta="சமர்ப்பிக்கவும்" en="Submit" color="#fff" /></span></>}
             </button>
             {!complete && !uploading && (
               <p style={styles.warningText}>
@@ -1013,11 +1020,6 @@ export default function CombinedForm() {
             )}
           </div>
 
-          {message.text && (
-            <div style={{...styles.message,...(message.type==='success'?styles.msgSuccess:styles.msgError)}}>
-              {message.text.split('\n').map((line,i)=><div key={i}>{line}</div>)}
-            </div>
-          )}
         </div>
       </div>
     </div>
