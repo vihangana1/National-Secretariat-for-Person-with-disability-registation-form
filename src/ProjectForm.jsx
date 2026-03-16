@@ -528,7 +528,7 @@ export default function CombinedForm() {
         </div>
         <div style={styles.tabContainer}>
           <button style={{...styles.tab,...(!isCompany?styles.tabActive:styles.tabInactive)}} onClick={()=>switchTab('person')}>
-            <div>♿ ආබාධිත පුරවැසියන් ලියාපදිංචි කිරීමේ පෝරමය</div>
+            <div>♿ රැකියා අපේක්ෂිත ආබාධ සහිත තැනැත්තන් ලියාපදිංචි කිරීමේ පෝරමය</div>
             <div style={{fontSize:'11px', opacity: 0.85, fontWeight: '500'}}>மாற்றுத்திறனாளி குடிமக்கள் பதிவு படிவம் · Disabled Persons Registration Form</div>
           </button>
           <button style={{...styles.tab,...(isCompany?styles.tabActive:styles.tabInactive)}} onClick={()=>switchTab('company')}>
