@@ -551,7 +551,7 @@ export default function CombinedForm() {
 
         <div style={styles.form}>
 
-          {/* ══════════ COMPANY FORM  FOrm══════════ */}
+          {/* ══════════ COMPANY FORM  Form══════════ */}
           {isCompany && (<>
 
             {/* Payment Notice */}
