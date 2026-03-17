@@ -573,7 +573,7 @@ export default function CombinedForm() {
             <p style={styles.sectionTitle}>📍 ස්ථානීය  තොරතුරු · இட விவரங்கள் · Location Details</p>
             <F si="පළාත *" ta="மாகாணம் *" en="Province *">
               <select name="province" value={companyData.province} onChange={handleCompanyChange} style={styles.sel}>
-                <option value="">-- පළාත / මாகාணம் / Province --</option>
+                <option value="">-- පළාත / මமாகாணம் / Province --</option>
                 {PROVINCES.map(p=><option key={p} value={p}>{p}</option>)}
               </select>
             </F>
