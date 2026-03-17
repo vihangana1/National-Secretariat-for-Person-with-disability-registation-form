@@ -698,7 +698,7 @@ export default function CombinedForm() {
             <F si="පිළිගත හැකි ආබාධිතතා වර්ග" ta="ஏற்ககூடிய அங்கவீனத்தின் தன்மைகள்" en="Types of Disability Accepted">
               <div>
                 <button type="button" onClick={() => setShowCompanyDisabilities(!showCompanyDisabilities)} style={styles.toggleBtn}>
-                  <span>📍 ආබාධිතතා වර්ග තෝරන්න / இயலாமை வகைகளைத் தேர்ந்தெடுக்கவும் / Select Disability Types</span>
+                  <span>📍 ආබාධිතතා වර්ග තෝරන්න / அங்கவீனத்தின் வகைகளைத் தேர்ந்தெடுக்கவும் / Select Disability Types</span>
                   <span style={{ fontSize: '18px' }}>{showCompanyDisabilities ? '▲' : '▼'}</span>
                 </button>
 
@@ -875,7 +875,7 @@ export default function CombinedForm() {
             <F si="හැඳුනුම්පත් අංකය *" ta="அடையாள அட்டை எண் *" en="ID Number *">
               <div style={{display:'flex',gap:'10px',flexWrap:'wrap'}}>
                 <select name="idType" value={personData.idType} onChange={handlePersonChange} style={{...styles.sel,flex:'1',minWidth:'160px'}}>
-                  <option value="">-- හැඳුනුම්පත් වර්ගය / அடையාළ வகை / ID Type --</option>
+                  <option value="">-- හැඳුනුම්පත් වර්ගය / அடையாள வகை / ID Type --</option>
                   <option value="NIC">ජාතික හැඳුනුම්පත / தேசிய அடையாள அட்டை / NIC</option>
                   <option value="Passport">ගමන් බලපත්‍රය / கடவுச்சீட்டு / Passport</option>
                   <option value="Driving License">රියදුරු බලපත්‍රය / ஓட்டுநர் உரிமம் / Driving License</option>
@@ -915,7 +915,7 @@ export default function CombinedForm() {
            
 
             <hr style={styles.divider}/>
-            <p style={styles.sectionTitle}>♿ <L si="ආබාධිතභාවය පිළිබඳ තොරතුරු" ta="இயலாமை தகவல்கள்" en="Disability Details" /></p>
+            <p style={styles.sectionTitle}>♿ <L si="ආබාධිතභාවය පිළිබඳ තොරතුරු" ta="அங்கவீனத்தின் தகவல்கள்" en="Disability Details" /></p>
 
             {/* ✅ FIX 3: Multi-checkbox for person */}
             <F si="ආබාධිත වර්ගීකරණය  " ta="அங்கவீனத்தின் தன்மை" en="Type of Disability">
