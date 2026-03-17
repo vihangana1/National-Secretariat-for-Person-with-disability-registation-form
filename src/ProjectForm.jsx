@@ -3,6 +3,50 @@ import { db } from './firebase';
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import headerImg from './assests/Gemini_Generated_Image_hd3vqrhd3vqrhd3v.png';
 import logoImg from './assests/logo.png';
+import img1 from './assests/1.jpg';
+import img2 from './assests/2.jpg';
+import img3 from './assests/3.jpg';
+import img4 from './assests/4.jpg';
+import img5 from './assests/5.jpg';
+import img6 from './assests/6.jpg';
+import img7 from './assests/7.jpg';
+
+const FloatingBackground = () => {
+  const images = [img1, img2, img3, img4, img5, img6, img7];
+  const positions = [
+    { top: '5%', left: '2%', rotate: '-10deg' },
+    { top: '15%', right: '4%', rotate: '15deg' },
+    { top: '45%', left: '3%', rotate: '10deg' },
+    { top: '65%', right: '2%', rotate: '-12deg' },
+    { top: '85%', left: '5%', rotate: '8deg' },
+    { top: '30%', left: '85%', rotate: '-15deg' },
+    { top: '75%', left: '1%', rotate: '5deg' },
+  ];
+
+  return (
+    <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: 0, pointerEvents: 'none', overflow: 'hidden', opacity: 0.25 }}>
+      {positions.map((pos, i) => (
+        <img
+          key={i}
+          src={images[i % images.length]}
+          alt=""
+          style={{
+            position: 'absolute',
+            width: '130px',
+            height: 'auto',
+            borderRadius: '12px',
+            border: '8px solid white',
+            outline: '1px solid rgba(124, 0, 0, 0.12)',
+            boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
+            transition: 'transform 0.5s ease-out',
+            ...pos,
+            transform: `rotate(${pos.rotate})`
+          }}
+        />
+      ))}
+    </div>
+  );
+};
 
 const Send = ({ style }) => (
   <svg style={style} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -143,14 +187,14 @@ const styles = {
     justifyContent: 'center'
   },
   card: { 
-    maxWidth: '1000px', 
+    maxWidth: '1200px', 
     width: '100%',
     margin: '0 auto', 
     background: 'rgba(255, 255, 255, 0.98)', 
     borderRadius: '32px', 
     boxShadow: '0 40px 100px -20px rgba(124, 0, 0, 0.12), 0 0 40px rgba(0, 0, 0, 0.02)', 
     overflow: 'hidden',
-    border: '1px solid rgba(124, 0, 0, 0.08)',
+    border: '1.5px solid rgba(124, 0, 0, 0.15)',
     backdropFilter: 'blur(20px)'
   },
   header: { 
@@ -179,7 +223,7 @@ const styles = {
     position: 'absolute',
     top: '20px',
     left: '20px',
-    height: '60px',
+    height: '160px',
     zIndex: 10,
     filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.4))'
   },
@@ -219,10 +263,10 @@ const styles = {
     background: 'rgba(255, 255, 255, 0.9)', 
     borderRadius: '20px', 
     padding: '6px', 
-    marginTop: '-45px', 
+    marginTop: '20px', 
     marginBottom: '32px',
     gap: '8px',
-    maxWidth: '620px',
+    maxWidth: '800px',
     width: '90%',
     marginLeft: 'auto',
     marginRight: 'auto',
@@ -264,9 +308,9 @@ const styles = {
       color: '#7c0000'
     }
   },
-  form: { padding: '40px 48px' },
+  form: { padding: '48px 64px' },
   fieldRow: { display: 'flex', alignItems: 'flex-start', gap: '24px', marginBottom: '24px', flexWrap: 'wrap' },
-  label: { width: '280px', minWidth: '240px', paddingTop: '12px', fontSize: '15px', fontWeight: '600', color: '#111827', lineHeight: 1.5, flexShrink: 0 },
+  label: { width: '320px', minWidth: '280px', paddingTop: '12px', fontSize: '15px', fontWeight: '600', color: '#111827', lineHeight: 1.5, flexShrink: 0 },
   inputWrap: { flex: 1, minWidth: '300px' },
   sel: { ...base, WebkitAppearance: 'none', appearance: 'none', cursor: 'pointer', backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 16px center', paddingRight: '40px', border: '2.5px solid #F3F4F6', '&:focus': { borderColor: '#7c0000', boxShadow: '0 0 0 5px rgba(124, 0, 0, 0.1)' } },
   inp: { ...base, userSelect: 'text', WebkitUserSelect: 'text', caretColor: '#7c0000', border: '2px solid #F3F4F6' },
@@ -276,7 +320,7 @@ const styles = {
   radioLabel: { display: 'flex', alignItems: 'flex-start', gap: '12px', cursor: 'pointer', padding: '12px 20px', borderRadius: '16px', transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)', border: '2px solid #F3F4F6', background: '#fff' },
   radioInput: { width: '22px', height: '22px', accentColor: '#7c0000', cursor: 'pointer', marginTop: '1px', flexShrink: 0 },
   submitContainer: { marginTop: '56px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' },
-  submitBtn: { display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '14px', padding: '20px 64px', background: 'linear-gradient(135deg, #7c0000 0%, #5a0000 100%)', color: '#fff', border: 'none', borderRadius: '18px', fontSize: '18px', fontWeight: '800', cursor: 'pointer', width: '100%', maxWidth: '520px', transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)', fontFamily: 'inherit', boxShadow: '0 15px 30px rgba(124, 0, 0, 0.3)', letterSpacing: '0.5px' },
+  submitBtn: { display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '14px', padding: '20px 64px', background: 'linear-gradient(135deg, #7c0000 0%, #5a0000 100%)', color: '#fff', border: 'none', borderRadius: '18px', fontSize: '18px', fontWeight: '800', cursor: 'pointer', width: '100%', maxWidth: '600px', transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)', fontFamily: 'inherit', boxShadow: '0 15px 30px rgba(124, 0, 0, 0.3)', letterSpacing: '0.5px' },
   submitBtnDisabled: { background: '#E5E7EB', cursor: 'not-allowed', boxShadow: 'none', color: '#9CA3AF' },
   warningText: { fontSize: '13px', color: '#B91C1C', textAlign: 'center', margin: 0, lineHeight: 1.8, fontWeight: '500' },
   message: { padding: '20px 24px', borderRadius: '14px', textAlign: 'center', marginTop: '24px', fontSize: '15px', lineHeight: 1.7, fontWeight: '600' },
@@ -378,6 +422,8 @@ export default function CombinedForm() {
     const s = document.createElement('script');
     s.src = 'https://cdn.userway.org/widget.js';
     s.setAttribute('data-account','XfZSO2MTQw');
+    s.setAttribute('data-size','large');
+    s.setAttribute('data-button_size', 'large');
     s.async = true;
     document.body.appendChild(s);
     return () => { if (document.body.contains(s)) document.body.removeChild(s); };
@@ -502,6 +548,7 @@ export default function CombinedForm() {
 
   return (
     <div style={styles.container}>
+      <FloatingBackground />
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap');
         *,*::before,*::after{box-sizing:border-box;}
@@ -514,6 +561,13 @@ export default function CombinedForm() {
         .radio-label:hover{background:#fff5f5!important;}
         html{scroll-behavior:auto!important;}
         ::selection { background: #800000; color: white; }
+        .float-anim {
+          animation: floating 8s ease-in-out infinite;
+        }
+        @keyframes floating {
+          0%, 100% { transform: translateY(0) rotate(0); }
+          50% { transform: translateY(-20px) rotate(3deg); }
+        }
       `}</style>
 
       <div style={styles.card}>
@@ -522,10 +576,10 @@ export default function CombinedForm() {
           <img src={headerImg} alt="Header Background" style={styles.headerImg} />
           <img src={logoImg} alt="Logo" style={{ 
             position: 'absolute', 
-            top: '20px', 
+            top: '10px', 
             left: '50%', 
             transform: 'translateX(-50%)', 
-            height: '130px', 
+            height: '140px', 
             zIndex: 10, 
             filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.6))' 
           }} />
@@ -555,10 +609,10 @@ export default function CombinedForm() {
           {isCompany && (<>
 
             {/* Payment Notice */}
-            <div style={{background:'linear-gradient(135deg,#fffbeb,#fef3c7)',border:'2px solid #F59E0B',borderRadius:'12px',padding:'18px 20px',marginBottom:'24px',display:'flex',gap:'14px',alignItems:'flex-start'}}>
-              <span style={{ fontSize:'24px', lineHeight:1, flexShrink:0, marginTop:'2px' }}>💰</span>
+            <div style={{background:'linear-gradient(135deg,#fffbeb,#fef3c7)',border:'2px solid #F59E0B',borderRadius:'12px',padding:'22px 20px',marginBottom:'24px',display:'flex',flexDirection:'column',gap:'12px',alignItems:'center',textAlign:'center'}}>
+              <span style={{ fontSize:'28px', lineHeight:1, flexShrink:0 }}>💰</span>
               <div>
-                <p style={{ margin:'0 0 6px', color:'#800000', fontSize:'13px', fontWeight:'700', lineHeight:1.8 }}>
+                <p style={{ margin:'0 0 8px', color:'#800000', fontSize:'14px', fontWeight:'700', lineHeight:1.8 }}>
                   ආබාධ සහිත තැනැත්තන් රැකියා ගත කරන ආයතන සඳහා රජය මගින් සේවකයන්ගේ වැටුපෙන් 50% ක වැටුප් සහනාධාරයක් (රු. 15,000 ක උපරිමයකට යටත්ව)  <span style={{color:'#b45309',fontWeight:'700'}}>මාස 24ක්</span> දක්වා ගෙවීම් සිදු කරනු ලැබේ.
                 </p>
                 <p style={{ margin:'0 0 6px', color:'#991b1b', fontSize:'12px', lineHeight:1.8 }}>
@@ -795,11 +849,9 @@ export default function CombinedForm() {
 
           {/* ══════════ DISABLED PERSON FORM ══════════ */}
           {!isCompany && (<>
-            <div style={{background:'linear-gradient(135deg,#fffbeb,#fef3c7)',border:'2px solid #F59E0B',borderRadius:'12px',padding:'18px 20px',marginBottom:'24px',display:'flex',gap:'14px',alignItems:'flex-start'}}>
-              <span style={{fontSize:'26px',lineHeight:1,flexShrink:0,marginTop:'2px'}}>⚠️</span>
-              <div>
-                <div style={{width:'100%',height:'1.5px',background:'#FCD34D',margin:'4px 0 10px'}}/>
-                <p style={{margin:'0 0 4px',color:'#92400E',fontSize:'13px',fontWeight:'700',lineHeight:1.8}}>
+            <div style={{background:'linear-gradient(135deg,#fffbeb,#fef3c7)',border:'2px solid #F59E0B',borderRadius:'12px',padding:'22px 20px',marginBottom:'24px',display:'flex',gap:'12px',alignItems:'center',textAlign:'center'}}>
+              <div style={{width:'100%'}}>
+                <p style={{margin:'0 0 6px',color:'#92400E',fontSize:'14px',fontWeight:'700',lineHeight:1}}>
                   එක් පුද්ගලයකු සඳහා <span style={{color:'#B45309'}}>එක් වරක් පමණක්</span> පෝරමය භාවිතා කරන්න.
                 </p>
                 <p style={{margin:'0 0 4px',color:'#78350F',fontSize:'12px',lineHeight:1.8}}>
@@ -811,7 +863,7 @@ export default function CombinedForm() {
               </div>
             </div>
 
-            <p style={styles.sectionTitle}>📍 <L si="ස්ථානීය තොරතුරු" ta="இட விவரங்கள்" en="Location Details" /></p>
+            <p style={styles.sectionTitle}>📍 <L si="ස්ථානීය තොරතුරු" ta="வசிப்பிட விபரங்கள்" en="Location Details" /></p>
             <F si="පළාත *" ta="மாகாணம் *" en="Province *">
               <select name="province" value={personData.province} onChange={handlePersonChange} style={styles.sel}>
                 <option value="">-- පළාත / மாகாணம் / Province --</option>
