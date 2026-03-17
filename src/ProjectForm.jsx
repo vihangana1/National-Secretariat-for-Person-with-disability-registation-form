@@ -559,13 +559,13 @@ export default function CombinedForm() {
               <span style={{ fontSize:'24px', lineHeight:1, flexShrink:0, marginTop:'2px' }}>💰</span>
               <div>
                 <p style={{ margin:'0 0 6px', color:'#800000', fontSize:'13px', fontWeight:'700', lineHeight:1.8 }}>
-                  ආබාධ සහිත තැනැත්තන් රැකියා ගත කරන ආයතන සඳහා රජය මගින් <span style={{color:'#b45309',fontWeight:'700'}}>මාස 24ක්</span> දක්වා <span style={{color:'#b45309',fontWeight:'700'}}>රු. 15,000</span>ක උපරිමයකට යටත්ව ගෙවීම් සිදු කරනු ලැබේ.
+                  ආබාධ සහිත තැනැත්තන් රැකියා ගත කරන ආයතන සඳහා රජය මගින් සේවකයන්ගේ වැටුපෙන් 50% ක වැටුප් සහනාධාරයක් (රු. 15,000 ක උපරිමයකට යටත්ව)  <span style={{color:'#b45309',fontWeight:'700'}}>මාස 24ක්</span> දක්වා ගෙවීම් සිදු කරනු ලැබේ.
                 </p>
                 <p style={{ margin:'0 0 6px', color:'#991b1b', fontSize:'12px', lineHeight:1.8 }}>
-                  மாற்றுத்திறனாளிகளை வேலைக்கமர்த்தும் நிறுவனங்களுக்கு அரசு <span style={{color:'#b45309',fontWeight:'700'}}>24 மாதங்கள்</span> வரை <span style={{color:'#b45309',fontWeight:'700'}}>ரூ. 15,000</span> வரம்பில் கொடுப்பனவு செய்யும்.
+                மாற்றுத்திறனாளிகளைப் பணியமர்த்தும் நிறுவனங்களுக்கு, ஊழியர்களின் சம்பளத்தில் 50 சதவீதம் (அதிகபட்சமாக ரூ. 15,000 வரை) ஊதிய மானியமாக 24 மாதங்கள் வரை அரசு வழங்கும். 
                 </p>
                 <p style={{ margin:0, color:'#991b1b', fontSize:'12px', lineHeight:1.8 }}>
-                  The government will make payments for up to <strong style={{color:'#b45309'}}>24 months</strong>, subject to a maximum of <strong style={{color:'#b45309'}}>Rs. 15,000</strong>.
+                For institutions employing persons with disabilities, the government will provide a wage subsidy of 50% of the employees' salaries (subject to a maximum of Rs. 15,000) for up to 24 months. 
                 </p>
               </div>
             </div>
@@ -593,7 +593,7 @@ export default function CombinedForm() {
             </F>
 
             <hr style={styles.divider}/>
-            <p style={styles.sectionTitle}>🏢 කාර්යාලීය  තොරතුරු · நிறுவன தகவல்கள் · Office Information</p>
+            <p style={styles.sectionTitle}>🏢 ආයතනය පිලිබඳ තොරතුරු · நிறுவன தகவல்கள் · Office Information</p>
             <F si="ආයතනයේ නම *" ta="நிறுவனத்தின் பெயர் *" en="Office / Company Name *">
               <input type="text" name="officeName" value={companyData.officeName} onChange={handleCompanyChange} style={styles.inp} maxLength={100} autoComplete="off"/>
               <p className="hint">{companyData.officeName.length}/100</p>
@@ -605,7 +605,7 @@ export default function CombinedForm() {
             <F si="ආයතනයේ  දුරකථනය අංකය *" ta="தொலைபேசி *" en="Contact Number *">
               <input type="tel" name="contact" value={companyData.contact} onChange={handleCompanyChange} style={styles.inp} maxLength={15} placeholder="0XX XXX XXXX" autoComplete="off"/>
             </F>
-            <F si="සම්බන්ධ කල හැකි නිලධාරියාගේ නම" ta="தொடர்பு அதிகாரி பெயர்" en="Contact Officer Name">
+            <F si="සම්බන්ධ කළ හැකි නිලධාරියාගේ නම" ta="தொடர்பு அதிகாரி பெயர்" en="Contact Officer Name">
               <input type="text" name="officerName" value={companyData.officerName} onChange={handleCompanyChange} style={styles.inp} maxLength={100} autoComplete="off"/>
             </F>
             <F si="WhatsApp අංකය" ta="வாட்ஸ்அப் எண்" en="WhatsApp Number">
@@ -695,7 +695,7 @@ export default function CombinedForm() {
                 <option value="Any">ස්ත්‍රී/පුරුෂ දෙපාර්ශවයම / எவரும் / Any</option>
               </select>
             </F>
-            <F si="පිළිගත හැකි ආබාධතා වර්ග" ta="ஏற்கக்கூடிய இயலாமை வகைகள்" en="Types of Disability Accepted">
+            <F si="පිළිගත හැකි ආබාධිතතා වර්ග" ta="ஏற்கக்கூடிய இயலாமை வகைகள்" en="Types of Disability Accepted">
               <div>
                 <button type="button" onClick={() => setShowCompanyDisabilities(!showCompanyDisabilities)} style={styles.toggleBtn}>
                   <span>📍 ආබාධිතතා වර්ග තෝරන්න / இயலாமை வகைகளைத் தேர்ந்தெடுக்கவும் / Select Disability Types</span>
@@ -762,7 +762,7 @@ export default function CombinedForm() {
                 {value:'No', si:'ගෙවනු නොලැබේ ',ta:'இல்லை',en:'No'},
               ]}/>
             </F>
-            <F si="පෙර පුහුනු වැඩසටහනක්  *" ta="பயிற்சி திட்டம் *" en="Training Programme *">
+            <F si="පෙර පුහුණු වැඩසටහනක්  *" ta="பயிற்சி திட்டம் *" en="Training Programme *">
               <RadioGroup name="hasTrainee" value={companyData.hasTrainee} onChange={handleCompanyChange} options={[
                 {value:'Yes',si:'පවත්වයි ',ta:'ஆம்',en:'Yes'},
                 {value:'No', si:'නොපවත්වයි ',ta:'இல்லை',en:'No'},
@@ -785,7 +785,7 @@ export default function CombinedForm() {
                 {value:'No', si:'සපයනු නොලැබේ',ta:'இல்லை',en:'No'},
               ]}/>
             </F>
-            <F si="ඇඳුම් / යූනිෆෝම් " ta="ஆடை / சீருடை வழங்கல்" en="Supply Clothes / Uniform">
+            <F si="නිල ඇඳුම්" ta="சீருடைகள்" en="Uniforms">
               <RadioGroup name="supplyClothes" value={companyData.supplyClothes} onChange={handleCompanyChange} options={[
                 {value:'Yes',si:'සපයනු ලැබේ',ta:'ஆம',en:'Yes'},
                 {value:'No', si:'සපයනු නොලැබේ',ta:'இல்லை',en:'No'},
@@ -846,7 +846,7 @@ export default function CombinedForm() {
               <textarea name="address" value={personData.address} onChange={handlePersonChange} style={styles.ta} rows={3} maxLength={250} autoComplete="off"/>
               <p className="hint">{personData.address.length}/250</p>
             </F>
-            <F si="දුරකථනය *" ta="தொலைபேசி எண் *" en="Phone Number *">
+            <F si="දුරකථනය අංකය   *" ta="தொலைபேசி எண் *" en="Phone Number *">
               <input type="tel" name="phone" value={personData.phone} onChange={handlePersonChange} style={styles.inp} maxLength={15} placeholder="0XX XXX XXXX" autoComplete="off"/>
             </F>
             <F si="උපන් දිනය" ta="பிறந்த திகதி" en="Date of Birth">
