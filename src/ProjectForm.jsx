@@ -11,74 +11,74 @@ const Send = ({ style }) => (
 );
 
 const PROVINCE_DATA = {
-  'Western / බස්නාහිර / மேல்': {
-    districts: ['Colombo / කොළඹ / கொழும்பு', 'Gampaha / ගම්පහ / கம்பஹா', 'Kalutara / කළුතර / களுத்துறை'],
+  'බස්නාහිර / மேல் / Western': {
+    districts: ['කොළඹ / கொழும்பு / Colombo', 'ගම්පහ / கம்பஹா / Gampaha', 'කළුතර / களுத்துறை / Kalutara'],
     divisions: {
-      'Colombo / කොළඹ / கொழும்பு': ['Colombo / කොළඹ / கொழும்பு','Dehiwala / දෙහිවල / தெஹிவளை','Homagama / හෝමගම / ஹோமாகம','Kaduwela / කඩුවෙල / கடுவெல','Kesbewa / කැස්බෑව / கெஸ்பேவ','Maharagama / මහරගම / மஹரகம','Moratuwa / මොරටුව / மொரட்டுவை','Sri Jayawardenepura Kotte / ශ්‍රී ජයවර්ධනපුර කෝට්ටෙ / ஸ்ரீ ஜயவர்தணபுர கோட்டை','Thimbirigasyaya / තිඹිරිගස්යාය / திம்பிரிகஸ்யாய'],
-      'Gampaha / ගම්පහ / கம்பஹா': ['Gampaha / ගම්පහ / கம்பஹா','Attanagalla / අත්තනගල්ල / அத்தனகல்ல','Biyagama / බියගම / பியகம','Divulapitiya / දිවුලපිටිය / திவுலப்பிட்டிய','Dompe / දොම්පෙ / தொம்பே','Ja-Ela / ජා-ඇල / ஜா-எல','Katana / කටාන / கடானை','Kelaniya / කැලණිය / களணி','Mahara / මහර / மஹர','Minuwangoda / මිනුවන්ගොඩ / மினுவாங்கொடை','Mirigama / මීරිගම / மீரிகமை','Negombo / මීගමුව / நீர்கொழும்பு','Wattala / වත්තල / வத்தளை'],
-      'Kalutara / කළුතර / களுத்துறை': ['Kalutara / කළුතර / களுத்துறை','Bandaragama / බණ්ඩාරගම / பண்டாரகம','Beruwala / බේරුවල / பேருவளை','Bulathsinhala / බුලත්සිංහල / புளத்சிங்கள','Dodangoda / දොඩම්ගොඩ / தொடந்தூவை','Horana / හොරණ / ஹொறணை','Ingiriya / ඉංගිරිය / இங்கிரிய','Mathugama / මතුගම / மத்துகம','Panadura / පානදුර / பாணந்துறை','Walallawita / වලල්ලාවිට / வளள்ளாவிட்ட']
+      'කොළඹ / கொழும்பு / Colombo': ['කොළඹ / கொழும்பு / Colombo','දෙහිවල / தெஹிவளை / Dehiwala','හෝමගම / ஹோமாகம / Homagama','කඩුවෙල / கடுவெல / Kaduwela','කැස්බෑව / கெஸ்பேவ / Kesbewa','මහරගම / மஹரகம / Maharagama','මොරටුව / மொரட்டுவை / Moratuwa','ශ්‍රී ජයවර්ධනපුර කෝට්ටේ / ஸ்ரீ ஜயவர்தணපුர கோட்டை / Sri Jayawardenepura Kotte','තිඹිරිගස්යාය / திம்பிரிகஸ்யாய / Thimbirigasyaya'],
+      'ගම්පහ / கம்பஹா / Gampaha': ['ගම්පහ / கம்பஹா / Gampaha','අත්තනගල්ල / அத்தனகல்ல / Attanagalla','බියගම / பியகம / Biyagama','දිවුලපිටිය / திவுலப்பிட்டிய / Divulapitiya','දොම්පෙ / தொம்பே / Dompe','ජා-ඇල / ஜா-எல / Ja-Ela','කටාන / கடானை / Katana','කැලණිය / களணி / Kelaniya','මහර / மஹara / Mahara','මිනුවන්ගොඩ / மினுவாங்கொடை / Minuwangoda','මීරිගම / மீரிகமை / Mirigama','මීගමුව / நீர்கொழும்பு / Negombo','වත්තල / வத்தளை / Wattala'],
+      'කළුතර / களுத்துறை / Kalutara': ['කළුතර / களுத்துறை / Kalutara','බණ්ඩාරගම / பண்டாரகம / Bandaragama','බේරුවල / பேருவளை / Beruwala','බුලත්සිංහල / புளத்சிங்கள / Bulathsinhala','දොඩංගොඩ / தொடந்தூவை / Dodangoda','හොරණ / ஹொறணை / Horana','ඉංගිරිය / இங்கிரிய / Ingiriya','මතුගම / මத்துගම / Mathugama','පානදුර / பாணந்துறை / Panadura','වලල්ලාවිට / வளල්ලාවිට / Walallawita']
     }
   },
-  'Central / මධ්‍යම / மத்திய': {
-    districts: ['Kandy / මහනුවර / கண்டி','Matale / මාතලේ / மாத்தளை','Nuwara Eliya / නුවරඑළිය / நுவரඑளிய'],
+  'මධ්‍යම / மத்திய / Central': {
+    districts: ['මහනුවර / கண்டி / Kandy', 'මාතලේ / මාத்தளை / Matale', 'නුවරඑළිය / நுවරෙලිය / Nuwara Eliya'],
     divisions: {
-      'Kandy / මහනුවර / கண்டி': ['Kandy / මහනුවර / கண்டி','Akurana / අකුරණ / அக்குரணை','Doluwa / දොළුව / தொழுவ','Harispattuwa / හාරිස්පත්තුව / ஹரிஸ்பத்துவ','Kundasale / කුණ්ඩසාලෙ / குண்டசாலை','Minipe / මිනිපේ / மினிபே','Panvila / පන්විල / பண்வில','Pathadumbara / පාතදුම්බර / பாத்ததும்பரை','Poojapitiya / පූජාපිටිය / பூஜாபிட்டிய','Udunuwara / උඩුනුවර / உடுனுவர','Yatinuwara / යටිනුවර / யட்டினுவர'],
-      'Matale / මාතලේ / மாத்தளை': ['Matale / මාතලේ / மாத்தளை','Dambulla / දඹුල්ල / தம்புல்ல','Galewela / ගලේවෙල / கலேவெல','Laggala-Pallegama / ලග්ගල - පල්ලෙගම / லக்கல - பல்லேகம','Naula / නාඋල / நாஉல','Pallepola / පල්ලෙපොල / பல்லெபொல','Rattota / රත්තොට / ரத்தொட','Ukuwela / උකුවෙල / உகுவெல','Wilgamuwa / විල්ගමුව / வில்கமுவ','Yatawatta / යටවත්ත / யடவத்த'],
-      'Nuwara Eliya / නුවරඑළිය / நுவரඑளிய': ['Nuwara Eliya / නුවරඑළිය / நுவரெலியா','Ambagamuwa / අඹගමුව / அம்பகமுவ','Hanguranketha / හඟුරන්කෙත / ஹங்குரங்கெத','Kothmale / කොත්මලේ / கொத்மலை','Walapane / වලපනේ / வலபனே']
+      'මහනුවර / கண்டி / Kandy': ['මහනුවර / கண்டி / Kandy','අකුරණ / அக்குரணை / Akurana','දොළුව / தொழுவ / Doluwa','හාරිස්පත්තුව / ஹரிஸ்பத்துவ / Harispattuwa','කුණ්ඩසාලේ / குண்டசாலை / Kundasale','මිනිපේ / மினிபே / Minipe','පන්විල / பண்வில / Panvila','පාතදුම්බර / பாத்ததும்பரை / Pathadumbara','පූජාපිටිය / பூஜாபிட்டிய / Poojapitiya','උඩුනුවර / உடுனுவர / Udunuwara','යටිනුවර / யட்டினுவர / Yatinuwara'],
+      'මාතලේ / මාத்தளை / Matale': ['මාතලේ / මාத்தளை / Matale','දඹුල්ල / தம்புல்ல / Dambulla','ගලේවෙල / கலேவெல / Galewela','ලග්ගල-පල්ලේගම / லக்கல - பல்லேகம / Laggala-Pallegama','නාඋල / நாஉல / Naula','පල්ලේපොල / பல்லெபொல / Pallepola','රත්තොට / ரத்தொட / Rattota','උකුවෙල / உகுவெல / Ukuwela','විල්ගමුව / வில்கமுவ / Wilgamuwa','යටවත්ත / யடவத்த / Yatawatta'],
+      'නුවරඑළිය / நுවරෙලිය / Nuwara Eliya': ['නුවරඑළිය / நுවරෙලිය / Nuwara Eliya','අඹගමුව / அம்பகமுவ / Ambagamuwa','හඟුරන්කෙත / ஹங்குரங்கெத / Hanguranketha','කොත්මලේ / கொத்மலை / Kothmale','වලපනේ / வலபனே / Walapane']
     }
   },
-  'Southern / දකුණු / தெற்கு': {
-    districts: ['Galle / ගාල්ල / காலி','Matara / මාතර / மாத்தறை','Hambantota / හම්බන්තොට / அம்பாந்தோட்டை'],
+  'දකුණු / தெற்கு / Southern': {
+    districts: ['ගාල්ල / காலி / Galle', 'මාතර / மாத்தறை / Matara', 'හම්බන්තොට / அம்பாந்தோட்டை / Hambantota'],
     divisions: {
-      'Galle / ගාල්ල / காலி': ['Galle / ගාල්ල / காலி','Ambalangoda / අම්බලන්ගොඩ / அம்பலாங்கொடை','Baddegama / බද්දෙගම / பத்தேகம','Bentota / බෙන්තොට / பென்தொட்டை','Elpitiya / ඇල්පිටිය / எல்பிடி','Habaraduwa / හබරාදුව / ஹபராதூவ','Hikkaduwa / හික්කඩුව / ஹிக்கடுவை','Karandeniya / කරන්දෙණිය / கரதெனிய','Neluwa / නෙළුව / நெழுவ','Yakkalamulla / යක්කල මුල්ල / யக்கலமுல்ல'],
-      'Matara / මාතර / மாத்தறை': ['Matara / මාතර / மாத்தறை','Akuressa / අකුරැස්ස / அக்குரெஸ்ஸ','Athuraliya / අතුරලිය / அத்துரெளிய','Devinuwara / දෙවිනුවර / தெவிநுவர','Dickwella / දික්වැල්ල / திக்வெல்ல','Hakmana / හක්මන / ஹக்மண','Kamburupitiya / කඹුරුපිටිය / கம்புறுபிடிய','Kotapola / කොටපොල / கொடபொல','Mulatiyana / මුලටියන / முலடியன','Weligama / වැලිගම / வெலிகம'],
-      'Hambantota / හම්බන්තොට / அம்பாந்தோட்டை': ['Hambantota / හම්බන්තොට / ஹம்பாந்தோட்டை','Ambalantota / අම්බලන්තොට / அம்பலாந்தோட்டை','Beliatta / බෙලිඅත්ත / பெலியத்த','Lunugamvehera / ලුණුගම්වෙහෙර / லுணுகம்வெஹற','Sooriyawewa / සූරියවැව / சூரியவெவெ','Tangalle / තංගල්ල / தங்கல்லை','Tissamaharama','Walasmulla / වලස්මුල්ල / வலஸ்முல்ல']
+      'ගාල්ල / காලි / Galle': ['ගාල්ල / காලි / Galle','අම්බලන්ගොඩ / அம்பலாங்கொடை / Ambalangoda','බද්දෙගම / பத்தேகம / Baddegama','බෙන්තොට / பென்தொட்டை / Bentota','ඇල්පිටිය / எல்பிடி / Elpitiya','හබරාදුව / ஹபராதூவ / Habaraduwa','හික්කඩුව / ஹிக்கடுவை / Hikkaduwa','කරන්දෙණිය / கரதெனிய / Karandeniya','නෙළුව / நெழுவ / Neluwa','යක්කලමුල්ල / யக்கலமுல்ல / Yakkalamulla'],
+      'මාතර / මාத்தறை / Matara': ['මාතර / மாத்தறை / Matara','අකුරැස්ස / அக்குரெஸ்ஸ / Akuressa','අතුරලිය / அத்துரெளிய / Athuraliya','දෙවිනුවර / தெவிநுவர / Devinuwara','දික්වැල්ල / திக்வெல்ல / Dickwella','හක්මන / ஹக்மண / Hakmana','කඹුරුපිටිය / கம்புறுபிடிய / Kamburupitiya','කොටපොල / கொடபொல / Kotapola','මුලටියන / முலடியன / Mulatiyana','වැලිගම / வெலிகம / Weligama'],
+      'හම්බන්තොට / அம்பாந்தோட்டை / Hambantota': ['හම්බන්තොට / அம்பாந்தோட்டை / Hambantota','අම්බලන්තොට / அம்பலாந்தோட்டை / Ambalantota','බෙලිඅත්ත / பெலியத்த / Beliatta','ලුණුගම්වෙහෙර / லுணுகம்வெஹற / Lunugamvehera','සූරියවැව / சூரியவெவெ / Sooriyawewa','තංගල්ල / தங்கல்லை / Tangalle','තිස්සමහාරාමය / திஸ்ஸமஹாராமய / Tissamaharama','වලස්මුල්ල / வலஸ்முல்ல / Walasmulla']
     }
   },
-  'Northern / උතුරු / வடக்கு': {
-    districts: ['Jaffna / යාපනය / யாழ்ப்பாணம்','Kilinochchi / කිලිනොච්චි / கிளிநொச்சி','Mannar / මන්නාරම / மன்னார்','Vavuniya / වවුනියා / வவுனியா','Mullaitivu / මුලතිව් / முல்லைத்தீவு'],
+  'උතුරු / வடக்கு / Northern': {
+    districts: ['යාපනය / யாழ்ப்பாணம் / Jaffna', 'කිලිනොච්චි / கிளிநொச்சி / Kilinochchi', 'මන්නාරම / மன்னார் / Mannar', 'වවුනියාව / வவுனியா / Vavuniya', 'මුලතිව් / முல்லைத்தீவு / Mullaitivu'],
     divisions: {
-      'Jaffna / යාපනය / யாழ்ப்பாணம்': ['Jaffna / යාපනය / யாழ்ப்பாணம்','Delft / ඩෙල්ෆ් / டெல்ப்','Kayts / කයිට්ස් / கைட்ஸ்','Kopay / කෝපයි / கோப்பாய்','Nallur / නල්ලූර් / நல்லூர்','Point Pedro / පේදුරුතුඩුව / பருத்தித்துறை','Tellippalai / තෙල්ලිප්පලෙයි / தெல்லிப்பழை','Uduvil / උදුවිල් / உடுவில்','Velanai / වේලනෙයි / வேலணை'],
-      'Kilinochchi / කිලිනොච්චි / கிளிநொச்சி': ['Kandavalai / කන්දවලායි / கந்தவளை','Karachchi / කරච්චි / கரச்சி','Pachchilaipalli / පච්චිලෙයිපල්ලෙයි / பச்சிலைப்பள்ளி','Poonakary / පුනාකරි / பூணாகரி'],
-      'Mannar / මන්නාරම / மன்னார்': ['Mannar Town / මන්නාරම නගරය / மன்னார் நகரம்','Madhu / මඩු / மடு','Manthai West / මන්තායි බටහිර / மாந்தை மேற்கு','Musali / මුසලි / முசலி','Nanattan / නානාධන් / நனாதன்'],
-      'Vavuniya / වවුනියා / வவுனியா': ['Vavuniya / වවුනියා / வவுனியா','Vavuniya North / වවුනියා උතුර / வவுனியா வடக்கு','Vavuniya South / වවුනියා දකුණ / வவுனியா தெற்கு','Vengalacheddikulam / වෙන්ගලචෙඩ්ඩිකුලම් / வெங்கலச்செட்டிக்குளம்'],
-      'Mullaitivu / මුලතිව් / முல்லைத்தீவு': ['Maritimepattu / මැරිටයිම්පත්තු / மரிதிமேப்பட்டு','Oddusuddan / ඔඩ්ඩුසුදාන් / ஒட்டுச்சுட்டாண்','Puthukudiyiruppu / පුදුකුඩියිරිප්පු / புதுக்குடியிருப்பு','Thunukkai / තුනුක්කායි / துணுக்கை','Welioya / වැලිඔය / வெலிஓய']
+      'යාපනය / யாழ்ப்பාణం / Jaffna': ['යාපනය / யாழ்ப்பாணம் / Jaffna','ඩෙල්ෆ් / டெல்ப் / Delft','කයිට්ස් / கைட்ஸ் / Kayts','කෝපායි / கோப்பாய் / Kopay','නල්ලූර් / நல்லூர் / Nallur','පේදුරුතුඩුව / பருத்தித்துறை / Point Pedro','තෙල්ලිප්පලෙයි / தெல்லிப்பழை / Tellippalai','උදුවිල් / உடுவில் / Uduvil','වේලනෙයි / வேலணை / Velanai'],
+      'කිලිනොච්චි / කිளிநොච්චි / Kilinochchi': ['කිලිනොච්චි / කිளிநොච්චි / Kilinochchi','කන්දවලායි / கந்தவளை / Kandavalai','කරච්චි / கரச்சி / Karachchi','පච්චිලෙයිපල්ලෙයි / பச்சிலைப்பள்ளி / Pachchilaipalli','පූනකරි / பூணாகரி / Poonakary'],
+      'මන්නාරම / மன்னார் / Mannar': ['මන්නාරම නගරය / மன்னார் நகரம் / Mannar Town','මඩු / மடு / Madhu','මන්තායි බටහිර / மாந்தை மேற்கு / Manthai West','මුසලි / முசலி / Musali','නානාට්ටන් / நனாதன் / Nanattan'],
+      'වවුනියාව / வவுனியா / Vavuniya': ['වවුනියාව / வவுனியா / Vavuniya','වවුනියාව උතුර / வவுனியா வடக்கு / Vavuniya North','වවුනියාව දකුණ / වவுனியா தெற்கு / Vavuniya South','වෙන්ගලචෙඩ්ඩිකුලම් / வெங்கலச்செட்டிக்குளம் / Vengalacheddikulam'],
+      'මුලතිව් / මුல்லைத்தීவு / Mullaitivu': ['මුලතිව් / முல்லைத்தීவு / Mullaitivu','මැරිටයිම්පත්තු / மரிதிமேப்பட்டு / Maritimepattu','ඔඩ්ඩුසුඩාන් / ஒட்டுச்சுட்டாண் / Oddusuddan','පුදුකුඩියිරිප්පු / புதுடியிருப்பு / Puthukudiyiruppu','තුනුක්කායි / துணுக்கை / Thunukkai','වැලිඔය / வெலிஓய / Welioya']
     }
   },
-  'Eastern / නැගෙනහිර / கிழக்கு': {
-    districts: ['Trincomalee / ත්‍රිකුණාමලය / திருகோணமலை','Batticaloa / මඩකලපුව / மட்டக்களப்பு','Ampara / අම්පාර / அம்பாறை'],
+  'නැගෙනහිර / கிழக்கு / Eastern': {
+    districts: ['ත්‍රිකුණාමලය / திருகோணமலை / Trincomalee', 'මඩකලපුව / மட்டக்களப்பு / Batticaloa', 'අම්පාර / அம்பாறை / Ampara'],
     divisions: {
-      'Trincomalee / ත්‍රිකුණාමලය / திருகோணமலை': ['Trincomalee Town and Gravets / ත්‍රිකුණාමලය නගරය හා කඩවත් / திருகோணமலை நகரம்','Kantale / කන්තලේ / கந்தளாய்','Kinniya / කින්නියා / கின்னியா','Muttur / මුත්තූර් / மூதூர்','Seruvila / සේරුවිල / சேருவில்'],
-      'Batticaloa / මඩකලපුව / மட்டக்களப்பு': ['Batticaloa / මඩකලපුව / மட்டக்களப்பு','Eravur Pattu / එරාවුර්පත්තු / ஏறாவூர் பட்டு','Kattankudy / කාත්තන්කුඩි / காத்தாங்குடி','Koralai Pattu / කෝරලේපත්තු / கோரலைப்பத்து','Manmunai North / මන්මුනායි උතුර / மண்முணை வடக்கு'],
-      'Ampara / අම්පාර / அம்பாறை': ['Ampara / අම්පාර / அம்பாறை','Akkaraipattu / අක්කරෙයිපත්තු / அக்கரைப்பத்து','Dehiattakandiya / දෙහිඅත්තකන්ඩිය / தெஹிஅத்தக்கண்டிய','Kalmunai / කල්මුනෙයි / கல்முனை','Mahaoya / මහඔය / மஹாஓயா','Pothuvil / පොතුවිල් / பொத்துவில்','Uhana / උහන / உஹண']
+      'ත්‍රිකුණාමලය / திருகோணமலை / Trincomalee': ['ත්‍රිකුණාමලය නගරය හා කඩවත් / திருகோணமலை நகரம் / Trincomalee Town and Gravets','කන්තලේ / கந்தளாய் / Kantale','කින්නියා / கின்னியா / Kinniya','මුත්තූර් / மூதூர் / Muttur','සේරුවිල / சேருவில் / Seruvila'],
+      'මඩකලපුව / මட்டකලப்பு / Batticaloa': ['මඩකලපුව / மட்டக்களப்பு / Batticaloa','එරාවුර්පත්තු / ஏறாவூர் பட்டு / Eravur Pattu','කාත්තන්කුඩි / காத்தாங்குடி / Kattankudy','කෝරලේපත්තු / கோரலைப்பத்து / Koralai Pattu','මන්මුනායි උතුර / மண்முணை வடக்கு / Manmunai North'],
+      'අම්පාර / அம்பாறை / Ampara': ['අම්පාර / அம்பாறை / Ampara','අක්කරෙයිපත්තු / அக்கரைப்பத்து / Akkaraipattu','දෙහිඅත්තකන්ඩිය / தெஹிஅத்தக்கண்டிய / Dehiattakandiya','කල්මුනෙයි / கல்முனை / Kalmunai','මහඔය / மஹாஓயா / Mahaoya','පොතුවිල් / பொத்துவில் / Pothuvil','උහන / உஹண / Uhana']
     }
   },
-  'North Western / වයඹ / வடமேல்': {
-    districts: ['Kurunegala / කුරුණෑගල / குருநாகல்','Puttalam / පුත්තලම / புத்தளம்'],
+  'වයඹ / வடமேல் / North Western': {
+    districts: ['කුරුණෑගල / குருநாகல் / Kurunegala', 'පුත්තලම / புத்தளம் / Puttalam'],
     divisions: {
-      'Kurunegala / කුරුණෑගල / குருநாகல்': ['Kurunegala / කුරුණෑගල / குருணாகலை','Alawwa / අලව්ව / அலவ்வ','Galgamuwa / ගල්ගමුව / கல்கமுவ','Kuliyapitiya / කුළියාපිටිය / குளியாபிட்டிய','Narammala / නාරම්මල / நாரம்மல','Nikaweratiya / නිකවෙරටිය / நிக்கவெரட்டிய','Pannala / පන්නල / பன்னல','Polgahawela / පොල්ගහවෙල / பொல்கஹவெல','Wariyapola / වාරියපොල / வாரியபொல'],
-      'Puttalam / පුත්තලම / புத்தளம்': ['Puttalam / පුත්තලම / புத்தளம்','Anamaduwa / ආනමඩුව / ஆணமடுவ','Chilaw / හලාවත / சிலாபம்','Dankotuwa / දංකොටුව / தங்கொட்டுவ','Kalpitiya / කල්පිටිය / கல்பிடிய','Nattandiya / නාත්තන්ඩිය / நாத்தண்டிய','Wennappuwa / වෙන්නප්පුව / வெண்ணப்புவ']
+      'කුරුණෑගල / குருනගල් / Kurunegala': ['කුරුණෑගල / குருணாகலை / Kurunegala','අලව්ව / அலவ்வ / Alawwa','ගල්ගමුව / கல்கமுவ / Galgamuwa','කුළියාපිටිය / குளியாபிட்டிய / Kuliyapitiya','නාරම්මල / நாரம்மல / Narammala','නිකවැරටිය / நிக்கவெரட்டிய / Nikaweratiya','පන්නල / பன்னல / Pannala','පොල්ගහවෙල / பொல்கஹவெல / Polgahawela','වාරියපොල / வாரியபொல / Wariyapola'],
+      'පුත්තලම / புத்தளம் / Puttalam': ['පුත්තලම / புத்தளம் / Puttalam','ආණමඩුව / ஆணமடுவ / Anamaduwa','හලාවත / சிலாபம் / Chilaw','දංකොටුව / தங்கொட்டுவ / Dankotuwa','කල්පිටිය / கல்பிடிய / Kalpitiya','නාත්තණ්ඩිය / நாத்தண்டிய / Nattandiya','වෙන්නප්පුව / வெண்ணப்புவ / Wennappuwa']
     }
   },
-  'North Central / උතුරු මැද / வடமத்திய': {
-    districts: ['Anuradhapura / අනුරාධපුර / அனுராதபுரம்','Polonnaruwa / පොළොන්නරුව / பொலனறுவை'],
+  'උතුරු මැද / வடமத்திய / North Central': {
+    districts: ['අනුරාධපුර / அனுராதபுரம் / Anuradhapura', 'පොළොන්නරුව / பொலனறுவை / Polonnaruwa'],
     divisions: {
-      'Anuradhapura / අනුරාධපුර / அனுராதபுரம்': ['Anuradhapura / අනුරාධපුරය / அநுராதபுரம்','Galenbindunuwewa / ගලෙන්බිදුනුවැව / கலெண்பிந்துணுவெவ','Kekirawa / කැකිරාව / கெகிராவ','Medawachchiya / මැදවච්චිය / மெதவச்சிய','Mihintale / මිහින්තලේ / மிஹிந்தலை','Padaviya / පදවිය / பதவிய','Thalawa / තලාව / தலாவ','Thambuttegama / තඹුත්තෙගම / தம்புத்தேகம'],
-      'Polonnaruwa / පොළොන්නරුව / பொலனறுவை': ['Thamankaduwa / තමන්කඩුව / தமண்கடுவ','Dimbulagala / දිඹුලාගල / திம்புலாகல','Hingurakgoda / හිඟුරක්ගොඩ / ஹிங்குரக்கொடை','Medirigiriya / මැදිරිගිරිය / மெதிரிகிரிய','Welikanda / වැලිකන්ද / வெலிகந்த']
+      'අනුරාධපුර / அனுராதபுரம் / Anuradhapura': ['අනුරාධපුරය / அநுராதபுரம் / Anuradhapura','ගලෙන්බිඳුණුවැව / கலெண்பிந்துணுவெவ / Galenbindunuwewa','කැකිරාව / கெகிராவ / Kekirawa','මැදවච්චිය / மெதவச்சிய / Medawachchiya','මිහින්තලේ / மிஹிந்தலை / Mihintale','පදවිය / பதவிய / Padaviya','තලාව / தலாவ / Thalawa','තඹුත්තේගම / தம்புத்தேகம / Thambuttegama'],
+      'පොළොන්නරුව / பொலனறுவை / Polonnaruwa': ['පොළොන්නරුව / பொலனறுவை / Polonnaruwa','තමන්කඩුව / தமண்கடுவ / Thamankaduwa','දිඹුලාගල / திம்புலாகல / Dimbulagala','හිඟුරක්ගොඩ / ஹிங்குரக்கொடை / Hingurakgoda','මැදිරිගිරිය / மெதிரிகிரிய / Medirigiriya','වැලිකන්ද / வெலிகந்த / Welikanda']
     }
   },
-  'Uva / ඌව / ஊவா': {
-    districts: ['Badulla / බදුල්ල / பதுள்ள','Monaragala / මොණරාගල / மொணராகல'],
+  'ඌව / ஊவா / Uva': {
+    districts: ['බදුල්ල / பதுள்ளை / Badulla', 'මොණරාගල / மொணராகල / Monaragala'],
     divisions: {
-      'Badulla / බදුල්ල / பதுள்ள': ['Badulla / බදුල්ල / பதுளை','Bandarawela / බණ්ඩාරවෙල / பண்டாரவளை','Ella / ඇල්ල / எல்ல','Haputale / හපුතලේ / ஹபுதலே','Mahiyanganaya / මහියංගනය / மஹியங்கணை','Passara / පස්සර / பசரை','Welimada / වැලිමඩ / வெலிமடை'],
-      'Monaragala / මොණරාගල / மொணராகல': ['Monaragala / මොනරාගල / மொணராகலை','Buttala / බුත්තල / புத்தலை','Kataragama / කතරගම / கதிர்காமம்','Madulla / මඩුල්ල / மதுள்ள','Medagama / මැදගම / மெதகம','Wellawaya / වැල්ලවාය / வெல்லவாய']
+      'බදුල්ල / பதுள்ளை / Badulla': ['බදුල්ල / பதுளை / Badulla','බණ්ඩාරවෙල / பண்டாரවළ / Bandarawela','ඇල්ල / எல்ல / Ella','හපුතලේ / ஹபுதலே / Haputale','මහියංගණය / மஹியங்கணை / Mahiyanganaya','පස්සර / பசரை / Passara','වැලිමඩ / வெலிமடை / Welimada'],
+      'මොණරාගල / මොණරාගල / Monaragala': ['මොණරාගල / மொனராகலை / Monaragala','බුත්තල / புத்தலை / Buttala','කතරගම / கதிர்காமம் / Kataragama','මඩුල්ල / மதுள்ள / Madulla','මැදගම / மெதகம / Medagama','වැල්ලවාය / வெல்லவாய / Wellawaya']
     }
   },
-  'Sabaragamuwa / සබරගමුව / சப்ரகமுவ': {
-    districts: ['Ratnapura / රත්නපුර / இரத்தினபுரி','Kegalle / කෑගල්ල / கேகாலை'],
+  'සබරගමුව / சப்ரகமுவ / Sabaragamuwa': {
+    districts: ['රත්නපුර / இரத்தினபுரி / Ratnapura', 'කෑගල්ල / கேகாலை / Kegalle'],
     divisions: {
-      'Ratnapura / රත්නපුර / இரத்தினபுரி': ['Ratnapura / රත්නපුර / இரத்தினபுரி','Balangoda / බලන්ගොඩ / பலாங்கொடை','Eheliyagoda / ඇහැලියගොඩ / எஹலியகெடை','Embilipitiya / ඇඹිලිපිටිය / எம்பிலிபிட்டிய','Godakawela / ගොඩකවෙල / கொடகவெல','Kalawana / කලවාන / கலவான','Pelmadulla / පැල්මඩුල්ල / பெல்மடுல்ல'],
-      'Kegalle / කෑගල්ල / கேகாலை': ['Kegalle / කෑගල්ල / கேகாலை','Aranayaka / අරනායක / அரநாயக்க','Dehiovita / දෙහිඹ්විට / தெஹியோவிட்ட','Mawanella / මාවනැල්ල / மாவணெல்ல','Rambukkana / රඹුක්කන / ரம்புக்கணை','Warakapola / වරකාපොළ / வரகாப்பொல']
+      'රත්නපුර / இரத்தினபுரி / Ratnapura': ['රත්නපුර / இரத்தினபுரி / Ratnapura','බලන්ගොඩ / பலாங்கொடை / Balangoda','ඇහැලියගොඩ / எஹலியகெடை / Eheliyagoda','ඇඹිලිපිටිය / எம்பிலிபிட்டிய / Embilipitiya','ගොඩකවෙල / கொடகவெல / Godakawela','කලවාන / கலவான / Kalawana','පැල්මඩුල්ල / பெல்மடுல்ல / Pelmadulla'],
+      'කෑගල්ල / கேகாலை / Kegalle': ['කෑගල්ල / கேகாலை / Kegalle','අරණායක / அரநாயக்க / Aranayaka','දෙහිඕවිට / தெஹியோவிட்ட / Dehiovita','මාවනැල්ල / மாவணெல்ல / Mawanella','රඹුක්කන / ரம்புக்கணை / Rambukkana','වරකාපොළ / வரகாப்பொல / Warakapola']
     }
   }
 };
@@ -536,7 +536,7 @@ export default function CombinedForm() {
         </div>
         <div style={styles.tabContainer}>
           <button style={{...styles.tab,...(!isCompany?styles.tabActive:styles.tabInactive)}} onClick={()=>switchTab('person')}>
-            <div><L si="♿ රැකියා අපේක්ෂිත ආබාධ සහිත තැනැත්තන් ලියාපදිංචි කිරීමේ පෝරමය" ta="மாற்றுத்திறனாளி குடிமக்கள் பதிவு படிவம்" en="Persons with Disabilities Registration Form" color={!isCompany ? '#fff' : undefined} /></div>
+            <div><L si="♿ රැකියා අපේක්ෂිත ආබාධ සහිත තැනැත්තන් ලියාපදිංචි කිරීමේ පෝරමය" ta="அங்கவீனமுற்ற நபர்களின் குடிமக்கள் பதிவுப் படிவம்  " en="Persons with Disabilities Registration Form" color={!isCompany ? '#fff' : undefined} /></div>
           </button>
           <button style={{...styles.tab,...(isCompany?styles.tabActive:styles.tabInactive)}} onClick={()=>switchTab('company')}>
             <div><L si="🏢 සේවා යෝජකයින් ලියාපදිංචි කිරීමේ පෝරමය" ta="நிறுவன பதிவு படிவம்" en="Company Registration Form" color={isCompany ? '#fff' : undefined} /></div>
@@ -562,7 +562,7 @@ export default function CombinedForm() {
                   ආබාධ සහිත තැනැත්තන් රැකියා ගත කරන ආයතන සඳහා රජය මගින් සේවකයන්ගේ වැටුපෙන් 50% ක වැටුප් සහනාධාරයක් (රු. 15,000 ක උපරිමයකට යටත්ව)  <span style={{color:'#b45309',fontWeight:'700'}}>මාස 24ක්</span> දක්වා ගෙවීම් සිදු කරනු ලැබේ.
                 </p>
                 <p style={{ margin:'0 0 6px', color:'#991b1b', fontSize:'12px', lineHeight:1.8 }}>
-                மாற்றுத்திறனாளிகளைப் பணியமர்த்தும் நிறுவனங்களுக்கு, ஊழியர்களின் சம்பளத்தில் 50 சதவீதம் (அதிகபட்சமாக ரூ. 15,000 வரை) ஊதிய மானியமாக 24 மாதங்கள் வரை அரசு வழங்கும். 
+                அங்கவீனமுற்ற நபர்களைப் பணிக்கமர்த்தும் நிறுவனங்களுக்கு, ஊழியர்களின் சம்பளத்தில் 50 சதவீதம் (அதிகபட்சமாக ரூ. 15,000 வரை) ஊதிய மானியமாக 24 மாதங்கள் வரை அரசினால் வழங்கப்படும். 
                 </p>
                 <p style={{ margin:0, color:'#991b1b', fontSize:'12px', lineHeight:1.8 }}>
                 For institutions employing persons with disabilities, the government will provide a wage subsidy of 50% of the employees' salaries (subject to a maximum of Rs. 15,000) for up to 24 months. 
@@ -570,7 +570,7 @@ export default function CombinedForm() {
               </div>
             </div>
 
-            <p style={styles.sectionTitle}>📍 ස්ථානීය  තොරතුරු · இட விவரங்கள் · Location Details</p>
+            <p style={styles.sectionTitle}>📍 ස්ථානීය  තොරතුරු · வசிப்பிட விபரங்கள்  · Location Details</p>
             <F si="පළාත *" ta="மாகாணம் *" en="Province *">
               <select name="province" value={companyData.province} onChange={handleCompanyChange} style={styles.sel}>
                 <option value="">-- පළාත / மாகாணம் / Province --</option>
@@ -602,10 +602,10 @@ export default function CombinedForm() {
               <textarea name="address" value={personData.address} onChange={handlePersonChange} style={styles.ta} rows={3} maxLength={250} autoComplete="off"/>
               <p className="hint">{personData.address.length}/250</p>
             </F>
-            <F si="ආයතනයේ  දුරකථනය අංකය *" ta="தொலைபேசி *" en="Contact Number *">
+            <F si="ආයතනයේ  දුරකථනය අංකය *" ta="தொலைபேசி *" en="Official Contact Number *">
               <input type="tel" name="contact" value={companyData.contact} onChange={handleCompanyChange} style={styles.inp} maxLength={15} placeholder="0XX XXX XXXX" autoComplete="off"/>
             </F>
-            <F si="සම්බන්ධ කළ හැකි නිලධාරියාගේ නම" ta="தொடர்பு அதிகாரி பெயர்" en="Contact Officer Name">
+            <F si="සම්බන්ධ කළ හැකි නිලධාරියාගේ නම" ta="தொடர்புகொள்ள வேண்டிய உத்தியோகத்தரின் பெயர்" en="Contact Officer Name">
               <input type="text" name="officerName" value={companyData.officerName} onChange={handleCompanyChange} style={styles.inp} maxLength={100} autoComplete="off"/>
             </F>
             <F si="WhatsApp අංකය" ta="வாட்ஸ்அப் எண்" en="WhatsApp Number">
@@ -695,7 +695,7 @@ export default function CombinedForm() {
                 <option value="Any">ස්ත්‍රී/පුරුෂ දෙපාර්ශවයම / எவரும் / Any</option>
               </select>
             </F>
-            <F si="පිළිගත හැකි ආබාධිතතා වර්ග" ta="ஏற்கக்கூடிய இயலாமை வகைகள்" en="Types of Disability Accepted">
+            <F si="පිළිගත හැකි ආබාධිතතා වර්ග" ta="ஏற்ககூடிய அங்கவீனத்தின் தன்மைகள்" en="Types of Disability Accepted">
               <div>
                 <button type="button" onClick={() => setShowCompanyDisabilities(!showCompanyDisabilities)} style={styles.toggleBtn}>
                   <span>📍 ආබාධිතතා වර්ග තෝරන්න / இயலாமை வகைகளைத் தேர்ந்தெடுக்கவும் / Select Disability Types</span>
@@ -753,7 +753,7 @@ export default function CombinedForm() {
 
             <hr style={styles.divider}/>
             <p style={styles.sectionTitle}>📋 <L si="දීමනා, පහසුකම් & පුහුණු" ta="சலுகைகள், வசதிகள் & பயிற்சி" en="Benefits, Facilities & Training" /></p>
-            <F si="ගෙවිය හැකි අවම වැටුප" ta="ஊதியம்" en="Pay / Salary">
+            <F si="ගෙවිය හැකි අවම වැටුප" ta="சம்பளம்" en="Minimum Salary">
               <input type="text" name="pay" value={companyData.pay} onChange={handleCompanyChange} style={styles.inp} maxLength={50} placeholder="Rs. XXXXX" autoComplete="off"/>
             </F>
             <F si="EPF / ETF  *" ta="ஈபிஎஃப் / ஈடிஎஃப் *" en="EPF / ETF *">
@@ -832,7 +832,7 @@ export default function CombinedForm() {
               </select>
               {!personData.district && <p className="hint">දිස්ත්‍රික්කය තෝරන්න · மாவட்டத்தை தேர்ந்தெடுக்கவும் · Select District first</p>}
             </F>
-            <F si="ග්‍රාම නිලධාරි කොට්ඨාශය" ta="கிராம நிர்வாக பிரிவு" en="GN Division">
+            <F si="ග්‍රාම නිලධාරි කොට්ඨාශය" ta="கிராம நிலதாரியின் பிரிவு " en="GN Division">
               <input type="text" name="gnDivision" value={personData.gnDivision} onChange={handlePersonChange} style={styles.inp} maxLength={100} autoComplete="off" placeholder="උදා: 123A / எ.கா: 123A / e.g. 123A"/>
             </F>
 
@@ -918,10 +918,10 @@ export default function CombinedForm() {
             <p style={styles.sectionTitle}>♿ <L si="ආබාධිතභාවය පිළිබඳ තොරතුරු" ta="இயலாமை தகவல்கள்" en="Disability Details" /></p>
 
             {/* ✅ FIX 3: Multi-checkbox for person */}
-            <F si="ආබාධිත වර්ගීකරණය  " ta="இயலாமை வகை" en="Type of Disability">
+            <F si="ආබාධිත වර්ගීකරණය  " ta="அங்கவீனத்தின் தன்மை" en="Type of Disability">
               <div>
                 <button type="button" onClick={() => setShowPersonDisabilities(!showPersonDisabilities)} style={styles.toggleBtn}>
-                  <span>📍 ආබාධිතතා වර්ගය තෝරන්න / இயலாமை வகைகளைத் தேர்ந்தெடுக்கவும் / Select Disability Types</span>
+                  <span>📍 ආබාධිතතා වර්ගය තෝරන්න / அங்கவீனத்தின் வகைகளைத் தேர்ந்தெடுக்கவும் / Select Disability Types</span>
                   <span style={{ fontSize: '13px' }}>{showPersonDisabilities ? '▲' : '▼'}</span>
                 </button>
 
