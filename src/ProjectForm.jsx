@@ -1085,7 +1085,7 @@ export default function CombinedForm() {
             <p style={styles.sectionTitle}>♿ <L si="ආබාධිතභාවය පිළිබඳ තොරතුරු" ta="அங்கவீனத்தின் தகவல்கள்" en="Disability Details" /></p>
 
             {/* ✅ FIX 3: Multi-checkbox for person */}
-            <F si="ආබාධිත වර්ගීකරණය  " ta="அங்கவீனத்தின் தன்மை" en="Type of Disability">
+            <F si="ආබාධිතතා වර්ගීකරණය  " ta="அங்கவீனத்தின் தன்மை" en="Type of Disability">
               <div>
                 <button type="button" onClick={() => setShowPersonDisabilities(!showPersonDisabilities)} style={styles.toggleBtn}>
                   <span>📍 ආබාධිතතා වර්ගය තෝරන්න / அங்கவீனத்தின் வகைகளைத் தேர்ந்தெடுக்கவும் / Select Disability Types</span>
@@ -1126,10 +1126,10 @@ export default function CombinedForm() {
               </div>
             </F>
 
-            <F si="කැමති ක්ෂේත්‍රය" ta="விரும்பும் பணித் துறை" en="Preferred Field of Work">
+            <F si="රැකියා ගත වීමට අපේක්ෂිත ක්ෂේත්‍ර තෝරන්න" ta="விரும்பிய வேலைவாய்ப்புத் துறைகளைத் தேர்ந்தெடுக்கவும்" en="Select the desired fields of employment">
               <div>
                 <button type="button" onClick={() => setShowPersonFields(!showPersonFields)} style={styles.toggleBtn}>
-                  <span>📍 රැකියා ගත වීමට අපේක්ෂිත ක්ෂේත්‍ර තෝරන්න / துறைகளைத் தேர்ந்தெடுக்கவும் / Select Fields</span>
+                  <span>ක්ෂේත්‍ර තෝරන්න / துறைகளைத் தேர்ந்தெடுக்கவும் / Select Fields</span>
                   <span style={{ fontSize: '13px' }}>{showPersonFields ? '▲' : '▼'}</span>
                 </button>
 
