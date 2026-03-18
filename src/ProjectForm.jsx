@@ -180,7 +180,7 @@ const styles = {
   container: { 
     minHeight: '100vh', 
     background: 'radial-gradient(circle at top left, #ffffff 0%, #fff0f0 100%)', 
-    padding: '40px 16px', 
+    padding: 'clamp(10px, 4vw, 40px) clamp(8px, 2vw, 16px)', 
     fontFamily: '"Outfit", "Noto Sans Sinhala", "Noto Sans Tamil", -apple-system, sans-serif',
     display: 'flex',
     alignItems: 'center',
@@ -200,7 +200,7 @@ const styles = {
   header: { 
     position: 'relative',
     background: '#7c0000', 
-    padding: '160px 48px 80px', 
+    padding: 'clamp(100px, 15vw, 160px) clamp(16px, 5vw, 48px) clamp(40px, 10vw, 80px)', 
     textAlign: 'center',
     overflow: 'hidden',
     display: 'flex',
@@ -308,7 +308,7 @@ const styles = {
       color: '#7c0000'
     }
   },
-  form: { padding: '48px 64px' },
+  form: { padding: 'clamp(24px, 5vw, 48px) clamp(16px, 6vw, 64px)' },
   fieldRow: { display: 'flex', alignItems: 'flex-start', gap: '24px', marginBottom: '24px', flexWrap: 'wrap' },
   label: { width: '320px', minWidth: '280px', paddingTop: '12px', fontSize: '15px', fontWeight: '600', color: '#111827', lineHeight: 1.5, flexShrink: 0 },
   inputWrap: { flex: 1, minWidth: '300px' },
@@ -360,9 +360,9 @@ const L = ({ si, ta, en, color }) => (
 );
 
 const F = ({ si, ta, en, children }) => (
-  <div style={styles.fieldRow}>
-    <label style={styles.label}><L si={si} ta={ta} en={en} /></label>
-    <div style={styles.inputWrap}>{children}</div>
+  <div style={styles.fieldRow} className="field-row">
+    <label style={styles.label} className="label-col"><L si={si} ta={ta} en={en} /></label>
+    <div style={styles.inputWrap} className="input-wrap">{children}</div>
   </div>
 );
 
@@ -568,13 +568,38 @@ export default function CombinedForm() {
           0%, 100% { transform: translateY(0) rotate(0); }
           50% { transform: translateY(-20px) rotate(3deg); }
         }
+
+        /* Responsive Media Queries */
+        @media (max-width: 1024px) {
+          .field-row { gap: 16px !important; margin-bottom: 20px !important; }
+          .label-col { width: 260px !important; min-width: 200px !important; }
+        }
+
+        @media (max-width: 768px) {
+          .field-row { flex-direction: column !important; align-items: stretch !important; gap: 8px !important; margin-bottom: 24px !important; }
+          .label-col { width: 100% !important; min-width: auto !important; padding-top: 0 !important; margin-bottom: 4px !important; }
+          .input-wrap { min-width: auto !important; width: 100% !important; }
+          .tab-container { width: 95% !important; gap: 4px !important; padding: 4px !important; }
+          .tab-btn { padding: 10px 8px !important; font-size: 13px !important; }
+          .form-card { border-radius: 20px !important; }
+          .submit-btn { padding: 16px 32px !important; font-size: 16px !important; }
+          .logo-img { height: 100px !important; top: 15px !important; }
+          .section-title { font-size: 16px !important; }
+          .header-box { min-height: 260px !important; }
+        }
+
+        @media (max-width: 480px) {
+          .tab-btn span { font-size: 11px !important; }
+          .tab-btn strong { font-size: 12px !important; }
+          .logo-img { height: 80px !important; }
+        }
       `}</style>
 
-      <div style={styles.card}>
+      <div style={styles.card} className="form-card">
         {/* HEADER */}
-        <div style={styles.header}>
+        <div style={styles.header} className="header-box">
           <img src={headerImg} alt="Header Background" style={styles.headerImg} />
-          <img src={logoImg} alt="Logo" style={{ 
+          <img src={logoImg} alt="Logo" className="logo-img" style={{ 
             position: 'absolute', 
             top: '10px', 
             left: '50%', 
@@ -584,15 +609,13 @@ export default function CombinedForm() {
             filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.6))' 
           }} />
           <div style={styles.headerOverlay} />
-          <div style={styles.headerContent}>
-            
-          </div>
+          <div style={styles.headerContent}></div>
         </div>
-        <div style={styles.tabContainer}>
-          <button style={{...styles.tab,...(!isCompany?styles.tabActive:styles.tabInactive)}} onClick={()=>switchTab('person')}>
+        <div style={styles.tabContainer} className="tab-container">
+          <button style={{...styles.tab,...(!isCompany?styles.tabActive:styles.tabInactive)}} onClick={()=>switchTab('person')} className="tab-btn">
             <div><L si="♿ රැකියා අපේක්ෂිත ආබාධ සහිත තැනැත්තන් ලියාපදිංචි කිරීමේ පෝරමය" ta="அங்கவீனமுற்ற நபர்களின் குடிமக்கள் பதிவுப் படிவம்  " en="Persons with Disabilities Registration Form" color={!isCompany ? '#fff' : undefined} /></div>
           </button>
-          <button style={{...styles.tab,...(isCompany?styles.tabActive:styles.tabInactive)}} onClick={()=>switchTab('company')}>
+          <button style={{...styles.tab,...(isCompany?styles.tabActive:styles.tabInactive)}} onClick={()=>switchTab('company')} className="tab-btn">
             <div><L si="🏢 සේවා යෝජකයින් ලියාපදිංචි කිරීමේ පෝරමය" ta="நிறுவன பதிவு படிவம்" en="Company Registration Form" color={isCompany ? '#fff' : undefined} /></div>
           </button>
         </div>
