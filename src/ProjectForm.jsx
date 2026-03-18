@@ -1088,7 +1088,7 @@ export default function CombinedForm() {
             <F si="ආබාධිතතා වර්ගීකරණය  " ta="அங்கவீனத்தின் தன்மை" en="Type of Disability">
               <div>
                 <button type="button" onClick={() => setShowPersonDisabilities(!showPersonDisabilities)} style={styles.toggleBtn}>
-                  <span>📍 ආබාධිතතා වර්ගය තෝරන්න / அங்கவீனத்தின் வகைகளைத் தேர்ந்தெடுக்கவும் / Select Disability Types</span>
+                  <span>ආබාධිත වර්ගය තෝරන්න / அங்கவீனத்தின் வகைகளைத் தேர்ந்தெடுக்கவும் / Select Disability Types</span>
                   <span style={{ fontSize: '13px' }}>{showPersonDisabilities ? '▲' : '▼'}</span>
                 </button>
 
@@ -1126,7 +1126,7 @@ export default function CombinedForm() {
               </div>
             </F>
 
-            <F si="රැකියා ගත වීමට අපේක්ෂිත ක්ෂේත්‍ර තෝරන්න" ta="விரும்பிய வேலைவாய்ப்புத் துறைகளைத் தேர்ந்தெடுக்கவும்" en="Select the desired fields of employment">
+            <F si="රැකියා ගත වීමට අපේක්ෂිත ක්ෂේත්‍ර" ta="எதிர்பார்க்கப்படும் வேலைவாய்ப்புத் துறைகள்" en="Expected fields of employment">
               <div>
                 <button type="button" onClick={() => setShowPersonFields(!showPersonFields)} style={styles.toggleBtn}>
                   <span>ක්ෂේත්‍ර තෝරන්න / துறைகளைத் தேர்ந்தெடுக்கவும் / Select Fields</span>
