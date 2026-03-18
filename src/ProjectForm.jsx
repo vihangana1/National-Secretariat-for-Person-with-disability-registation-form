@@ -183,7 +183,7 @@ const DISABILITY_OPTIONS = [
 const FIELD_OPTIONS = [
   { value: 'Garments', si: 'ඇඟලුම්', ta: 'ஆடை', en: 'Garments' },
   { value: 'Cleaning Service', si: 'පිරිසිදු කිරීම්', ta: 'சுத்தம் செய்தல்', en: 'Cleaning Service' },
-  { value: 'Beauty Salon', si: 'රූපලාවන්යාගාර', ta: 'அழகு நிலையம்', en: 'Beauty Salon' },
+  { value: 'Beauty Salon', si: 'රූපලාවන්‍ය', ta: 'அழகு நிலையம்', en: 'Beauty Salon' },
   { value: 'Hotels', si: 'හෝටල්', ta: 'உணவகம்', en: 'Hotels' },
   { value: 'IT', si: 'තොරතුරු තාක්ෂණය', ta: 'தகவல் தொழில்நுட்பம்', en: 'IT' },
   { value: 'Business', si: 'ව්‍යාපාර', ta: 'வணிகம்', en: 'Business' },
@@ -836,7 +836,7 @@ export default function CombinedForm() {
             <F si="පිළිගත හැකි ආබාධිතතා වර්ග" ta="ஏற்ககூடிய அங்கவீனத்தின் தன்மைகள்" en="Types of Disability Accepted">
               <div>
                 <button type="button" onClick={() => setShowCompanyDisabilities(!showCompanyDisabilities)} style={styles.toggleBtn}>
-                  <span>📍 ආබාධිතතා වර්ග තෝරන්න / அங்கவீனத்தின் வகைகளைத் தேர்ந்தெடுக்கவும் / Select Disability Types</span>
+                  <span>බඳවා ගැනීමට අපේක්ෂිත ආබාධිතා වර්ග තෝරන්න / ஆட்சேர்ப்பு செய்ய விரும்பும் அங்கவீனத்தின் வகைகளைத் தேர்ந்தெடுக்கவும். /Select the types of disabilities you wish to recruit</span>
                   <span style={{ fontSize: '18px' }}>{showCompanyDisabilities ? '▲' : '▼'}</span>
                 </button>
 
@@ -917,7 +917,7 @@ export default function CombinedForm() {
                 <input type="text" name="transportLimit" value={companyData.transportLimit} onChange={handleCompanyChange} style={styles.inp} maxLength={100} placeholder="e.g. 20km radius" autoComplete="off"/>
               </F>
             )}
-            <F si="අහාර" ta="உணவு வசதி" en="Supply Food">
+            <F si="ආහාර" ta="உணவு வசதி" en="Supply Food">
               <RadioGroup name="supplyFood" value={companyData.supplyFood} onChange={handleCompanyChange} options={[
                 {value:'Yes',si:'සපයනු ලැබේ',ta:'ஆம்',en:'Yes'},
                 {value:'No', si:'සපයනු නොලැබේ',ta:'இல்லை',en:'No'},
@@ -1064,7 +1064,7 @@ export default function CombinedForm() {
                 <input type="text" name="qualificationOther" value={personData.qualificationOther} onChange={handlePersonChange}
                   style={styles.inpOther} maxLength={150}
                   placeholder={
-                    personData.qualification === 'Education' ? "ඉහලම සුදුසුකම / கல்வித் தகுதி / Highest Qualification..." :
+                    personData.qualification === 'Education' ? "O/L , A/L හෝ ඉහලම සුදුසුකම / O/L , A/L , கல்வித் தகுதி / O/L, A/L or Highest Qualification..." :
                     personData.qualification === 'Vocational Training' ? "පුහුණු නාමය/ආයතනය / பயிற்சின் பெயர்/நிறுவனம் / Programme name/Institute..." :
                     "වැඩි විස්තර / மேலதிக விவரங்கள் / More details..."
                   }
@@ -1129,7 +1129,7 @@ export default function CombinedForm() {
             <F si="කැමති ක්ෂේත්‍රය" ta="விரும்பும் பணித் துறை" en="Preferred Field of Work">
               <div>
                 <button type="button" onClick={() => setShowPersonFields(!showPersonFields)} style={styles.toggleBtn}>
-                  <span>📍 ක්ෂේත්‍ර තෝරන්න / துறைகளைத் தேர்ந்தெடுக்கவும் / Select Fields</span>
+                  <span>📍 රැකියා ගත වීමට අපේක්ෂිත ක්ෂේත්‍ර තෝරන්න / துறைகளைத் தேர்ந்தெடுக்கவும் / Select Fields</span>
                   <span style={{ fontSize: '13px' }}>{showPersonFields ? '▲' : '▼'}</span>
                 </button>
 
