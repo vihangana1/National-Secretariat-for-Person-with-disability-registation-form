@@ -833,10 +833,10 @@ export default function CombinedForm() {
                 <option value="Any">ස්ත්‍රී/පුරුෂ දෙපාර්ශවයම / எவரும் / Any</option>
               </select>
             </F>
-            <F si="පිළිගත හැකි ආබාධිතතා වර්ග" ta="ஏற்ககூடிய அங்கவீனத்தின் தன்மைகள்" en="Types of Disability Accepted">
+            <F si="බඳවා ගැනීමට අපේක්ෂිත ආබාධිතතා වර්ග" ta="ஆட்சேர்ப்பு செய்ய விரும்பும் அங்கவீனத்தின் வகைகளைத்" en="Types of disabilities you wish to recruit">
               <div>
                 <button type="button" onClick={() => setShowCompanyDisabilities(!showCompanyDisabilities)} style={styles.toggleBtn}>
-                  <span>බඳවා ගැනීමට අපේක්ෂිත ආබාධිතා වර්ග තෝරන්න / ஆட்சேர்ப்பு செய்ய விரும்பும் அங்கவீனத்தின் வகைகளைத் தேர்ந்தெடுக்கவும். /Select the types of disabilities you wish to recruit</span>
+                  <span> ආබාධිතතා වර්ග තෝරන්න / அங்கவீனத்தின் வகைகளைத் தேர்ந்தெடுக்கவும் /Select the types of disabilities</span>
                   <span style={{ fontSize: '18px' }}>{showCompanyDisabilities ? '▲' : '▼'}</span>
                 </button>
 
