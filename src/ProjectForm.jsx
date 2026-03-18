@@ -454,6 +454,7 @@ export default function CombinedForm() {
   const [showPersonDisabilities,  setShowPersonDisabilities]  = useState(false);
   const [showCompanyDisabilities, setShowCompanyDisabilities] = useState(false);
   const [showPersonFields,       setShowPersonFields]       = useState(false);
+  const [dobParts,               setDobParts]               = useState({ day: '', month: '', year: '' });
 
   useEffect(() => {
     const s = document.createElement('script');
@@ -465,6 +466,21 @@ export default function CombinedForm() {
     document.body.appendChild(s);
     return () => { if (document.body.contains(s)) document.body.removeChild(s); };
   }, []);
+
+  // Sync dobParts to personData.dob (YYYY-MM-DD)
+  useEffect(() => {
+    const { day, month, year } = dobParts;
+    if (day && month && year) {
+      const formattedDob = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+      if (personData.dob !== formattedDob) {
+        setPersonData(prev => ({ ...prev, dob: formattedDob }));
+      }
+    } else if (!day && !month && !year) {
+      if (personData.dob !== '') {
+        setPersonData(prev => ({ ...prev, dob: '' }));
+      }
+    }
+  }, [dobParts, personData.dob]);
 
   const switchTab = (tab) => { setActiveTab(tab); setMessage({ type:'', text:'' }); };
 
@@ -489,6 +505,15 @@ export default function CombinedForm() {
       : {...prev,[name]:value}
     );
   },[]);
+
+  const handleDobPartChange = (e) => {
+    const { name, value } = e.target;
+    if (value !== '' && !/^\d+$/.test(value)) return;
+    if (name === 'day' && value.length > 2) return;
+    if (name === 'month' && value.length > 2) return;
+    if (name === 'year' && value.length > 4) return;
+    setDobParts(prev => ({ ...prev, [name]: value }));
+  };
 
   // ✅ Toggle disability checkbox for person
   const handleDisabilityToggle = useCallback((val) => {
@@ -962,7 +987,38 @@ export default function CombinedForm() {
               <input type="tel" name="phone" value={personData.phone} onChange={handlePersonChange} style={styles.inp} maxLength={15} placeholder="0XX XXX XXXX" autoComplete="off"/>
             </F>
             <F si="උපන් දිනය" ta="பிறந்த திகதி" en="Date of Birth">
-              <input type="date" name="dob" value={personData.dob} onChange={handlePersonChange} style={styles.inp}/>
+              <div style={{ display: 'flex', gap: '8px' }}>
+                <input 
+                  type="text" 
+                  name="year" 
+                  placeholder="YYYY" 
+                  value={dobParts.year} 
+                  onChange={handleDobPartChange}
+                  style={{ ...styles.inp, width: '40%', textAlign: 'center' }} 
+                  inputMode="numeric"
+                />
+                <input 
+                  type="text" 
+                  name="month" 
+                  placeholder="MM" 
+                  value={dobParts.month} 
+                  onChange={handleDobPartChange}
+                  style={{ ...styles.inp, width: '30%', textAlign: 'center' }} 
+                  inputMode="numeric"
+                />
+                <input 
+                  type="text" 
+                  name="day" 
+                  placeholder="DD" 
+                  value={dobParts.day} 
+                  onChange={handleDobPartChange}
+                  style={{ ...styles.inp, width: '30%', textAlign: 'center' }} 
+                  inputMode="numeric"
+                />
+              </div>
+              <p style={{ fontSize: '10px', color: '#6B7280', marginTop: '4px' }}>
+                YYYY-MM-DD (e.g. 1995-05-20)
+              </p>
             </F>
             <F si="වයස" ta="வயது" en="Age">
               <input type="number" name="age" value={personData.age} onChange={handlePersonChange} style={styles.inp} min="0" max="120" placeholder="උදා: 30 / எ.கா: 30 / e.g. 30" autoComplete="off"/>
