@@ -216,7 +216,7 @@ const base = {
 const styles = {
   container: { 
     minHeight: '100vh', 
-    background: 'radial-gradient(circle at top left, #ffffff 0%, #fff0f0 100%)', 
+    background: 'radial-gradient(circle at top left, #f8fafc 0%, #e2e8f0 100%)', 
     padding: 'clamp(10px, 4vw, 40px) clamp(8px, 2vw, 16px)', 
     fontFamily: '"Outfit", "Noto Sans Sinhala", "Noto Sans Tamil", -apple-system, sans-serif',
     display: 'flex',
@@ -229,14 +229,14 @@ const styles = {
     margin: '0 auto', 
     background: 'rgba(255, 255, 255, 0.98)', 
     borderRadius: '32px', 
-    boxShadow: '0 40px 100px -20px rgba(124, 0, 0, 0.12), 0 0 40px rgba(0, 0, 0, 0.02)', 
+    boxShadow: '0 40px 100px -20px rgba(10, 25, 47, 0.15), 0 0 40px rgba(0, 0, 0, 0.02)', 
     overflow: 'hidden',
-    border: '1.5px solid rgba(124, 0, 0, 0.15)',
+    border: '1.5px solid rgba(10, 25, 47, 0.15)',
     backdropFilter: 'blur(20px)'
   },
   header: { 
     position: 'relative',
-    background: '#7c0000', 
+    background: '#0a192f', 
     padding: 'clamp(100px, 15vw, 160px) clamp(16px, 5vw, 48px) clamp(40px, 10vw, 80px)', 
     textAlign: 'center',
     overflow: 'hidden',
@@ -307,8 +307,8 @@ const styles = {
     width: '90%',
     marginLeft: 'auto',
     marginRight: 'auto',
-    border: '1px solid rgba(124, 0, 0, 0.1)',
-    boxShadow: '0 20px 40px rgba(124, 0, 0, 0.12)',
+    border: '1px solid rgba(10, 25, 47, 0.1)',
+    boxShadow: '0 20px 40px rgba(10, 25, 47, 0.12)',
     position: 'relative',
     zIndex: 10
   },
@@ -331,9 +331,9 @@ const styles = {
     textAlign: 'center'
   },
   tabActive:   { 
-    background: 'linear-gradient(135deg, #7c0000 0%, #5a0000 100%)', 
+    background: 'linear-gradient(135deg, #0a192f 0%, #112240 100%)', 
     color: '#fff', 
-    boxShadow: '0 8px 25px rgba(124, 0, 0, 0.3)',
+    boxShadow: '0 8px 25px rgba(10, 25, 47, 0.3)',
     transform: 'translateY(-2px)',
   },
   tabInactive: { 
@@ -341,34 +341,34 @@ const styles = {
     color: '#6B7280',
     border: '1px solid transparent',
     '&:hover': {
-      background: 'rgba(124, 0, 0, 0.05)',
-      color: '#7c0000'
+      background: 'rgba(10, 25, 47, 0.05)',
+      color: '#0a192f'
     }
   },
   form: { padding: 'clamp(24px, 5vw, 48px) clamp(16px, 6vw, 64px)' },
   fieldRow: { display: 'flex', alignItems: 'flex-start', gap: '24px', marginBottom: '24px', flexWrap: 'wrap' },
   label: { width: '320px', minWidth: '280px', paddingTop: '12px', fontSize: '15px', fontWeight: '600', color: '#111827', lineHeight: 1.5, flexShrink: 0 },
   inputWrap: { flex: 1, minWidth: '300px' },
-  sel: { ...base, WebkitAppearance: 'none', appearance: 'none', cursor: 'pointer', backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 16px center', paddingRight: '40px', border: '2.5px solid #F3F4F6', '&:focus': { borderColor: '#7c0000', boxShadow: '0 0 0 5px rgba(124, 0, 0, 0.1)' } },
-  inp: { ...base, userSelect: 'text', WebkitUserSelect: 'text', caretColor: '#7c0000', border: '2px solid #F3F4F6' },
-  inpOther: { ...base, marginTop: '12px', borderColor: '#FFD700', background: '#FFFEF5', userSelect: 'text', WebkitUserSelect: 'text', caretColor: '#7c0000', borderRadius: '14px' },
-  ta:  { ...base, minHeight: '120px', resize: 'vertical', lineHeight: '1.7', userSelect: 'text', WebkitUserSelect: 'text', caretColor: '#7c0000', border: '2px solid #F3F4F6', borderRadius: '16px' },
+  sel: { ...base, WebkitAppearance: 'none', appearance: 'none', cursor: 'pointer', backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 16px center', paddingRight: '40px', border: '2.5px solid #F3F4F6', '&:focus': { borderColor: '#0a192f', boxShadow: '0 0 0 5px rgba(10, 25, 47, 0.1)' } },
+  inp: { ...base, userSelect: 'text', WebkitUserSelect: 'text', caretColor: '#0a192f', border: '2px solid #F3F4F6' },
+  inpOther: { ...base, marginTop: '12px', borderColor: '#3b82f6', background: '#f8fafc', userSelect: 'text', WebkitUserSelect: 'text', caretColor: '#0a192f', borderRadius: '14px' },
+  ta:  { ...base, minHeight: '120px', resize: 'vertical', lineHeight: '1.7', userSelect: 'text', WebkitUserSelect: 'text', caretColor: '#0a192f', border: '2px solid #F3F4F6', borderRadius: '16px' },
   radioGroup: { display: 'flex', gap: '20px', paddingTop: '10px', flexWrap: 'wrap' },
   radioLabel: { display: 'flex', alignItems: 'flex-start', gap: '12px', cursor: 'pointer', padding: '12px 20px', borderRadius: '16px', transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)', border: '2px solid #F3F4F6', background: '#fff' },
-  radioInput: { width: '22px', height: '22px', accentColor: '#7c0000', cursor: 'pointer', marginTop: '1px', flexShrink: 0 },
+  radioInput: { width: '22px', height: '22px', accentColor: '#0a192f', cursor: 'pointer', marginTop: '1px', flexShrink: 0 },
   submitContainer: { marginTop: '56px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' },
-  submitBtn: { display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '14px', padding: '20px 64px', background: 'linear-gradient(135deg, #7c0000 0%, #5a0000 100%)', color: '#fff', border: 'none', borderRadius: '18px', fontSize: '18px', fontWeight: '800', cursor: 'pointer', width: '100%', maxWidth: '600px', transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)', fontFamily: 'inherit', boxShadow: '0 15px 30px rgba(124, 0, 0, 0.3)', letterSpacing: '0.5px' },
+  submitBtn: { display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '14px', padding: '20px 64px', background: 'linear-gradient(135deg, #0a192f 0%, #112240 100%)', color: '#fff', border: 'none', borderRadius: '18px', fontSize: '18px', fontWeight: '800', cursor: 'pointer', width: '100%', maxWidth: '600px', transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)', fontFamily: 'inherit', boxShadow: '0 15px 30px rgba(10, 25, 47, 0.3)', letterSpacing: '0.5px' },
   submitBtnDisabled: { background: '#E5E7EB', cursor: 'not-allowed', boxShadow: 'none', color: '#9CA3AF' },
-  warningText: { fontSize: '13px', color: '#B91C1C', textAlign: 'center', margin: 0, lineHeight: 1.8, fontWeight: '500' },
+  warningText: { fontSize: '13px', color: '#0a192f', textAlign: 'center', margin: 0, lineHeight: 1.8, fontWeight: '500' },
   message: { padding: '20px 24px', borderRadius: '14px', textAlign: 'center', marginTop: '24px', fontSize: '15px', lineHeight: 1.7, fontWeight: '600' },
-  msgSuccess: { background: '#F0FDF4', border: '1.5px solid #BBF7D0', color: '#15803d', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)' },
-  msgError:   { background: '#FEF2F2', border: '1.5px solid #FECACA', color: '#b91c1c', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)' },
+  msgSuccess: { background: '#f0fdf4', border: '1.5px solid #bbf7d0', color: '#15803d', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)' },
+  msgError:   { background: '#fef2f2', border: '1.5px solid #fecaca', color: '#0a192f', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)' },
   divider: { border: 'none', borderTop: '2px solid #F3F4F6', margin: '48px 0' },
-  sectionTitle: { fontSize: '18px', fontWeight: '900', color: '#7c0000', marginBottom: '24px', marginTop: '12px', lineHeight: 1.4, display: 'flex', alignItems: 'center', gap: '12px', letterSpacing: '0.2px' },
+  sectionTitle: { fontSize: '18px', fontWeight: '900', color: '#0a192f', marginBottom: '24px', marginTop: '12px', lineHeight: 1.4, display: 'flex', alignItems: 'center', gap: '12px', letterSpacing: '0.2px' },
   checkboxGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '16px', paddingTop: '12px' },
   checkboxLabel: { display: 'flex', alignItems: 'flex-start', gap: '14px', padding: '16px 20px', border: '2px solid #F3F4F6', borderRadius: '16px', cursor: 'pointer', transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)', background: '#fff' },
-  checkboxLabelChecked: { border: '2px solid #7c0000', background: '#FFFDFD', boxShadow: '0 10px 20px rgba(124, 0, 0, 0.08)', transform: 'translateY(-1px)' },
-  checkboxInput: { width: '20px', height: '20px', accentColor: '#7c0000', cursor: 'pointer', marginTop: '4px', flexShrink: 0 },
+  checkboxLabelChecked: { border: '2px solid #0a192f', background: '#f0f9ff', boxShadow: '0 10px 20px rgba(10, 25, 47, 0.08)', transform: 'translateY(-1px)' },
+  checkboxInput: { width: '20px', height: '20px', accentColor: '#0a192f', cursor: 'pointer', marginTop: '4px', flexShrink: 0 },
   toggleBtn: {
     display: 'flex',
     alignItems: 'center',
@@ -376,22 +376,22 @@ const styles = {
     width: '100%',
     padding: '16px 24px',
     background: '#fff',
-    border: '2.5px solid #7c0000',
+    border: '2.5px solid #0a192f',
     borderRadius: '16px',
-    color: '#7c0000',
+    color: '#0a192f',
     fontWeight: '800',
     fontSize: '16px',
     cursor: 'pointer',
     transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
     marginBottom: '20px',
-    boxShadow: '0 8px 20px rgba(124, 0, 0, 0.08)'
+    boxShadow: '0 8px 20px rgba(10, 25, 47, 0.08)'
   },
 };
 
 const L = ({ si, ta, en, color }) => (
   <span style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-    <span style={{ display: 'block', color: color || '#7c0000', fontSize: '14px', fontWeight: '800', letterSpacing: '0.2px' }}>{si}</span>
-    <span style={{ display: 'block', color: color || '#5a0000', fontSize: '13px', fontWeight: '500', opacity: color ? 1 : 0.9 }}>{ta}</span>
+    <span style={{ display: 'block', color: color || '#0a192f', fontSize: '14px', fontWeight: '800', letterSpacing: '0.2px' }}>{si}</span>
+    <span style={{ display: 'block', color: color || '#112240', fontSize: '13px', fontWeight: '500', opacity: color ? 1 : 0.9 }}>{ta}</span>
     <span style={{ display: 'block', color: color || '#6B7280', fontSize: '11px', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.5px', marginTop: '1px' }}>{en}</span>
   </span>
 );
@@ -409,8 +409,8 @@ const RadioGroup = ({ name, value, onChange, options }) => (
       <label key={opt.value} style={styles.radioLabel} className="radio-label">
         <input type="radio" name={name} value={opt.value} checked={value === opt.value} onChange={onChange} style={styles.radioInput} />
         <span>
-          <span style={{ display: 'block', color: '#800000', fontSize: '13px', fontWeight: '600' }}>{opt.si}</span>
-          <span style={{ display: 'block', color: '#600000', fontSize: '11px' }}>{opt.ta}</span>
+          <span style={{ display: 'block', color: '#0a192f', fontSize: '13px', fontWeight: '600' }}>{opt.si}</span>
+          <span style={{ display: 'block', color: '#112240', fontSize: '11px' }}>{opt.ta}</span>
           <span style={{ display: 'block', color: '#6B7280', fontSize: '11px' }}>{opt.en}</span>
         </span>
       </label>
@@ -427,8 +427,8 @@ const DisabilityCheckboxGroup = ({ selected, onChange, options }) => (
         <label key={opt.value} className="cb-label" style={{ ...styles.checkboxLabel, ...(isChecked ? styles.checkboxLabelChecked : {}) }}>
           <input type="checkbox" value={opt.value} checked={isChecked} onChange={() => onChange(opt.value)} style={styles.checkboxInput} />
           <span>
-            <span style={{ display: 'block', color: '#800000', fontSize: '12px', fontWeight: '600' }}>{opt.si}</span>
-            <span style={{ display: 'block', color: '#600000', fontSize: '11px' }}>{opt.ta}</span>
+            <span style={{ display: 'block', color: '#0a192f', fontSize: '12px', fontWeight: '600' }}>{opt.si}</span>
+            <span style={{ display: 'block', color: '#112240', fontSize: '11px' }}>{opt.ta}</span>
             <span style={{ display: 'block', color: '#6B7280', fontSize: '10px' }}>{opt.en}</span>
           </span>
         </label>
@@ -615,14 +615,14 @@ export default function CombinedForm() {
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap');
         *,*::before,*::after{box-sizing:border-box;}
         button,select,input,textarea{font-family:'Noto Sans Sinhala','Noto Sans Tamil',sans-serif!important;}
-        button:focus,select:focus,input:focus,textarea:focus{border-color:#800000!important;outline:none!important;box-shadow:0 0 0 4px rgba(128, 0, 0, 0.15)!important;}
-        .sbtn:hover:not(:disabled){background:linear-gradient(135deg, #600000 0%, #400000 100%)!important; transform: translateY(-2px); box-shadow: 0 12px 20px -3px rgba(128, 0, 0, 0.4)!important;}
+        button:focus,select:focus,input:focus,textarea:focus{border-color:#0a192f!important;outline:none!important;box-shadow:0 0 0 4px rgba(10, 25, 47, 0.15)!important;}
+        .sbtn:hover:not(:disabled){background:linear-gradient(135deg, #0a192f 0%, #112240 100%)!important; transform: translateY(-2px); box-shadow: 0 12px 20px -3px rgba(10, 25, 47, 0.4)!important;}
         .sbtn:active:not(:disabled){transform: translateY(0);}
         .hint{font-size:12px;color:#6B7280;margin:6px 0 0;line-height:1.5;}
-        .cb-label:hover{border-color:#800000!important;background:#FFFBFB!important;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.05);}
-        .radio-label:hover{background:#fff5f5!important;}
+        .cb-label:hover{border-color:#0a192f!important;background:#f0f9ff!important;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.05);}
+        .radio-label:hover{background:#f0f9ff!important;}
         html{scroll-behavior:auto!important;}
-        ::selection { background: #800000; color: white; }
+        ::selection { background: #0a192f; color: white; }
         .float-anim {
           animation: floating 8s ease-in-out infinite;
         }
@@ -668,7 +668,7 @@ export default function CombinedForm() {
             transform: 'translateX(-50%)', 
             height: '140px', 
             zIndex: 10, 
-            filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.6))' 
+            filter: 'drop-shadow(0 4px 12px rgba(159, 132, 132, 0.6))' 
           }} />
           <div style={styles.headerOverlay} />
           <div style={styles.headerContent}></div>
@@ -694,16 +694,15 @@ export default function CombinedForm() {
           {isCompany && (<>
 
             {/* Payment Notice */}
-            <div style={{background:'linear-gradient(135deg,#fffbeb,#fef3c7)',border:'2px solid #F59E0B',borderRadius:'12px',padding:'22px 20px',marginBottom:'24px',display:'flex',flexDirection:'column',gap:'12px',alignItems:'center',textAlign:'center'}}>
-              <span style={{ fontSize:'28px', lineHeight:1, flexShrink:0 }}>💰</span>
+            <div style={{background:'linear-gradient(135deg,#eff6ff,#dbeafe)',border:'2px solid #3b82f6',borderRadius:'12px',padding:'22px 20px',marginBottom:'24px',display:'flex',flexDirection:'column',gap:'12px',alignItems:'center',textAlign:'center'}}>
               <div>
-                <p style={{ margin:'0 0 8px', color:'#800000', fontSize:'14px', fontWeight:'700', lineHeight:1.8 }}>
-                  ආබාධ සහිත තැනැත්තන් රැකියා ගත කරන ආයතන සඳහා රජය මගින් සේවකයන්ගේ වැටුපෙන් 50% ක වැටුප් සහනාධාරයක් (රු. 15,000 ක උපරිමයකට යටත්ව)  <span style={{color:'#b45309',fontWeight:'700'}}>මාස 24ක්</span> දක්වා ගෙවීම් සිදු කරනු ලැබේ.
+                <p style={{ margin:'0 0 8px', color:'#0a192f', fontSize:'14px', fontWeight:'700', lineHeight:1.8 }}>
+                  ආබාධ සහිත තැනැත්තන් රැකියා ගත කරන ආයතන සඳහා රජය මගින් සේවකයන්ගේ වැටුපෙන් 50% ක වැටුප් සහනාධාරයක් (රු. 15,000 ක උපරිමයකට යටත්ව)  <span style={{color:'#2563eb',fontWeight:'700'}}>මාස 24ක්</span> දක්වා ගෙවීම් සිදු කරනු ලැබේ.
                 </p>
-                <p style={{ margin:'0 0 6px', color:'#991b1b', fontSize:'12px', lineHeight:1.8 }}>
+                <p style={{ margin:'0 0 6px', color:'#112240', fontSize:'12px', lineHeight:1.8 }}>
                 அங்கவீனமுற்ற நபர்களைப் பணிக்கமர்த்தும் நிறுவனங்களுக்கு, ஊழியர்களின் சம்பளத்தில் 50 சதவீதம் (அதிகபட்சமாக ரூ. 15,000 வரை) ஊதிய மானியமாக 24 மாதங்கள் வரை அரசினால் வழங்கப்படும். 
                 </p>
-                <p style={{ margin:0, color:'#991b1b', fontSize:'12px', lineHeight:1.8 }}>
+                <p style={{ margin:0, color:'#112240', fontSize:'12px', lineHeight:1.8 }}>
                 For institutions employing persons with disabilities, the government will provide a wage subsidy of 50% of the employees' salaries (subject to a maximum of Rs. 15,000) for up to 24 months. 
                 </p>
               </div>
@@ -863,8 +862,8 @@ export default function CombinedForm() {
                         onChange={() => handleCompanyDisabilityToggle('Any')}
                         style={styles.checkboxInput} />
                       <span>
-                        <span style={{ display: 'block', color: '#800000', fontSize: '13px', fontWeight: '700' }}>ඕනෑම ආබාධයක්</span>
-                        <span style={{ display: 'block', color: '#600000', fontSize: '12px' }}>எந்த குறைபாடும்</span>
+                        <span style={{ display: 'block', color: '#0a192f', fontSize: '13px', fontWeight: '700' }}>ඕනෑම ආබාධයක්</span>
+                        <span style={{ display: 'block', color: '#112240', fontSize: '12px' }}>எந்த குறைபாடும்</span>
                         <span style={{ display: 'block', color: '#6B7280', fontSize: '11px' }}>Any Disability</span>
                       </span>
                     </label>
@@ -934,15 +933,15 @@ export default function CombinedForm() {
 
           {/* ══════════ DISABLED PERSON FORM ══════════ */}
           {!isCompany && (<>
-            <div style={{background:'linear-gradient(135deg,#fffbeb,#fef3c7)',border:'2px solid #F59E0B',borderRadius:'12px',padding:'22px 20px',marginBottom:'24px',display:'flex',gap:'12px',alignItems:'center',textAlign:'center'}}>
+            <div style={{background:'linear-gradient(135deg,#eff6ff,#dbeafe)',border:'2px solid #3b82f6',borderRadius:'12px',padding:'22px 20px',marginBottom:'24px',display:'flex',flexDirection:'column',gap:'12px',alignItems:'center',textAlign:'center'}}>
               <div style={{width:'100%'}}>
-                <p style={{margin:'0 0 6px',color:'#92400E',fontSize:'14px',fontWeight:'700',lineHeight:1}}>
-                  එක් පුද්ගලයකු සඳහා <span style={{color:'#B45309'}}>එක් වරක් පමණක්</span> පෝරමය භාවිතා කරන්න.
+                <p style={{margin:'0 0 6px',color:'#0a192f',fontSize:'14px',fontWeight:'700',lineHeight:1}}>
+                  එක් පුද්ගලයකු සඳහා <span style={{color:'#2563eb'}}>එක් වරක් පමණක්</span> පෝරමය භාවිතා කරන්න.
                 </p>
-                <p style={{margin:'0 0 4px',color:'#78350F',fontSize:'12px',lineHeight:1.8}}>
-                  ஒருவருக்கு <span style={{color:'#B45309',fontWeight:'700'}}>ஒரு முறை மட்டுமே</span> படிவத்தைப் பயன்படுத்தவும்.
+                <p style={{margin:'0 0 4px',color:'#112240',fontSize:'12px',lineHeight:1.8}}>
+                  ஒருவருக்கு <span style={{color:'#2563eb',fontWeight:'700'}}>ஒரு முறை மட்டுமே</span> படிவத்தைப் பயன்படுத்தவும்.
                 </p>
-                <p style={{margin:0,color:'#78350F',fontSize:'12px',lineHeight:1.8}}>
+                <p style={{margin:0,color:'#112240',fontSize:'12px',lineHeight:1.8}}>
                   Use the form <strong>once per person</strong> only.
                 </p>
               </div>
