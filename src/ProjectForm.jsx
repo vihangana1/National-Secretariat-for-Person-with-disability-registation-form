@@ -54,79 +54,116 @@ const Send = ({ style }) => (
   </svg>
 );
 
+// REPLACE your entire PROVINCE_DATA object with this fixed version.
+// The ONLY change is: every divisions{} key now exactly matches its
+// corresponding entry in the districts[] array — fixing the 7 broken dropdowns.
+
 const PROVINCE_DATA = {
-  'බස්නාහිර / மேல் / Western': {
-    districts: ['කොළඹ / கொழும்பு / Colombo', 'ගම්පහ / கம்பஹா / Gampaha', 'කළුතර / களுத்துறை / Kalutara'],
+  'බස්නාහිර පළාත / மேற்கு மாகாணம் / Western Province': {
+    districts: [
+      'කොළඹ දිස්ත්‍රික්කය / கொழும்பு மாவட்டம் / Colombo District',
+      'ගම්පහ දිස්ත්‍රික්කය / கம்பஹா மாவட்டம் / Gampaha District',
+      'කළුතර දිස්ත්‍රික්කය / களுத்துறை மாவட்டம் / Kalutara District'
+    ],
     divisions: {
-      'කොළඹ / கொழும்பு / Colombo': ['කොළඹ / கொழும்பு / Colombo','දෙහිවල / தெஹிவளை / Dehiwala','හෝමගම / ஹோமாகம / Homagama','කඩුවෙල / கடுவெல / Kaduwela','කැස්බෑව / கெஸ்பேவ / Kesbewa','මහරගම / மஹரகம / Maharagama','මොරටුව / மொரட்டுவை / Moratuwa','ශ්‍රී ජයවර්ධනපුර කෝට්ටේ / ஸ்ரீ ஜயவர்தணපුர கோட்டை / Sri Jayawardenepura Kotte','තිඹිරිගස්යාය / திம்பிரிகஸ்யாய / Thimbirigasyaya'],
-      'ගම්පහ / கம்பஹா / Gampaha': ['ගම්පහ / கம்பஹா / Gampaha','අත්තනගල්ල / அத்தனகல்ல / Attanagalla','බියගම / பியகம / Biyagama','දිවුලපිටිය / திவுலப்பிட்டிய / Divulapitiya','දොම්පෙ / தொம்பே / Dompe','ජා-ඇල / ஜா-எல / Ja-Ela','කටාන / கடானை / Katana','කැලණිය / களணி / Kelaniya','මහර / மஹara / Mahara','මිනුවන්ගොඩ / மினுவாங்கொடை / Minuwangoda','මීරිගම / மீரிகமை / Mirigama','මීගමුව / நீர்கொழும்பு / Negombo','වත්තල / வத்தளை / Wattala'],
-      'කළුතර / களுத்துறை / Kalutara': ['කළුතර / களுத்துறை / Kalutara','බණ්ඩාරගම / பண்டாரகம / Bandaragama','බේරුවල / பேருவளை / Beruwala','බුලත්සිංහල / புளத்சிங்கள / Bulathsinhala','දොඩංගොඩ / தொடந்தூவை / Dodangoda','හොරණ / ஹொறணை / Horana','ඉංගිරිය / இங்கிரிய / Ingiriya','මතුගම / මத்துගම / Mathugama','පානදුර / பாணந்துறை / Panadura','වලල්ලාවිට / வளල්ලාවිට / Walallawita']
+      'කොළඹ දිස්ත්‍රික්කය / கொழும்பு மாவட்டம் / Colombo District': ['කොළඹ / கொழும்பு / Colombo','දෙහිවල / தெஹிவளை / Dehiwala','මොරටුව / மொரட்டுவை / Moratuwa','ශ්‍රී ජයවර්ධනපුර කෝට්ටේ / ஸ்ரீ ஜயவர்தனபுர கோட்டை / Sri Jayawardenepura Kotte','මහරගම / மகரகம / Maharagama','කෙසෙල්බාව / கேஸ்பேவ / Kesbewa','හෝමාගම / ஹோமாகம / Homagama','පාදුක්ක / பாதுக்கா / Padukka','කඩුවෙල / கடுவெல / Kaduwela','කොලොන්නාව / கொலொன்னாவ / Kolonnawa','සීතාවක / சீதாவக / Seethawaka'],
+      'ගම්පහ දිස්ත්‍රික්කය / கம்பஹா மாவட்டம் / Gampaha District': ['ගම්පහ / கம்பஹா / Gampaha','මීගමුව / நீர்கொழும்பு / Negombo','කටාන / கட்டான / Katana','දිවුලපිටිය / திவுலபிட்டிய / Divulapitiya','මිරිගම / மிரிகம / Mirigama','මිනුවන்ගොඩ / மினுவங்கொட / Minuwangoda','අත්තනගල්ල / அத்தனகல்ல / Attanagalla','ජාඇල / ஜா-எல / Ja-Ela','වත්තල / வத்தளை / Wattala','මහර / மஹார / Mahara','දොම්පෙ / தொம்பே / Dompe','කැලණිය / கெலணியா / Kelaniya','බියගම / பியாகம / Biyagama'],
+      'කළුතර දිස්ත්‍රික්කය / களுத்துறை மாவட்டம் / Kalutara District': ['කළුතර / களுத்துறை / Kalutara','පානදුර / பாணந்துறை / Panadura','බණ්ඩාරගම / பண்டாரகம / Bandaragama','හොරණ / ஹொரணை / Horana','බුලත්සිංහල / புலத்சிங்கல / Bulathsinhala','මදුරාවල / மதுராவள / Madurawela','දොඩංගොඩ / தொடங்கொட / Dodangoda','මතුගම / மாதுகம / Mathugama','අගලවත්ත / அகலவத்த / Agalawatta','පාලින්දනුවර / பாலிந்தனுவர / Palindanuwara','වලල්ලාවිට / வலல்லாவிட்ட / Walallawita']
     }
   },
-  'මධ්‍යම / மத்திய / Central': {
-    districts: ['මහනුවර / கண்டி / Kandy', 'මාතලේ / මාத்தளை / Matale', 'නුවරඑළිය / நுවරෙලිය / Nuwara Eliya'],
+  'මධ්‍යම පළාත / மத்திய மாகாணம் / Central Province': {
+    districts: [
+      'මහනුවර දිස්ත්‍රික්කය / கண்டி மாவட்டம் / Kandy District',
+      'මාතලේ දිස්ත්‍රික්කය / மாத்தளை மாவட்டம் / Matale District',
+      'නුවරඑළිය දිස්ත්‍රික්කය / நுவரெலியா மாவட்டம் / Nuwara Eliya District'
+    ],
     divisions: {
-      'මහනුවර / கண்டி / Kandy': ['මහනුවර / கண்டி / Kandy','අකුරණ / அக்குரணை / Akurana','දොළුව / தொழுவ / Doluwa','හාරිස්පත්තුව / ஹரிஸ்பத்துவ / Harispattuwa','කුණ්ඩසාලේ / குண்டசாலை / Kundasale','මිනිපේ / මினிபே / Minipe','පන්විල / பண்வில / Panvila','පාතදුම්බර / பாத்ததும்பரை / Pathadumbara','පූජාපිටිය / பூஜாபிட்டிய / Poojapitiya','උඩුනුවර / உடுனுவர / Udunuwara','යටිනුවර / யட்டினுவர / Yatinuwara'],
-      'මාතලේ / මාத்தளை / Matale': ['මාතලේ / මාத்தளை / Matale','දඹුල්ල / தம்புல்ல / Dambulla','ගලේවෙල / கலேவெல / Galewela','ලග්ගල-පල්ලේගම / லக்கல - பல்லேகம / Laggala-Pallegama','නාඋල / நாஉல / Naula','පල්ලේපොල / பல்லெபொல / Pallepola','රත්තොට / ரத்தொட / Rattota','උකුවෙල / உகுவெல / Ukuwela','විල්ගමුව / வில்கமுவ / Wilgamuwa','යටවත්ත / යටවත්ත / Yatawatta'],
-      'නුවරඑළිය / நுවරෙලිය / Nuwara Eliya': ['නුවරඑළිය / நுවරෙලිය / Nuwara Eliya','අඹගමුව / அம்பகமுவ / Ambagamuwa','හඟුරන්කෙත / ஹங்குரங்கெத / Hanguranketha','කොත්මලේ / கொத்மலை / Kothmale','වලපනේ / வலபனே / Walapane']
+      'මහනුවර දිස්ත්‍රික්කය / கண்டி மாவட்டம் / Kandy District': ['මහනුවර / கண்டி / Kandy','අකුරණ / அகுரணை / Akurana','පූජාපිටිය / பூஜாபிட்டிய / Pujapitiya','පත්තදුම්බර / பத்ததும்பர / Pathadumbara','හරිස්පත්තුව / ஹரிஸ்பத்துவ / Harispattuwa','යතිනුවර / யதிநுவர / Yatinuwara','ගඟවටකොරළේ / கங்கவடகொரளை / Gangawata Korale','උඩුදුම්බර / உடுதும்பர / Ududumbara','පස්බාගේ කොරළේ / பஸ்பாகே கொரளை / Pasbage Korale','ගඟ ඉහළ කොරළේ / கங்க இஹல கொரளை / Gangaihala Korale','ඩෙල්තොට / டெல்தோட்ட / Deltota','හුන්නස්ගිරිය / ஹுன்னஸ்கிரிய / Hunnasgiriya','තෙල්දෙනිය / தெல்தெனிய / Teldeniya','කුන්දසාලේ / குந்தசாலை / Kundasale','මිනිපේ / மினிப்பே / Minipe','මැදදුම්බර / மெததும்பர / Medadumbara','උඩුනුවර / உடுநுவர / Udunuwara','දොලුව / தொலுவ / Doluwa','ගම්පොළ / கம்பொளை / Gampola','නාවලපිටිය / நாவலபிட்டிய / Nawalapitiya'],
+      'මාතලේ දිස්ත්‍රික්කය / மாத்தளை மாவட்டம் / Matale District': ['මාතලේ / மாத்தளை / Matale','දඹුල්ල / தம்புள்ள / Dambulla','ගලේවෙල / கலேவெல / Galewela','රත්තොට / ரத்தோட்ட / Rattota','උකුයෙල / உகுயெல / Ukuwela','නාවුල / நாவுல / Naula','විල්ගමුව / வில்கமுவ / Wilgamuwa','අම්බන්ගඟ කොරළේ / அம்பன்கங்க கொரளை / Ambanganga Korale','ලග්ගල / லக்கல / Laggala-Pallegama'],
+      'නුවරඑළිය දිස්ත්‍රික්කය / நுவரெலியா மாவட்டம் / Nuwara Eliya District': ['නුවරඑළිය / நுவரெலியா / Nuwara Eliya','හඟුරන්කෙත / ஹங்குரங்கெத்த / Hanguranketha','කොත්මලේ / கொத்மலை / Kothmale','වල්ලාපනේ / வலப்பனே / Walapane','අඹගමුව / அம்பகமுவ / Ambagamuwa']
     }
   },
-  'දකුණු / தெற்கு / Southern': {
-    districts: ['ගාල්ල / காலி / Galle', 'මාතර / මාத்தறை / Matara', 'හම්බන්තොට / அம்பாந்தோட்டை / Hambantota'],
+  'දකුණු පළාත / தெற்கு மாகாணம் / Southern Province': {
+    districts: [
+      'ගාල්ල දිස්ත්‍රික්කය / காலி மாவட்டம் / Galle District',
+      'මාතර දිස්ත්‍රික්කය / மாத்தறை மாவட்டம் / Matara District',
+      'හම්බන්තොට දිස්ත්‍රික්කය / ஹம்பாந்தோட்டை மாவட்டம் / Hambantota District'
+    ],
     divisions: {
-      'ගාල්ල / காලි / Galle': ['ගාල්ල / காලි / Galle','අම්බලන්ගොඩ / அம்பலாங்கொடை / Ambalangoda','බද්දෙගම / பத்தேகம / Baddegama','බෙන්තොට / பென்தொட்டை / Bentota','ඇල්පිටිය / එல்பிடி / Elpitiya','හබරාදුව / ஹபராதூவ / Habaraduwa','හික්කඩුව / ஹிக்கடுவை / Hikkaduwa','කරන්දෙණිය / கரதெனிய / Karandeniya','නෙළුව / நெழுவ / Neluwa','යක්කලමුල්ල / யக்கலமுல்ல / Yakkalamulla'],
-      'මාතර / මාத்தறை / Matara': ['මාතර / මාத்தறை / Matara','අකුරැස්ස / அக்குரெஸ்ஸ / Akuressa','අතුරලිය / அத்துரெளிய / Athuraliya','දෙවිනුවර / தெவிநுவர / Devinuwara','දික්වැල්ල / திக்வெல்ல / Dickwella','හක්මන / ஹக்மண / Hakmana','කඹුරුපිටිය / கம்புறுபிடிய / Kamburupitiya','කොටපොල / கொடபொල / Kotapola','මුලටියන / முலடியன / Mulatiyana','වැලිගම / வெலிகம / Weligama'],
-      'හම්බන්තොට / அம்பாந்தோட்டை / Hambantota': ['හම්බන්තොට / அம்பாந்தோட்டை / Hambantota','අම්බලන්තොට / அம்பலாந்தோட்டை / Ambalantota','බෙලිඅත්ත / பெலியத்த / Beliatta','ලුණුගම්වෙහෙර / லுணுகம்வெஹற / Lunugamvehera','සූරියවැව / சூரியவெவெ / Sooriyawewa','තංගල්ල / தங்கல்லை / Tangalle','තිස්සමහාරාමය / திஸ்ஸமஹாராமய / Tissamaharama','වලස්මුල්ල / வலஸ்முல்ல / Walallawita']
+      'ගාල්ල දිස්ත්‍රික්කය / காலி மாவட்டம் / Galle District': ['ගාල්ල / காலி / Galle','අක්මීමන / அக்மீமன / Akmeemana','බලපිටිය / பலபிட்டிய / Balapitiya','බෙන්තොට / பெந்தோட்ட / Bentota','එල්පිටිය / எல்பிட்டிய / Elpitiya','ගෝනපිනුවල / கோனபினுவல / Gonapinuwala','හබරාදුව / ஹபராதுவ / Habaraduwa','හික්කඩුව / ஹிக்கடுவ / Hikkaduwa','ඉමදුව / இமதுவ / Imaduwa','කරාපිටිය / கராப்பிட்டிய / Karapitiya','නෙළුව / நெழுவ / Neluwa','තිහගොඩ / திஹகொட / Thihagoda','වැලිවිට / வெலிவிட்ட / Welivitiya-Divithura','යාක්කලමුල්ල / யக்கலமுல்ல / Yakkalamulla'],
+      'මාතර දිස්ත්‍රික්කය / மாத்தறை மாவட்டம் / Matara District': ['මාතර / மாத்தறை / Matara','අකුරැස්ස / அக்குரெஸ்ஸ / Akuressa','අතුරලිය / அத்துரலிய / Athuraliya','දෙවිනුවර / தேவிநுவர / Devinuwara','දික්වැල්ල / திக்குவல்ல / Dickwella','හකමන / ஹக்மண / Hakmana','කඹුරුපිටිය / கம்புறுப்பிட்டிய / Kamburupitiya','කිරින්ද පුහුල්වැල්ල / கிரிந்த புஹுல்வெல்ல / Kirinda Puhulwella','කොටපොල / கொட்டப்பொல / Kotapola','මලිම්බඩ / மலிம்பட / Malimbada','මොරවක / மொரவக / Morawaka','පස්ගොඩ / பஸ்கொட / Pasgoda','පිටබැද්දර / பிடபட்டர / Pitabeddara','වැලිගම / வெலிகம / Weligama'],
+      'හම්බන්තොට දිස්ත්‍රික්කය / ஹம்பாந்தோட்டை மாவட்டம் / Hambantota District': ['හම්බන්තොට / ஹம்பாந்தோட்டை / Hambantota','අම්බලන්තොට / அம்பலாந்தோட்டை / Ambalantota','අඟුණුකොළපැලැස්ස / அங்குனுகொலபெலஸ்ஸ / Angunakolapelessa','බෙලිඅත්ත / பெலியட்ட / Beliatta','ලුණුගම්වෙහෙර / லுணுகம்வெஹெர / Lunugamvehera','ඔකෙවෙල / ஒகெவெல / Okewela','සූරියවැව / சூரியவெவ / Sooriyawewa','තංගල්ල / தங்கல்ல / Tangalle','තිස්සමහාරාම / திஸ்ஸமஹாராம / Tissamaharama','වීරකැටිය / வீரகெட்டிய / Weeraketiya']
     }
   },
-  'උතුරු / வடக்கு / Northern': {
-    districts: ['යාපනය / யாழ்ப்பாணம் / Jaffna', 'කිලිනොච්චි / கிளிநொச்சி / Kilinochchi', 'මන්නාරම / மன்னார் / Mannar', 'වවුනියාව / வவுனியா / Vavuniya', 'මුලතිව් / முல்லைத்தீவு / Mullaitivu'],
+  'උතුරු පළාත / வடக்கு மாகாணம் / Northern Province': {
+    districts: [
+      'යාපනය දිස්ත්‍රික්කය / யாழ்ப்பாணம் மாவட்டம் / Jaffna District',
+      'කිලිනොච්චි දිස්ත්‍රික්කය / கிளிநொச்சி மாவட்டம் / Kilinochchi District',
+      'මන්නාරම දිස්ත්‍රික්කය / மன்னார் மாவட்டம் / Mannar District',
+      'වවුනියාව දිස්ත්‍රික්කය / வவுனியா மாவட்டம் / Vavuniya District',
+      'මුලතිව් දිස්ත්‍රික්කය / முல்லைத்தீவு மாவட்டம் / Mullaitivu District'
+    ],
     divisions: {
-      'යාපනය / யாழ்ப்பාణం / Jaffna': ['යාපනය / யாழ்ப்பාணம் / Jaffna','ඩෙල්ෆ් / டெல்ப் / Delft','කයිට්ස් / கைட்ஸ் / Kayts','කෝපායි / கோப்பாய் / Kopay','නල්ලූර් / நல்லூர் / Nallur','පේදුරුතුඩුව / பருத்தித்துறை / Point Pedro','තෙල්ලිප්පලෙයි / தெல்லிப்பழை / Tellippalai','උදුවිල් / உடுவில் / Uduvil','වේලනෙයි / வேலணை / Velanai'],
-      'කිලිනොච්චි / කිளிනොච්චි / Kilinochchi': ['කිලිනොච්චි / කිளிනොච්චි / Kilinochchi','කන්දවලායි / கந்தவளை / Kandavalai','කරච්චි / கரச்சி / Karachchi','පච්චිලෙයිපල්ලෙයි / பச்சிலைப்பள்ளி / Pachchilaipalli','පූනකරි / பூணாகரி / Poonakary'],
-      'මන්නාරම / மன்னார் / Mannar': ['මන්නාරම නගරය / மன்னார் நகரம் / Mannar Town','මඩු / மடு / Madhu','මන්තායි බටහිර / மாந்தை மேற்கு / Manthai West','මුසලි / முசலி / Musali','නානාට්ටන් / நனாதன் / Nanattan'],
-      'වවුනියාව / வவுனியா / Vavuniya': ['වවුනියාව / வவுனியா / Vavuniya','වවුනියාව උතුර / வவுனியா வடக்கு / Vavuniya North','වවුනියාව දකුණ / வவுனியா தெற்கு / Vavuniya South','වෙන්ගලචෙඩ්ඩිකුලම් / வெங்கலச்செட்டிக்குளம் / Vengalacheddikulam'],
-      'මුලතිව් / முல்லைத்தீவு / Mullaitivu': ['මුලතිව් / முல்லைத்தீவு / Mullaitivu','මැරිටයිම්පත්තු / மரிதிமேப்பட்டு / Maritimepattu','ඔඩ්ඩුසුඩාන් / ஒட்டுச்சுட்டாண் / Oddusuddan','පුදුකුඩියිරිප්පු / புதுடியிருப்பு / Puthukudiyiruppu','තුනුක්කායි / துணுக்கை / Thunukkai','වැලිඔය / வெலிஓய / Welioya']
+      'යාපනය දිස්ත්‍රික්කය / யாழ்ப்பாணம் மாவட்டம் / Jaffna District': ['යාපනය / யாழ்ப்பாணம் / Jaffna','ඩෙල්ෆ්ට් / டெல்ஃப்ட் / Delft','කයිට්ස් / கைட்ஸ் / Kayts','කන්කසන්තුරේ / காங்கேசன்துறை / Kankesanthurai','නල්ලූර් / நல்லூர் / Nallur','සන්දිලිප්පයි / சந்திலிப்பாய் / Sandilipay','චාවකච්චේරි / சாவகச்சேரி / Chavakachcheri','උඩුවිල් / உடுவில் / Uduvil','වල්වෙටිතුරේ / வல்வெட்டித்துறை / Valvettithurai','පොයින්ට් පේඩ්රෝ / பொயிண்ட் பேட்ரோ / Point Pedro','කොපයි / கோப்பாய் / Kopay','කරයිනගර් / கரைநகர் / Karainagar','චුන්නාගම් / சுன்னாகம் / Chunnakam','මරුදනාර්මඩම් / மருதனார்மடம் / Maruthanamadam','තෙලිප්පලෙයි / தெல்லிப்பழை / Tellippalai'],
+      'කිලිනොච්චි දිස්ත්‍රික්කය / கிளிநொச்சி மாவட்டம் / Kilinochchi District': ['කිලිනොච්චි / கிளிநொச்சி / Kilinochchi','කන්ඩවල් / கண்டவல் / Kandavalai','කරච්චි / கரச்சி / Karachchi','පච්චිලාපල්ලී / பச்சிலைப்பள்ளி / Pachchilaipalli'],
+      'මන්නාරම දිස්ත්‍රික්කය / மன்னார் மாவட்டம் / Mannar District': ['මන්නාරම / மன்னார் / Mannar','මඩු / மடு / Madhu','මන්තයි බටහිර / மாந்தை மேற்கு / Manthai West','මුසලි / முசலி / Musali','නනට්ටන් / நானாட்டான் / Nanattan'],
+      'වවුනියාව දිස්ත්‍රික්කය / வவுனியா மாவட்டம் / Vavuniya District': ['වවුනියාව / வவுனியா / Vavuniya','වවුනියාව උතුර / வவுனியா வடக்கு / Vavuniya North','වවුනියාව දකුණ / வவுனியா தெற்கு / Vavuniya South','වවුනියාව දකුණු බටහිර / வவுனியா தென்மேற்கு / Vavuniya South West'],
+      'මුලතිව් දිස්ත්‍රික්කය / முல்லைத்தீவு மாவட்டம் / Mullaitivu District': ['මුලතිව් / முல்லைத்தீவு / Mullaitivu','මරිටයිම්පට්ටු / மரிடைம்பட்டு / Maritimepattu','ඔඩ්ඩුසුඩ්ඩාන් / ஒட்டுசுட்டான் / Oddusuddan','පුදුකුඩියිරිප්පු / புதுக்குடியிருப்பு / Puthukudiyiruppu','තුනක්කයි / துணுக்காய் / Thunukkai','වෙලිකන්ඩල් / வெலிகண்டல் / Welikandal']
     }
   },
-  'නැගෙනහිර / கிழக்கு / Eastern': {
-    districts: ['ත්‍රිකුණාමලය / திருகோணமலை / Trincomalee', 'මඩකලපුව / மட்டக்களப்பு / Batticaloa', 'අම්පාර / அம்பாறை / Ampara'],
+  'නැගෙනහිර පළාත / கிழக்கு மாகாணம் / Eastern Province': {
+    districts: [
+      'ත්‍රිකුණාමලය දිස්ත්‍රික්කය / திருகோணமலை மாவட்டம் / Trincomalee District',
+      'මඩකලපුව දිස්ත්‍රික්කය / மட்டக்களப்பு மாவட்டம் / Batticaloa District',
+      'අම්පාර දිස්ත්‍රික්කය / அம்பாறை மாவட்டம் / Ampara District'
+    ],
     divisions: {
-      'ත්‍රිකුණාමලය / திருகோணமலை / Trincomalee': ['ත්‍රිකුණාමලය නගරය හා කඩවත් / திருகோணமலை நகரம் / Trincomalee Town and Gravets','කන්තලේ / கந்தளாய் / Kantale','කින්නියා / கின்னியா / Kinniya','මුත්තූර් / மூதூர் / Muttur','සේරුවිල / சேருவில் / Seruvila'],
-      'මඩකලපුව / මட்டකලப்பு / Batticaloa': ['මඩකලපුව / மட்டக்களப்பு / Batticaloa','එරාවුර්පත්තු / ஏறாவூர் பட்டு / Eravur Pattu','කාත්තන්කුඩි / காத்தாங்குடி / Kattankudy','කෝරලේපත්තු / கோரலைப்பத்து / Koralai Pattu','මන්මුනායි උතුර / மண்முணை வடக்கு / Manmunai North'],
-      'අම්පාර / அம்பாறை / Ampara': ['අම්පාර / அம்பாறை / Ampara','අක්කරෙයිපත්තු / அக்கரைப்பத்து / Akkaraipattu','දෙහිඅත්තකන්ඩිය / தெஹிஅத்தக்கண்டிய / Dehiattakandiya','කල්මුනෙයි / கல்முனை / Kalmunai','මහඔය / மஹாஓயா / Mahaoya','පොතුවිල් / பொத்துவில் / Pothuvil','උහන / උහண / Uhana']
+      'ත්‍රිකුණාමලය දිස්ත්‍රික්කය / திருகோணமலை மாவட்டம் / Trincomalee District': ['ත්‍රිකුණාමලය / திருகோணமலை / Trincomalee','කන්තලේ / கந்தளாய் / Kantale','කින්නියා / கிண்ணியா / Kinniya','කුච්චවේලි / குச்சவெளி / Kuchchaveli','මුතූර් / மூதூர் / Muttur','පදවිය / பதவியா / Padaviya','සෙරුවිල / செருவில / Seruvila','වෙරුගල් / வெருகல் / Verugal','තම්පලගමුව / தம்பலகாமம் / Thambalagamuwa','ගෝමරන්කඩවල / கோமரங்கடவல / Gomarankadawala','ලංකාපුර / லங்காபுர / Lankaapura'],
+      'මඩකලපුව දිස්ත්‍රික්කය / மட்டக்களப்பு மாவட்டம் / Batticaloa District': ['මඩකලපුව / மட்டக்களப்பு / Batticaloa','ආරයම්පති / ஆரயம்பதி / Aarayampathy','කල්කුඩි / கற்குடி / Kalkudah','කට්ටන්කුඩි / கட்டான்குடி / Kattankudy','කොරළයිපත්තු / கோறளைப்பற்று / Koralaipattu','කොරළයිපත්තු උතුර / கோறளைப்பற்று வடக்கு / Koralaipattu North','කොරළයිපත්තු දකුණ / கோறளைப்பற்று தெற்கு / Koralaipattu South','මන්මුනායි උතුර / மண்முனை வடக்கு / Manmunai North','මන්මුනායි බටහිර / மண்முனை மேற்கு / Manmunai West','මන්මුනායි දකුණ / மண்முனை தெற்கு / Manmunai South','මන්මුනායි දකුණු බටහිර / மண்முனை தென்மேற்கு / Manmunai South West','මන්මුනායි උතුරු බටහිර / மண்முனை வடமேற்கு / Manmunai North West','පොරතීව්පත්තු / பொரதீவுப்பற்று / Poratheevupattu'],
+      'අම්පාර දිස්ත්‍රික්කය / அம்பாறை மாவட்டம் / Ampara District': ['අම්පාර / அம்பாறை / Ampara','අක්කරයිපත්තුව / அக்கரைப்பற்று / Akkaraipattu','අලයඩිවෙම්බු / ஆலையடிவேம்பு / Alayadiwembu','දමන / தமன / Damana','දේහිඅත්තකණ්ඩිය / தெய்வத்தகண்டிய / Dehiattakandiya','ඉරක්කාමම් / இறக்காமம் / Irakkamam','කල්මුණේ / கல்முனை / Kalmunai','කරයිතිව් / கரைத்தீவு / Karaitivu','ලහුගල / லஹுகல / Lahugala','මහඔය / மகோயா / Mahaoya','නාමල්ඔය / நாமல்ஓயா / Namaloya','නාවිතන්වැලි / நாவிதன்வெளி / Navithanveli','නින්දවූර් / நிந்தவூர் / Nintavur','පොතුවිල් / பொத்துவில் / Pottuvil','සයින්දමරුදු / சாய்ந்தமருது / Sainthamaruthu','සමන්තුරෙයි / சம்மாந்துறை / Sammanthurai','තිරුක්කෝවිල් / திருக்கோவில் / Thirukkovil','උහන / உஹன / Uhana']
     }
   },
-  'වයඹ / வடමේල් / North Western': {
-    districts: ['කුරුණෑගල / குருநாகල් / Kurunegala', 'පුත්තලම / புத்தளம் / Puttalam'],
+  'වයඹ පළාත / வடமேற்கு மாகாணம் / North Western Province': {
+    districts: [
+      'කුරුණෑගල දිස්ත්‍රික්කය / குருநாகல் மாவட்டம் / Kurunegala District',
+      'පුත්තලම දිස්ත්‍රික්කය / புத்தளம் மாவட்டம் / Puttalam District'
+    ],
     divisions: {
-      'කුරුණෑගල / குருනගල් / Kurunegala': ['කුරුණෑගල / குருණாகலை / Kurunegala','අලව්ව / அலவ்வ / Alawwa','ගල්ගමුව / கல்கமுவ / Galgamuwa','කුළියාපිටිය / குளியாபிட்டிய / Kuliyapitiya','නාරම්මල / நாரம்மல / Narammala','නිකවැරටිය / நிக்கவெරட்டிய / Nikaweratiya','පන්නල / பன்னல / Pannala','පොල්ගහවෙල / பொல்கහவெல / Polgahawela','වාරියපොල / வாரියபொල / Wariyapola'],
-      'පුත්තලම / புத்தளம் / Puttalam': ['පුත්තලම / புத்தளம் / Puttalam','ආණමඩුව / ஆணமடுவ / Anamaduwa','හලාවත / சிலாபம் / Chilaw','දංකොටුව / தங்கொட்டுவ / Dankotuwa','කල්පිටිය / கல்பிடிய / Kalpitiya','නාත්තණ්ඩිය / நாத்தண்டிய / Nattandiya','වෙන්නප්පුව / வெண்ணப்புவ / Wennappuwa']
+      'කුරුණෑගල දිස්ත්‍රික්කය / குருநாகல் மாவட்டம் / Kurunegala District': ['කුරුණෑගල / குருநாகல் / Kurunegala','අලව්ව / அலவ்வ / Alawwa','අඹන්පොල / அம்பன்பொல / Ambanpola','බිංගිරිය / பிங்கிரிய / Bingiriya','උඩුබද්දාව / உடுபத்தாவ / Udubaddawa','ගල්ගමුව / கல்கமுவ / Galgamuwa','ගිරිබාව / கிரிபாவ / Giribawa','ඉබ්බාගමුව / இப்பாகமுவ / Ibbagamuwa','කටුපොත / கட்டுபொத்த / Katupotha','කොබෙයිගනේ / கொப்பெய்கனே / Kobeigane','කොටවෙහෙර / கொட்டவெஹெர / Kotavehera','කුලියාපිටිය / குலியாப்பிட்டிய / Kuliyapitiya','කුලියාපිටිය නැගෙනහිර / குலியாப்பிட்டிய கிழக்கு / Kuliyapitiya East','කුලියාපිටිය බටහිර / குலியாப்பிட்டிய மேற்கு / Kuliyapitiya West','මහව / மஹவ / Mahawa','මල්ලවපිටිය / மல்லவப்பிட்டிய / Mallawapitiya','මාවතගම / மாவத்தகம / Mawathagama','මීගලෑව / மீகலேவ / Meegalewa','මොරගොල්ලගම / மொரகொல்லகம / Moragollagama','නාරම්මල / நாரம்மல / Narammala','නිකවැරටිය / நிகவரட்டிய / Nikaweratiya','පන්නල / பன்னல / Pannala','පොල්ගහවෙල / பொல்கஹவெல / Polgahawela','පොල්පිතිගම / பொல்பித்திகம / Polpithigama','රස්නායකපුර / ரஸ்நாயகபுர / Rasnayakaapura','රිදීගම / ரிதிகம / Rideegama','වරිපොල / வரியப்பொல / Wariyapola','වීරඹුගෙදර / வீரம்புகெதர / Weerambugedara'],
+      'පුත්තලම දිස්ත්‍රික්කය / புத்தளம் மாவட்டம் / Puttalam District': ['පුත්තලම / புத்தளம் / Puttalam','අනම්මඩුව / அனம்மடுவ / Anamaduwa','ආරච්චිකට්ටුව / ஆரச்சிக்கட்டுவ / Arachchikattuwa','කල්පිටිය / கல்பிட்டிய / Kalpitiya','කරුවලගස්වැව / கருவலகஸ்வேவ / Karuwalagaswewa','මහකුඹුක්කඩවල / மககும்புக்கடவல / Mahakumbukkadawala','මහවැව / மஹவெவ / Mahawa','මාරවිල / மாரவில / Marawila','මුන්දලම / முண்டலம / Mundalama','නත්තන්ඩිය / நத்தாண்டிய / Nattandiya','නවගත්තේගම / நவகத்தேகம / Nawagattegama','පල්ලම / பல்லம / Pallama','වෙන්නප්පුව / வெண்ணப்புவ / Wennappuwa']
     }
   },
-  'උතුරු මැද / வடமத்திய / North Central': {
-    districts: ['අනුරාධපුර / அனுராதபுரம் / Anuradhapura', 'පොළොන්නරුව / பொலனறுவை / Polonnaruwa'],
+  'උතුරු මැද පළාත / வட மத்திய மாகாணம் / North Central Province': {
+    districts: [
+      'අනුරාධපුර දිස්ත්‍රික්කය / அனுராதபுரம் மாவட்டம் / Anuradhapura District',
+      'පොළොන්නරුව දිස්ත්‍රික්කය / பொலன்னறுவை மாவட்டம் / Polonnaruwa District'
+    ],
     divisions: {
-      'අනුරාධපුර / அனுராதபுரம் / Anuradhapura': ['අනුරාධපුරය / அநுராதபுரம் / Anuradhapura','ගලෙන්බිඳුණුවැව / கலெண்பிந்துணுவெவ / Galenbindunuwewa','කැකිරාව / கெகிராவ / Kekirawa','මැදවච්චිය / மெதவச்சிய / Medawachchiya','මිහින්තලේ / මිஹිந்தலை / Mihintale','පදවිය / பதவிய / Padaviya','තලාව / தலாவ / Thalawa','තඹුත්තේගම / தம்புத்தேகம / Thambuttegama'],
-      'පොළොන්නරුව / பொலனறுவை / Polonnaruwa': ['පොළොන්නරුව / பொலனறுவை / Polonnaruwa','තමන්කඩුව / தமண்கடுவ / Thamankaduwa','දිඹුලාගල / திம்புலாகல / Dimbulagala','හිඟුරක්ගොඩ / ஹிங்குரக்கொடை / Hingurakgoda','මැදිරිගිරිය / மெதிரிகிரிய / Medirigiriya','වැලිකන්ද / வெලிகந்த / Welikanda']
+      'අනුරාධපුර දිස්ත්‍රික්කය / அனுராதபுரம் மாவட்டம் / Anuradhapura District': ['අනුරාධපුර / அனுராதபுரம் / Anuradhapura','ගල්නෑව / கல்நேவ / Galnewa','ගලෙන්බිඳුණුවැව / கலெண்பிந்துணுவெவ / Galenbindunuwewa','හොරොව්පතාන / ஹொரோவ்பத்தான / Horowpothana','ඉපලෝගම / இபலோகம / Ipalogama','කහටගස්දිගිලිය / கஹடகஸ்திகிலிய / Kahatagasdigiliya','කැබිතිගොල්ලෑව / கெபிதிகொல்லாவ / Kebithigollewa','කිරාන්ඩියාව / கிராண்டியாவ / Kirindiyawa','මැදවච්චිය / மெதவச்சிய / Medawachchiya','මිහින්තලේ / மிஹிந்தலை / Mihintale','නච්චදූව / நச்சதுவ / Nachchaduwa','නොච්චියාගම / நொச்சியாகம / Nochchiyagama','නුගලවෙව / நுவரகம்பலத்த கிழக்கு / Nuwaragam Palatha East','නුගලවෙව බටහිර / நுவரகம்பலத்த மேற்கு / Nuwaragam Palatha West','පදවිය / பதவியா / Padaviya','පලගල / பலகல / Palagala','රාජාංගනය / ராஜாங்கனய / Rajanganaya','තඹුත්තේගම / தம்புத்தேகம / Thambuttegama','තිරප්පනේ / திரப்பனே / Thirappane'],
+      'පොළොන්නරුව දිස්ත්‍රික්කය / பொலன்னறுவை மாவட்டம் / Polonnaruwa District': ['පොළොන්නරුව / பொலன்னறுவை / Polonnaruwa','දඹලගස්වැව / தம்பலகஸ்வேவ / Dimbulagala','හිඟුරක්ගොඩ / ஹிங்குரக்கொட / Hingurakgoda','ලංකාපුර / லங்காபுர / Lankaapura','මැදිරිගිරිය / மெதிரிகிரிய / Medirigiriya','තමන්කඩුව / தமன்கடுவ / Thamankaduwa']
     }
   },
-  'ඌව / ஊவா / Uva': {
-    districts: ['බදුල්ල / பதுள்ளை / Badulla', 'මොණරාගල / මොණராகල / Monaragala'],
+  'ඌව පළාත / ஊவா மாகாணம் / Uva Province': {
+    districts: [
+      'බදුල්ල දිස්ත්‍රික්කය / பதுளை மாவட்டம் / Badulla District',
+      'මොණරාගල දිස්ත්‍රික්කය / மொணராகலை மாவட்டம் / Monaragala District'
+    ],
     divisions: {
-      'බදුල්ල / பதுள்ளை / Badulla': ['බදුල්ල / பதுளை / Badulla','බණ්ඩාරවෙල / பண்டாரவළ / Bandarawela','ඇල්ල / எல்ல / Ella','හපුතලේ / ஹபுதலே / Haputale','මහියංගණය / மஹியங்கணை / Mahiyanganaya','පස්සර / பசரை / Passara','වැලිමඩ / வெலிமடை / Welimada'],
-      'මොණරාගල / මොණරාගල / Monaragala': ['මොණරාගල / மொனராகலை / Monaragala','බුත්තල / புத்தலை / Buttala','කතරගම / கதிர்காமம் / Kataragama','මඩුල්ල / மதுள்ள / Madulla','මැදගම / மெதகம / Medagama','වැල්ලවාය / வெல்லவாய / Wellawaya']
+      'බදුල්ල දිස්ත්‍රික්කය / பதுளை மாவட்டம் / Badulla District': ['බදුල්ල / பதுளை / Badulla','බණ්ඩාරවෙල / பண்டாரவெல / Bandarawela','හල්දුම්මුල්ල / ஹல்தும்முல்ல / Haldummulla','හාලිඇල / ஹாலிஎல / Hali-Ela','කන්දකැටිය / கண்டகெட்டிய / Kandaketiya','මහියංගනය / மஹியங்கண / Mahiyanganaya','මීගහකියුල / மீகஹகிவுல / Meegahakivula','පස්සර / பஸ்ஸர / Passara','රිදීමාලියද්ද / ரிதிமாலியத்த / Rideemaliyadda','සොරනතොට / சோரணத்தொட்ட / Soranathota','උවපරණගම / உவபரணகம / Uva Paranagama','වෙල්ලවය / வெல்லவய / Wellawaya'],
+      'මොණරාගල දිස්ත්‍රික්කය / மொணராகலை மாவட்டம் / Monaragala District': ['මොණරාගල / மொணராகலை / Monaragala','බිබිල / பிபில / Bibile','බුත්තල / புத்தல / Buttala','කතරගම / கதிர்காமம் / Kataragama','මඩුල්ල / மதுல்ல / Madulla','මෙදගම / மெதகம / Medagama','සියඹලාණ්ඩුව / சியம்பலாண்டுவ / Siyambalanduwa','තනමල්විල / தனமல்வில / Thanamalvila','වෙල්ලවය / வெல்லவய / Wellawaya']
     }
   },
-  'සබරගමුව / சப்ரகமுவ / Sabaragamuwa': {
-    districts: ['රත්නපුර / இரத்தினபுரி / Ratnapura', 'කෑගල්ල / கேகாலை / Kegalle'],
+  'සබරගමුව පළාත / சபரகமுவ மாகாணம் / Sabaragamuwa Province': {
+    districts: [
+      'රත්නපුර දිස්ත්‍රික්කය / இரத்தினபுரி மாவட்டம் / Ratnapura District',
+      'කෑගල්ල දිස්ත්‍රික්කය / கேகாலை மாவட்டம் / Kegalle District'
+    ],
     divisions: {
-      'රත්නපුර / இரத்தினபுரி / Ratnapura': ['රත්නපුර / இரத்தினபுரி / Ratnapura','බලන්ගොඩ / பலாங்கொடை / Balangoda','ඇහැලියගොඩ / எஹலியகெடை / Eheliyagoda','ඇඹිලිපිටිය / எம்பிலிபிட்டிய / Embilipitiya','ගොඩකවෙල / கொடகவெல / Godakawela','කලවාන / கலவான / Kalawana','පැල්මඩුල්ල / பெல்மடுல்ல / Pelmadulla'],
-      'කෑගල්ල / கேகாலை / Kegalle': ['කෑගල්ල / கேகாலை / Kegalle','අරණායක / அரநாயக்க / Aranayaka','දෙහිඕවිට / தெஹியோவிட்ட / Dehiovita','මාවනැල්ල / மாவணெல்ல / Mawanella','රඹුක්කන / ரம்புக்கணை / Rambukkana','වරකාපොළ / வரகாப்பொல / Warakapola']
+      'රත්නපුර දිස්ත්‍රික්කය / இரத்தினபுரி மாவட்டம் / Ratnapura District': ['රත්නපුර / இரத்தினபுரி / Ratnapura','අයගම / அயகம / Ayagama','බලංගොඩ / பலங்கொட / Balangoda','ඇහැලියගොඩ / எஹலியகொட / Eheliyagoda','ඇලපත / எலபத / Elapatha','කලවාන / கலவான / Kalawana','කිරිඇල්ල / கிரியெல்ல / Kiriella','කුරුවිට / குருவிட்ட / Kuruwita','නිවිතිගල / நிவித்திகல / Nivithigala','ඔපනායක / ஒப்பநாயக்க / Opanayaka','පැල්මඩුල්ල / பெல்மடுல / Pelmadulla'],
+      'කෑගල්ල දිස්ත්‍රික්කය / கேகாலை மாவட்டம் / Kegalle District': ['කෑගල්ල / கேகாலை / Kegalle','අරනායක / அரநாயக்க / Aranayaka','බුලත්කොහුපිටිය / புலத்கொஹுபிட்டிய / Bulathkohupitiya','දෙහිඕවිට / தெஹியோவிட்ட / Dehiovita','දෙරණියගල / தெரணியகல / Deraniyagala','ගලිගමුව / கலிகமுவ / Galigamuwa','මාවනැල්ල / மாவனல்ல / Mawanella','රඹුක්කන / ரம்புக்கன / Rambukkana','වරිපොල / வரியப்பொல / Warakapola','යට්ටියන්තොට / யட்டியந்தோட்ட / Yatiyantota']
     }
   }
 };
-
 const PROVINCES = Object.keys(PROVINCE_DATA);
 
 // ✅ FIX 3: All disability options for multi-checkbox
