@@ -675,10 +675,10 @@ export default function CombinedForm() {
         </div>
         <div style={styles.tabContainer} className="tab-container">
           <button style={{...styles.tab,...(!isCompany?styles.tabActive:styles.tabInactive)}} onClick={()=>switchTab('person')} className="tab-btn">
-            <div><L si="♿ රැකියා අපේක්ෂිත ආබාධ සහිත තැනැත්තන් ලියාපදිංචි කිරීමේ පෝරමය" ta="அங்கவீனமுற்ற நபர்களின் குடிமக்கள் பதிவுப் படிவம்  " en="Persons with Disabilities Registration Form" color={!isCompany ? '#fff' : undefined} /></div>
+            <div><L si="♿ රැකියා අපේක්ෂිත ආබාධ සහිත තැනැත්තන් ලියාපදිංචි කිරීමේ පෝරමය" ta="வேலை வாய்ப்பினை எதிர்பார்க்கும் அங்கவீனமுற்ற நபர்களைப் பதிவு செய்யும் படிவம் " en="Persons with Disabilities Registration Form" color={!isCompany ? '#fff' : undefined} /></div>
           </button>
           <button style={{...styles.tab,...(isCompany?styles.tabActive:styles.tabInactive)}} onClick={()=>switchTab('company')} className="tab-btn">
-            <div><L si="🏢 සේවා යෝජකයින් ලියාපදිංචි කිරීමේ පෝරමය" ta="நிறுவன பதிவு படிவம்" en="Company Registration Form" color={isCompany ? '#fff' : undefined} /></div>
+            <div><L si="🏢 සේවා යෝජකයින් ලියාපදිංචි කිරීමේ පෝරමය" ta="தொழில் வழங்குநரைப் பதிவு செய்யும் படிவம் " en="Company Registration Form" color={isCompany ? '#fff' : undefined} /></div>
           </button>
         </div>
         
@@ -700,7 +700,7 @@ export default function CombinedForm() {
                   ආබාධ සහිත තැනැත්තන් රැකියා ගත කරන ආයතන සඳහා රජය මගින් සේවකයන්ගේ වැටුපෙන් 50% ක වැටුප් සහනාධාරයක් (රු. 15,000 ක උපරිමයකට යටත්ව)  <span style={{color:'#2563eb',fontWeight:'700'}}>මාස 24ක්</span> දක්වා ගෙවීම් සිදු කරනු ලැබේ.
                 </p>
                 <p style={{ margin:'0 0 6px', color:'#112240', fontSize:'12px', lineHeight:1.8 }}>
-                அங்கவீனமுற்ற நபர்களைப் பணிக்கமர்த்தும் நிறுவனங்களுக்கு, ஊழியர்களின் சம்பளத்தில் 50 சதவீதம் (அதிகபட்சமாக ரூ. 15,000 வரை) ஊதிய மானியமாக 24 மாதங்கள் வரை அரசினால் வழங்கப்படும். 
+                அங்கவீனமுற்ற நபர்களை வேலைக்கு அமர்த்தும் நிறுவனங்களுக்கு, அவர்களின் சம்பளத்தில் 50% ஐ (அதிக பட்சம் ரூபா. 15,000/- வரை) அரசாங்கம் 24 மாதங்கள் வரை சம்பள மானியமாக வழங்கும். 
                 </p>
                 <p style={{ margin:0, color:'#112240', fontSize:'12px', lineHeight:1.8 }}>
                 For institutions employing persons with disabilities, the government will provide a wage subsidy of 50% of the employees' salaries (subject to a maximum of Rs. 15,000) for up to 24 months. 
@@ -720,18 +720,18 @@ export default function CombinedForm() {
                 <option value="">-- දිස්ත්‍රික්කය / மாவட்டம் / District --</option>
                 {cD.map(d=><option key={d} value={d}>{d}</option>)}
               </select>
-              {!companyData.province && <p className="hint">පළාත තෝරන්න · மாகாணத்தை தேர்ந்தெடுக்கவும் · Select Province first</p>}
+              {!companyData.province && <p className="hint">පළාත තෝරන්න · மாகாணத்தை தெரிவு செய்யவும் · Select Province first</p>}
             </F>
             <F si="ප්‍රාදේශීය ලේකම් කොට්ඨාශය *" ta="பிரதேச செயலகம் *" en="Divisional Secretariat *">
               <select name="division" value={companyData.division} onChange={handleCompanyChange} style={selStyle(!companyData.district)} disabled={!companyData.district}>
                 <option value="">-- ප්‍රාදේශීය ලේකම් / பிரதேச செயலகம் / Div. Secretariat --</option>
                 {cV.map(d=><option key={d} value={d}>{d}</option>)}
               </select>
-              {!companyData.district && <p className="hint">දිස්ත්‍රික්කය තෝරන්න · மாவட்டத்தை தேர்ந்தெடுக்கவும் · Select District first</p>}
+              {!companyData.district && <p className="hint">දිස්ත්‍රික්කය තෝරන්න · மாவட்டத்தை தெரிவு செய்யவும்  · Select District first</p>}
             </F>
 
             <hr style={styles.divider}/>
-            <p style={styles.sectionTitle}>🏢 ආයතනය පිලිබඳ තොරතුරු · நிறுவன தகவல்கள் · Office Information</p>
+            <p style={styles.sectionTitle}>🏢 ආයතනය පිලිබඳ තොරතුරු · நிறுவனம் தொடர்பான தகவல்கள் · Office Information</p>
             <F si="ආයතනයේ නම *" ta="நிறுவனத்தின் பெயர் *" en="Office / Company Name *">
               <input type="text" name="officeName" value={companyData.officeName} onChange={handleCompanyChange} style={styles.inp} maxLength={100} autoComplete="off"/>
               <p className="hint">{companyData.officeName.length}/100</p>
@@ -740,7 +740,7 @@ export default function CombinedForm() {
               <textarea name="address" value={personData.address} onChange={handlePersonChange} style={styles.ta} rows={3} maxLength={250} autoComplete="off"/>
               <p className="hint">{personData.address.length}/250</p>
             </F>
-            <F si="ආයතනයේ  දුරකථනය අංකය *" ta="தொலைபேசி *" en="Official Contact Number *">
+            <F si="ආයතනයේ  දුරකථනය අංකය *" ta="நிறுவனத்தின் தொலைபேசி இலக்கம் *" en="Official Contact Number *">
               <input type="tel" name="contact" value={companyData.contact} onChange={handleCompanyChange} style={styles.inp} maxLength={15} placeholder="0XX XXX XXXX" autoComplete="off"/>
             </F>
             <F si="සම්බන්ධ කළ හැකි නිලධාරියාගේ නම" ta="தொடர்புகொள்ள வேண்டிய உத்தியோகத்தரின் பெயர்" en="Contact Officer Name">
@@ -776,8 +776,8 @@ export default function CombinedForm() {
             </F>
 
             <hr style={styles.divider}/>
-            <p style={styles.sectionTitle}>💼 <L si="පුරප්පාඩු පිලිබඳ තොරතුරු" ta="வேலை விவரங்கள்" en="Employment Details" /></p>
-            <F si="රැකියා පුරප්පාඩු  *" ta="வேலைவாய்ப்பு உள்ளதா? *" en="Do you have vacancies? *">
+            <p style={styles.sectionTitle}>💼 <L si="පුරප්පාඩු පිලිබඳ තොරතුරු" ta="வெற்றிடம் தொடர்பான விபரங்கள் " en="Employment Details" /></p>
+            <F si="රැකියා පුරප්පාඩු  *" ta="தொழில் வெற்றிடமாக உள்ளதா?  *" en="Do you have vacancies? *">
               <RadioGroup name="hasJob" value={companyData.hasJob} onChange={handleCompanyChange} options={[
                 {value:'Yes',si:'ඇත ',ta:'ஆம்',en:'Yes'},
                 {value:'No', si:'නැත',ta:'இல்லை',en:'No'},
@@ -810,7 +810,7 @@ export default function CombinedForm() {
 
             <hr style={styles.divider}/>
             
-            <F si="අපේක්ෂිත වයස් කාණ්ඩය" ta="வயது பிரிவு" en="Age Category">
+            <F si="අපේක්ෂිත වයස් කාණ්ඩය" ta="எதிர்பார்க்கும் வயதுப் பிரிவினர்" en="Age Category">
               <select name="ageCategory" value={companyData.ageCategory} onChange={handleCompanyChange} style={styles.sel}>
                 <option value="">-- තෝරන්න / தேர்வு செய்யவும் / Select --</option>
                 <option value="18-30">18 – 30</option>
@@ -833,10 +833,10 @@ export default function CombinedForm() {
                 <option value="Any">ස්ත්‍රී/පුරුෂ දෙපාර්ශවයම / எவரும் / Any</option>
               </select>
             </F>
-            <F si="බඳවා ගැනීමට අපේක්ෂිත ආබාධිතතා වර්ග" ta="ஆட்சேர்ப்பு செய்ய விரும்பும் அங்கவீனத்தின் வகைகளைத்" en="Types of disabilities you wish to recruit">
+            <F si="බඳවා ගැනීමට අපේක්ෂිත ආබාධිතතා වර්ග" ta="ஆட்சேர்ப்பு செய்ய விரும்பும் அங்கவீனத்தின் வகைகள்" en="Types of disabilities you wish to recruit">
               <div>
                 <button type="button" onClick={() => setShowCompanyDisabilities(!showCompanyDisabilities)} style={styles.toggleBtn}>
-                  <span> ආබාධිතතා වර්ග තෝරන්න / அங்கவீனத்தின் வகைகளைத் தேர்ந்தெடுக்கவும் /Select the types of disabilities</span>
+                  <span> ආබාධිතතා වර්ග තෝරන්න / அங்கவீனத்தின் வகைகளைத் தெரிவு செய்யவும் /Select the types of disabilities</span>
                   <span style={{ fontSize: '18px' }}>{showCompanyDisabilities ? '▲' : '▼'}</span>
                 </button>
 
@@ -850,7 +850,7 @@ export default function CombinedForm() {
                     boxShadow: 'inset 0 2px 10px rgba(0,0,0,0.05)'
                   }}>
                     <p className="hint" style={{ marginBottom: '15px', color: '#1a56db', fontWeight: '700', fontSize: '13px' }}>
-                      ☑ එකට වඩා තෝරා ගත හැකිය · ஒன்றுக்கு மேலானவற்றை தேர்வு செய்யலாம் · You may select multiple
+                      ☑ එකට වඩා තෝරා ගත හැකිය · ஒன்றுக்கு மேற்பட்டவற்றினை தெரிவு  செய்யலாம் · You may select multiple
                     </p>
                     <label className="cb-label" style={{
                       ...styles.checkboxLabel,
@@ -890,8 +890,8 @@ export default function CombinedForm() {
             </F>
 
             <hr style={styles.divider}/>
-            <p style={styles.sectionTitle}>📋 <L si="දීමනා, පහසුකම් & පුහුණු" ta="சலுகைகள், வசதிகள் & பயிற்சி" en="Benefits, Facilities & Training" /></p>
-            <F si="ගෙවිය හැකි අවම වැටුප" ta="சம்பளம்" en="Minimum Salary">
+            <p style={styles.sectionTitle}>📋 <L si="දීමනා, පහසුකම් & පුහුණු" ta="கொடுப்பனவு, வசதிகள் மற்றும் பயிற்சிகள்" en="Benefits, Facilities & Training" /></p>
+            <F si="ගෙවිය හැකි අවම වැටුප" ta="செலுத்த இருக்கும் குறைந்த பட்ச சம்பளம்" en="Minimum Salary">
               <input type="text" name="pay" value={companyData.pay} onChange={handleCompanyChange} style={styles.inp} maxLength={50} placeholder="Rs. XXXXX" autoComplete="off"/>
             </F>
             <F si="EPF / ETF  *" ta="ஈபிஎஃப் / ஈடிஎஃப் *" en="EPF / ETF *">
@@ -900,7 +900,7 @@ export default function CombinedForm() {
                 {value:'No', si:'ගෙවනු නොලැබේ ',ta:'இல்லை',en:'No'},
               ]}/>
             </F>
-            <F si="පෙර පුහුණු වැඩසටහනක්  *" ta="பயிற்சி திட்டம் *" en="Training Programme *">
+            <F si="පෙර පුහුණු වැඩසටහනක්  *" ta="ஆரம்ப பயிற்சி நிகழ்ச்சி *" en="Training Programme *">
               <RadioGroup name="hasTrainee" value={companyData.hasTrainee} onChange={handleCompanyChange} options={[
                 {value:'Yes',si:'පවත්වයි ',ta:'ஆம்',en:'Yes'},
                 {value:'No', si:'නොපවත්වයි ',ta:'இல்லை',en:'No'},
@@ -939,7 +939,7 @@ export default function CombinedForm() {
                   එක් පුද්ගලයකු සඳහා <span style={{color:'#2563eb'}}>එක් වරක් පමණක්</span> පෝරමය භාවිතා කරන්න.
                 </p>
                 <p style={{margin:'0 0 4px',color:'#112240',fontSize:'12px',lineHeight:1.8}}>
-                  ஒருவருக்கு <span style={{color:'#2563eb',fontWeight:'700'}}>ஒரு முறை மட்டுமே</span> படிவத்தைப் பயன்படுத்தவும்.
+                ஒரு நபர்  <span style={{color:'#2563eb',fontWeight:'700'}}>ஒரு தடவை </span> மாத்திரமே படிவத்தைப் பயன்படுத்தவும்.
                 </p>
                 <p style={{margin:0,color:'#112240',fontSize:'12px',lineHeight:1.8}}>
                   Use the form <strong>once per person</strong> only.
@@ -959,16 +959,16 @@ export default function CombinedForm() {
                 <option value="">-- දිස්ත්‍රික්කය / மாவட்டம் / District --</option>
                 {pD.map(d=><option key={d} value={d}>{d}</option>)}
               </select>
-              {!personData.province && <p className="hint">පළාත තෝරන්න · மாகாணத்தை தேர்ந்தெடுக்கவும் · Select Province first</p>}
+              {!personData.province && <p className="hint">පළාත තෝරන්න · மாகாணத்தை தெரிவு செய்யவும் · Select Province first</p>}
             </F>
             <F si="ප්‍රාදේශීය ලේකම් කොට්ඨාශය *" ta="பிரதேச செயலகம் *" en="Divisional Secretariat *">
               <select name="division" value={personData.division} onChange={handlePersonChange} style={selStyle(!personData.district)} disabled={!personData.district}>
                 <option value="">-- ප්‍රාදේශීය ලේකම් / பிரதேச செயலகம் / Div. Secretariat --</option>
                 {pV.map(d=><option key={d} value={d}>{d}</option>)}
               </select>
-              {!personData.district && <p className="hint">දිස්ත්‍රික්කය තෝරන්න · மாவட்டத்தை தேர்ந்தெடுக்கவும் · Select District first</p>}
+              {!personData.district && <p className="hint">දිස්ත්‍රික්කය තෝරන්න · மாவட்டத்தை தெரிவு செய்யவும் · Select District first</p>}
             </F>
-            <F si="ග්‍රාම නිලධාරි කොට්ඨාශය" ta="கிராம நிலதாரியின் பிரிவு " en="GN Division">
+            <F si="ග්‍රාම නිලධාරි කොට්ඨාශය" ta="கிராம அலுவலர் பிரிவு " en="GN Division">
               <input type="text" name="gnDivision" value={personData.gnDivision} onChange={handlePersonChange} style={styles.inp} maxLength={100} autoComplete="off" placeholder="උදා: 123A / எ.கா: 123A / e.g. 123A"/>
             </F>
 
@@ -978,11 +978,11 @@ export default function CombinedForm() {
               <input type="text" name="name" value={personData.name} onChange={handlePersonChange} style={styles.inp} maxLength={100} autoComplete="off"/>
               <p className="hint">{personData.name.length}/100</p>
             </F>
-            <F si="ලිපිනය" ta="முழு முகவரி" en="Address">
+            <F si="ලිපිනය" ta="முகவரி" en="Address">
               <textarea name="address" value={personData.address} onChange={handlePersonChange} style={styles.ta} rows={3} maxLength={250} autoComplete="off"/>
               <p className="hint">{personData.address.length}/250</p>
             </F>
-            <F si="දුරකථනය අංකය   *" ta="தொலைபேசி எண் *" en="Phone Number *">
+            <F si="දුරකථනය අංකය   *" ta="தொலைபேசி இல *" en="Phone Number *">
               <input type="tel" name="phone" value={personData.phone} onChange={handlePersonChange} style={styles.inp} maxLength={15} placeholder="0XX XXX XXXX" autoComplete="off"/>
             </F>
             <F si="උපන් දිනය" ta="பிறந்த திகதி" en="Date of Birth">
@@ -1052,7 +1052,7 @@ export default function CombinedForm() {
               </div>
             </F>
             
-            <F si="සුදුසුකම්" ta="கல்வித் தகுதிகள்" en="Qualifications">
+            <F si="සුදුසුකම්" ta="கல்வித் தகைமைகள்" en="Qualifications">
               <select name="qualification" value={personData.qualification} onChange={handlePersonChange} style={styles.sel}>
                 <option value="">-- තෝරන්න / தேர்வு செய்யவும் / Select --</option>
                 <option value="Education">අධ්‍යාපන සුදුසුකම් / கல்வித் தகுதி / Education Level</option>
@@ -1076,19 +1076,19 @@ export default function CombinedForm() {
             <F si="භාරකරුගේ නම" ta="பராமரிப்பாளர் பெயர்" en="Guardian Name">
               <input type="text" name="caretakerName" value={personData.caretakerName} onChange={handlePersonChange} style={styles.inp} maxLength={100} autoComplete="off"/>
             </F>
-            <F si="භාරකරුගේ දුරකථන අංකය" ta="பராமரிப்பாளர் தொலைபேசி எண்" en="Guardian Mobile Number">
+            <F si="භාරකරුගේ දුරකථන අංකය" ta="பராமரிப்பாளரின் தொலைபேசி இல" en="Guardian Mobile Number">
               <input type="tel" name="caretakerMobile" value={personData.caretakerMobile} onChange={handlePersonChange} style={styles.inp} maxLength={15} placeholder="0XX XXX XXXX" autoComplete="off"/>
             </F>
            
 
             <hr style={styles.divider}/>
-            <p style={styles.sectionTitle}>♿ <L si="ආබාධිතභාවය පිළිබඳ තොරතුරු" ta="அங்கவீனத்தின் தகவல்கள்" en="Disability Details" /></p>
+            <p style={styles.sectionTitle}>♿ <L si="ආබාධිතභාවය පිළිබඳ තොරතුරු" ta="அங்கவீனம் தொடர்பான தகவல்கள்" en="Disability Details" /></p>
 
             {/* ✅ FIX 3: Multi-checkbox for person */}
-            <F si="ආබාධිතතා වර්ගීකරණය  " ta="அங்கவீனத்தின் தன்மை" en="Type of Disability">
+            <F si="ආබාධිතතා වර්ගීකරණය  " ta="அங்கவீன வகைப்பாடுகள்" en="Type of Disability">
               <div>
                 <button type="button" onClick={() => setShowPersonDisabilities(!showPersonDisabilities)} style={styles.toggleBtn}>
-                  <span>ආබාධිත වර්ගය තෝරන්න / அங்கவீனத்தின் வகைகளைத் தேர்ந்தெடுக்கவும் / Select Disability Types</span>
+                  <span>ආබාධිත වර්ගය තෝරන්න / அங்கவீனத்தின் வகைகளைத் தெரிவு செய்யவும்  / Select Disability Types</span>
                   <span style={{ fontSize: '13px' }}>{showPersonDisabilities ? '▲' : '▼'}</span>
                 </button>
 
@@ -1102,7 +1102,7 @@ export default function CombinedForm() {
                     boxShadow: 'inset 0 2px 10px rgba(0,0,0,0.05)'
                   }}>
                     <p className="hint" style={{ marginBottom: '15px', color: '#1a56db', fontWeight: '700', fontSize: '13px' }}>
-                      ☑ එකට වඩා තෝරා ගත හැකිය · ஒன்றுக்கு மேலானவற்றை தேர்வு செய்யலாம் · You may select multiple
+                      ☑ එකට වඩා තෝරා ගත හැකිය · ஒன்றுக்கு மேற்பட்டவற்றினை தெரிவு  செய்யலாம்  · You may select multiple
                     </p>
                     <DisabilityCheckboxGroup
                       selected={personData.disability || []}
@@ -1126,10 +1126,10 @@ export default function CombinedForm() {
               </div>
             </F>
 
-            <F si="රැකියා ගත වීමට අපේක්ෂිත ක්ෂේත්‍ර" ta="எதிர்பார்க்கப்படும் வேலைவாய்ப்புத் துறைகள்" en="Expected fields of employment">
+            <F si="රැකියා ගත වීමට අපේක්ෂිත ක්ෂේත්‍ර" ta="எதிர்பார்க்கும் தொழிற் துறைகள்" en="Expected fields of employment">
               <div>
                 <button type="button" onClick={() => setShowPersonFields(!showPersonFields)} style={styles.toggleBtn}>
-                  <span>ක්ෂේත්‍ර තෝරන්න / துறைகளைத் தேர்ந்தெடுக்கவும் / Select Fields</span>
+                  <span>ක්ෂේත්‍ර තෝරන්න / துறைகளைத் தெரிவு செய்யவும்  / Select Fields</span>
                   <span style={{ fontSize: '13px' }}>{showPersonFields ? '▲' : '▼'}</span>
                 </button>
 
@@ -1143,7 +1143,7 @@ export default function CombinedForm() {
                     boxShadow: 'inset 0 2px 10px rgba(0,0,0,0.05)'
                   }}>
                     <p className="hint" style={{ marginBottom: '15px', color: '#1a56db', fontWeight: '700', fontSize: '13px' }}>
-                      ☑ එකට වඩා තෝරා ගත හැකිය · ஒன்றுக்கு மேலானவற்றை தேர்வு செய்யலாம் · You may select multiple
+                      ☑ එකට වඩා තෝරා ගත හැකිය · ஒன்றுக்கு மேற்பட்டவற்றினை தெரிவு  செய்யலாம் · You may select multiple
                     </p>
                     <DisabilityCheckboxGroup
                       selected={personData.field || []}
@@ -1181,7 +1181,8 @@ export default function CombinedForm() {
             {!complete && !uploading && (
               <p style={styles.warningText}>
                 කරුණාකර සියලු අවශ්‍ය ක්ෂේත්‍ර (*) පුරවන්න<br/>
-                தேவையான அனைத்து புலங்களையும் (*) நிரப்பவும்<br/>
+                தயவுசெய்து தேவையான அனைத்து பகுதிகளையும் (*) பூரணப்படுத்தவும் துறைகளைத் தெரிவு செய்யவும்
+                <br/>
                 Please fill all required fields (*)
               </p>
             )}
