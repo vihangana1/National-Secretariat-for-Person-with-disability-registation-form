@@ -1181,7 +1181,7 @@ export default function CombinedForm() {
             {!complete && !uploading && (
               <p style={styles.warningText}>
                 කරුණාකර සියලු අවශ්‍ය ක්ෂේත්‍ර (*) පුරවන්න<br/>
-                தயவுசெய்து தேவையான அனைத்து பகுதிகளையும் (*) பூரணப்படுத்தவும் துறைகளைத் தெரிவு செய்யவும்
+                தயவுசெய்து தேவையான அனைத்து பகுதிகளையும் (*) பூரணப்படுத்தவும்ග
                 <br/>
                 Please fill all required fields (*)
               </p>
