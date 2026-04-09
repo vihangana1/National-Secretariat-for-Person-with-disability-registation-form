@@ -439,11 +439,11 @@ const DisabilityCheckboxGroup = ({ selected, onChange, options }) => (
 
 const selStyle = (off) => ({ ...styles.sel, background: off ? '#F3F4F6' : '#fff', color: off ? '#9CA3AF' : '#1f2937', cursor: off ? 'not-allowed' : 'pointer' });
 
-const COMPANY_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwFK4kMO4WgpRKJFKNEF_98y93eJnlr9PwqSIVxJ7-6ZrBY_xmbhov9TBQ2r_sSpDr19g/exec';
-const PERSON_SCRIPT_URL  = 'https://script.google.com/macros/s/AKfycbymWP9l9hEDInd8Sg3SjJAxaBUq0djl4ZvmqsrE5XqSjvUA5d68m6oAIWfTwJXGo5gdWQ/exec';
+const COMPANY_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxVwlVvT7fNJhVYQ0YXvNRLQfnHYoS_0Q77FBauKxy7el1Yzwgma-XZqBZo19FcNVtY2A/exec';
+const PERSON_SCRIPT_URL  = 'https://script.google.com/macros/s/AKfycbxNp9sQxPD1W82D8NKq8bTYoR8qb2QuFw19MqqgvJfMlLT4KiQxMOXK_1a3XtzrylvR/exec';
 
 const defaultCompany = { province:'',district:'',division:'',officeName:'',officerName:'',contact:'',email:'',whatsapp:'',hasJob:'',field:'',fieldOther:'',vacancies:'',vacancyDescription:'',pay:'',epfEtf:'',hasTrainee:'',supplyTransport:'',transportLimit:'',supplyFood:'',supplyClothes:'',ageCategory:'',ageCategoryOther:'',gender:'',disability:[],disabilityOther:'',searchVisibility:'' };
-const defaultPerson  = { province:'',district:'',division:'',name:'',address:'',language:'',idType:'',idNo:'',dob:'',qualification:'',qualificationOther:'',phone:'',disability:[],disabilityOther:'',field:[],fieldOther:'',gender:'',age:'',caretakerName:'',caretakerMobile:'',villageOfficerName:'',villageOfficerWhatsapp:'',gnDivision:'' };
+const defaultPerson  = { province:'',district:'',division:'',name:'',address:'',language:'',idType:'',idNo:'',dob:'',qualification:'',qualificationOther:'',phone:'',disability:[],disabilityOther:'',field:[],fieldOther:'',gender:'',age:'',caretakerName:'',caretakerMobile:'',villageOfficerName:'',villageOfficerWhatsapp:'',gnDivision:'',receivesAllowance:'' };
 
 export default function CombinedForm() {
   const [activeTab,    setActiveTab]    = useState('person');
@@ -544,7 +544,7 @@ export default function CombinedForm() {
 
   const pD = personData.province ? PROVINCE_DATA[personData.province]?.districts||[] : [];
   const pV = personData.province&&personData.district ? PROVINCE_DATA[personData.province]?.divisions[personData.district]||[] : [];
-  const pOK = personData.province&&personData.district&&personData.division&&personData.name&&personData.idType&&personData.idNo&&personData.phone;
+  const pOK = personData.province&&personData.district&&personData.division&&personData.name&&personData.idType&&personData.idNo&&personData.phone&&personData.receivesAllowance;
 
   const isCompany = activeTab==='company';
   const complete  = isCompany ? cOK : pOK;
@@ -1039,6 +1039,7 @@ export default function CombinedForm() {
                 <option value="English">English / ஆங்கிலம் / English</option>
               </select>
             </F>
+            
             <F si="හැඳුනුම්පත් අංකය *" ta="அடையாள அட்டை எண் *" en="ID Number *">
               <div style={{display:'flex',gap:'10px',flexWrap:'wrap'}}>
                 <select name="idType" value={personData.idType} onChange={handlePersonChange} style={{...styles.sel,flex:'1',minWidth:'160px'}}>
@@ -1050,6 +1051,12 @@ export default function CombinedForm() {
                 </select>
                 <input type="text" name="idNo" value={personData.idNo} onChange={handlePersonChange} placeholder="ID Number" style={{...styles.inp,flex:'1',minWidth:'140px'}} maxLength={20} autoComplete="off"/>
               </div>
+            </F>
+            <F si="ආබාධිත දීමනාව ලැබේද? *" ta="ஊனமுற்றோர் கொடுப்பனவு கிடைக்கிறதா? *" en="Do you receive a disability allowance? *">
+              <RadioGroup name="receivesAllowance" value={personData.receivesAllowance} onChange={handlePersonChange} options={[
+                {value:'Yes',si:'ඔව්',ta:'ஆம்',en:'Yes'},
+                {value:'No', si:'නැත',ta:'இல்லை',en:'No'},
+              ]}/>
             </F>
             
             <F si="සුදුසුකම්" ta="கல்வித் தகைமைகள்" en="Qualifications">
