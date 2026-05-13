@@ -91,7 +91,7 @@ const PROVINCE_DATA = {
     ],
     divisions: {
       'ගාල්ල දිස්ත්‍රික්කය / காலி மாவட்டம் / Galle District': ['ගාල්ල / காலி / Galle','අක්මීමන / அக்மீமன / Akmeemana','බලපිටිය / பலபிட்டிய / Balapitiya','බෙන්තොට / பெந்தோட்ட / Bentota','එල්පිටිය / எல்பிட்டிய / Elpitiya','ගෝනපිනුවල / கோனபினுவல / Gonapinuwala','හබරාදුව / ஹபராதுவ / Habaraduwa','හික්කඩුව / ஹிக்கடுவ / Hikkaduwa','ඉමදුව / இமதுவ / Imaduwa','කරාපිටිය / கராப்பிட்டிய / Karapitiya','නෙළුව / நெழுவ / Neluwa','තිහගොඩ / திஹகொட / Thihagoda','වැලිවිට / வெலிவிட்ட / Welivitiya-Divithura','යාක්කලමුල්ල / யக்கலமுல்ல / Yakkalamulla'],
-      'මාතර දිස්ත්‍රික්කය / மாத்தறை மாவட்டம் / Matara District': ['මාතර / மாத்தறை / Matara','අකුරැස්ස / அக்குரெஸ்ஸ / Akuressa','අතුරලිය / அத்துரலிய / Athuraliya','දෙවිනුවර / தேவிநுவர / Devinuwara','දික්වැල්ල / திக்குவல்ல / Dickwella','හකමන / ஹக்மண / Hakmana','කඹුරුපිටිය / கம்புறுப்பிட்டிய / Kamburupitiya','කිරින්ද පුහුල්වැල්ල / கிரிந்த புஹுல்வெல்ல / Kirinda Puhulwella','කොටපොල / கொட்டப்பொல / Kotapola','මලිම්බඩ / மலிம்பட / Malimbada','මොරවක / மொரவக / Morawaka','පස්ගොඩ / பஸ்கொட / Pasgoda','පිටබැද්දර / பிடபட்டர / Pitabeddara','වැලිගම / வெலிகம / Weligama'],
+      'මාතර දිස්ත්‍රික්කය / மாத்தறை மாவட்டம் / Matara District': ['මාතර / மாத்தறை / Matara','අකුරැස්ස / அக்குரெஸ்ஸ / Akuressa','අතුරලිය / அத்துரலிய / Athuraliya','දෙවිනුවර / தேவிநுவர / Devinuwara','දික්වැල්ල / திக்குவல்ல / Dickwella','හක්මන / ஹக்மண / Hakmana','කඹුරුපිටිය / கம்புறுப்பிட்டிய / Kamburupitiya','කිරින්ද පුහුල්වැල්ල / கிரிந்த புஹுல்வெல்ல / Kirinda Puhulwella','කොටපොල / கொட்டப்பொல / Kotapola','මලිම්බඩ / மலிம்பட / Malimbada','මොරවක / மொரவக / Morawaka','පස්ගොඩ / பஸ்கொட / Pasgoda','පිටබැද්දර / பிடபட்டர / Pitabeddara','වැලිගම / வெலிகம / Weligama'],
       'හම්බන්තොට දිස්ත්‍රික්කය / ஹம்பாந்தோட்டை மாவட்டம் / Hambantota District': ['හම්බන්තොට / ஹம்பாந்தோட்டை / Hambantota','අම්බලන්තොට / அம்பலாந்தோட்டை / Ambalantota','අඟුණුකොළපැලැස්ස / அங்குனுகொலபெலஸ்ஸ / Angunakolapelessa','බෙලිඅත්ත / பெலியட்ட / Beliatta','ලුණුගම්වෙහෙර / லுணுகம்வெஹெர / Lunugamvehera','ඔකෙවෙල / ஒகெவெல / Okewela','සූරියවැව / சூரியவெவ / Sooriyawewa','තංගල්ල / தங்கல்ல / Tangalle','තිස්සමහාරාම / திஸ்ஸமஹாராம / Tissamaharama','වීරකැටිය / வீரகெட்டிய / Weeraketiya']
     }
   },
@@ -440,10 +440,10 @@ const DisabilityCheckboxGroup = ({ selected, onChange, options }) => (
 const selStyle = (off) => ({ ...styles.sel, background: off ? '#F3F4F6' : '#fff', color: off ? '#9CA3AF' : '#1f2937', cursor: off ? 'not-allowed' : 'pointer' });
 
 const COMPANY_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxVwlVvT7fNJhVYQ0YXvNRLQfnHYoS_0Q77FBauKxy7el1Yzwgma-XZqBZo19FcNVtY2A/exec';
-const PERSON_SCRIPT_URL  = 'https://script.google.com/macros/s/AKfycbxNp9sQxPD1W82D8NKq8bTYoR8qb2QuFw19MqqgvJfMlLT4KiQxMOXK_1a3XtzrylvR/exec';
+const PERSON_SCRIPT_URL  = 'https://script.google.com/macros/s/AKfycbw4cVuKbamf_5cDx9cFENwpUpCPqtExX2x1sXno0ZwTOoY2mI1QOSSPBOa5rog9OUb7/exec';
 
 const defaultCompany = { province:'',district:'',division:'',officeName:'',officerName:'',contact:'',email:'',whatsapp:'',hasJob:'',field:'',fieldOther:'',vacancies:'',vacancyDescription:'',pay:'',epfEtf:'',hasTrainee:'',supplyTransport:'',transportLimit:'',supplyFood:'',supplyClothes:'',ageCategory:'',ageCategoryOther:'',gender:'',disability:[],disabilityOther:'',searchVisibility:'' };
-const defaultPerson  = { province:'',district:'',division:'',name:'',address:'',language:'',idType:'',idNo:'',dob:'',qualification:'',qualificationOther:'',phone:'',disability:[],disabilityOther:'',field:[],fieldOther:'',gender:'',age:'',caretakerName:'',caretakerMobile:'',villageOfficerName:'',villageOfficerWhatsapp:'',gnDivision:'',receivesAllowance:'' };
+const defaultPerson  = { province:'',district:'',division:'',name:'',address:'',language:'',idType:'',idNo:'',dob:'',qualification:'',qualificationOther:'',phone:'',disability:[],disabilityOther:'',field:[],fieldOther:'',gender:'',age:'',caretakerName:'',caretakerMobile:'',villageOfficerName:'',villageOfficerWhatsapp:'',gnDivision:'',receivesAllowance:'',currentlyEmployed:'',currentEmploymentDetails:'' };
 
 export default function CombinedForm() {
   const [activeTab,    setActiveTab]    = useState('person');
@@ -1131,6 +1131,28 @@ export default function CombinedForm() {
                   </p>
                 )}
               </div>
+            </F>
+
+            <F si="දැනටමත් රැකියාවක නිරත වෙයිද?" ta="தற்போது வேலையில் இருக்கிறீர்களா?" en="Are you currently employed?">
+              <RadioGroup name="currentlyEmployed" value={personData.currentlyEmployed} onChange={handlePersonChange} options={[
+                {value:'Yes',si:'ඔව්',ta:'ஆம்',en:'Yes'},
+                {value:'No', si:'නැත',ta:'இல்லை',en:'No'},
+              ]}/>
+              {personData.currentlyEmployed === 'Yes' && (
+                <div style={{ marginTop: '12px' }}>
+                  <textarea
+                    name="currentEmploymentDetails"
+                    value={personData.currentEmploymentDetails}
+                    onChange={handlePersonChange}
+                    style={styles.ta}
+                    rows={3}
+                    maxLength={200}
+                    placeholder="ආයතනයේ නම සහ තනතුර / நிறுவனத்தின் பெயர் மற்றும் பதவி / Organization name and position"
+                    autoComplete="off"
+                  />
+                  <p className="hint">{(personData.currentEmploymentDetails||'').length}/200</p>
+                </div>
+              )}
             </F>
 
             <F si="රැකියා ගත වීමට අපේක්ෂිත ක්ෂේත්‍ර" ta="எதிர்பார்க்கும் தொழிற் துறைகள்" en="Expected fields of employment">
