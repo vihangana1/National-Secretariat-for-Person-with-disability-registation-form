@@ -66,9 +66,9 @@ const PROVINCE_DATA = {
       'කළුතර දිස්ත්‍රික්කය / களுத்துறை மாவட்டம் / Kalutara District'
     ],
     divisions: {
-      'කොළඹ දිස්ත්‍රික්කය / கொழும்பு மாவட்டம் / Colombo District': ['කොළඹ / கொழும்பு / Colombo','දෙහිවල / தெஹிவளை / Dehiwala','මොරටුව / மொரட்டுவை / Moratuwa','ශ්‍රී ජයවර්ධනපුර කෝට්ටේ / ஸ்ரீ ஜயவர்தனபுர கோட்டை / Sri Jayawardenepura Kotte','මහරගම / மகரகம / Maharagama','කෙසෙල්බාව / கேஸ்பேவ / Kesbewa','හෝමාගම / ஹோமாகம / Homagama','පාදුක්ක / பாதுக்கா / Padukka','කඩුවෙල / கடுவெல / Kaduwela','කොලොන්නාව / கொலொன்னாவ / Kolonnawa','සීතාවක / சீதாவக / Seethawaka'],
-      'ගම්පහ දිස්ත්‍රික්කය / கம்பஹா மாவட்டம் / Gampaha District': ['ගම්පහ / கம்பஹா / Gampaha','මීගමුව / நீர்கொழும்பு / Negombo','කටාන / கட்டான / Katana','දිවුලපිටිය / திவுலபிட்டிய / Divulapitiya','මිරිගම / மிரிகம / Mirigama','මිනුවන்ගොඩ / மினுவங்கொட / Minuwangoda','අත්තනගල්ල / அத்தனகல்ல / Attanagalla','ජාඇල / ஜா-எல / Ja-Ela','වත්තල / வத்தளை / Wattala','මහර / மஹார / Mahara','දොම්පෙ / தொம்பே / Dompe','කැලණිය / கெலணியா / Kelaniya','බියගම / பியாகம / Biyagama'],
-      'කළුතර දිස්ත්‍රික්කය / களுத்துறை மாவட்டம் / Kalutara District': ['කළුතර / களுத்துறை / Kalutara','පානදුර / பாணந்துறை / Panadura','බණ්ඩාරගම / பண்டாரகம / Bandaragama','හොරණ / ஹொரணை / Horana','බුලත්සිංහල / புலத்சிங்கல / Bulathsinhala','මදුරාවල / மதுராவள / Madurawela','දොඩංගොඩ / தொடங்கொட / Dodangoda','මතුගම / மாதுகம / Mathugama','අගලවත්ත / அகலவத்த / Agalawatta','පාලින්දනුවර / பாலிந்தனுவர / Palindanuwara','වලල්ලාවිට / வலல்லாவிட்ட / Walallawita']
+      'කොළඹ දිස්ත්‍රික්කය / கொழும்பு மாவட்டம் / Colombo District': ['කොළඹ / கொழும்பு / Colombo', 'දෙහිවල / தெஹிவளை / Dehiwala', 'මොරටුව / மொரட்டுவை / Moratuwa', 'ශ්‍රී ජයවර්ධනපුර කෝට්ටේ / ஸ்ரீ ஜயவர்தனபுர கோட்டை / Sri Jayawardenepura Kotte', 'මහරගම / மகரகம / Maharagama', 'කෙසෙල්බාව / கேஸ்பேவ / Kesbewa', 'හෝමාගම / ஹோமாகம / Homagama', 'පාදුක්ක / பாதுக்கா / Padukka', 'කඩුවෙල / கடுவெல / Kaduwela', 'කොලොන්නාව / கொலொன்னாவ / Kolonnawa', 'සීතාවක / சீதாவக / Seethawaka'],
+      'ගම්පහ දිස්ත්‍රික්කය / கம்பஹா மாவட்டம் / Gampaha District': ['ගම්පහ / கம்பஹா / Gampaha', 'මීගමුව / நீர்கொழும்பு / Negombo', 'කටාන / கட்டான / Katana', 'දිවුලපිටිය / திவுலபிட்டிய / Divulapitiya', 'මිරිගම / மிரிகம / Mirigama', 'මිනුවන்ගොඩ / மினுவங்கொட / Minuwangoda', 'අත්තනගල්ල / அத்தனகல்ல / Attanagalla', 'ජාඇල / ஜா-எல / Ja-Ela', 'වත්තල / வத்தளை / Wattala', 'මහර / மஹார / Mahara', 'දොම්පෙ / தொம்பே / Dompe', 'කැලණිය / கெலணியா / Kelaniya', 'බියගම / பியாகம / Biyagama'],
+      'කළුතර දිස්ත්‍රික්කය / களுத்துறை மாவட்டம் / Kalutara District': ['කළුතර / களுத்துறை / Kalutara', 'පානදුර / பாணந்துறை / Panadura', 'බණ්ඩාරගම / பண்டாரகம / Bandaragama', 'හොරණ / ஹொரணை / Horana', 'බුලත්සිංහල / புலத்சிங்கல / Bulathsinhala', 'මදුරාවල / மதுராவள / Madurawela', 'දොඩංගොඩ / தொடங்கொட / Dodangoda', 'මතුගම / மாதுகம / Mathugama', 'අගලවත්ත / அகலவத்த / Agalawatta', 'පාලින්දනුවර / பாலிந்தனுவர / Palindanuwara', 'වලල්ලාවිට / வலல்லாவிட்ட / Walallawita']
     }
   },
   'මධ්‍යම පළාත / மத்திய மாகாணம் / Central Province': {
@@ -78,9 +78,9 @@ const PROVINCE_DATA = {
       'නුවරඑළිය දිස්ත්‍රික්කය / நுவரெலியா மாவட்டம் / Nuwara Eliya District'
     ],
     divisions: {
-      'මහනුවර දිස්ත්‍රික්කය / கண்டி மாவட்டம் / Kandy District': ['මහනුවර / கண்டி / Kandy','අකුරණ / அகுரணை / Akurana','පූජාපිටිය / பூஜாபிட்டிய / Pujapitiya','පත්තදුම්බර / பத்ததும்பர / Pathadumbara','හරිස්පත්තුව / ஹரிஸ்பத்துவ / Harispattuwa','යතිනුවර / யதிநுவர / Yatinuwara','ගඟවටකොරළේ / கங்கவடகொரளை / Gangawata Korale','උඩුදුම්බර / உடுதும்பர / Ududumbara','පස්බාගේ කොරළේ / பஸ்பாகே கொரளை / Pasbage Korale','ගඟ ඉහළ කොරළේ / கங்க இஹல கொரளை / Gangaihala Korale','ඩෙල්තොට / டெல்தோட்ட / Deltota','හුන්නස්ගිරිය / ஹுன்னஸ்கிரிய / Hunnasgiriya','තෙල්දෙනිය / தெல்தெனிய / Teldeniya','කුන්දසාලේ / குந்தசாலை / Kundasale','මිනිපේ / மினிப்பே / Minipe','මැදදුම්බර / மெததும்பர / Medadumbara','උඩුනුවර / உடுநுவர / Udunuwara','දොලුව / தொலுவ / Doluwa','ගම්පොළ / கம்பொளை / Gampola','නාවලපිටිය / நாவலபிட்டிய / Nawalapitiya'],
-      'මාතලේ දිස්ත්‍රික්කය / மாத்தளை மாவட்டம் / Matale District': ['මාතලේ / மாத்தளை / Matale','දඹුල්ල / தம்புள்ள / Dambulla','ගලේවෙල / கலேவெல / Galewela','රත්තොට / ரத்தோட்ட / Rattota','උකුයෙල / உகுயெல / Ukuwela','නාවුල / நாவுல / Naula','විල්ගමුව / வில்கமுவ / Wilgamuwa','අම්බන්ගඟ කොරළේ / அம்பன்கங்க கொரளை / Ambanganga Korale','ලග්ගල / லக்கல / Laggala-Pallegama'],
-      'නුවරඑළිය දිස්ත්‍රික්කය / நுவரெலியா மாவட்டம் / Nuwara Eliya District': ['නුවරඑළිය / நுவரெலியா / Nuwara Eliya','හඟුරන්කෙත / ஹங்குரங்கெத்த / Hanguranketha','කොත්මලේ / கொத்மலை / Kothmale','වල්ලාපනේ / வலப்பனே / Walapane','අඹගමුව / அம்பகமுவ / Ambagamuwa']
+      'මහනුවර දිස්ත්‍රික්කය / கண்டி மாவட்டம் / Kandy District': ['මහනුවර / கண்டி / Kandy', 'අකුරණ / அகுரணை / Akurana', 'පූජාපිටිය / பூஜாபிட்டிய / Pujapitiya', 'පත්තදුම්බර / பத்ததும்பர / Pathadumbara', 'හරිස්පත්තුව / ஹரிஸ்பத்துவ / Harispattuwa', 'යතිනුවර / யதிநுவர / Yatinuwara', 'ගඟවටකොරළේ / கங்கவடகொரளை / Gangawata Korale', 'උඩුදුම්බර / உடுதும்பர / Ududumbara', 'පස්බාගේ කොරළේ / பஸ்பாகே கொரளை / Pasbage Korale', 'ගඟ ඉහළ කොරළේ / கங்க இஹல கொரளை / Gangaihala Korale', 'ඩෙල්තොට / டெல்தோட்ட / Deltota', 'හුන්නස්ගිරිය / ஹுன்னஸ்கிரிய / Hunnasgiriya', 'තෙල්දෙනිය / தெல்தெனிய / Teldeniya', 'කුන්දසාලේ / குந்தசாலை / Kundasale', 'මිනිපේ / மினிப்பே / Minipe', 'මැදදුම්බර / மெததும்பர / Medadumbara', 'උඩුනුවර / உடுநுவர / Udunuwara', 'දොලුව / தொலுவ / Doluwa', 'ගම්පොළ / கம்பொளை / Gampola', 'නාවලපිටිය / நாவலபிட்டிய / Nawalapitiya'],
+      'මාතලේ දිස්ත්‍රික්කය / மாத்தளை மாவட்டம் / Matale District': ['මාතලේ / மாத்தளை / Matale', 'දඹුල්ල / தம்புள்ள / Dambulla', 'ගලේවෙල / கலேவெல / Galewela', 'රත්තොට / ரத்தோட்ட / Rattota', 'උකුයෙල / உகுயெல / Ukuwela', 'නාවුල / நாவுல / Naula', 'විල්ගමුව / வில்கமுவ / Wilgamuwa', 'අම්බන්ගඟ කොරළේ / அம்பன்கங்க கொரளை / Ambanganga Korale', 'ලග්ගල / லக்கல / Laggala-Pallegama'],
+      'නුවරඑළිය දිස්ත්‍රික්කය / நுவரெலியா மாவட்டம் / Nuwara Eliya District': ['නුවරඑළිය / நுவரெலியா / Nuwara Eliya', 'හඟුරන්කෙත / ஹங்குரங்கெத்த / Hanguranketha', 'කොත්මලේ / கொத்மலை / Kothmale', 'වල්ලාපනේ / வலப்பனே / Walapane', 'අඹගමුව / அம்பகமுவ / Ambagamuwa']
     }
   },
   'දකුණු පළාත / தெற்கு மாகாணம் / Southern Province': {
@@ -90,9 +90,9 @@ const PROVINCE_DATA = {
       'හම්බන්තොට දිස්ත්‍රික්කය / ஹம்பாந்தோட்டை மாவட்டம் / Hambantota District'
     ],
     divisions: {
-      'ගාල්ල දිස්ත්‍රික්කය / காலி மாவட்டம் / Galle District': ['ගාල්ල / காலி / Galle','අක්මීමන / அக்மீமன / Akmeemana','බලපිටිය / பலபிட்டிய / Balapitiya','බෙන්තොට / பெந்தோட்ட / Bentota','එල්පිටිය / எல்பிட்டிய / Elpitiya','ගෝනපිනුවල / கோனபினுவல / Gonapinuwala','හබරාදුව / ஹபராதுவ / Habaraduwa','හික්කඩුව / ஹிக்கடுவ / Hikkaduwa','ඉමදුව / இமதுவ / Imaduwa','කරාපිටිය / கராப்பிட்டிய / Karapitiya','නෙළුව / நெழுவ / Neluwa','තිහගොඩ / திஹகொட / Thihagoda','වැලිවිට / வெலிவிட்ட / Welivitiya-Divithura','යාක්කලමුල්ල / யக்கலமுல்ல / Yakkalamulla'],
-      'මාතර දිස්ත්‍රික්කය / மாத்தறை மாவட்டம் / Matara District': ['මාතර / மாத்தறை / Matara','අකුරැස්ස / அக்குரெஸ்ஸ / Akuressa','අතුරලිය / அத்துரலிய / Athuraliya','දෙවිනුවර / தேவிநுவர / Devinuwara','දික්වැල්ල / திக்குவல்ல / Dickwella','හක්මන / ஹக்மண / Hakmana','කඹුරුපිටිය / கம்புறுப்பிட்டிய / Kamburupitiya','කිරින්ද පුහුල්වැල්ල / கிரிந்த புஹுல்வெல்ல / Kirinda Puhulwella','කොටපොල / கொட்டப்பொல / Kotapola','මලිම්බඩ / மலிம்பட / Malimbada','මොරවක / மொரவக / Morawaka','පස්ගොඩ / பஸ்கொட / Pasgoda','පිටබැද්දර / பிடபட்டர / Pitabeddara','වැලිගම / வெலிகம / Weligama'],
-      'හම්බන්තොට දිස්ත්‍රික්කය / ஹம்பாந்தோட்டை மாவட்டம் / Hambantota District': ['හම්බන්තොට / ஹம்பாந்தோட்டை / Hambantota','අම්බලන්තොට / அம்பலாந்தோட்டை / Ambalantota','අඟුණුකොළපැලැස්ස / அங்குனுகொலபெலஸ்ஸ / Angunakolapelessa','බෙලිඅත්ත / பெலியட்ட / Beliatta','ලුණුගම්වෙහෙර / லுணுகம்வெஹெர / Lunugamvehera','ඔකෙවෙල / ஒகெவெல / Okewela','සූරියවැව / சூரியவெவ / Sooriyawewa','තංගල්ල / தங்கல்ல / Tangalle','තිස්සමහාරාම / திஸ்ஸமஹாராம / Tissamaharama','වීරකැටිය / வீரகெட்டிய / Weeraketiya']
+      'ගාල්ල දිස්ත්‍රික්කය / காலி மாவட்டம் / Galle District': ['ගාල්ල / காலி / Galle', 'අක්මීමන / அக்மீமன / Akmeemana', 'බලපිටිය / பலபிட்டிய / Balapitiya', 'බෙන්තොට / பெந்தோட்ட / Bentota', 'එල්පිටිය / எல்பிட்டிய / Elpitiya', 'ගෝනපිනුවල / கோனபினுவல / Gonapinuwala', 'හබරාදුව / ஹபராதுவ / Habaraduwa', 'හික්කඩුව / ஹிக்கடுவ / Hikkaduwa', 'ඉමදුව / இமதுவ / Imaduwa', 'කරාපිටිය / கராப்பிட்டிய / Karapitiya', 'නෙළුව / நெழுவ / Neluwa', 'තිහගොඩ / திஹகொட / Thihagoda', 'වැලිවිට / வெலிவிட்ட / Welivitiya-Divithura', 'යාක්කලමුල්ල / யக்கலமுல்ல / Yakkalamulla'],
+      'මාතර දිස්ත්‍රික්කය / மாத்தறை மாவட்டம் / Matara District': ['මාතර / மாத்தறை / Matara', 'අකුරැස්ස / அக்குரெஸ்ஸ / Akuressa', 'අතුරලිය / அத்துரலிய / Athuraliya', 'දෙවිනුවර / தேவிநுவர / Devinuwara', 'දික්වැල්ල / திக்குவல்ல / Dickwella', 'හක්මන / ஹக்மண / Hakmana', 'කඹුරුපිටිය / கம்புறுப்பிட்டிய / Kamburupitiya', 'කිරින්ද පුහුල්වැල්ල / கிரிந்த புஹுல்வெல்ல / Kirinda Puhulwella', 'කොටපොල / கொட்டப்பொல / Kotapola', 'මලිම්බඩ / மலிம்பட / Malimbada', 'මොරවක / மொரவக / Morawaka', 'පස්ගොඩ / பஸ்கொட / Pasgoda', 'පිටබැද්දර / பிடபட்டர / Pitabeddara', 'වැලිගම / வெலிகம / Weligama'],
+      'හම්බන්තොට දිස්ත්‍රික්කය / ஹம்பாந்தோட்டை மாவட்டம் / Hambantota District': ['හම්බන්තොට / ஹம்பாந்தோட்டை / Hambantota', 'අම්බලන්තොට / அம்பலாந்தோட்டை / Ambalantota', 'අඟුණුකොළපැලැස්ස / அங்குனுகொலபெலஸ்ஸ / Angunakolapelessa', 'බෙලිඅත්ත / பெலியட்ட / Beliatta', 'ලුණුගම්වෙහෙර / லுணுகம்வெஹெர / Lunugamvehera', 'ඔකෙවෙල / ஒகெவெல / Okewela', 'සූරියවැව / சூரியவெவ / Sooriyawewa', 'තංගල්ල / தங்கல்ல / Tangalle', 'තිස්සමහාරාම / திஸ்ஸமஹாராம / Tissamaharama', 'වීරකැටිය / வீரகெட்டிய / Weeraketiya']
     }
   },
   'උතුරු පළාත / வடக்கு மாகாணம் / Northern Province': {
@@ -104,11 +104,11 @@ const PROVINCE_DATA = {
       'මුලතිව් දිස්ත්‍රික්කය / முல்லைத்தீவு மாவட்டம் / Mullaitivu District'
     ],
     divisions: {
-      'යාපනය දිස්ත්‍රික්කය / யாழ்ப்பாணம் மாவட்டம் / Jaffna District': ['යාපනය / யாழ்ப்பாணம் / Jaffna','ඩෙල්ෆ්ට් / டெல்ஃப்ட் / Delft','කයිට්ස් / கைட்ஸ் / Kayts','කන්කසන්තුරේ / காங்கேசன்துறை / Kankesanthurai','නල්ලූර් / நல்லூர் / Nallur','සන්දිලිප්පයි / சந்திலிப்பாய் / Sandilipay','චාවකච්චේරි / சாவகச்சேரி / Chavakachcheri','උඩුවිල් / உடுவில் / Uduvil','වල්වෙටිතුරේ / வல்வெட்டித்துறை / Valvettithurai','පොයින්ට් පේඩ්රෝ / பொயிண்ட் பேட்ரோ / Point Pedro','කොපයි / கோப்பாய் / Kopay','කරයිනගර් / கரைநகர் / Karainagar','චුන්නාගම් / சுன்னாகம் / Chunnakam','මරුදනාර්මඩම් / மருதனார்மடம் / Maruthanamadam','තෙලිප්පලෙයි / தெல்லிப்பழை / Tellippalai'],
-      'කිලිනොච්චි දිස්ත්‍රික්කය / கிளிநொச்சி மாவட்டம் / Kilinochchi District': ['කිලිනොච්චි / கிளிநொச்சி / Kilinochchi','කන්ඩවල් / கண்டவல் / Kandavalai','කරච්චි / கரச்சி / Karachchi','පච්චිලාපල්ලී / பச்சிலைப்பள்ளி / Pachchilaipalli'],
-      'මන්නාරම දිස්ත්‍රික්කය / மன்னார் மாவட்டம் / Mannar District': ['මන්නාරම / மன்னார் / Mannar','මඩු / மடு / Madhu','මන්තයි බටහිර / மாந்தை மேற்கு / Manthai West','මුසලි / முசலி / Musali','නනට්ටන් / நானாட்டான் / Nanattan'],
-      'වවුනියාව දිස්ත්‍රික්කය / வவுனியா மாவட்டம் / Vavuniya District': ['වවුනියාව / வவுனியா / Vavuniya','වවුනියාව උතුර / வவுனியா வடக்கு / Vavuniya North','වවුනියාව දකුණ / வவுனியா தெற்கு / Vavuniya South','වවුනියාව දකුණු බටහිර / வவுனியா தென்மேற்கு / Vavuniya South West'],
-      'මුලතිව් දිස්ත්‍රික්කය / முல்லைத்தீவு மாவட்டம் / Mullaitivu District': ['මුලතිව් / முல்லைத்தீவு / Mullaitivu','මරිටයිම්පට්ටු / மரிடைம்பட்டு / Maritimepattu','ඔඩ්ඩුසුඩ්ඩාන් / ஒட்டுசுட்டான் / Oddusuddan','පුදුකුඩියිරිප්පු / புதுக்குடியிருப்பு / Puthukudiyiruppu','තුනක්කයි / துணுக்காய் / Thunukkai','වෙලිකන්ඩල් / வெலிகண்டல் / Welikandal']
+      'යාපනය දිස්ත්‍රික්කය / யாழ்ப்பாணம் மாவட்டம் / Jaffna District': ['යාපනය / யாழ்ப்பாணம் / Jaffna', 'ඩෙල්ෆ්ට් / டெல்ஃப்ட் / Delft', 'කයිට්ස් / கைட்ஸ் / Kayts', 'කන්කසන්තුරේ / காங்கேசன்துறை / Kankesanthurai', 'නල්ලූර් / நல்லூர் / Nallur', 'සන්දිලිප්පයි / சந்திலிப்பாய் / Sandilipay', 'චාවකච්චේරි / சாவகச்சேரி / Chavakachcheri', 'උඩුවිල් / உடுவில் / Uduvil', 'වල්වෙටිතුරේ / வல்வெட்டித்துறை / Valvettithurai', 'පොයින්ට් පේඩ්රෝ / பொயிண்ட் பேட்ரோ / Point Pedro', 'කොපයි / கோப்பாய் / Kopay', 'කරයිනගර් / கரைநகர் / Karainagar', 'චුන්නාගම් / சுன்னாகம் / Chunnakam', 'මරුදනාර්මඩම් / மருதனார்மடம் / Maruthanamadam', 'තෙලිප්පලෙයි / தெல்லிப்பழை / Tellippalai'],
+      'කිලිනොච්චි දිස්ත්‍රික්කය / கிளிநொச்சி மாவட்டம் / Kilinochchi District': ['කිලිනොච්චි / கிளிநொச்சி / Kilinochchi', 'කන්ඩවල් / கண்டவல் / Kandavalai', 'කරච්චි / கரச்சி / Karachchi', 'පච්චිලාපල්ලී / பச்சிலைப்பள்ளி / Pachchilaipalli'],
+      'මන්නාරම දිස්ත්‍රික්කය / மன்னார் மாவட்டம் / Mannar District': ['මන්නාරම / மன்னார் / Mannar', 'මඩු / மடு / Madhu', 'මන්තයි බටහිර / மாந்தை மேற்கு / Manthai West', 'මුසලි / முசலி / Musali', 'නනට්ටන් / நானாட்டான் / Nanattan'],
+      'වවුනියාව දිස්ත්‍රික්කය / வவுனியா மாவட்டம் / Vavuniya District': ['වවුනියාව / வவுனியா / Vavuniya', 'වවුනියාව උතුර / வவுனியா வடக்கு / Vavuniya North', 'වවුනියාව දකුණ / வவுனியா தெற்கு / Vavuniya South', 'වවුනියාව දකුණු බටහිර / வவுனியா தென்மேற்கு / Vavuniya South West'],
+      'මුලතිව් දිස්ත්‍රික්කය / முல்லைத்தீவு மாவட்டம் / Mullaitivu District': ['මුලතිව් / முல்லைத்தீவு / Mullaitivu', 'මරිටයිම්පට්ටු / மரிடைம்பட்டு / Maritimepattu', 'ඔඩ්ඩුසුඩ්ඩාන් / ஒட்டுசுட்டான் / Oddusuddan', 'පුදුකුඩියිරිප්පු / புதுக்குடியிருப்பு / Puthukudiyiruppu', 'තුනක්කයි / துணுக்காய் / Thunukkai', 'වෙලිකන්ඩල් / வெலிகண்டல் / Welikandal']
     }
   },
   'නැගෙනහිර පළාත / கிழக்கு மாகாணம் / Eastern Province': {
@@ -118,9 +118,9 @@ const PROVINCE_DATA = {
       'අම්පාර දිස්ත්‍රික්කය / அம்பாறை மாவட்டம் / Ampara District'
     ],
     divisions: {
-      'ත්‍රිකුණාමලය දිස්ත්‍රික්කය / திருகோணமலை மாவட்டம் / Trincomalee District': ['ත්‍රිකුණාමලය / திருகோணமலை / Trincomalee','කන්තලේ / கந்தளாய் / Kantale','කින්නියා / கிண்ணியா / Kinniya','කුච්චවේලි / குச்சவெளி / Kuchchaveli','මුතූර් / மூதூர் / Muttur','පදවිය / பதவியா / Padaviya','සෙරුවිල / செருவில / Seruvila','වෙරුගල් / வெருகல் / Verugal','තම්පලගමුව / தம்பலகாமம் / Thambalagamuwa','ගෝමරන්කඩවල / கோமரங்கடவல / Gomarankadawala','ලංකාපුර / லங்காபுர / Lankaapura'],
-      'මඩකලපුව දිස්ත්‍රික්කය / மட்டக்களப்பு மாவட்டம் / Batticaloa District': ['මඩකලපුව / மட்டக்களப்பு / Batticaloa','ආරයම්පති / ஆரயம்பதி / Aarayampathy','කල්කුඩි / கற்குடி / Kalkudah','කට්ටන්කුඩි / கட்டான்குடி / Kattankudy','කොරළයිපත්තු / கோறளைப்பற்று / Koralaipattu','කොරළයිපත්තු උතුර / கோறளைப்பற்று வடக்கு / Koralaipattu North','කොරළයිපත්තු දකුණ / கோறளைப்பற்று தெற்கு / Koralaipattu South','මන්මුනායි උතුර / மண்முனை வடக்கு / Manmunai North','මන්මුනායි බටහිර / மண்முனை மேற்கு / Manmunai West','මන්මුනායි දකුණ / மண்முனை தெற்கு / Manmunai South','මන්මුනායි දකුණු බටහිර / மண்முனை தென்மேற்கு / Manmunai South West','මන්මුනායි උතුරු බටහිර / மண்முனை வடமேற்கு / Manmunai North West','පොරතීව්පත්තු / பொரதீவுப்பற்று / Poratheevupattu'],
-      'අම්පාර දිස්ත්‍රික්කය / அம்பாறை மாவட்டம் / Ampara District': ['අම්පාර / அம்பாறை / Ampara','අක්කරයිපත්තුව / அக்கரைப்பற்று / Akkaraipattu','අලයඩිවෙම්බු / ஆலையடிவேம்பு / Alayadiwembu','දමන / தமன / Damana','දේහිඅත්තකණ්ඩිය / தெய்வத்தகண்டிய / Dehiattakandiya','ඉරක්කාමම් / இறக்காமம் / Irakkamam','කල්මුණේ / கல்முனை / Kalmunai','කරයිතිව් / கரைத்தீவு / Karaitivu','ලහුගල / லஹுகல / Lahugala','මහඔය / மகோயா / Mahaoya','නාමල්ඔය / நாமல்ஓயா / Namaloya','නාවිතන්වැලි / நாவிதன்வெளி / Navithanveli','නින්දවූර් / நிந்தவூர் / Nintavur','පොතුවිල් / பொத்துவில் / Pottuvil','සයින්දමරුදු / சாய்ந்தமருது / Sainthamaruthu','සමන්තුරෙයි / சம்மாந்துறை / Sammanthurai','තිරුක්කෝවිල් / திருக்கோவில் / Thirukkovil','උහන / உஹன / Uhana']
+      'ත්‍රිකුණාමලය දිස්ත්‍රික්කය / திருகோணமலை மாவட்டம் / Trincomalee District': ['ත්‍රිකුණාමලය / திருகோணமலை / Trincomalee', 'කන්තලේ / கந்தளாய் / Kantale', 'කින්නියා / கிண்ணியா / Kinniya', 'කුච්චවේලි / குச்சவெளி / Kuchchaveli', 'මුතූර් / மூதூர் / Muttur', 'පදවිය / பதவியா / Padaviya', 'සෙරුවිල / செருவில / Seruvila', 'වෙරුගල් / வெருகல் / Verugal', 'තම්පලගමුව / தம்பலகாமம் / Thambalagamuwa', 'ගෝමරන්කඩවල / கோமரங்கடவல / Gomarankadawala', 'ලංකාපුර / லங்காபுர / Lankaapura'],
+      'මඩකලපුව දිස්ත්‍රික්කය / மட்டக்களப்பு மாவட்டம் / Batticaloa District': ['මඩකලපුව / மட்டக்களப்பு / Batticaloa', 'ආරයම්පති / ஆரயம்பதி / Aarayampathy', 'කල්කුඩි / கற்குடி / Kalkudah', 'කට්ටන්කුඩි / கட்டான்குடி / Kattankudy', 'කොරළයිපත්තු / கோறளைப்பற்று / Koralaipattu', 'කොරළයිපත්තු උතුර / கோறளைப்பற்று வடக்கு / Koralaipattu North', 'කොරළයිපත්තු දකුණ / கோறளைப்பற்று தெற்கு / Koralaipattu South', 'මන්මුනායි උතුර / மண்முனை வடக்கு / Manmunai North', 'මන්මුනායි බටහිර / மண்முனை மேற்கு / Manmunai West', 'මන්මුනායි දකුණ / மண்முனை தெற்கு / Manmunai South', 'මන්මුනායි දකුණු බටහිර / மண்முனை தென்மேற்கு / Manmunai South West', 'මන්මුනායි උතුරු බටහිර / மண்முனை வடமேற்கு / Manmunai North West', 'පොරතීව්පත්තු / பொரதீவுப்பற்று / Poratheevupattu'],
+      'අම්පාර දිස්ත්‍රික්කය / அம்பாறை மாவட்டம் / Ampara District': ['අම්පාර / அம்பாறை / Ampara', 'අක්කරයිපත්තුව / அக்கரைப்பற்று / Akkaraipattu', 'අලයඩිවෙම්බු / ஆலையடிவேம்பு / Alayadiwembu', 'දමන / தமன / Damana', 'දේහිඅත්තකණ්ඩිය / தெய்வத்தகண்டிய / Dehiattakandiya', 'ඉරක්කාමම් / இறக்காமம் / Irakkamam', 'කල්මුණේ / கல்முனை / Kalmunai', 'කරයිතිව් / கரைத்தீவு / Karaitivu', 'ලහුගල / லஹுகல / Lahugala', 'මහඔය / மகோயா / Mahaoya', 'නාමල්ඔය / நாமல்ஓயா / Namaloya', 'නාවිතන්වැලි / நாவிதன்வெளி / Navithanveli', 'නින්දවූර් / நிந்தவூர் / Nintavur', 'පොතුවිල් / பொத்துவில் / Pottuvil', 'සයින්දමරුදු / சாய்ந்தமருது / Sainthamaruthu', 'සමන්තුරෙයි / சம்மாந்துறை / Sammanthurai', 'තිරුක්කෝවිල් / திருக்கோவில் / Thirukkovil', 'උහන / உஹன / Uhana']
     }
   },
   'වයඹ පළාත / வடமேற்கு மாகாணம் / North Western Province': {
@@ -129,8 +129,8 @@ const PROVINCE_DATA = {
       'පුත්තලම දිස්ත්‍රික්කය / புத்தளம் மாவட்டம் / Puttalam District'
     ],
     divisions: {
-      'කුරුණෑගල දිස්ත්‍රික්කය / குருநாகல் மாவட்டம் / Kurunegala District': ['කුරුණෑගල / குருநாகல் / Kurunegala','අලව්ව / அலவ்வ / Alawwa','අඹන්පොල / அம்பன்பொல / Ambanpola','බිංගිරිය / பிங்கிரிய / Bingiriya','උඩුබද්දාව / உடுபத்தாவ / Udubaddawa','ගල්ගමුව / கல்கமுவ / Galgamuwa','ගිරිබාව / கிரிபாவ / Giribawa','ඉබ්බාගමුව / இப்பாகமுவ / Ibbagamuwa','කටුපොත / கட்டுபொத்த / Katupotha','කොබෙයිගනේ / கொப்பெய்கனே / Kobeigane','කොටවෙහෙර / கொட்டவெஹெர / Kotavehera','කුලියාපිටිය / குலியாப்பிட்டிய / Kuliyapitiya','කුලියාපිටිය නැගෙනහිර / குலியாப்பிட்டிய கிழக்கு / Kuliyapitiya East','කුලියාපිටිය බටහිර / குலியாப்பிட்டிய மேற்கு / Kuliyapitiya West','මහව / மஹவ / Mahawa','මල්ලවපිටිය / மல்லவப்பிட்டிய / Mallawapitiya','මාවතගම / மாவத்தகம / Mawathagama','මීගලෑව / மீகலேவ / Meegalewa','මොරගොල්ලගම / மொரகொல்லகம / Moragollagama','නාරම්මල / நாரம்மல / Narammala','නිකවැරටිය / நிகவரட்டிய / Nikaweratiya','පන්නල / பன்னல / Pannala','පොල්ගහවෙල / பொல்கஹவெல / Polgahawela','පොල්පිතිගම / பொல்பித்திகம / Polpithigama','රස්නායකපුර / ரஸ்நாயகபுர / Rasnayakaapura','රිදීගම / ரிதிகம / Rideegama','වරිපොල / வரியப்பொல / Wariyapola','වීරඹුගෙදර / வீரம்புகெதர / Weerambugedara'],
-      'පුත්තලම දිස්ත්‍රික්කය / புத்தளம் மாவட்டம் / Puttalam District': ['පුත්තලම / புத்தளம் / Puttalam','අනම්මඩුව / அனம்மடுவ / Anamaduwa','ආරච්චිකට්ටුව / ஆரச்சிக்கட்டுவ / Arachchikattuwa','කල්පිටිය / கல்பிட்டிய / Kalpitiya','කරුවලගස්වැව / கருவலகஸ்வேவ / Karuwalagaswewa','මහකුඹුක්කඩවල / மககும்புக்கடவல / Mahakumbukkadawala','මහවැව / மஹவெவ / Mahawa','මාරවිල / மாரவில / Marawila','මුන්දලම / முண்டலம / Mundalama','නත්තන්ඩිය / நத்தாண்டிய / Nattandiya','නවගත්තේගම / நவகத்தேகம / Nawagattegama','පල්ලම / பல்லம / Pallama','වෙන්නප්පුව / வெண்ணப்புவ / Wennappuwa']
+      'කුරුණෑගල දිස්ත්‍රික්කය / குருநாகல் மாவட்டம் / Kurunegala District': ['කුරුණෑගල / குருநாகல் / Kurunegala', 'අලව්ව / அலவ்வ / Alawwa', 'අඹන්පොල / அம்பன்பொல / Ambanpola', 'බිංගිරිය / பிங்கிரிய / Bingiriya', 'උඩුබද්දාව / உடுபத்தாவ / Udubaddawa', 'ගල්ගමුව / கல்கமுவ / Galgamuwa', 'ගිරිබාව / கிரிபாவ / Giribawa', 'ඉබ්බාගමුව / இப்பாகமுவ / Ibbagamuwa', 'කටුපොත / கட்டுபொத்த / Katupotha', 'කොබෙයිගනේ / கொப்பெய்கனே / Kobeigane', 'කොටවෙහෙර / கொட்டவெஹெர / Kotavehera', 'කුලියාපිටිය / குலியாப்பிட்டிய / Kuliyapitiya', 'කුලියාපිටිය නැගෙනහිර / குலியாப்பிட்டிய கிழக்கு / Kuliyapitiya East', 'කුලියාපිටිය බටහිර / குலியாப்பிட்டிய மேற்கு / Kuliyapitiya West', 'මහව / மஹவ / Mahawa', 'මල්ලවපිටිය / மல்லவப்பிட்டிய / Mallawapitiya', 'මාවතගම / மாவத்தகம / Mawathagama', 'මීගලෑව / மீகலேவ / Meegalewa', 'මොරගොල්ලගම / மொரகொல்லகம / Moragollagama', 'නාරම්මල / நாரம்மல / Narammala', 'නිකවැරටිය / நிகவரட்டிய / Nikaweratiya', 'පන්නල / பன்னல / Pannala', 'පොල්ගහවෙල / பொல்கஹவெல / Polgahawela', 'පොල්පිතිගම / பொல்பித்திகம / Polpithigama', 'රස්නායකපුර / ரஸ்நாயகபுர / Rasnayakaapura', 'රිදීගම / ரிதிகம / Rideegama', 'වරිපොල / வரியப்பொல / Wariyapola', 'වීරඹුගෙදර / வீரம்புகெதர / Weerambugedara'],
+      'පුත්තලම දිස්ත්‍රික්කය / புத்தளம் மாவட்டம் / Puttalam District': ['පුත්තලම / புத்தளம் / Puttalam', 'අනම්මඩුව / அனம்மடுவ / Anamaduwa', 'ආරච්චිකට්ටුව / ஆரச்சிக்கட்டுவ / Arachchikattuwa', 'කල්පිටිය / கல்பிட்டிய / Kalpitiya', 'කරුවලගස්වැව / கருவலகஸ்வேவ / Karuwalagaswewa', 'මහකුඹුක්කඩවල / மககும்புக்கடவல / Mahakumbukkadawala', 'මහවැව / மஹவெவ / Mahawa', 'මාරවිල / மாரவில / Marawila', 'මුන්දලම / முண்டலம / Mundalama', 'නත්තන්ඩිය / நத்தாண்டிய / Nattandiya', 'නවගත්තේගම / நவகத்தேகம / Nawagattegama', 'පල්ලම / பல்லம / Pallama', 'වෙන්නප්පුව / வெண்ணப்புவ / Wennappuwa']
     }
   },
   'උතුරු මැද පළාත / வட மத்திய மாகாணம் / North Central Province': {
@@ -139,8 +139,8 @@ const PROVINCE_DATA = {
       'පොළොන්නරුව දිස්ත්‍රික්කය / பொலன்னறுவை மாவட்டம் / Polonnaruwa District'
     ],
     divisions: {
-      'අනුරාධපුර දිස්ත්‍රික්කය / அனுராதபுரம் மாவட்டம் / Anuradhapura District': ['අනුරාධපුර / அனுராதபுரம் / Anuradhapura','ගල්නෑව / கல்நேவ / Galnewa','ගලෙන්බිඳුණුවැව / கலெண்பிந்துணுவெவ / Galenbindunuwewa','හොරොව්පතාන / ஹொரோவ்பத்தான / Horowpothana','ඉපලෝගම / இபலோகம / Ipalogama','කහටගස්දිගිලිය / கஹடகஸ்திகிலிய / Kahatagasdigiliya','කැබිතිගොල්ලෑව / கெபிதிகொல்லாவ / Kebithigollewa','කිරාන්ඩියාව / கிராண்டியாவ / Kirindiyawa','මැදවච්චිය / மெதவச்சிய / Medawachchiya','මිහින්තලේ / மிஹிந்தலை / Mihintale','නච්චදූව / நச்சதுவ / Nachchaduwa','නොච්චියාගම / நொச்சியாகம / Nochchiyagama','නුගලවෙව / நுவரகம்பலத்த கிழக்கு / Nuwaragam Palatha East','නුගලවෙව බටහිර / நுவரகம்பலத்த மேற்கு / Nuwaragam Palatha West','පදවිය / பதவியா / Padaviya','පලගල / பலகல / Palagala','රාජාංගනය / ராஜாங்கனய / Rajanganaya','තඹුත්තේගම / தம்புத்தேகம / Thambuttegama','තිරප්පනේ / திரப்பனே / Thirappane'],
-      'පොළොන්නරුව දිස්ත්‍රික්කය / பொலன்னறுவை மாவட்டம் / Polonnaruwa District': ['පොළොන්නරුව / பொலன்னறுவை / Polonnaruwa','දඹලගස්වැව / தம்பலகஸ்வேவ / Dimbulagala','හිඟුරක්ගොඩ / ஹிங்குரக்கொட / Hingurakgoda','ලංකාපුර / லங்காபுர / Lankaapura','මැදිරිගිරිය / மெதிரிகிரிய / Medirigiriya','තමන්කඩුව / தமன்கடுவ / Thamankaduwa']
+      'අනුරාධපුර දිස්ත්‍රික්කය / அனுராதபுரம் மாவட்டம் / Anuradhapura District': ['අනුරාධපුර / அனுராதபுரம் / Anuradhapura', 'ගල්නෑව / கல்நேவ / Galnewa', 'ගලෙන්බිඳුණුවැව / கலெண்பிந்துணுவெவ / Galenbindunuwewa', 'හොරොව්පතාන / ஹொரோவ்பத்தான / Horowpothana', 'ඉපලෝගම / இபலோகம / Ipalogama', 'කහටගස්දිගිලිය / கஹடகஸ்திகிலிய / Kahatagasdigiliya', 'කැබිතිගොල්ලෑව / கெபிதிகொல்லாவ / Kebithigollewa', 'කිරාන්ඩියාව / கிராண்டியாவ / Kirindiyawa', 'මැදවච්චිය / மெதவச்சிய / Medawachchiya', 'මිහින්තලේ / மிஹிந்தலை / Mihintale', 'නච්චදූව / நச்சதுவ / Nachchaduwa', 'නොච්චියාගම / நொச்சியாகம / Nochchiyagama', 'නුගලවෙව / நுவரகம்பலத்த கிழக்கு / Nuwaragam Palatha East', 'නුගලවෙව බටහිර / நுவரகம்பலத்த மேற்கு / Nuwaragam Palatha West', 'පදවිය / பதவியா / Padaviya', 'පලගල / பலகல / Palagala', 'රාජාංගනය / ராஜாங்கனய / Rajanganaya', 'තඹුත්තේගම / தம்புத்தேகம / Thambuttegama', 'තිරප්පනේ / திரப்பனே / Thirappane'],
+      'පොළොන්නරුව දිස්ත්‍රික්කය / பொலன்னறுவை மாவட்டம் / Polonnaruwa District': ['පොළොන්නරුව / பொலன்னறுவை / Polonnaruwa', 'දඹලගස්වැව / தம்பலகஸ்வேவ / Dimbulagala', 'හිඟුරක්ගොඩ / ஹிங்குரக்கொட / Hingurakgoda', 'ලංකාපුර / லங்காபுர / Lankaapura', 'මැදිරිගිරිය / மெதிரிகிரிய / Medirigiriya', 'තමන්කඩුව / தமன்கடுவ / Thamankaduwa']
     }
   },
   'ඌව පළාත / ஊவா மாகாணம் / Uva Province': {
@@ -149,8 +149,8 @@ const PROVINCE_DATA = {
       'මොණරාගල දිස්ත්‍රික්කය / மொணராகலை மாவட்டம் / Monaragala District'
     ],
     divisions: {
-      'බදුල්ල දිස්ත්‍රික්කය / பதுளை மாவட்டம் / Badulla District': ['බදුල්ල / பதுளை / Badulla','බණ්ඩාරවෙල / பண்டாரவெல / Bandarawela','හල්දුම්මුල්ල / ஹல்தும்முல்ல / Haldummulla','හාලිඇල / ஹாலிஎல / Hali-Ela','කන්දකැටිය / கண்டகெட்டிய / Kandaketiya','මහියංගනය / மஹியங்கண / Mahiyanganaya','මීගහකියුල / மீகஹகிவுல / Meegahakivula','පස්සර / பஸ்ஸர / Passara','රිදීමාලියද්ද / ரிதிமாலியத்த / Rideemaliyadda','සොරනතොට / சோரணத்தொட்ட / Soranathota','උවපරණගම / உவபரணகம / Uva Paranagama','වෙල්ලවය / வெல்லவய / Wellawaya'],
-      'මොණරාගල දිස්ත්‍රික්කය / மொணராகலை மாவட்டம் / Monaragala District': ['මොණරාගල / மொணராகலை / Monaragala','බිබිල / பிபில / Bibile','බුත්තල / புத்தல / Buttala','කතරගම / கதிர்காமம் / Kataragama','මඩුල්ල / மதுல்ல / Madulla','මෙදගම / மெதகம / Medagama','සියඹලාණ්ඩුව / சியம்பலாண்டுவ / Siyambalanduwa','තනමල්විල / தனமல்வில / Thanamalvila','වෙල්ලවය / வெல்லவய / Wellawaya']
+      'බදුල්ල දිස්ත්‍රික්කය / பதுளை மாவட்டம் / Badulla District': ['බදුල්ල / பதுளை / Badulla', 'බණ්ඩාරවෙල / பண்டாரவெல / Bandarawela', 'හල්දුම්මුල්ල / ஹல்தும்முல்ல / Haldummulla', 'හාලිඇල / ஹாலிஎல / Hali-Ela', 'කන්දකැටිය / கண்டகெட்டிய / Kandaketiya', 'මහියංගනය / மஹியங்கண / Mahiyanganaya', 'මීගහකියුල / மீகஹகிவுல / Meegahakivula', 'පස්සර / பஸ்ஸர / Passara', 'රිදීමාලියද්ද / ரிதிமாலியத்த / Rideemaliyadda', 'සොරනතොට / சோரணத்தொட்ட / Soranathota', 'උවපරණගම / உவபரணகம / Uva Paranagama', 'වෙල්ලවය / வெல்லவய / Wellawaya'],
+      'මොණරාගල දිස්ත්‍රික්කය / மொணராகலை மாவட்டம் / Monaragala District': ['මොණරාගල / மொணராகலை / Monaragala', 'බිබිල / பிபில / Bibile', 'බුත්තල / புத்தல / Buttala', 'කතරගම / கதிர்காமம் / Kataragama', 'මඩුල්ල / மதுல்ல / Madulla', 'මෙදගම / மெதகம / Medagama', 'සියඹලාණ්ඩුව / சியம்பலாண்டுவ / Siyambalanduwa', 'තනමල්විල / தனமல்வில / Thanamalvila', 'වෙල්ලවය / வெல்லவய / Wellawaya']
     }
   },
   'සබරගමුව පළාත / சபரகமுவ மாகாணம் / Sabaragamuwa Province': {
@@ -159,8 +159,8 @@ const PROVINCE_DATA = {
       'කෑගල්ල දිස්ත්‍රික්කය / கேகாலை மாவட்டம் / Kegalle District'
     ],
     divisions: {
-      'රත්නපුර දිස්ත්‍රික්කය / இரத்தினபுரி மாவட்டம் / Ratnapura District': ['රත්නපුර / இரத்தினபுரி / Ratnapura','අයගම / அயகம / Ayagama','බලංගොඩ / பலங்கொட / Balangoda','ඇහැලියගොඩ / எஹலியகொட / Eheliyagoda','ඇලපත / எலபத / Elapatha','කලවාන / கலவான / Kalawana','කිරිඇල්ල / கிரியெல்ல / Kiriella','කුරුවිට / குருவிட்ட / Kuruwita','නිවිතිගල / நிவித்திகல / Nivithigala','ඔපනායක / ஒப்பநாயக்க / Opanayaka','පැල්මඩුල්ල / பெல்மடுல / Pelmadulla'],
-      'කෑගල්ල දිස්ත්‍රික්කය / கேகாலை மாவட்டம் / Kegalle District': ['කෑගල්ල / கேகாலை / Kegalle','අරනායක / அரநாயக்க / Aranayaka','බුලත්කොහුපිටිය / புலத்கொஹுபிட்டிய / Bulathkohupitiya','දෙහිඕවිට / தெஹியோவிட்ட / Dehiovita','දෙරණියගල / தெரணியகல / Deraniyagala','ගලිගමුව / கலிகமுவ / Galigamuwa','මාවනැල්ල / மாவனல்ல / Mawanella','රඹුක්කන / ரம்புக்கன / Rambukkana','වරිපොල / வரியப்பொல / Warakapola','යට්ටියන්තොට / யட்டியந்தோட்ட / Yatiyantota']
+      'රත්නපුර දිස්ත්‍රික්කය / இரத்தினபுரி மாவட்டம் / Ratnapura District': ['රත්නපුර / இரத்தினபுரி / Ratnapura', 'අයගම / அயகம / Ayagama', 'බලංගොඩ / பலங்கொட / Balangoda', 'ඇහැලියගොඩ / எஹலியகொட / Eheliyagoda', 'ඇලපත / எலபத / Elapatha', 'කලවාන / கலவான / Kalawana', 'කිරිඇල්ල / கிரியெல்ல / Kiriella', 'කුරුවිට / குருவிட்ட / Kuruwita', 'නිවිතිගල / நிவித்திகல / Nivithigala', 'ඔපනායක / ஒப்பநாயக்க / Opanayaka', 'පැල්මඩුල්ල / பெல்மடுல / Pelmadulla'],
+      'කෑගල්ල දිස්ත්‍රික්කය / கேகாலை மாவட்டம் / Kegalle District': ['කෑගල්ල / கேகாலை / Kegalle', 'අරනායක / அரநாயக்க / Aranayaka', 'බුලත්කොහුපිටිය / புலத்கொஹுபிட்டிய / Bulathkohupitiya', 'දෙහිඕවිට / தெஹியோவிட்ட / Dehiovita', 'දෙරණියගල / தெரணியகல / Deraniyagala', 'ගලිගමුව / கலிகமுவ / Galigamuwa', 'මාවනැල්ල / மாவனல்ல / Mawanella', 'රඹුක්කන / ரம்புக்கன / Rambukkana', 'වරිපොල / வரியப்பொல / Warakapola', 'යට්ටියන්තොට / யட்டியந்தோட்ட / Yatiyantota']
     }
   }
 };
@@ -199,45 +199,45 @@ const FIELD_OPTIONS = [
 
 
 const base = {
-  width: '100%', 
-  padding: '14px 18px', 
+  width: '100%',
+  padding: '14px 18px',
   border: '2.5px solid #F3F4F6',
-  borderRadius: '16px', 
-  fontSize: '15px', 
-  color: '#111827', 
+  borderRadius: '16px',
+  fontSize: '15px',
+  color: '#111827',
   background: '#fff',
-  boxSizing: 'border-box', 
+  boxSizing: 'border-box',
   transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-  fontFamily: 'inherit', 
+  fontFamily: 'inherit',
   display: 'block',
   outline: 'none'
 };
 
 const styles = {
-  container: { 
-    minHeight: '100vh', 
-    background: 'radial-gradient(circle at top left, #f8fafc 0%, #e2e8f0 100%)', 
-    padding: 'clamp(10px, 4vw, 40px) clamp(8px, 2vw, 16px)', 
+  container: {
+    minHeight: '100vh',
+    background: 'radial-gradient(circle at top left, #f8fafc 0%, #e2e8f0 100%)',
+    padding: 'clamp(10px, 4vw, 40px) clamp(8px, 2vw, 16px)',
     fontFamily: '"Outfit", "Noto Sans Sinhala", "Noto Sans Tamil", -apple-system, sans-serif',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center'
   },
-  card: { 
-    maxWidth: '1200px', 
+  card: {
+    maxWidth: '1200px',
     width: '100%',
-    margin: '0 auto', 
-    background: 'rgba(255, 255, 255, 0.98)', 
-    borderRadius: '32px', 
-    boxShadow: '0 40px 100px -20px rgba(10, 25, 47, 0.15), 0 0 40px rgba(0, 0, 0, 0.02)', 
+    margin: '0 auto',
+    background: 'rgba(255, 255, 255, 0.98)',
+    borderRadius: '32px',
+    boxShadow: '0 40px 100px -20px rgba(10, 25, 47, 0.15), 0 0 40px rgba(0, 0, 0, 0.02)',
     overflow: 'hidden',
     border: '1.5px solid rgba(10, 25, 47, 0.15)',
     backdropFilter: 'blur(20px)'
   },
-  header: { 
+  header: {
     position: 'relative',
-    background: '#0a192f', 
-    padding: 'clamp(100px, 15vw, 160px) clamp(16px, 5vw, 48px) clamp(40px, 10vw, 80px)', 
+    background: '#0a192f',
+    padding: 'clamp(100px, 15vw, 160px) clamp(16px, 5vw, 48px) clamp(40px, 10vw, 80px)',
     textAlign: 'center',
     overflow: 'hidden',
     display: 'flex',
@@ -277,30 +277,30 @@ const styles = {
     position: 'relative',
     zIndex: 2
   },
-  headerBadge: { 
-    display: 'inline-block', 
-    background: 'rgba(255,255,255,0.12)', 
+  headerBadge: {
+    display: 'inline-block',
+    background: 'rgba(255,255,255,0.12)',
     backdropFilter: 'blur(8px)',
-    color: '#fff', 
-    borderRadius: '30px', 
-    padding: '8px 24px', 
-    fontSize: '12px', 
-    fontWeight: '700', 
+    color: '#fff',
+    borderRadius: '30px',
+    padding: '8px 24px',
+    fontSize: '12px',
+    fontWeight: '700',
     marginBottom: '20px',
     border: '1px solid rgba(255,255,255,0.25)',
     textTransform: 'uppercase',
     letterSpacing: '2px'
   },
-  title:   { color: '#fff', fontSize: 'clamp(28px,7vw,42px)', fontWeight: '900', margin: '0 0 12px', lineHeight: 1.1, textShadow: '0 4px 12px rgba(0,0,0,0.4)', letterSpacing: '-0.5px' },
+  title: { color: '#fff', fontSize: 'clamp(28px,7vw,42px)', fontWeight: '900', margin: '0 0 12px', lineHeight: 1.1, textShadow: '0 4px 12px rgba(0,0,0,0.4)', letterSpacing: '-0.5px' },
   titleTa: { color: 'rgba(255,255,255,0.95)', fontSize: 'clamp(18px,4.5vw,22px)', fontWeight: '600', margin: '0 0 6px' },
   titleEn: { color: 'rgba(255,255,255,0.8)', fontSize: '16px', fontWeight: '500', margin: 0, textTransform: 'uppercase', letterSpacing: '1px' },
   noticeHighlight: { color: '#FFD700', fontWeight: '800' },
-  tabContainer: { 
-    display: 'flex', 
-    background: 'rgba(255, 255, 255, 0.9)', 
-    borderRadius: '20px', 
-    padding: '6px', 
-    marginTop: '20px', 
+  tabContainer: {
+    display: 'flex',
+    background: 'rgba(255, 255, 255, 0.9)',
+    borderRadius: '20px',
+    padding: '6px',
+    marginTop: '20px',
     marginBottom: '32px',
     gap: '8px',
     maxWidth: '800px',
@@ -312,16 +312,16 @@ const styles = {
     position: 'relative',
     zIndex: 10
   },
-  tab: { 
-    flex: 1, 
-    padding: '14px 12px', 
-    borderRadius: '16px', 
-    border: 'none', 
-    cursor: 'pointer', 
-    fontSize: '14px', 
-    fontWeight: '800', 
-    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)', 
-    fontFamily: 'inherit', 
+  tab: {
+    flex: 1,
+    padding: '14px 12px',
+    borderRadius: '16px',
+    border: 'none',
+    cursor: 'pointer',
+    fontSize: '14px',
+    fontWeight: '800',
+    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+    fontFamily: 'inherit',
     lineHeight: 1.4,
     display: 'flex',
     flexDirection: 'column',
@@ -330,14 +330,14 @@ const styles = {
     gap: '6px',
     textAlign: 'center'
   },
-  tabActive:   { 
-    background: 'linear-gradient(135deg, #0a192f 0%, #112240 100%)', 
-    color: '#fff', 
+  tabActive: {
+    background: 'linear-gradient(135deg, #0a192f 0%, #112240 100%)',
+    color: '#fff',
     boxShadow: '0 8px 25px rgba(10, 25, 47, 0.3)',
     transform: 'translateY(-2px)',
   },
-  tabInactive: { 
-    background: 'transparent', 
+  tabInactive: {
+    background: 'transparent',
     color: '#6B7280',
     border: '1px solid transparent',
     '&:hover': {
@@ -352,7 +352,7 @@ const styles = {
   sel: { ...base, WebkitAppearance: 'none', appearance: 'none', cursor: 'pointer', backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 16px center', paddingRight: '40px', border: '2.5px solid #F3F4F6', '&:focus': { borderColor: '#0a192f', boxShadow: '0 0 0 5px rgba(10, 25, 47, 0.1)' } },
   inp: { ...base, userSelect: 'text', WebkitUserSelect: 'text', caretColor: '#0a192f', border: '2px solid #F3F4F6' },
   inpOther: { ...base, marginTop: '12px', borderColor: '#3b82f6', background: '#f8fafc', userSelect: 'text', WebkitUserSelect: 'text', caretColor: '#0a192f', borderRadius: '14px' },
-  ta:  { ...base, minHeight: '120px', resize: 'vertical', lineHeight: '1.7', userSelect: 'text', WebkitUserSelect: 'text', caretColor: '#0a192f', border: '2px solid #F3F4F6', borderRadius: '16px' },
+  ta: { ...base, minHeight: '120px', resize: 'vertical', lineHeight: '1.7', userSelect: 'text', WebkitUserSelect: 'text', caretColor: '#0a192f', border: '2px solid #F3F4F6', borderRadius: '16px' },
   radioGroup: { display: 'flex', gap: '20px', paddingTop: '10px', flexWrap: 'wrap' },
   radioLabel: { display: 'flex', alignItems: 'flex-start', gap: '12px', cursor: 'pointer', padding: '12px 20px', borderRadius: '16px', transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)', border: '2px solid #F3F4F6', background: '#fff' },
   radioInput: { width: '22px', height: '22px', accentColor: '#0a192f', cursor: 'pointer', marginTop: '1px', flexShrink: 0 },
@@ -362,7 +362,7 @@ const styles = {
   warningText: { fontSize: '13px', color: '#0a192f', textAlign: 'center', margin: 0, lineHeight: 1.8, fontWeight: '500' },
   message: { padding: '20px 24px', borderRadius: '14px', textAlign: 'center', marginTop: '24px', fontSize: '15px', lineHeight: 1.7, fontWeight: '600' },
   msgSuccess: { background: '#f0fdf4', border: '1.5px solid #bbf7d0', color: '#15803d', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)' },
-  msgError:   { background: '#fef2f2', border: '1.5px solid #fecaca', color: '#0a192f', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)' },
+  msgError: { background: '#fef2f2', border: '1.5px solid #fecaca', color: '#0a192f', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)' },
   divider: { border: 'none', borderTop: '2px solid #F3F4F6', margin: '48px 0' },
   sectionTitle: { fontSize: '18px', fontWeight: '900', color: '#0a192f', marginBottom: '24px', marginTop: '12px', lineHeight: 1.4, display: 'flex', alignItems: 'center', gap: '12px', letterSpacing: '0.2px' },
   checkboxGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '16px', paddingTop: '12px' },
@@ -440,27 +440,27 @@ const DisabilityCheckboxGroup = ({ selected, onChange, options }) => (
 const selStyle = (off) => ({ ...styles.sel, background: off ? '#F3F4F6' : '#fff', color: off ? '#9CA3AF' : '#1f2937', cursor: off ? 'not-allowed' : 'pointer' });
 
 const COMPANY_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxVwlVvT7fNJhVYQ0YXvNRLQfnHYoS_0Q77FBauKxy7el1Yzwgma-XZqBZo19FcNVtY2A/exec';
-const PERSON_SCRIPT_URL  = 'https://script.google.com/macros/s/AKfycbw4cVuKbamf_5cDx9cFENwpUpCPqtExX2x1sXno0ZwTOoY2mI1QOSSPBOa5rog9OUb7/exec';
+const PERSON_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw4cVuKbamf_5cDx9cFENwpUpCPqtExX2x1sXno0ZwTOoY2mI1QOSSPBOa5rog9OUb7/exec';
 
-const defaultCompany = { province:'',district:'',division:'',officeName:'',officerName:'',contact:'',email:'',whatsapp:'',hasJob:'',field:'',fieldOther:'',vacancies:'',vacancyDescription:'',pay:'',epfEtf:'',hasTrainee:'',supplyTransport:'',transportLimit:'',supplyFood:'',supplyClothes:'',ageCategory:'',ageCategoryOther:'',gender:'',disability:[],disabilityOther:'',searchVisibility:'' };
-const defaultPerson  = { province:'',district:'',division:'',name:'',address:'',language:'',idType:'',idNo:'',dob:'',qualification:'',qualificationOther:'',phone:'',disability:[],disabilityOther:'',field:[],fieldOther:'',gender:'',age:'',caretakerName:'',caretakerMobile:'',villageOfficerName:'',villageOfficerWhatsapp:'',gnDivision:'',receivesAllowance:'',currentlyEmployed:'',currentEmploymentDetails:'' };
+const defaultCompany = { province: '', district: '', division: '', officeName: '', officerName: '', contact: '', email: '', whatsapp: '', hasJob: '', field: '', fieldOther: '', vacancies: '', vacancyDescription: '', pay: '', epfEtf: '', hasTrainee: '', supplyTransport: '', transportLimit: '', supplyFood: '', supplyClothes: '', ageCategory: '', ageCategoryOther: '', gender: '', disability: [], disabilityOther: '', searchVisibility: '', companyNature: '', companyNatureOther: '', registrationNo: '', totalEmployees: '', permanentEmployees: '', temporaryEmployees: '', femaleEmployees: '', maleEmployees: '' };
+const defaultPerson = { province: '', district: '', division: '', name: '', address: '', language: '', idType: '', idNo: '', dob: '', qualification: '', qualificationOther: '', phone: '', disability: [], disabilityOther: '', field: [], fieldOther: '', gender: '', age: '', caretakerName: '', caretakerMobile: '', villageOfficerName: '', villageOfficerWhatsapp: '', gnDivision: '', receivesAllowance: '', currentlyEmployed: '', currentEmploymentDetails: '', employmentNature: '', epfEtfPaid: '', hasFieldExperience: '', experienceYears: '', experienceInstitution: '', otherSkills: '', skillsQualificationType: '', skillsQualificationOther: '' };
 
 export default function CombinedForm() {
-  const [activeTab,    setActiveTab]    = useState('person');
-  const [companyData,  setCompanyData]  = useState(defaultCompany);
-  const [personData,   setPersonData]   = useState(defaultPerson);
-  const [uploading,    setUploading]    = useState(false);
-  const [message,      setMessage]      = useState({ type:'', text:'' });
-  const [showPersonDisabilities,  setShowPersonDisabilities]  = useState(false);
+  const [activeTab, setActiveTab] = useState('person');
+  const [companyData, setCompanyData] = useState(defaultCompany);
+  const [personData, setPersonData] = useState(defaultPerson);
+  const [uploading, setUploading] = useState(false);
+  const [message, setMessage] = useState({ type: '', text: '' });
+  const [showPersonDisabilities, setShowPersonDisabilities] = useState(false);
   const [showCompanyDisabilities, setShowCompanyDisabilities] = useState(false);
-  const [showPersonFields,       setShowPersonFields]       = useState(false);
-  const [dobParts,               setDobParts]               = useState({ day: '', month: '', year: '' });
+  const [showPersonFields, setShowPersonFields] = useState(false);
+  const [dobParts, setDobParts] = useState({ day: '', month: '', year: '' });
 
   useEffect(() => {
     const s = document.createElement('script');
     s.src = 'https://cdn.userway.org/widget.js';
-    s.setAttribute('data-account','XfZSO2MTQw');
-    s.setAttribute('data-size','large');
+    s.setAttribute('data-account', 'XfZSO2MTQw');
+    s.setAttribute('data-size', 'large');
     s.setAttribute('data-button_size', 'large');
     s.async = true;
     document.body.appendChild(s);
@@ -482,29 +482,29 @@ export default function CombinedForm() {
     }
   }, [dobParts, personData.dob]);
 
-  const switchTab = (tab) => { setActiveTab(tab); setMessage({ type:'', text:'' }); };
+  const switchTab = (tab) => { setActiveTab(tab); setMessage({ type: '', text: '' }); };
 
   const handleCompanyChange = useCallback((e) => {
     const { name, value } = e.target;
     setCompanyData(prev =>
-      name==='province' ? {...prev,province:value,district:'',division:''}
-      : name==='district' ? {...prev,district:value,division:''}
-      : {...prev,[name]:value}
+      name === 'province' ? { ...prev, province: value, district: '', division: '' }
+        : name === 'district' ? { ...prev, district: value, division: '' }
+          : { ...prev, [name]: value }
     );
-  },[]);
+  }, []);
 
-  const cD = companyData.province ? PROVINCE_DATA[companyData.province]?.districts||[] : [];
-  const cV = companyData.province&&companyData.district ? PROVINCE_DATA[companyData.province]?.divisions[companyData.district]||[] : [];
-  const cOK = companyData.province&&companyData.district&&companyData.division&&companyData.officeName&&companyData.contact&&companyData.hasJob&&companyData.epfEtf&&companyData.hasTrainee;
+  const cD = companyData.province ? PROVINCE_DATA[companyData.province]?.districts || [] : [];
+  const cV = companyData.province && companyData.district ? PROVINCE_DATA[companyData.province]?.divisions[companyData.district] || [] : [];
+  const cOK = companyData.province && companyData.district && companyData.division && companyData.officeName && companyData.contact && companyData.hasJob && companyData.epfEtf && companyData.hasTrainee;
 
   const handlePersonChange = useCallback((e) => {
     const { name, value } = e.target;
     setPersonData(prev =>
-      name==='province' ? {...prev,province:value,district:'',division:''}
-      : name==='district' ? {...prev,district:value,division:''}
-      : {...prev,[name]:value}
+      name === 'province' ? { ...prev, province: value, district: '', division: '' }
+        : name === 'district' ? { ...prev, district: value, division: '' }
+          : { ...prev, [name]: value }
     );
-  },[]);
+  }, []);
 
   const handleDobPartChange = (e) => {
     const { name, value } = e.target;
@@ -542,17 +542,17 @@ export default function CombinedForm() {
     });
   }, []);
 
-  const pD = personData.province ? PROVINCE_DATA[personData.province]?.districts||[] : [];
-  const pV = personData.province&&personData.district ? PROVINCE_DATA[personData.province]?.divisions[personData.district]||[] : [];
-  const pOK = personData.province&&personData.district&&personData.division&&personData.name&&personData.idType&&personData.idNo&&personData.phone&&personData.receivesAllowance;
+  const pD = personData.province ? PROVINCE_DATA[personData.province]?.districts || [] : [];
+  const pV = personData.province && personData.district ? PROVINCE_DATA[personData.province]?.divisions[personData.district] || [] : [];
+  const pOK = personData.province && personData.district && personData.division && personData.name && personData.idType && personData.idNo && personData.phone && personData.receivesAllowance;
 
-  const isCompany = activeTab==='company';
-  const complete  = isCompany ? cOK : pOK;
+  const isCompany = activeTab === 'company';
+  const complete = isCompany ? cOK : pOK;
 
   const handleSubmit = async () => {
     if (!complete) return;
     setUploading(true);
-    setMessage({type:'', text:''});
+    setMessage({ type: '', text: '' });
 
     // Convert disability arrays → comma string for Sheets
     const companyDataForSubmit = {
@@ -565,7 +565,7 @@ export default function CombinedForm() {
       field: Array.isArray(personData.field) ? personData.field.join(', ') : personData.field
     };
 
-    const url  = isCompany ? COMPANY_SCRIPT_URL : PERSON_SCRIPT_URL;
+    const url = isCompany ? COMPANY_SCRIPT_URL : PERSON_SCRIPT_URL;
     const data = isCompany
       ? { ...companyDataForSubmit, formType: 'company' }
       : { ...personDataForSubmit, formType: 'disabledPerson' };
@@ -588,21 +588,21 @@ export default function CombinedForm() {
         const formBody = Object.keys(payload)
           .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(payload[k] ?? ''))
           .join('&');
-        await fetch(url, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: formBody });
+        await fetch(url, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: formBody });
         console.log('Google Sheets success');
       } catch (gsError) {
         console.error('Google Sheets error:', gsError);
         throw new Error('Google Sheets submission failed.');
       }
 
-      setMessage({ type:'success', text:'දත්ත සාර්ථකව ඉදිරිපත් කරන ලදී!\nதரவு வெற்றிகரமாக சமர்ப்பிக்கப்பட்டது!\nData submitted successfully!' });
+      setMessage({ type: 'success', text: 'දත්ත සාර්ථකව ඉදිරිපත් කරන ලදී!\nதரவு வெற்றிகரமாக சமர்ப்பிக்கப்பட்டது!\nData submitted successfully!' });
       if (isCompany) setCompanyData(defaultCompany);
       else setPersonData(defaultPerson);
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
     } catch (error) {
       console.error('Submission error:', error);
-      setMessage({ type:'error', text: error.message || 'දෝෂයක් ඇතිවිය / பிழை ஏற்பட்டது / An error occurred.' });
+      setMessage({ type: 'error', text: error.message || 'දෝෂයක් ඇතිවිය / பிழை ஏற்பட்டது / An error occurred.' });
     } finally {
       setUploading(false);
     }
@@ -661,30 +661,30 @@ export default function CombinedForm() {
         {/* HEADER */}
         <div style={styles.header} className="header-box">
           <img src={headerImg} alt="Header Background" style={styles.headerImg} />
-          <img src={logoImg} alt="Logo" className="logo-img" style={{ 
-            position: 'absolute', 
-            top: '10px', 
-            left: '50%', 
-            transform: 'translateX(-50%)', 
-            height: '140px', 
-            zIndex: 10, 
-            filter: 'drop-shadow(0 4px 12px rgba(159, 132, 132, 0.6))' 
+          <img src={logoImg} alt="Logo" className="logo-img" style={{
+            position: 'absolute',
+            top: '10px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            height: '140px',
+            zIndex: 10,
+            filter: 'drop-shadow(0 4px 12px rgba(159, 132, 132, 0.6))'
           }} />
           <div style={styles.headerOverlay} />
           <div style={styles.headerContent}></div>
         </div>
         <div style={styles.tabContainer} className="tab-container">
-          <button style={{...styles.tab,...(!isCompany?styles.tabActive:styles.tabInactive)}} onClick={()=>switchTab('person')} className="tab-btn">
+          <button style={{ ...styles.tab, ...(!isCompany ? styles.tabActive : styles.tabInactive) }} onClick={() => switchTab('person')} className="tab-btn">
             <div><L si="♿ රැකියා අපේක්ෂිත ආබාධ සහිත තැනැත්තන් ලියාපදිංචි කිරීමේ පෝරමය" ta="வேலை வாய்ப்பினை எதிர்பார்க்கும் அங்கவீனமுற்ற நபர்களைப் பதிவு செய்யும் படிவம் " en="Persons with Disabilities Registration Form" color={!isCompany ? '#fff' : undefined} /></div>
           </button>
-          <button style={{...styles.tab,...(isCompany?styles.tabActive:styles.tabInactive)}} onClick={()=>switchTab('company')} className="tab-btn">
+          <button style={{ ...styles.tab, ...(isCompany ? styles.tabActive : styles.tabInactive) }} onClick={() => switchTab('company')} className="tab-btn">
             <div><L si="🏢 සේවා යෝජකයින් ලියාපදිංචි කිරීමේ පෝරමය" ta="தொழில் வழங்குநரைப் பதிவு செய்யும் படிவம் " en="Company Registration Form" color={isCompany ? '#fff' : undefined} /></div>
           </button>
         </div>
-        
+
         {message.text && (
-          <div style={{...styles.message, margin: '20px 48px 0', ...(message.type==='success'?styles.msgSuccess:styles.msgError)}}>
-            {message.text.split('\n').map((line,i)=><div key={i}>{line}</div>)}
+          <div style={{ ...styles.message, margin: '20px 48px 0', ...(message.type === 'success' ? styles.msgSuccess : styles.msgError) }}>
+            {message.text.split('\n').map((line, i) => <div key={i}>{line}</div>)}
           </div>
         )}
 
@@ -694,16 +694,16 @@ export default function CombinedForm() {
           {isCompany && (<>
 
             {/* Payment Notice */}
-            <div style={{background:'linear-gradient(135deg,#eff6ff,#dbeafe)',border:'2px solid #3b82f6',borderRadius:'12px',padding:'22px 20px',marginBottom:'24px',display:'flex',flexDirection:'column',gap:'12px',alignItems:'center',textAlign:'center'}}>
+            <div style={{ background: 'linear-gradient(135deg,#eff6ff,#dbeafe)', border: '2px solid #3b82f6', borderRadius: '12px', padding: '22px 20px', marginBottom: '24px', display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center', textAlign: 'center' }}>
               <div>
-                <p style={{ margin:'0 0 8px', color:'#0a192f', fontSize:'14px', fontWeight:'700', lineHeight:1.8 }}>
-                  ආබාධ සහිත තැනැත්තන් රැකියා ගත කරන ආයතන සඳහා රජය මගින් සේවකයන්ගේ වැටුපෙන් 50% ක වැටුප් සහනාධාරයක් (රු. 15,000 ක උපරිමයකට යටත්ව)  <span style={{color:'#2563eb',fontWeight:'700'}}>මාස 24ක්</span> දක්වා ගෙවීම් සිදු කරනු ලැබේ.
+                <p style={{ margin: '0 0 8px', color: '#0a192f', fontSize: '14px', fontWeight: '700', lineHeight: 1.8 }}>
+                  ආබාධ සහිත තැනැත්තන් රැකියා ගත කරන ආයතන සඳහා රජය මගින් සේවකයන්ගේ වැටුපෙන් 50% ක වැටුප් සහනාධාරයක් (රු. 15,000 ක උපරිමයකට යටත්ව)  <span style={{ color: '#2563eb', fontWeight: '700' }}>මාස 24ක්</span> දක්වා ගෙවීම් සිදු කරනු ලැබේ.
                 </p>
-                <p style={{ margin:'0 0 6px', color:'#112240', fontSize:'12px', lineHeight:1.8 }}>
-                அங்கவீனமுற்ற நபர்களை வேலைக்கு அமர்த்தும் நிறுவனங்களுக்கு, அவர்களின் சம்பளத்தில் 50% ஐ (அதிக பட்சம் ரூபா. 15,000/- வரை) அரசாங்கம் 24 மாதங்கள் வரை சம்பள மானியமாக வழங்கும். 
+                <p style={{ margin: '0 0 6px', color: '#112240', fontSize: '12px', lineHeight: 1.8 }}>
+                  அங்கவீனமுற்ற நபர்களை வேலைக்கு அமர்த்தும் நிறுவனங்களுக்கு, அவர்களின் சம்பளத்தில் 50% ஐ (அதிக பட்சம் ரூபா. 15,000/- வரை) அரசாங்கம் 24 மாதங்கள் வரை சம்பள மானியமாக வழங்கும்.
                 </p>
-                <p style={{ margin:0, color:'#112240', fontSize:'12px', lineHeight:1.8 }}>
-                For institutions employing persons with disabilities, the government will provide a wage subsidy of 50% of the employees' salaries (subject to a maximum of Rs. 15,000) for up to 24 months. 
+                <p style={{ margin: 0, color: '#112240', fontSize: '12px', lineHeight: 1.8 }}>
+                  For institutions employing persons with disabilities, the government will provide a wage subsidy of 50% of the employees' salaries (subject to a maximum of Rs. 15,000) for up to 24 months.
                 </p>
               </div>
             </div>
@@ -712,45 +712,64 @@ export default function CombinedForm() {
             <F si="පළාත *" ta="மாகாணம் *" en="Province *">
               <select name="province" value={companyData.province} onChange={handleCompanyChange} style={styles.sel}>
                 <option value="">-- පළාත / மாகாணம் / Province --</option>
-                {PROVINCES.map(p=><option key={p} value={p}>{p}</option>)}
+                {PROVINCES.map(p => <option key={p} value={p}>{p}</option>)}
               </select>
             </F>
             <F si="දිස්ත්‍රික්කය *" ta="மாவட்டம் *" en="District *">
               <select name="district" value={companyData.district} onChange={handleCompanyChange} style={selStyle(!companyData.province)} disabled={!companyData.province}>
                 <option value="">-- දිස්ත්‍රික්කය / மாவட்டம் / District --</option>
-                {cD.map(d=><option key={d} value={d}>{d}</option>)}
+                {cD.map(d => <option key={d} value={d}>{d}</option>)}
               </select>
               {!companyData.province && <p className="hint">පළාත තෝරන්න · மாகாணத்தை தெரிவு செய்யவும் · Select Province first</p>}
             </F>
             <F si="ප්‍රාදේශීය ලේකම් කොට්ඨාශය *" ta="பிரதேச செயலகம் *" en="Divisional Secretariat *">
               <select name="division" value={companyData.division} onChange={handleCompanyChange} style={selStyle(!companyData.district)} disabled={!companyData.district}>
                 <option value="">-- ප්‍රාදේශීය ලේකම් / பிரதேச செயலகம் / Div. Secretariat --</option>
-                {cV.map(d=><option key={d} value={d}>{d}</option>)}
+                {cV.map(d => <option key={d} value={d}>{d}</option>)}
               </select>
               {!companyData.district && <p className="hint">දිස්ත්‍රික්කය තෝරන්න · மாவட்டத்தை தெரிவு செய்யவும்  · Select District first</p>}
             </F>
 
-            <hr style={styles.divider}/>
+            <hr style={styles.divider} />
             <p style={styles.sectionTitle}>🏢 ආයතනය පිලිබඳ තොරතුරු · நிறுவனம் தொடர்பான தகவல்கள் · Office Information</p>
             <F si="ආයතනයේ නම *" ta="நிறுவனத்தின் பெயர் *" en="Office / Company Name *">
-              <input type="text" name="officeName" value={companyData.officeName} onChange={handleCompanyChange} style={styles.inp} maxLength={100} autoComplete="off"/>
+              <input type="text" name="officeName" value={companyData.officeName} onChange={handleCompanyChange} style={styles.inp} maxLength={100} autoComplete="off" />
               <p className="hint">{companyData.officeName.length}/100</p>
             </F>
             <F si="ලිපිනය" ta="முழு முகவரி" en="Address">
-              <textarea name="address" value={personData.address} onChange={handlePersonChange} style={styles.ta} rows={3} maxLength={250} autoComplete="off"/>
-              <p className="hint">{personData.address.length}/250</p>
+              <textarea name="address" value={companyData.address} onChange={handleCompanyChange} style={styles.ta} rows={3} maxLength={250} autoComplete="off" />
+              <p className="hint">{(companyData.address || '').length}/250</p>
+            </F>
+
+            <F si="ආයතනයේ ස්වභාවය" ta="நிறுவனத்தின் வகை" en="Nature of Institution">
+              <select name="companyNature" value={companyData.companyNature} onChange={handleCompanyChange} style={styles.sel}>
+                <option value="">-- තෝරන්න / தேர்வு செய்யவும் / Select --</option>
+                <option value="Private">පෞද්ගලික / தனியார் / Private</option>
+                <option value="Semi-Government">අර්ධ රාජ්‍ය / அரை அரசாங்கம் / Semi-Government</option>
+                <option value="Business/Commercial">වෙළඳ ව්‍යාපාරික / வர்த்தகம் / Business/Commercial</option>
+                <option value="Other">වෙනත් / மற்றவை / Other</option>
+              </select>
+              {companyData.companyNature === 'Other' && (
+                <input type="text" name="companyNatureOther" value={companyData.companyNatureOther} onChange={handleCompanyChange}
+                  style={styles.inpOther} maxLength={100}
+                  placeholder="ආයතනයේ ස්වභාවය සඳහන් කරන්න / நிறுவனத்தின் வகையைக் குறிப்பிடவும் / Specify nature..." autoComplete="off" />
+              )}
+            </F>
+
+            <F si="ආයතනය ලියාපදිංචි වී ඇත්නම් ලියාපදිංචි අංකය" ta="நிறுவனம் பதிவு செய்யப்பட்டிருந்தால் பதிவு எண்" en="If company is registered, Registration Number">
+              <input type="text" name="registrationNo" value={companyData.registrationNo} onChange={handleCompanyChange} style={styles.inp} maxLength={100} autoComplete="off" />
             </F>
             <F si="ආයතනයේ  දුරකථනය අංකය *" ta="நிறுவனத்தின் தொலைபேசி இலக்கம் *" en="Official Contact Number *">
-              <input type="tel" name="contact" value={companyData.contact} onChange={handleCompanyChange} style={styles.inp} maxLength={15} placeholder="0XX XXX XXXX" autoComplete="off"/>
+              <input type="tel" name="contact" value={companyData.contact} onChange={handleCompanyChange} style={styles.inp} maxLength={15} placeholder="0XX XXX XXXX" autoComplete="off" />
             </F>
             <F si="සම්බන්ධ කළ හැකි නිලධාරියාගේ නම" ta="தொடர்புகொள்ள வேண்டிய உத்தியோகத்தரின் பெயர்" en="Contact Officer Name">
-              <input type="text" name="officerName" value={companyData.officerName} onChange={handleCompanyChange} style={styles.inp} maxLength={100} autoComplete="off"/>
+              <input type="text" name="officerName" value={companyData.officerName} onChange={handleCompanyChange} style={styles.inp} maxLength={100} autoComplete="off" />
             </F>
             <F si="WhatsApp අංකය" ta="வாட்ஸ்அப் எண்" en="WhatsApp Number">
-              <input type="tel" name="whatsapp" value={companyData.whatsapp} onChange={handleCompanyChange} style={styles.inp} maxLength={15} placeholder="0XX XXX XXXX" autoComplete="off"/>
+              <input type="tel" name="whatsapp" value={companyData.whatsapp} onChange={handleCompanyChange} style={styles.inp} maxLength={15} placeholder="0XX XXX XXXX" autoComplete="off" />
             </F>
             <F si="විද්‍යුත් තැපෑල" ta="மின்னஞ்சல்" en="Email Address">
-              <input type="email" name="email" value={companyData.email} onChange={handleCompanyChange} style={styles.inp} maxLength={100} placeholder="example@email.com" autoComplete="off"/>
+              <input type="email" name="email" value={companyData.email} onChange={handleCompanyChange} style={styles.inp} maxLength={100} placeholder="example@email.com" autoComplete="off" />
             </F>
 
             {/* ✅ FIX 1: Field/Sector — completely separate from vacancies */}
@@ -771,45 +790,69 @@ export default function CombinedForm() {
               {companyData.field === 'Other' && (
                 <input type="text" name="fieldOther" value={companyData.fieldOther} onChange={handleCompanyChange}
                   style={styles.inpOther} maxLength={100}
-                  placeholder="වෙනත් ක්ෂේත්‍රය / பிற துறை / Specify field..." autoComplete="off"/>
+                  placeholder="වෙනත් ක්ෂේත්‍රය / பிற துறை / Specify field..." autoComplete="off" />
               )}
             </F>
 
-            <hr style={styles.divider}/>
+
+            <hr style={styles.divider} />
+            <p style={styles.sectionTitle}>📊 දැනට පවතින සේවක ධාරිතාව · தற்போதைய பணியாளர் திறன் · Current Employee Capacity</p>
+
+            <F si="සේවක ගණන" ta="ஊழியர்களின் எண்ணிக்கை" en="Total Number of Employees">
+              <input type="number" name="totalEmployees" value={companyData.totalEmployees} onChange={handleCompanyChange} style={styles.inp} min="0" placeholder="0" autoComplete="off" />
+            </F>
+            <F si="ස්ථීර රැකියා කීයක්ද" ta="நிரந்தர வேலைவாய்ப்புகள் எத்தனை" en="How many Permanent Jobs">
+              <input type="number" name="permanentEmployees" value={companyData.permanentEmployees} onChange={handleCompanyChange} style={styles.inp} min="0" placeholder="0" autoComplete="off" />
+            </F>
+            <F si="තාවකාලික කීයක්ද" ta="தற்காலிக வேலைவாய்ப்புகள் எத்தனை" en="How many Temporary Jobs">
+              <input type="number" name="temporaryEmployees" value={companyData.temporaryEmployees} onChange={handleCompanyChange} style={styles.inp} min="0" placeholder="0" autoComplete="off" />
+            </F>
+            <F si="ස්ත්‍රී කීයද" ta="பெண் ஊழியர்கள் எத்தனை" en="How many Females">
+              <input type="number" name="femaleEmployees" value={companyData.femaleEmployees} onChange={handleCompanyChange} style={styles.inp} min="0" placeholder="0" autoComplete="off" />
+            </F>
+            <F si="පුරුෂ කීයද" ta="ஆண் ஊழியர்கள் எத்தனை" en="How many Males">
+              <input type="number" name="maleEmployees" value={companyData.maleEmployees} onChange={handleCompanyChange} style={styles.inp} min="0" placeholder="0" autoComplete="off" />
+            </F>
+
+
+
+
+
+            <hr style={styles.divider} />
             <p style={styles.sectionTitle}>💼 <L si="පුරප්පාඩු පිලිබඳ තොරතුරු" ta="வெற்றிடம் தொடர்பான விபரங்கள் " en="Employment Details" /></p>
             <F si="රැකියා පුරප්පාඩු  *" ta="தொழில் வெற்றிடமாக உள்ளதா?  *" en="Do you have vacancies? *">
               <RadioGroup name="hasJob" value={companyData.hasJob} onChange={handleCompanyChange} options={[
-                {value:'Yes',si:'ඇත ',ta:'ஆம்',en:'Yes'},
-                {value:'No', si:'නැත',ta:'இல்லை',en:'No'},
-              ]}/>
+                { value: 'Yes', si: 'ඇත ', ta: 'ஆம்', en: 'Yes' },
+                { value: 'No', si: 'නැත', ta: 'இல்லை', en: 'No' },
+              ]} />
             </F>
 
 
             {companyData.hasJob === 'Yes' && (
               <>
-            <F si="පුරප්පාඩු මොනවාද" ta="காலியிட விவரம்" en="What are the Vacancies?">
-              <textarea
-                name="vacancyDescription"
-                value={companyData.vacancyDescription}
-                onChange={handleCompanyChange}
-                style={styles.ta}
-                rows={3}
-                maxLength={300}
-                placeholder="උදා: කළමනාකරු, අලෙවිකරු, රියදුරු... / எ.கா: மேலாளர், காசாளர், ஓட்டுனர்... / e.g. Manager, Cashier, Driver..."
-                autoComplete="off"
-              />
-              <p className="hint">{(companyData.vacancyDescription||'').length}/300</p>
-            </F>
+                <F si="පුරප්පාඩු මොනවාද" ta="காலியிட விவரம்" en="What are the Vacancies?">
+                  <textarea
+                    name="vacancyDescription"
+                    value={companyData.vacancyDescription}
+                    onChange={handleCompanyChange}
+                    style={styles.ta}
+                    rows={3}
+                    maxLength={300}
+                    placeholder="උදා: කළමනාකරු, අලෙවිකරු, රියදුරු... / எ.கா: மேலாளர், காசாளர், ஓட்டுனர்... / e.g. Manager, Cashier, Driver..."
+                    autoComplete="off"
+                  />
+                  <p className="hint">{(companyData.vacancyDescription || '').length}/300</p>
+                </F>
 
-            <F si="පුරප්පාඩු ගණන" ta="காலியிடங்கள் எண்ணிக்கை" en="Number of Vacancies">
-              <input type="text" name="vacancies" value={companyData.vacancies} onChange={handleCompanyChange} style={styles.inp} maxLength={100}  autoComplete="off"/>
+                <F si="පුරප්පාඩු ගණන" ta="காலியிடங்கள் எண்ணிக்கை" en="Number of Vacancies">
+                  <input type="text" name="vacancies" value={companyData.vacancies} onChange={handleCompanyChange} style={styles.inp} maxLength={100} autoComplete="off" />
 
-            </F>
+                </F>
               </>
             )}
 
-            <hr style={styles.divider}/>
-            
+            <hr style={styles.divider} />
+
             <F si="අපේක්ෂිත වයස් කාණ්ඩය" ta="எதிர்பார்க்கும் வயதுப் பிரிவினர்" en="Age Category">
               <select name="ageCategory" value={companyData.ageCategory} onChange={handleCompanyChange} style={styles.sel}>
                 <option value="">-- තෝරන්න / தேர்வு செய்யவும் / Select --</option>
@@ -822,10 +865,10 @@ export default function CombinedForm() {
               {companyData.ageCategory === 'Other' && (
                 <input type="text" name="ageCategoryOther" value={companyData.ageCategoryOther} onChange={handleCompanyChange}
                   style={styles.inpOther} maxLength={50}
-                  placeholder="වයස් කාණ්ඩය සඳහන් කරන්න / வயது வரம்பை குறிப்பிடவும் / Specify age range..." autoComplete="off"/>
+                  placeholder="වයස් කාණ්ඩය සඳහන් කරන්න / வயது வரம்பை குறிப்பிடவும் / Specify age range..." autoComplete="off" />
               )}
             </F>
-            <F si="ස්ත්‍රී පුරුෂ භාවය" ta="பாலினம்" en="Gender">
+            <F si="ස්ත්‍රී පුරුෂ භාවය *" ta="பாலினம் *" en="Gender *">
               <select name="gender" value={companyData.gender} onChange={handleCompanyChange} style={styles.sel}>
                 <option value="">-- තෝරන්න / தேர்வு செய்யவும் / Select --</option>
                 <option value="Male">පිරිමි / ஆண் / Male</option>
@@ -889,59 +932,59 @@ export default function CombinedForm() {
               </div>
             </F>
 
-            <hr style={styles.divider}/>
+            <hr style={styles.divider} />
             <p style={styles.sectionTitle}>📋 <L si="දීමනා, පහසුකම් & පුහුණු" ta="கொடுப்பனவு, வசதிகள் மற்றும் பயிற்சிகள்" en="Benefits, Facilities & Training" /></p>
             <F si="ගෙවිය හැකි අවම වැටුප" ta="செலுத்த இருக்கும் குறைந்த பட்ச சம்பளம்" en="Minimum Salary">
-              <input type="text" name="pay" value={companyData.pay} onChange={handleCompanyChange} style={styles.inp} maxLength={50} placeholder="Rs. XXXXX" autoComplete="off"/>
+              <input type="text" name="pay" value={companyData.pay} onChange={handleCompanyChange} style={styles.inp} maxLength={50} placeholder="Rs. XXXXX" autoComplete="off" />
             </F>
             <F si="EPF / ETF  *" ta="ஈபிஎஃப் / ஈடிஎஃப் *" en="EPF / ETF *">
               <RadioGroup name="epfEtf" value={companyData.epfEtf} onChange={handleCompanyChange} options={[
-                {value:'Yes',si:'ගෙවනු ලැබේ ',ta:'ஆம்',en:'Yes'},
-                {value:'No', si:'ගෙවනු නොලැබේ ',ta:'இல்லை',en:'No'},
-              ]}/>
+                { value: 'Yes', si: 'ගෙවනු ලැබේ ', ta: 'ஆம்', en: 'Yes' },
+                { value: 'No', si: 'ගෙවනු නොලැබේ ', ta: 'இல்லை', en: 'No' },
+              ]} />
             </F>
             <F si="පෙර පුහුණු වැඩසටහනක්  *" ta="ஆரம்ப பயிற்சி நிகழ்ச்சி *" en="Training Programme *">
               <RadioGroup name="hasTrainee" value={companyData.hasTrainee} onChange={handleCompanyChange} options={[
-                {value:'Yes',si:'පවත්වයි ',ta:'ஆம்',en:'Yes'},
-                {value:'No', si:'නොපවත්වයි ',ta:'இல்லை',en:'No'},
-              ]}/>
+                { value: 'Yes', si: 'පවත්වයි ', ta: 'ஆம்', en: 'Yes' },
+                { value: 'No', si: 'නොපවත්වයි ', ta: 'இல்லை', en: 'No' },
+              ]} />
             </F>
             <F si="ප්‍රවාහන පහසුකම්" ta="போக்குவரத்து வசதி" en="Supply Transport">
               <RadioGroup name="supplyTransport" value={companyData.supplyTransport} onChange={handleCompanyChange} options={[
-                {value:'Yes',si:'සපයනු ලැබේ ',ta:'ஆம்',en:'Yes'},
-                {value:'No', si:'සපයනු නොලැබේ ',ta:'இல்லை',en:'No'},
-              ]}/>
+                { value: 'Yes', si: 'සපයනු ලැබේ ', ta: 'ஆம்', en: 'Yes' },
+                { value: 'No', si: 'සපයනු නොලැබේ ', ta: 'இல்லை', en: 'No' },
+              ]} />
             </F>
-            {companyData.supplyTransport==='Yes' && (
+            {companyData.supplyTransport === 'Yes' && (
               <F si="ප්‍රවාහන පහසුකම් සපයන දුර ප්‍රමාණය" ta="போக்குவரத்து வரம்பு" en="Transport Limit">
-                <input type="text" name="transportLimit" value={companyData.transportLimit} onChange={handleCompanyChange} style={styles.inp} maxLength={100} placeholder="e.g. 20km radius" autoComplete="off"/>
+                <input type="text" name="transportLimit" value={companyData.transportLimit} onChange={handleCompanyChange} style={styles.inp} maxLength={100} placeholder="e.g. 20km radius" autoComplete="off" />
               </F>
             )}
             <F si="ආහාර" ta="உணவு வசதி" en="Supply Food">
               <RadioGroup name="supplyFood" value={companyData.supplyFood} onChange={handleCompanyChange} options={[
-                {value:'Yes',si:'සපයනු ලැබේ',ta:'ஆம்',en:'Yes'},
-                {value:'No', si:'සපයනු නොලැබේ',ta:'இல்லை',en:'No'},
-              ]}/>
+                { value: 'Yes', si: 'සපයනු ලැබේ', ta: 'ஆம்', en: 'Yes' },
+                { value: 'No', si: 'සපයනු නොලැබේ', ta: 'இல்லை', en: 'No' },
+              ]} />
             </F>
             <F si="නිල ඇඳුම්" ta="சீருடைகள்" en="Uniforms">
               <RadioGroup name="supplyClothes" value={companyData.supplyClothes} onChange={handleCompanyChange} options={[
-                {value:'Yes',si:'සපයනු ලැබේ',ta:'ஆம',en:'Yes'},
-                {value:'No', si:'සපයනු නොලැබේ',ta:'இல்லை',en:'No'},
-              ]}/>
+                { value: 'Yes', si: 'සපයනු ලැබේ', ta: 'ஆம', en: 'Yes' },
+                { value: 'No', si: 'සපයනු නොලැබේ', ta: 'இல்லை', en: 'No' },
+              ]} />
             </F>
           </>)}
 
           {/* ══════════ DISABLED PERSON FORM ══════════ */}
           {!isCompany && (<>
-            <div style={{background:'linear-gradient(135deg,#eff6ff,#dbeafe)',border:'2px solid #3b82f6',borderRadius:'12px',padding:'22px 20px',marginBottom:'24px',display:'flex',flexDirection:'column',gap:'12px',alignItems:'center',textAlign:'center'}}>
-              <div style={{width:'100%'}}>
-                <p style={{margin:'0 0 6px',color:'#0a192f',fontSize:'14px',fontWeight:'700',lineHeight:1}}>
-                  එක් පුද්ගලයකු සඳහා <span style={{color:'#2563eb'}}>එක් වරක් පමණක්</span> පෝරමය භාවිතා කරන්න.
+            <div style={{ background: 'linear-gradient(135deg,#eff6ff,#dbeafe)', border: '2px solid #3b82f6', borderRadius: '12px', padding: '22px 20px', marginBottom: '24px', display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center', textAlign: 'center' }}>
+              <div style={{ width: '100%' }}>
+                <p style={{ margin: '0 0 6px', color: '#0a192f', fontSize: '14px', fontWeight: '700', lineHeight: 1 }}>
+                  එක් පුද්ගලයකු සඳහා <span style={{ color: '#2563eb' }}>එක් වරක් පමණක්</span> පෝරමය භාවිතා කරන්න.
                 </p>
-                <p style={{margin:'0 0 4px',color:'#112240',fontSize:'12px',lineHeight:1.8}}>
-                ஒரு நபர்  <span style={{color:'#2563eb',fontWeight:'700'}}>ஒரு தடவை </span> மாத்திரமே படிவத்தைப் பயன்படுத்தவும்.
+                <p style={{ margin: '0 0 4px', color: '#112240', fontSize: '12px', lineHeight: 1.8 }}>
+                  ஒரு நபர்  <span style={{ color: '#2563eb', fontWeight: '700' }}>ஒரு தடவை </span> மாத்திரமே படிவத்தைப் பயன்படுத்தவும்.
                 </p>
-                <p style={{margin:0,color:'#112240',fontSize:'12px',lineHeight:1.8}}>
+                <p style={{ margin: 0, color: '#112240', fontSize: '12px', lineHeight: 1.8 }}>
                   Use the form <strong>once per person</strong> only.
                 </p>
               </div>
@@ -951,67 +994,67 @@ export default function CombinedForm() {
             <F si="පළාත *" ta="மாகாணம் *" en="Province *">
               <select name="province" value={personData.province} onChange={handlePersonChange} style={styles.sel}>
                 <option value="">-- පළාත / மாகாணம் / Province --</option>
-                {PROVINCES.map(p=><option key={p} value={p}>{p}</option>)}
+                {PROVINCES.map(p => <option key={p} value={p}>{p}</option>)}
               </select>
             </F>
             <F si="දිස්ත්‍රික්කය *" ta="மாவட்டம் *" en="District *">
               <select name="district" value={personData.district} onChange={handlePersonChange} style={selStyle(!personData.province)} disabled={!personData.province}>
                 <option value="">-- දිස්ත්‍රික්කය / மாவட்டம் / District --</option>
-                {pD.map(d=><option key={d} value={d}>{d}</option>)}
+                {pD.map(d => <option key={d} value={d}>{d}</option>)}
               </select>
               {!personData.province && <p className="hint">පළාත තෝරන්න · மாகாணத்தை தெரிவு செய்யவும் · Select Province first</p>}
             </F>
             <F si="ප්‍රාදේශීය ලේකම් කොට්ඨාශය *" ta="பிரதேச செயலகம் *" en="Divisional Secretariat *">
               <select name="division" value={personData.division} onChange={handlePersonChange} style={selStyle(!personData.district)} disabled={!personData.district}>
                 <option value="">-- ප්‍රාදේශීය ලේකම් / பிரதேச செயலகம் / Div. Secretariat --</option>
-                {pV.map(d=><option key={d} value={d}>{d}</option>)}
+                {pV.map(d => <option key={d} value={d}>{d}</option>)}
               </select>
               {!personData.district && <p className="hint">දිස්ත්‍රික්කය තෝරන්න · மாவட்டத்தை தெரிவு செய்யவும் · Select District first</p>}
             </F>
-            <F si="ග්‍රාම නිලධාරි කොට්ඨාශය" ta="கிராம அலுவலர் பிரிவு " en="GN Division">
-              <input type="text" name="gnDivision" value={personData.gnDivision} onChange={handlePersonChange} style={styles.inp} maxLength={100} autoComplete="off" placeholder="උදා: 123A / எ.கா: 123A / e.g. 123A"/>
+            <F si="ග්‍රාම නිලධාරි කොට්ඨාශය *" ta="கிராம அலுவலர் பிரிவு *" en="GN Division *">
+              <input type="text" name="gnDivision" value={personData.gnDivision} onChange={handlePersonChange} style={styles.inp} maxLength={100} autoComplete="off" placeholder="උදා: 123A / எ.கா: 123A / e.g. 123A" />
             </F>
 
-            <hr style={styles.divider}/>
+            <hr style={styles.divider} />
             <p style={styles.sectionTitle}>👤 <L si="පුද්ගලික තොරතුරු" ta="தனிப்பட்ட தகவல்கள்" en="Personal Details" /></p>
             <F si="නම *" ta="பெயர் *" en="Full Name *">
-              <input type="text" name="name" value={personData.name} onChange={handlePersonChange} style={styles.inp} maxLength={100} autoComplete="off"/>
+              <input type="text" name="name" value={personData.name} onChange={handlePersonChange} style={styles.inp} maxLength={100} autoComplete="off" />
               <p className="hint">{personData.name.length}/100</p>
             </F>
-            <F si="ලිපිනය" ta="முகவரி" en="Address">
-              <textarea name="address" value={personData.address} onChange={handlePersonChange} style={styles.ta} rows={3} maxLength={250} autoComplete="off"/>
+            <F si="ලිපිනය *" ta="முகவரி *" en="Address *">
+              <textarea name="address" value={personData.address} onChange={handlePersonChange} style={styles.ta} rows={3} maxLength={250} autoComplete="off" />
               <p className="hint">{personData.address.length}/250</p>
             </F>
             <F si="දුරකථනය අංකය   *" ta="தொலைபேசி இல *" en="Phone Number *">
-              <input type="tel" name="phone" value={personData.phone} onChange={handlePersonChange} style={styles.inp} maxLength={15} placeholder="0XX XXX XXXX" autoComplete="off"/>
+              <input type="tel" name="phone" value={personData.phone} onChange={handlePersonChange} style={styles.inp} maxLength={15} placeholder="0XX XXX XXXX" autoComplete="off" />
             </F>
-            <F si="උපන් දිනය" ta="பிறந்த திகதி" en="Date of Birth">
+            <F si="උපන් දිනය *" ta="பிறந்த திகதி *" en="Date of Birth *">
               <div style={{ display: 'flex', gap: '8px' }}>
-                <input 
-                  type="text" 
-                  name="year" 
-                  placeholder="YYYY" 
-                  value={dobParts.year} 
+                <input
+                  type="text"
+                  name="year"
+                  placeholder="YYYY"
+                  value={dobParts.year}
                   onChange={handleDobPartChange}
-                  style={{ ...styles.inp, width: '40%', textAlign: 'center' }} 
+                  style={{ ...styles.inp, width: '40%', textAlign: 'center' }}
                   inputMode="numeric"
                 />
-                <input 
-                  type="text" 
-                  name="month" 
-                  placeholder="MM" 
-                  value={dobParts.month} 
+                <input
+                  type="text"
+                  name="month"
+                  placeholder="MM"
+                  value={dobParts.month}
                   onChange={handleDobPartChange}
-                  style={{ ...styles.inp, width: '30%', textAlign: 'center' }} 
+                  style={{ ...styles.inp, width: '30%', textAlign: 'center' }}
                   inputMode="numeric"
                 />
-                <input 
-                  type="text" 
-                  name="day" 
-                  placeholder="DD" 
-                  value={dobParts.day} 
+                <input
+                  type="text"
+                  name="day"
+                  placeholder="DD"
+                  value={dobParts.day}
                   onChange={handleDobPartChange}
-                  style={{ ...styles.inp, width: '30%', textAlign: 'center' }} 
+                  style={{ ...styles.inp, width: '30%', textAlign: 'center' }}
                   inputMode="numeric"
                 />
               </div>
@@ -1020,9 +1063,9 @@ export default function CombinedForm() {
               </p>
             </F>
             <F si="වයස" ta="வயது" en="Age">
-              <input type="number" name="age" value={personData.age} onChange={handlePersonChange} style={styles.inp} min="0" max="120" placeholder="උදා: 30 / எ.கா: 30 / e.g. 30" autoComplete="off"/>
+              <input type="number" name="age" value={personData.age} onChange={handlePersonChange} style={styles.inp} min="0" max="120" placeholder="උදා: 30 / எ.கா: 30 / e.g. 30" autoComplete="off" />
             </F>
-            <F si="ස්ත්‍රී පුරුෂ භාවය" ta="பாலினம்" en="Gender">
+            <F si="ස්ත්‍රී පුරුෂ භාවය *" ta="பாலினம் *" en="Gender *">
               <select name="gender" value={personData.gender} onChange={handlePersonChange} style={styles.sel}>
                 <option value="">-- තෝරන්න / தேர்வு செய்யவும் / Select --</option>
                 <option value="Male">පිරිමි / ஆண் / Male</option>
@@ -1030,8 +1073,8 @@ export default function CombinedForm() {
                 <option value="Other">වෙනත් / மற்றவை / Other</option>
               </select>
             </F>
-            
-            <F si="භාෂාව" ta="மொழி" en="Language">
+
+            <F si="භාෂාව *" ta="மொழி *" en="Language *">
               <select name="language" value={personData.language} onChange={handlePersonChange} style={styles.sel}>
                 <option value="">-- තෝරන්න / தேர்வு செய்யவும் / Select --</option>
                 <option value="සිංහල">සිංහල / சிங்களம் / Sinhala</option>
@@ -1039,27 +1082,27 @@ export default function CombinedForm() {
                 <option value="English">English / ஆங்கிலம் / English</option>
               </select>
             </F>
-            
+
             <F si="හැඳුනුම්පත් අංකය *" ta="அடையாள அட்டை எண் *" en="ID Number *">
-              <div style={{display:'flex',gap:'10px',flexWrap:'wrap'}}>
-                <select name="idType" value={personData.idType} onChange={handlePersonChange} style={{...styles.sel,flex:'1',minWidth:'160px'}}>
+              <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                <select name="idType" value={personData.idType} onChange={handlePersonChange} style={{ ...styles.sel, flex: '1', minWidth: '160px' }}>
                   <option value="">-- හැඳුනුම්පත් වර්ගය / அடையாள வகை / ID Type --</option>
                   <option value="NIC">ජාතික හැඳුනුම්පත / தேசிய அடையாள அட்டை / NIC</option>
                   <option value="Passport">ගමන් බලපත්‍රය / கடவுச்சீட்டு / Passport</option>
                   <option value="Driving License">රියදුරු බලපත්‍රය / ஓட்டுநர் உரிமம் / Driving License</option>
                   <option value="Other">වෙනත් / Other</option>
                 </select>
-                <input type="text" name="idNo" value={personData.idNo} onChange={handlePersonChange} placeholder="ID Number" style={{...styles.inp,flex:'1',minWidth:'140px'}} maxLength={20} autoComplete="off"/>
+                <input type="text" name="idNo" value={personData.idNo} onChange={handlePersonChange} placeholder="ID Number" style={{ ...styles.inp, flex: '1', minWidth: '140px' }} maxLength={20} autoComplete="off" />
               </div>
             </F>
             <F si="ආබාධිත දීමනාව ලැබේද? *" ta="ஊனமுற்றோர் கொடுப்பனவு கிடைக்கிறதா? *" en="Do you receive a disability allowance? *">
               <RadioGroup name="receivesAllowance" value={personData.receivesAllowance} onChange={handlePersonChange} options={[
-                {value:'Yes',si:'ඔව්',ta:'ஆம்',en:'Yes'},
-                {value:'No', si:'නැත',ta:'இல்லை',en:'No'},
-              ]}/>
+                { value: 'Yes', si: 'ඔව්', ta: 'ஆம்', en: 'Yes' },
+                { value: 'No', si: 'නැත', ta: 'இல்லை', en: 'No' },
+              ]} />
             </F>
-            
-            <F si="සුදුසුකම්" ta="கல்வித் தகைமைகள்" en="Qualifications">
+
+            <F si="සුදුසුකම් *" ta="கல்வித் தகைமைகள் *" en="Qualifications *">
               <select name="qualification" value={personData.qualification} onChange={handlePersonChange} style={styles.sel}>
                 <option value="">-- තෝරන්න / தேர்வு செய்யவும் / Select --</option>
                 <option value="Education">අධ්‍යාපන සුදුසුකම් / கல்வித் தகுதி / Education Level</option>
@@ -1072,23 +1115,23 @@ export default function CombinedForm() {
                   style={styles.inpOther} maxLength={150}
                   placeholder={
                     personData.qualification === 'Education' ? "O/L , A/L හෝ ඉහලම සුදුසුකම / O/L , A/L , கல்வித் தகுதி / O/L, A/L or Highest Qualification..." :
-                    personData.qualification === 'Vocational Training' ? "පුහුණු නාමය/ආයතනය / பயிற்சின் பெயர்/நிறுவனம் / Programme name/Institute..." :
-                    "වැඩි විස්තර / மேலதிக விவரங்கள் / More details..."
+                      personData.qualification === 'Vocational Training' ? "පුහුණු නාමය/ආයතනය / பயிற்சின் பெயர்/நிறுவனம் / Programme name/Institute..." :
+                        "වැඩි විස්තර / மேலதிக விவரங்கள் / More details..."
                   }
-                  autoComplete="off"/>
+                  autoComplete="off" />
               )}
             </F>
-            <hr style={styles.divider}/>
-            <p style={styles.sectionTitle}>🤝 <L si="භාරකරුගේ තොරතුරු" ta="பராமரிப்பாளர் தகவல்கள்" en="Guardian Details" /></p>
-            <F si="භාරකරුගේ නම" ta="பராமரிப்பாளர் பெயர்" en="Guardian Name">
-              <input type="text" name="caretakerName" value={personData.caretakerName} onChange={handlePersonChange} style={styles.inp} maxLength={100} autoComplete="off"/>
+            <hr style={styles.divider} />
+            <p style={styles.sectionTitle}>🤝 <L si="සම්බන්ධ කර ගත හැකි අයෙකුගේ තොරතුරු " ta="தொடர்பு தகவல்" en="Contact information" /></p>
+            <F si="නම" ta="பெயர்" en=" Name">
+              <input type="text" name="caretakerName" value={personData.caretakerName} onChange={handlePersonChange} style={styles.inp} maxLength={100} autoComplete="off" />
             </F>
-            <F si="භාරකරුගේ දුරකථන අංකය" ta="பராமரிப்பாளரின் தொலைபேசி இல" en="Guardian Mobile Number">
-              <input type="tel" name="caretakerMobile" value={personData.caretakerMobile} onChange={handlePersonChange} style={styles.inp} maxLength={15} placeholder="0XX XXX XXXX" autoComplete="off"/>
+            <F si="දුරකථන අංකය" ta="தொலைபேசி இல" en=" Mobile Number">
+              <input type="tel" name="caretakerMobile" value={personData.caretakerMobile} onChange={handlePersonChange} style={styles.inp} maxLength={15} placeholder="0XX XXX XXXX" autoComplete="off" />
             </F>
-           
 
-            <hr style={styles.divider}/>
+
+            <hr style={styles.divider} />
             <p style={styles.sectionTitle}>♿ <L si="ආබාධිතභාවය පිළිබඳ තොරතුරු" ta="அங்கவீனம் தொடர்பான தகவல்கள்" en="Disability Details" /></p>
 
             {/* ✅ FIX 3: Multi-checkbox for person */}
@@ -1120,10 +1163,10 @@ export default function CombinedForm() {
                 )}
 
                 {(personData.disability || []).includes('Other') && (
-                  <input type="text" name="disabilityOther" value={personData.idType==='Other' ? personData.idTypeOther : personData.disabilityOther} onChange={handlePersonChange}
+                  <input type="text" name="disabilityOther" value={personData.idType === 'Other' ? personData.idTypeOther : personData.disabilityOther} onChange={handlePersonChange}
                     style={styles.inpOther} maxLength={100}
                     placeholder="ආබාධතා වර්ගය සඳහන් කරන්න / இயலாமை வகையை குறிப்பிடவும் / Specify disability type..."
-                    autoComplete="off"/>
+                    autoComplete="off" />
                 )}
                 {(personData.disability || []).length > 0 && (
                   <p className="hint" style={{ color: '#166534', marginTop: '10px', fontWeight: '700', fontSize: '13px' }}>
@@ -1133,13 +1176,36 @@ export default function CombinedForm() {
               </div>
             </F>
 
-            <F si="දැනටමත් රැකියාවක නිරත වෙයිද?" ta="தற்போது வேலையில் இருக்கிறீர்களா?" en="Are you currently employed?">
+            <F si="දැනටමත් රැකියාවක නිරත වෙයිද? *" ta="தற்போது வேலையில் இருக்கிறீர்களா? *" en="Are you currently employed? *">
               <RadioGroup name="currentlyEmployed" value={personData.currentlyEmployed} onChange={handlePersonChange} options={[
-                {value:'Yes',si:'ඔව්',ta:'ஆம்',en:'Yes'},
-                {value:'No', si:'නැත',ta:'இல்லை',en:'No'},
-              ]}/>
-              {personData.currentlyEmployed === 'Yes' && (
-                <div style={{ marginTop: '12px' }}>
+                { value: 'Yes', si: 'ඔව්', ta: 'ஆம்', en: 'Yes' },
+                { value: 'No', si: 'නැත', ta: 'இல்லை', en: 'No' },
+              ]} />
+            </F>
+
+            {personData.currentlyEmployed === 'Yes' && (
+              <>
+                <F si="රැකියාවේ ස්වභාවය" ta="வேலையின் தன்மை" en="Nature of Employment">
+                  <select name="employmentNature" value={personData.employmentNature} onChange={handlePersonChange} style={styles.sel}>
+                    <option value="">-- තෝරන්න / தேர்வு செய்யவும் / Select --</option>
+                    <option value="Government">රජය / அரசு / Government</option>
+                    <option value="Semi-Government">අර්ධ රාජ්‍ය / அரை அரசாங்கம் / Semi-Government</option>
+                    <option value="Private">පෞද්ගලික / தனியார் / Private</option>
+                    <option value="Self-Employed">ස්වයං රැකියාද / சுயதொழில் / Self-Employed</option>
+                    <option value="Daily-Wage">දෛනික වැටුප් සහිත රැකියාවක් / தினசரி சம்பளம் / Daily Wage Job</option>
+                  </select>
+                </F>
+
+                {personData.employmentNature === 'Private' && (
+                  <F si="EPF/ETF ගෙවනවද?" ta="ஈபிஎஃப்/ஈடிஎஃப் செலுத்தப்படுகிறதா?" en="Is EPF/ETF paid?">
+                    <RadioGroup name="epfEtfPaid" value={personData.epfEtfPaid} onChange={handlePersonChange} options={[
+                      { value: 'Yes', si: 'ඔව්', ta: 'ஆம்', en: 'Yes' },
+                      { value: 'No', si: 'නැත', ta: 'இல்லை', en: 'No' },
+                    ]} />
+                  </F>
+                )}
+
+                <F si="රැකියා විස්තර" ta="வேலை விபரங்கள்" en="Job Details">
                   <textarea
                     name="currentEmploymentDetails"
                     value={personData.currentEmploymentDetails}
@@ -1150,10 +1216,10 @@ export default function CombinedForm() {
                     placeholder="ආයතනයේ නම සහ තනතුර / நிறுவனத்தின் பெயர் மற்றும் பதவி / Organization name and position"
                     autoComplete="off"
                   />
-                  <p className="hint">{(personData.currentEmploymentDetails||'').length}/200</p>
-                </div>
-              )}
-            </F>
+                  <p className="hint">{(personData.currentEmploymentDetails || '').length}/200</p>
+                </F>
+              </>
+            )}
 
             <F si="රැකියා ගත වීමට අපේක්ෂිත ක්ෂේත්‍ර" ta="எதிர்பார்க்கும் தொழிற் துறைகள்" en="Expected fields of employment">
               <div>
@@ -1186,7 +1252,7 @@ export default function CombinedForm() {
                   <input type="text" name="fieldOther" value={personData.fieldOther} onChange={handlePersonChange}
                     style={styles.inpOther} maxLength={100}
                     placeholder="ක්ෂේත්‍රය සඳහන් කරන්න / துறையைக் குறிப்பிடவும் / Specify field..."
-                    autoComplete="off"/>
+                    autoComplete="off" />
                 )}
                 {(personData.field || []).length > 0 && (
                   <p className="hint" style={{ color: '#166534', marginTop: '10px', fontWeight: '700', fontSize: '13px' }}>
@@ -1196,22 +1262,59 @@ export default function CombinedForm() {
               </div>
             </F>
 
-            
+            <F si="තෝරන ක්ෂේත්‍ර වලට අත්දැකීම් තියෙනවද?" ta="தேர்ந்தெடுக்கப்பட்ட துறைகளில் அனுபவம் உள்ளதா?" en="Do you have experience in the selected fields?">
+              <RadioGroup name="hasFieldExperience" value={personData.hasFieldExperience} onChange={handlePersonChange} options={[
+                { value: 'Yes', si: 'ඔව්', ta: 'ஆம்', en: 'Yes' },
+                { value: 'No', si: 'නැත', ta: 'இல்லை', en: 'No' },
+              ]} />
+            </F>
+
+            {personData.hasFieldExperience === 'Yes' && (
+              <>
+                <F si="වසර කීයක්ද?" ta="எத்தனை வருடங்கள்?" en="How many years?">
+                  <input type="text" name="experienceYears" value={personData.experienceYears} onChange={handlePersonChange} style={styles.inp} maxLength={20} placeholder="උදා: වසර 2 / எ.கா: 2 வருடங்கள் / e.g. 2 years" autoComplete="off" />
+                </F>
+
+                <F si="ආයතනයේ නම" ta="நிறுவனத்தின் பெயர்" en="Name of the Institution">
+                  <input type="text" name="experienceInstitution" value={personData.experienceInstitution} onChange={handlePersonChange} style={styles.inp} maxLength={100} autoComplete="off" />
+                </F>
+
+                <F si="වෙනත් හැකියාවක් තියේද?" ta="வேறு ஏதேனும் திறன்கள் உள்ளதா?" en="Do you have any other skills?">
+                  <input type="text" name="otherSkills" value={personData.otherSkills} onChange={handlePersonChange} style={styles.inp} maxLength={150} placeholder="උදා: පරිගණක ක්‍රියාකරු / எ.கா: கணினி ஆபரேட்டர் / e.g. Computer operator" autoComplete="off" />
+                </F>
+
+                <F si="ඒ සඳහා සුදුසුකම්" ta="அதற்கான தகைமைகள்" en="Qualifications for it">
+                  <select name="skillsQualificationType" value={personData.skillsQualificationType} onChange={handlePersonChange} style={styles.sel}>
+                    <option value="">-- තෝරන්න / தேர்வு செய்யவும் / Select --</option>
+                    <option value="Professional">වෘත්තීයමය / தொழில்முறை / Professional</option>
+                    <option value="Educational">அධ්‍යාපනික / கல்வி / Educational</option>
+                    <option value="Other">වෙනත් / மற்றவை / Other</option>
+                  </select>
+                  {personData.skillsQualificationType === 'Other' && (
+                    <input type="text" name="skillsQualificationOther" value={personData.skillsQualificationOther} onChange={handlePersonChange}
+                      style={styles.inpOther} maxLength={100}
+                      placeholder="සුදුසුකම සඳහන් කරන්න / தகுதியைக் குறிப்பிடவும் / Specify qualification..." autoComplete="off" />
+                  )}
+                </F>
+              </>
+            )}
+
+
           </>)}
 
           {/* SUBMIT */}
           <div style={styles.submitContainer}>
-            <button type="button" onClick={handleSubmit} disabled={uploading||!complete} className="sbtn"
-              style={{...styles.submitBtn,...((uploading||!complete)?styles.submitBtnDisabled:{})}}>
+            <button type="button" onClick={handleSubmit} disabled={uploading || !complete} className="sbtn"
+              style={{ ...styles.submitBtn, ...((uploading || !complete) ? styles.submitBtnDisabled : {}) }}>
               {uploading
                 ? <span><L si="ඉදිරිපත් කරමින්..." ta="சமர்ப்பிக்கிறது..." en="Submitting..." color="#fff" /></span>
-                : <><Send style={{width:18,height:18}}/><span><L si="ඉදිරිපත් කරන්න" ta="சமர்ப்பிக்கவும்" en="Submit" color="#fff" /></span></>}
+                : <><Send style={{ width: 18, height: 18 }} /><span><L si="ඉදිරිපත් කරන්න" ta="சமர்ப்பிக்கவும்" en="Submit" color="#fff" /></span></>}
             </button>
             {!complete && !uploading && (
               <p style={styles.warningText}>
-                කරුණාකර සියලු අවශ්‍ය ක්ෂේත්‍ර (*) පුරවන්න<br/>
+                කරුණාකර සියලු අවශ්‍ය ක්ෂේත්‍ර (*) පුරවන්න<br />
                 தயவுசெய்து தேவையான அனைத்து பகுதிகளையும் (*) பூரணப்படுத்தவும்ග
-                <br/>
+                <br />
                 Please fill all required fields (*)
               </p>
             )}
